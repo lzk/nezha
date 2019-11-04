@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingForIPv6</class>
+ <widget class="QDialog" name="SettingForIPv6">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>573</width>
+    <height>209</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>573</width>
+    <height>209</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>573</width>
+    <height>209</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QLabel" name="label_gateway_error">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>112</y>
+     <width>511</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(176, 255, 176);</string>
+   </property>
+   <property name="text">
+    <string>ResStr_The_entered_Gateway_is_wrong__please_confirm_and_enter_again_</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btApply">
+   <property name="geometry">
+    <rect>
+     <x>139</x>
+     <y>148</y>
+     <width>121</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border-image:url(:/Images/Btn_Green.png);
+	color: rgb(255, 255, 255);
+}
+QPushButton:hover{
+	border-image:url(:/Images/Btn_Green.png);
+	color:brack;
+}
+QPushButton:pressed{
+	border-image:url(:/Images/Btn_Green_Pressed.png);
+	color:white;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>ResStr_Apply</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_ipaddr_error">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>17</y>
+     <width>311</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(176, 255, 176);</string>
+   </property>
+   <property name="text">
+    <string>ResStr_The_entered_IP_address__is_wrong__please_confirm_and_enter_again_</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_gateWayAddress">
+   <property name="geometry">
+    <rect>
+     <x>6</x>
+     <y>88</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>ResStr_Manual_Gateway_Address</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_address">
+   <property name="geometry">
+    <rect>
+     <x>179</x>
+     <y>58</y>
+     <width>261</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	border: 2px solid  rgb(170, 170, 170);
+    border-radius: 12px;
+    padding: 0 8px;
+	background-color: rgb(189, 189, 189);
+	color: rgb(255, 255, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>::</string>
+   </property>
+   <property name="maxLength">
+    <number>39</number>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_submask_error">
+   <property name="geometry">
+    <rect>
+     <x>281</x>
+     <y>17</y>
+     <width>291</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(176, 255, 176);</string>
+   </property>
+   <property name="text">
+    <string>ResStr_The_subnet_mask_input_error__please_input_again_after_confirmation</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_SubMask">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>58</y>
+     <width>51</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	border: 2px solid  rgb(170, 170, 170);
+    border-radius: 12px;
+    padding: 0 8px;
+	background-color: rgb(189, 189, 189);
+	color: rgb(255, 255, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>1</string>
+   </property>
+   <property name="maxLength">
+    <number>32</number>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_GateAddress">
+   <property name="geometry">
+    <rect>
+     <x>179</x>
+     <y>88</y>
+     <width>261</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	border: 2px solid  rgb(170, 170, 170);
+    border-radius: 12px;
+    padding: 0 8px;
+	background-color: rgb(189, 189, 189);
+	color: rgb(255, 255, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>::</string>
+   </property>
+   <property name="maxLength">
+    <number>39</number>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
+   </property>
+   <property name="cursorPosition">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btCancel">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>148</y>
+     <width>131</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border-image:url(:/Images/Btn_Gray.png);
+}
+QPushButton:hover{
+	border-image:url(:/Images/Btn_Gray.png);
+	color:green;
+}
+QPushButton:pressed{
+	border-image: url(:/Images/Btn_Gray_Pressed.png);
+	color:white;
+}</string>
+   </property>
+   <property name="text">
+    <string>ResStr_Cancel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>595</x>
+     <y>238</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-image: url(:/Images/close.png);
+}
+QPushButton:hover{
+	border-image: url(:/Images/close_hover.png);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_isDHCP">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>18</y>
+     <width>251</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="text">
+    <string>ResStr_Obtain_address_from_DHCP</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_isManualAddress">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>18</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="text">
+    <string>ResStr_Use_Manual_Address</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_ManualAddress">
+   <property name="geometry">
+    <rect>
+     <x>36</x>
+     <y>58</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>ResStr_Manual_Address</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_address_2">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>60</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>/</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <zorder>label_gateway_error</zorder>
+  <zorder>label_ipaddr_error</zorder>
+  <zorder>label_submask_error</zorder>
+  <zorder>btApply</zorder>
+  <zorder>label_gateWayAddress</zorder>
+  <zorder>lineEdit_address</zorder>
+  <zorder>lineEdit_SubMask</zorder>
+  <zorder>lineEdit_GateAddress</zorder>
+  <zorder>btCancel</zorder>
+  <zorder>pushButton_2</zorder>
+  <zorder>checkBox_isDHCP</zorder>
+  <zorder>checkBox_isManualAddress</zorder>
+  <zorder>label_ManualAddress</zorder>
+  <zorder>label_address_2</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

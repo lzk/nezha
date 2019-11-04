@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>translations/vop.zh_CN.qm</file>
+        <file>Images/logo.png</file>
+        <file>Images/app_gray.png</file>
+        <file>Images/background.png</file>
+        <file>Images/close.png</file>
+        <file>Images/error1.png</file>
+        <file>Images/error2.png</file>
+        <file>Images/offline1.png</file>
+        <file>Images/offline2.png</file>
+        <file>Images/ready1.png</file>
+        <file>Images/ready2.png</file>
+        <file>Images/warning1.png</file>
+        <file>Images/warning2.png</file>
+        <file>Images/app.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WlanTitleCell</class>
+ <widget class="QStackedWidget" name="WlanTitleCell">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>220</width>
+    <height>71</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>StackedWidget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url();
+background-color: transparent;</string>
+  </property>
+  <property name="currentIndex">
+   <number>0</number>
+  </property>
+  <widget class="QWidget" name="page1">
+   <property name="styleSheet">
+    <string notr="true">border-image:: url();
+border-color: transparent;
+</string>
+   </property>
+   <widget class="QPushButton" name="btManualWiFi">
+    <property name="geometry">
+     <rect>
+      <x>115</x>
+      <y>14</y>
+      <width>91</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton{
+	border-image: url(:/Images/Btn_Gray.png);
+}
+QPushButton:hover{
+	border-image: url(:/Images/Btn_Gray.png);
+	color:green;
+}
+QPushButton:pressed{
+	border-image: url(:/Images/Btn_Gray_Pressed.png);
+   color:white;
+}</string>
+    </property>
+    <property name="text">
+     <string>ResStr_Manual_Wi_Fi</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_line">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>68</y>
+      <width>200</width>
+      <height>1</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QLabel{
+border:1px solid  rgb(105, 185, 18);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btWLANON1">
+    <property name="geometry">
+     <rect>
+      <x>55</x>
+      <y>16</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton{
+		border-image: url(:/Images/CheckBox_Open.png);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_bg1">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>7</y>
+      <width>211</width>
+      <height>39</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QLabel{
+	background-color: rgb(193, 193, 193);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_network">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>47</y>
+      <width>181</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ResStr_WLAN_Network</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btFlesh">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>48</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border-image: url(:/Images/Status_RefreshEnable.tif);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Wlan1">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>21</y>
+      <width>46</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>WLAN</string>
+    </property>
+   </widget>
+   <zorder>label_line</zorder>
+   <zorder>label_bg1</zorder>
+   <zorder>label_network</zorder>
+   <zorder>label_Wlan1</zorder>
+   <zorder>btManualWiFi</zorder>
+   <zorder>btWLANON1</zorder>
+   <zorder>btFlesh</zorder>
+  </widget>
+  <widget class="QWidget" name="page2">
+   <widget class="QRadioButton" name="btKey3">
+    <property name="geometry">
+     <rect>
+      <x>105</x>
+      <y>220</y>
+      <width>61</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QRadioButton{	
+	spacing: 1px;
+}
+QRadioButton::indicator {
+    width: 20px;
+    height: 20px;
+}
+
+QRadioButton::indicator::unchecked {
+	image: url(:/Images/Uncheck.png);
+}
+
+QRadioButton::indicator::checked {
+	image: url(:/Images/Checked.png);
+}</string>
+    </property>
+    <property name="text">
+     <string>key3</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Encryption">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>174</y>
+      <width>75</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>ResStr_Encryption</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btWLANON2">
+    <property name="geometry">
+     <rect>
+      <x>55</x>
+      <y>16</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+QPushButton{
+		border-image: url(:/Images/CheckBox_Open.png);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Entermsg">
+    <property name="geometry">
+     <rect>
+      <x>34</x>
+      <y>70</y>
+      <width>171</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>ResStr_Enter_SSID_and_security_type_</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_mesg">
+    <property name="geometry">
+     <rect>
+      <x>34</x>
+      <y>50</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>ResStr_Find_and_join_the_Wi_Fi</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>96</y>
+      <width>198</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_SSID">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>27</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>27</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ResStr_SSID_2</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_SSID">
+       <property name="minimumSize">
+        <size>
+         <width>118</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>118</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border:2px groove gray;
+border-radius:5px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QRadioButton" name="btKey4">
+    <property name="geometry">
+     <rect>
+      <x>157</x>
+      <y>220</y>
+      <width>61</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QRadioButton{	
+	spacing: 1px;
+}
+QRadioButton::indicator {
+    width: 20px;
+    height: 20px;
+}
+
+QRadioButton::indicator::unchecked {
+	image: url(:/Images/Uncheck.png);
+}
+
+QRadioButton::indicator::checked {
+	image: url(:/Images/Checked.png);
+}</string>
+    </property>
+    <property name="text">
+     <string>key4</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btConnect">
+    <property name="geometry">
+     <rect>
+      <x>112</x>
+      <y>247</y>
+      <width>90</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border-image:url(:/Images/Btn_Green.png);
+	color: rgb(255, 255, 255);
+}
+QPushButton:hover{
+	border-image:url(:/Images/Btn_Green.png);
+	color:brack;
+}
+QPushButton:pressed{
+	border-image:url(:/Images/Btn_Green_Pressed.png);
+	color: rgb(255, 255, 255);
+}
+QPushButton::disabled{
+border-image: url(:/Images/Btn_Scan_Disabled.png) ;
+color:white;
+}</string>
+    </property>
+    <property name="text">
+     <string>ResStr_Connect</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_bg2">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>7</y>
+      <width>211</width>
+      <height>39</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QLabel{
+	background-color: rgb(193, 193, 193);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="combox_encryption">
+    <property name="geometry">
+     <rect>
+      <x>85</x>
+      <y>173</y>
+      <width>131</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px groove gray;</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>ResStr_No_Security</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ResStr_WEP</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ResStr_WPA2_PSK_AES</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ResStr_Mixed_Mode_PSK</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_line_8">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>292</y>
+      <width>200</width>
+      <height>1</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QLabel{
+border:1px solid  rgb(181, 181, 181);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="btKey1">
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>220</y>
+      <width>61</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QRadioButton{	
+	spacing: 1px;
+}
+QRadioButton::indicator {
+    width: 20px;
+    height: 20px;
+}
+
+QRadioButton::indicator::unchecked {
+	image: url(:/Images/Uncheck.png);
+}
+
+QRadioButton::indicator::checked {
+	image: url(:/Images/Checked.png);
+}</string>
+    </property>
+    <property name="text">
+     <string>key1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Wlan2">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>21</y>
+      <width>46</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>WLAN</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btCancel">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>247</y>
+      <width>90</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border-image:url(:/Images/Btn_Gray.png);
+}
+QPushButton:hover{
+	border-image:url(:/Images/Btn_Gray.png);
+	color:green;
+}
+QPushButton:pressed{
+	border-image: url(:/Images/Btn_Gray_Pressed.png);
+	color:white;
+}</string>
+    </property>
+    <property name="text">
+     <string>ResStr_Cancel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_keyid">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>197</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>WEP KeyID</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_visiable">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>152</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox{	
+	spacing: 3px;
+}
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+}
+
+QCheckBox::indicator::unchecked {
+	image: url(:/Images/Uncheck.png);
+}
+
+QCheckBox::indicator::checked {
+	image: url(:/Images/Checked.png);
+}</string>
+    </property>
+    <property name="text">
+     <string>ResStr_Display_Password</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_wifiIcon">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>55</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Images/Wireless_Active.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>124</y>
+      <width>211</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_Password">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>83</width>
+         <height>27</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>83</width>
+         <height>27</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ResStr_Password</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_Password">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>118</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>118</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border:2px groove gray;
+border-radius:5px;
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>64</number>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QRadioButton" name="btKey2">
+    <property name="geometry">
+     <rect>
+      <x>53</x>
+      <y>220</y>
+      <width>61</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QRadioButton{	
+	spacing: 1px;
+}
+QRadioButton::indicator {
+    width: 20px;
+    height: 20px;
+}
+
+QRadioButton::indicator::unchecked {
+	image: url(:/Images/Uncheck.png);
+}
+
+QRadioButton::indicator::checked {
+	image: url(:/Images/Checked.png);
+}</string>
+    </property>
+    <property name="text">
+     <string>key2</string>
+    </property>
+   </widget>
+   <zorder>label_bg2</zorder>
+   <zorder>btKey3</zorder>
+   <zorder>label_Encryption</zorder>
+   <zorder>btWLANON2</zorder>
+   <zorder>label_Entermsg</zorder>
+   <zorder>label_mesg</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>btKey4</zorder>
+   <zorder>btConnect</zorder>
+   <zorder>label_line_8</zorder>
+   <zorder>btKey1</zorder>
+   <zorder>label_Wlan2</zorder>
+   <zorder>btCancel</zorder>
+   <zorder>label_keyid</zorder>
+   <zorder>checkBox_visiable</zorder>
+   <zorder>label_wifiIcon</zorder>
+   <zorder>layoutWidget_2</zorder>
+   <zorder>btKey2</zorder>
+   <zorder>combox_encryption</zorder>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>lineEdit_SSID</tabstop>
+  <tabstop>lineEdit_Password</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

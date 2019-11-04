@@ -1,0 +1,1579 @@
+<!DOCTYPE QPH>
+<QPH language="en">
+<phrase>
+    <source>ResStr_VirtualOperationPanel</source>
+    <target>Virtual Operation Panel</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print</source>
+    <target>Print</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copy</source>
+    <target>Copy</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan</source>
+    <target>Scan</target>
+</phrase>
+<phrase>
+    <source>ResStr_Setting</source>
+    <target>Settings</target>
+</phrase>
+<phrase>
+    <source>ResStr_Model</source>
+    <target>Model</target>
+</phrase>
+<phrase>
+    <source>ResStr_Device_Status</source>
+    <target>Device Status</target>
+</phrase>
+<phrase>
+    <source>ResStr_Ready</source>
+    <target>Ready</target>
+</phrase>
+<phrase>
+    <source>ResStr_Busy</source>
+    <target>Busy</target>
+</phrase>
+<phrase>
+    <source>ResStr_Sleep</source>
+    <target>Sleep</target>
+</phrase>
+<phrase>
+    <source>ResStr_Warning</source>
+    <target>Warning</target>
+</phrase>
+<phrase>
+    <source>ResStr_Error</source>
+    <target>Error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Offline</source>
+    <target>Offline</target>
+</phrase>
+<phrase>
+    <source>ResStr_Toner</source>
+    <target>Toner</target>
+</phrase>
+<phrase>
+    <source>ResStr_Printing</source>
+    <target>Printing</target>
+</phrase>
+<phrase>
+    <source>ResStr_WarmingUp</source>
+    <target>WarmingUp</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print_Cancelling</source>
+    <target>Print Cancelling</target>
+</phrase>
+<phrase>
+    <source>ResStr_Processing</source>
+    <target>Processing</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copying</source>
+    <target>Copying</target>
+</phrase>
+<phrase>
+    <source>ResStr_Place_Next_Page</source>
+    <target>Place Next Page</target>
+</phrase>
+<phrase>
+    <source>ResStr_Turn_card_over_to_copy_the_reverse_</source>
+    <target>Turn the ID card over and put it in place. Close the cover and press the printer copy key.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copy_Cancelling</source>
+    <target>Copy Cancelling</target>
+</phrase>
+<phrase>
+    <source>ResStr_ID_Card_Mode</source>
+    <target>ID Card Mode</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanning</source>
+    <target>Scanning</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Cancelling</source>
+    <target>Scan Cancelling</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanner_Busy</source>
+    <target>Scanner Busy</target>
+</phrase>
+<phrase>
+    <source>ResStr_Toner_End_ABC</source>
+    <target>Toner End
+Please replace a new toner cartridge.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Toner_End_ABC_Plus</source>
+    <target>Toner End
+Please replace a new toner cartridge.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Toner_Near_End</source>
+    <target>Toner Near End</target>
+</phrase>
+<phrase>
+    <source>ResStr_Waiting_2nd_pages_when_print_manual_duplex_job</source>
+    <target>Waiting 2nd pages when print manual duplex job</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam__Paper_Remained</source>
+    <target>Paper Jam: Paper Remained</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam__Nofeed</source>
+    <target>Paper Jam: No feed</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam__Regist</source>
+    <target>Paper Jam: Regist</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam__Exit_NotReach</source>
+    <target>Paper Jam: Inner</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam__Exit</source>
+    <target>Paper Jam: Exit</target>
+</phrase>
+<phrase>
+    <source>ResStr_Cover_Open</source>
+    <target>Cover Open</target>
+</phrase>
+<phrase>
+    <source>ResStr_No_Toner_Cartridge</source>
+    <target>No Toner Cartridge</target>
+</phrase>
+<phrase>
+    <source>ResStr_Please_Replace_Toner</source>
+    <target>Please Replace Toner</target>
+</phrase>
+<phrase>
+    <source>ResStr_FW_Updating</source>
+    <target>FW Updating</target>
+</phrase>
+<phrase>
+    <source>ResStr_Overheat</source>
+    <target>Overheat</target>
+</phrase>
+<phrase>
+    <source>ResStr_DMA_Error_SCxxx</source>
+    <target>Turn off the printer, and turn it on again:
+
+Error message:</target>
+</phrase>
+<phrase>
+    <source>ResStr_Turn_off_the_printer__and_turn_it_on_again_Contact_customer_support_if_this_failure_is_repeated_SCxxx</source>
+    <target>Turn off the printer, and turn it on again.
+Contact customer support if this failure is repeated:
+Error message:</target>
+</phrase>
+<phrase>
+    <source>ResStr_Please_contact_customer_support__SCxxx</source>
+    <target>Please contact customer support:
+Error message:</target>
+</phrase>
+<phrase>
+    <source>ResStr_Picture_Print</source>
+    <target>Picture Print</target>
+</phrase>
+<phrase>
+    <source>ResStr_File_Print</source>
+    <target>File Print</target>
+</phrase>
+<phrase>
+    <source>ResStr_Credentials_Print</source>
+    <target>Credentials Print</target>
+</phrase>
+<phrase>
+    <source>ResStr_Certificate_Type</source>
+    <target>Type of Credential</target>
+</phrase>
+<phrase>
+    <source>ResStr_Residence_Booklet</source>
+    <target>Residence Booklet</target>
+</phrase>
+<phrase>
+    <source>ResStr_Marriage_Certificate</source>
+    <target>Marriage Certificate</target>
+</phrase>
+<phrase>
+    <source>ResStr_Passport</source>
+    <target>Passport</target>
+</phrase>
+<phrase>
+    <source>ResStr_Real_Estate_License</source>
+    <target>Property Ownership Certificate</target>
+</phrase>
+<phrase>
+    <source>ResStr_Driving_license</source>
+    <target>Driving License</target>
+</phrase>
+<phrase>
+    <source>ResStr_Diploma</source>
+    <target>Diploma</target>
+</phrase>
+<phrase>
+    <source>ResStr_Student_ID_card</source>
+    <target>Student ID Card</target>
+</phrase>
+<phrase>
+    <source>ResStr_Birth_Certificate</source>
+    <target>Birth Certificate</target>
+</phrase>
+<phrase>
+    <source>ResStr_Bank_SocialSecurity_Card</source>
+    <target>Bank Card/Social Security Card</target>
+</phrase>
+<phrase>
+    <source>ResStr_ID_Card</source>
+    <target>ID Card</target>
+</phrase>
+<phrase>
+    <source>ResStr_More_Settings</source>
+    <target>More Settings</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copies</source>
+    <target>Copies</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Size</source>
+    <target>Paper Size</target>
+</phrase>
+<phrase>
+    <source>ResStr_Letter</source>
+    <target>Letter</target>
+</phrase>
+<phrase>
+    <source>ResStr_A4</source>
+    <target>A4</target>
+</phrase>
+<phrase>
+    <source>ResStr_A5</source>
+    <target>A5</target>
+</phrase>
+<phrase>
+    <source>ResStr_A6</source>
+    <target>A6</target>
+</phrase>
+<phrase>
+    <source>ResStr_B5_ISO_</source>
+    <target>B5(ISO)</target>
+</phrase>
+<phrase>
+    <source>ResStr_B6</source>
+    <target>B6</target>
+</phrase>
+<phrase>
+    <source>ResStr_Executive</source>
+    <target>Executive</target>
+</phrase>
+<phrase>
+    <source>ResStr_16K</source>
+    <target>16K</target>
+</phrase>
+<phrase>
+    <source>ResStr_A5_LEF_</source>
+    <target>A5(LEF)</target>
+</phrase>
+<phrase>
+    <source>ResStr_B6_LEF_</source>
+    <target>B6(LEF)</target>
+</phrase>
+<phrase>
+    <source>ResStr_User_Defined_Size</source>
+    <target>Custom Paper Size</target>
+</phrase>
+<phrase>
+    <source>ResStr_Orientation</source>
+    <target>Orientation</target>
+</phrase>
+<phrase>
+    <source>ResStr_Landscape</source>
+    <target>Landscape</target>
+</phrase>
+<phrase>
+    <source>ResStr_Portrait</source>
+    <target>Portrait</target>
+</phrase>
+<phrase>
+    <source>ResStr_Media_Type</source>
+    <target>Paper Type</target>
+</phrase>
+<phrase>
+    <source>ResStr_Plain_Paper</source>
+    <target>Plain Paper</target>
+</phrase>
+<phrase>
+    <source>ResStr_Thin_Paper</source>
+    <target>Thin Paper</target>
+</phrase>
+<phrase>
+    <source>ResStr_Thick_Paper</source>
+    <target>Thick Paper</target>
+</phrase>
+<phrase>
+    <source>ResStr_Recycled_Paper</source>
+    <target>Recycled Paper</target>
+</phrase>
+<phrase>
+    <source>ResStr_Label</source>
+    <target>Label</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print_Quality</source>
+    <target>Print Quality</target>
+</phrase>
+<phrase>
+    <source>ResStr_Normal_600_600_</source>
+    <target>Normal(600*600)</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fine_1200_600_</source>
+    <target>Fine(1200*600)</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scaling</source>
+    <target>Scaling</target>
+</phrase>
+<phrase>
+    <source>ResStr_Image_Scaling</source>
+    <target>Image Scaling</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fit_to_Paper_Size</source>
+    <target>Fit to Paper Size</target>
+</phrase>
+<phrase>
+    <source>ResStr_Density_Adjustment</source>
+    <target>Density Adjustment</target>
+</phrase>
+<phrase>
+    <source>ResStr_Page_Order</source>
+    <target>Page Order</target>
+</phrase>
+<phrase>
+    <source>ResStr_Multiple_Page</source>
+    <target>Multiple-Page</target>
+</phrase>
+<phrase>
+    <source>ResStr_2_in_1</source>
+    <target>2 in 1</target>
+</phrase>
+<phrase>
+    <source>ResStr_4_in_1</source>
+    <target>4 in 1</target>
+</phrase>
+<phrase>
+    <source>ResStr_9_in_1</source>
+    <target>9 in 1</target>
+</phrase>
+<phrase>
+    <source>ResStr_16_in_1</source>
+    <target>16 in 1</target>
+</phrase>
+<phrase>
+    <source>ResStr_N_in_1</source>
+    <target>N in 1</target>
+</phrase>
+<phrase>
+    <source>ResStr_1_in_2_2_</source>
+    <target>1 in 2*2</target>
+</phrase>
+<phrase>
+    <source>ResStr_1_in_3_3</source>
+    <target>1 in 3*3</target>
+</phrase>
+<phrase>
+    <source>ResStr_1_in_4_4_</source>
+    <target>1 in 4*4</target>
+</phrase>
+<phrase>
+    <source>ResStr_Reverse_Print</source>
+    <target>Reverse Print</target>
+</phrase>
+<phrase>
+    <source>ResStr_2_sided</source>
+    <target>Duplex</target>
+</phrase>
+<phrase>
+    <source>ResStr_Flip_on_long_edge</source>
+    <target>Flip on long edge</target>
+</phrase>
+<phrase>
+    <source>ResStr_Flip_on_short_edge</source>
+    <target>Flip on short edge</target>
+</phrase>
+<phrase>
+    <source>ResStr_Toner_Save_Mode</source>
+    <target>Toner Save Mode</target>
+</phrase>
+<phrase>
+    <source>ResStr_Advanced_settings</source>
+    <target>Advanced Settings</target>
+</phrase>
+<phrase>
+    <source>ResStr_Default</source>
+    <target>Default</target>
+</phrase>
+<phrase>
+    <source>ResStr_OK</source>
+    <target>OK</target>
+</phrase>
+<phrase>
+    <source>ResStr_Back</source>
+    <target>Return</target>
+</phrase>
+<phrase>
+    <source>ResStr_Custom_Paper_Size_Name</source>
+    <target>Custom Paper Size Name</target>
+</phrase>
+<phrase>
+    <source>ResStr_User_Defined_Size_01</source>
+    <target>User Defined Size 01</target>
+</phrase>
+<phrase>
+    <source>ResStr_Unit</source>
+    <target>Unit:</target>
+</phrase>
+<phrase>
+    <source>ResStr_mm</source>
+    <target>mm</target>
+</phrase>
+<phrase>
+    <source>ResStr_inch</source>
+    <target>inch</target>
+</phrase>
+<phrase>
+    <source>ResStr_Width</source>
+    <target>Width</target>
+</phrase>
+<phrase>
+    <source>ResStr_Length</source>
+    <target>Length</target>
+</phrase>
+<phrase>
+    <source>ResStr_Save</source>
+    <target>Save</target>
+</phrase>
+<phrase>
+    <source>ResStr_Delete</source>
+    <target>Delete</target>
+</phrase>
+<phrase>
+    <source>ResStr_Cancel</source>
+    <target>Cancel</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copies_2</source>
+    <target>Copies</target>
+</phrase>
+<phrase>
+    <source>ResStr_Density</source>
+    <target>Density</target>
+</phrase>
+<phrase>
+    <source>ResStr_Duplex_Copy</source>
+    <target>Duplex Copy</target>
+</phrase>
+<phrase>
+    <source>ResStr_ID_Card_Copy</source>
+    <target>ID Card Copy</target>
+</phrase>
+<phrase>
+    <source>ResStr_Document_Size</source>
+    <target>Document Size</target>
+</phrase>
+<phrase>
+    <source>ResStr_Output_Size</source>
+    <target>Output Paper Size</target>
+</phrase>
+<phrase>
+    <source>ResStr_B5</source>
+    <target>B5</target>
+</phrase>
+<phrase>
+    <source>ResStr_DPI</source>
+    <target>DPI</target>
+</phrase>
+<phrase>
+    <source>ResStr_N_in_1_Copy</source>
+    <target>N in 1 Copy</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanning_Mode</source>
+    <target>Type of Document</target>
+</phrase>
+<phrase>
+    <source>ResStr_Photo</source>
+    <target>Photo</target>
+</phrase>
+<phrase>
+    <source>ResStr_Text</source>
+    <target>Text</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanned_image_size</source>
+    <target>Scanned image size: </target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanning_2</source>
+    <target>Scanning</target>
+</phrase>
+<phrase>
+    <source>ResStr_Document_Type</source>
+    <target>Document Type</target>
+</phrase>
+<phrase>
+    <source>ResStr_Photo_2</source>
+    <target>Photo</target>
+</phrase>
+<phrase>
+    <source>ResStr_Text_and_Graph</source>
+    <target>Text/Photo</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Type</source>
+    <target>Scan Mode</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Speed</source>
+    <target>High Speed</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Quality</source>
+    <target>High Quality</target>
+</phrase>
+<phrase>
+    <source>ResStr_Color_Mode</source>
+    <target>Color Mode</target>
+</phrase>
+<phrase>
+    <source>ResStr_Color</source>
+    <target>Color</target>
+</phrase>
+<phrase>
+    <source>ResStr_Grayscale</source>
+    <target>Grayscale</target>
+</phrase>
+<phrase>
+    <source>ResStr_Black_White</source>
+    <target>Black &amp; White</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Size</source>
+    <target>Scan Area Size</target>
+</phrase>
+<phrase>
+    <source>ResStr_A4_210_297mm_</source>
+    <target>A4(210 x 297mm)</target>
+</phrase>
+<phrase>
+    <source>ResStr_A5_148_x_210mm_</source>
+    <target>A5(148 x 210mm)</target>
+</phrase>
+<phrase>
+    <source>ResStr_B5_182_x_257mm_</source>
+    <target>B5(182 x 257mm)</target>
+</phrase>
+<phrase>
+    <source>ResStr_Letter_8_5_x_11</source>
+    <target>Letter(8.5 x 11&quot;)</target>
+</phrase>
+<phrase>
+    <source>ResStr_4_x_6_</source>
+    <target>4 x 6&quot;</target>
+</phrase>
+<phrase>
+    <source>ResStr_Contrast</source>
+    <target>Contrast</target>
+</phrase>
+<phrase>
+    <source>ResStr_Brightness</source>
+    <target>Brightness</target>
+</phrase>
+<phrase>
+    <source>ResStr_Printer_Wi_Fi</source>
+    <target>Wi-Fi</target>
+</phrase>
+<phrase>
+    <source>ResStr_Soft_AP</source>
+    <target>Soft AP</target>
+</phrase>
+<phrase>
+    <source>ResStr_TCP_IP</source>
+    <target>TCP/IP</target>
+</phrase>
+<phrase>
+    <source>ResStr_Power_Save</source>
+    <target>Power Save</target>
+</phrase>
+<phrase>
+    <source>ResStr_User_Config</source>
+    <target>More Settings</target>
+</phrase>
+<phrase>
+    <source>ResStr_Modify_Password</source>
+    <target>Modify Password</target>
+</phrase>
+<phrase>
+    <source>ResStr_About</source>
+    <target>About</target>
+</phrase>
+<phrase>
+    <source>ResStr_IP_Type</source>
+    <target>IP Type</target>
+</phrase>
+<phrase>
+    <source>ResStr_DHCP</source>
+    <target>DHCP</target>
+</phrase>
+<phrase>
+    <source>ResStr_Static</source>
+    <target>Static</target>
+</phrase>
+<phrase>
+    <source>ResStr_IP_Address</source>
+    <target>IP Address</target>
+</phrase>
+<phrase>
+    <source>ResStr_Gateway</source>
+    <target>Gateway</target>
+</phrase>
+<phrase>
+    <source>ResStr_Submask</source>
+    <target>Submask</target>
+</phrase>
+<phrase>
+    <source>ResStr_Apply</source>
+    <target>Apply</target>
+</phrase>
+<phrase>
+    <source>ResStr_WLAN_Network</source>
+    <target>WLAN Network</target>
+</phrase>
+<phrase>
+    <source>ResStr_Protected_by_WPA2</source>
+    <target>Protected by WPA2</target>
+</phrase>
+<phrase>
+    <source>ResStr_Protected_by_WEP</source>
+    <target>Protected by WEP</target>
+</phrase>
+<phrase>
+    <source>ResStr_Protected_by_Mixed_Mode_PSK</source>
+    <target>Protected by Mixed Mode PSK</target>
+</phrase>
+<phrase>
+    <source>ResStr_Manual_Wi_Fi</source>
+    <target>Manual Wi-Fi</target>
+</phrase>
+<phrase>
+    <source>ResStr_Password_</source>
+    <target>Password:</target>
+</phrase>
+<phrase>
+    <source>ResStr_Password</source>
+    <target>Password</target>
+</phrase>
+<phrase>
+    <source>ResStr_Display_Password</source>
+    <target>Display Password</target>
+</phrase>
+<phrase>
+    <source>ResStr_WEP_KeyID</source>
+    <target>WEP KeyID</target>
+</phrase>
+<phrase>
+    <source>ResStr_SSID</source>
+    <target>SSID</target>
+</phrase>
+<phrase>
+    <source>ResStr_SSID_</source>
+    <target>SSID:</target>
+</phrase>
+<phrase>
+    <source>ResStr_Remember_the_network</source>
+    <target>Remember the network</target>
+</phrase>
+<phrase>
+    <source>ResStr_Encryption</source>
+    <target>Encryption</target>
+</phrase>
+<phrase>
+    <source>ResStr_Encryption_</source>
+    <target>Encryption:</target>
+</phrase>
+<phrase>
+    <source>ResStr_No_Security</source>
+    <target>No Security</target>
+</phrase>
+<phrase>
+    <source>ResStr_WEP</source>
+    <target>WEP</target>
+</phrase>
+<phrase>
+    <source>ResStr_WPA2_PSK_AES</source>
+    <target>WPA2-PSK-AES</target>
+</phrase>
+<phrase>
+    <source>ResStr_Mixed_Mode_PSK</source>
+    <target>Mixed Mode PSK</target>
+</phrase>
+<phrase>
+    <source>ResStr_Connect</source>
+    <target>Connect</target>
+</phrase>
+<phrase>
+    <source>ResStr_Find_and_join_the_Wi_Fi</source>
+    <target>Find and join the Wi-Fi</target>
+</phrase>
+<phrase>
+    <source>ResStr_Enter_SSID_and_security_type_</source>
+    <target>Enter SSID and security type.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Power_Save_Time</source>
+    <target>Timeout settings</target>
+</phrase>
+<phrase>
+    <source>ResStr_1_30_Minute</source>
+    <target>(1-30 Minutes)</target>
+</phrase>
+<phrase>
+    <source>ResStr_SSID_2</source>
+    <target>SSID</target>
+</phrase>
+<phrase>
+    <source>ResStr_Enable</source>
+    <target>Enable</target>
+</phrase>
+<phrase>
+    <source>ResStr_Leading_Edge_Registration</source>
+    <target>Top Margin(mm)</target>
+</phrase>
+<phrase>
+    <source>ResStr_Side_to_side_Registration</source>
+    <target>Left Margin(mm)</target>
+</phrase>
+<phrase>
+    <source>ResStr_Image_Density</source>
+    <target>Image Density</target>
+</phrase>
+<phrase>
+    <source>ResStr_Low_Hunidity_Mode</source>
+    <target>Low Humidity Mode</target>
+</phrase>
+<phrase>
+    <source>ResStr_Setting_of_Plate_Control_Mode</source>
+    <target>Plate Control Mode</target>
+</phrase>
+<phrase>
+    <source>ResStr_Primary_Cooling_Mode</source>
+    <target>Cooling Mode</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fuser_Error_Remove</source>
+    <target>Fuser Error Clear</target>
+</phrase>
+<phrase>
+    <source>ResStr_New_Password</source>
+    <target>New Password</target>
+</phrase>
+<phrase>
+    <source>ResStr_Confirm_Password</source>
+    <target>Confirm Password</target>
+</phrase>
+<phrase>
+    <source>ResStr_Identity_Authentication</source>
+    <target>Administrator Authentication</target>
+</phrase>
+<phrase>
+    <source>ResStr_Login</source>
+    <target>Login</target>
+</phrase>
+<phrase>
+    <source>ResStr_Login_</source>
+    <target>Login</target>
+</phrase>
+<phrase>
+    <source>ResStr_Supplies_Purchasing_Channels</source>
+    <target>Consumables Purchase Channels</target>
+</phrase>
+<phrase>
+    <source>ResStr_Printer_Upgrade_Method</source>
+    <target>Printer Upgrade Method</target>
+</phrase>
+<phrase>
+    <source>ResStr_Printworks_Promotion</source>
+    <target>Printworks Promotion</target>
+</phrase>
+<phrase>
+    <source>ResStr_Version_Copyright</source>
+    <target>Version &amp; Copyright</target>
+</phrase>
+<phrase>
+    <source>ResStr_Printer_DriverVersion_____</source>
+    <target>Printer Driver
+Version ****</target>
+</phrase>
+<phrase>
+    <source>ResStr_This_file_is_not_supported__please_select_another_one_</source>
+    <target>File format not supported. Please select another file.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_1_99__please_confirm_and_enter_again_</source>
+    <target>The valid range is 1 to 99, please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_25_400__please_confirm_and_enter_again_</source>
+    <target>The valid range is 25% to 400%, please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_scanned_images_will_be_deleted_after_closing_the_VOP__Are_you_sure_to_close_the_VOP_</source>
+    <target>The scanned images will be deleted after the application is closed. Close application?</target>
+</phrase>
+<phrase>
+    <source>ResStr_Operation_cannot_be_carried_out_due_to_insufficient_memory_or_hard_disk_space_Please_try_again_after_freeing_memory_or_hard_disk_space_</source>
+    <target>There is insufficient memory or disk space to complete the operation. Please free up some memory or disk space, then try again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_0_100__please_confirm_and_enter_again_</source>
+    <target>The valid range is 0 to 100, please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanning_image_has_been_changed__please_confirm_whether_save_it_or_not_</source>
+    <target>The scanned image has been changed. Save changes?</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_entered_IP_address__is_wrong__please_confirm_and_enter_again_</source>
+    <target>The entered IP address is incorrect, please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_entered_Gateway_is_wrong__please_confirm_and_enter_again_</source>
+    <target>Invalid Gateway address. Please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_subnet_mask_input_error__please_input_again_after_confirmation</source>
+    <target>Invalid subnet mask. Please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_1_30__please_confirm_and_enter_again_</source>
+    <target>The valid range is 1 to 30, please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_from__6_to_6__please_confirm_and_enter_again_</source>
+    <target>The valid range is from -6 to 6, please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_from__2_to_2__please_confirm_and_enter_again_</source>
+    <target>The valid range is from -2 to 2, please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_from__3_to_3__please_confirm_and_enter_again_</source>
+    <target>The valid range is from -3 to 3, please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_0_1__please_confirm_and_enter_again_</source>
+    <target>The valid range is 0 to 1, please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Please_boot_the_machine_after_more_than_30_minutes_to_protect_the_machine_</source>
+    <target>Please boot the machine after more than 30 minutes to protect the machine.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_new_password_can_not_be_empty_</source>
+    <target>The new password cannot be empty.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_passwords_you_entered__are_different__please_try_again_</source>
+    <target>The passwords you entered are different, please try again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Authentication_error__please_enter_the_password_again_</source>
+    <target>Authentication error, please enter the password again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_agent_information_hasn_t_updated_for_____months__please_update_online_</source>
+    <target>The agent information hasn&apos;t been updated for {0} months, please update online.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_service_station_information_hasn_t_updated_for_____months__please_update_online_</source>
+    <target>The service station information hasn&apos;t been updated for {0} months, please update online.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_combination_of_IP_address_and_subnet_mask_is_invalid__All_of_the_bits_in_the_host_address_portion_of_the_IP_address_are_set_to_1__Please_enter_a_valid_combination_of_IP_address_and_subnet_mask_</source>
+    <target>The combination of IP address and subnet mask is invalid. All of the bits in the host address portion of the IP address are set to 1. Please enter a valid combination of IP address and subnet mask.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_combination_of_IP_address_and_subnet_mask_is_invalid__All_of_the_bits_in_the_host_address_portion_of_the_IP_address_are_set_to_0__Please_enter_a_valid_combination_of_IP_address_and_subnet_mask_</source>
+    <target>The combination of IP address and subnet mask is invalid. All of the bits in the host address portion of the IP address are set to 0. Please enter a valid combination of IP address and subnet mask.</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_machine_is_busy__please_try_later_</source>
+    <target>The machine is busy, please try again later.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Please_fix_error_first_and_try_later_</source>
+    <target>Please fix error first and try later!</target>
+</phrase>
+<phrase>
+    <source>ResStr_Setting_Successfully_</source>
+    <target>Configured successfully</target>
+</phrase>
+<phrase>
+    <source>ResStr_Setting_Fail</source>
+    <target>Configure failed</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Fail</source>
+    <target>Scan failed</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print_Fail</source>
+    <target>Print failed</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copy_Fail</source>
+    <target>Copy failed</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_1</source>
+    <target>Configured successfully. Restart the machine to apply changes.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_2</source>
+    <target>The password must be 5 or 13 ASCII characters or 10 or 26 hex characters, please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_3</source>
+    <target>The password must be 8 to 63 ASCII characters or 64 hex characters, please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_4</source>
+    <target>Please enter your mobile number</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_5</source>
+    <target>Verification code sent successfully.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_6</source>
+    <target>Failed to send verification code.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_7</source>
+    <target>Invalid mobile number. Please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_8</source>
+    <target>Invalid verification code. Please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_9</source>
+    <target>The network name must be 1 to 32 characters long. Please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_10</source>
+    <target>The network name must be 1 to 32 characters long. Please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Exit</source>
+    <target>Exit</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print_Preview</source>
+    <target>Preview</target>
+</phrase>
+<phrase>
+    <source>ResStr_Certificate_Edit</source>
+    <target>Edit certificate</target>
+</phrase>
+<phrase>
+    <source>ResStr_Unable_to_preview</source>
+    <target>Unable to preview</target>
+</phrase>
+<phrase>
+    <source>ResStr_Memory_Alloc_Fail</source>
+    <target>Memory allocation failed during printing!</target>
+</phrase>
+<phrase>
+    <source>ResStr_User_Defined_Settings</source>
+    <target>User Defined Settings</target>
+</phrase>
+<phrase>
+    <source>ResStr_Login_Register</source>
+    <target>Login / Register</target>
+</phrase>
+<phrase>
+    <source>ResStr_insufficient_system_disk_space</source>
+    <target>There is insufficient system disk space to complete the operation. Please free up some disk space, then try again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Yes</source>
+    <target>Yes</target>
+</phrase>
+<phrase>
+    <source>ResStr_No</source>
+    <target>No</target>
+</phrase>
+<phrase>
+    <source>ResStr_Border_Color</source>
+    <target>Border Color</target>
+</phrase>
+<phrase>
+    <source>ResStr_Preview</source>
+    <target>Preview</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_paper_jam_occurred_please_follow_the_instructions_</source>
+    <target>A paper jam has occurred! Please follow the instructions to remove the jammed paper.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Operation_can_not_be_carried_out_due_to_machine_malfunction_</source>
+    <target>A malfunction occurred. The operation cannot be completed.</target>
+</phrase>
+<phrase>
+    <source>ResStr_can_not_be_carried_out_due_to_software_has_error__please_try__again_after_reinstall_the_Driver_and_Virtual_Operation_Panel_</source>
+    <target>A software error has occurred. Please reinstall the printer drivers and the VOP, and then try again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Warning_Custom_Exceed</source>
+    <target>A maximun of 20 types of User defined paper sizes can be registered. If you would like to register more User defined paper sizes, you will need to first delete some existing ones.</target>
+</phrase>
+<phrase>
+    <source>ResStr_ExtraAdd_Print</source>
+    <target>Print</target>
+</phrase>
+<phrase>
+    <source>ResStr_ExtraAdd_Copy</source>
+    <target>Copy</target>
+</phrase>
+<phrase>
+    <source>ResStr_ExtraAdd_Scan</source>
+    <target>Scan</target>
+</phrase>
+<phrase>
+    <source>ResStr_Close</source>
+    <target>Close</target>
+</phrase>
+<phrase>
+    <source>ResStr_Open</source>
+    <target>Open</target>
+</phrase>
+<phrase>
+    <source>ResStr_Unsupported</source>
+    <target>The function is unsupported</target>
+</phrase>
+<phrase>
+    <source>ResStr_PDL_Memory_Overflow</source>
+    <target>PDL Memory Overflow! Press power key to clear this error.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Invalid_verification_code_Please_check_and_enter_again</source>
+    <target>Invalid verification code. Please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Tag1</source>
+    <target>Lenovo Image Print</target>
+</phrase>
+<phrase>
+    <source>ResStr_Tag2</source>
+    <target>Smart &amp; elegant printer</target>
+</phrase>
+<phrase>
+    <source>ResStr_Tag3</source>
+    <target>Redesigned for you</target>
+</phrase>
+<phrase>
+    <source>ResStr_USB_connection_troubleshooting</source>
+    <target>USB connection troubleshooting</target>
+</phrase>
+<phrase>
+    <source>ResStr_WiFi_connection_troubleshooting</source>
+    <target>Wi-Fi connection troubleshooting</target>
+</phrase>
+<phrase>
+    <source>ResStr_Return</source>
+    <target>Return</target>
+</phrase>
+<phrase>
+    <source>ResStr_Prompt</source>
+    <target>Prompt</target>
+</phrase>
+<phrase>
+    <source>ResStr_Do_you_want_to_exit_the_Lenovo_Printer</source>
+    <target>Do you want to exit the Lenovo Image Print?</target>
+</phrase>
+<phrase>
+    <source>ResStr_Member_Center</source>
+    <target>Member Center</target>
+</phrase>
+<phrase>
+    <source>ResStr_Account</source>
+    <target>Account</target>
+</phrase>
+<phrase>
+    <source>ResStr_Change_Account_Information</source>
+    <target>Change Account Information</target>
+</phrase>
+<phrase>
+    <source>ResStr_Buy_consumables</source>
+    <target>Buy consumables</target>
+</phrase>
+<phrase>
+    <source>ResStr_Check_consumables_points</source>
+    <target>Check consumables points</target>
+</phrase>
+<phrase>
+    <source>ResStr_Nearest_service_station</source>
+    <target>Nearest service station</target>
+</phrase>
+<phrase>
+    <source>ResStr_Download_printer_firmware</source>
+    <target>Download printer software</target>
+</phrase>
+<phrase>
+    <source>ResStr_Profile_picture</source>
+    <target>Profile picture</target>
+</phrase>
+<phrase>
+    <source>ResStr_Full_name</source>
+    <target>Full name</target>
+</phrase>
+<phrase>
+    <source>ResStr_Birthday</source>
+    <target>Birthday</target>
+</phrase>
+<phrase>
+    <source>ResStr_Sex</source>
+    <target>Sex</target>
+</phrase>
+<phrase>
+    <source>ResStr_Email</source>
+    <target>Email</target>
+</phrase>
+<phrase>
+    <source>ResStr_Address</source>
+    <target>Address</target>
+</phrase>
+<phrase>
+    <source>ResStr_Mobile_number</source>
+    <target>Mobile number</target>
+</phrase>
+<phrase>
+    <source>ResStr_Express_Login_using_mobile_number</source>
+    <target>Use mobile number to login</target>
+</phrase>
+<phrase>
+    <source>ResStr_Verification_Code</source>
+    <target>Verification code</target>
+</phrase>
+<phrase>
+    <source>ResStr_Get_Verification_Code</source>
+    <target>Get verification code</target>
+</phrase>
+<phrase>
+    <source>ResStr_Password_Tip</source>
+    <target>The default password for this unit is &quot;888888&quot;. For security of your equipment, please change this password.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Are_you_sure_to_delete_the_selected_picture</source>
+    <target>Delete selected image?</target>
+</phrase>
+<phrase>
+    <source>ResStr_Connected</source>
+    <target>Connected</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_maximum_password_length_is_32_characters_Please_check_you_password_and_enter_again</source>
+    <target>The maximum password length is 32 characters. Please check you password and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Please_turn_off_the_printer_until_it_cools_to_room_temperature</source>
+    <target>Turn off the printer and let it cool to room temperature before turning it on again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Waiting</source>
+    <target>Waiting({0}s)</target>
+</phrase>
+<phrase>
+    <source>ResStr_Lenovo_Printer</source>
+    <target>Lenovo Image Print</target>
+</phrase>
+<phrase>
+    <source>ResStr_Front</source>
+    <target>Front</target>
+</phrase>
+<phrase>
+    <source>ResStr_Back_2</source>
+    <target>Back</target>
+</phrase>
+<phrase>
+    <source>ResStr_Tips_for_Copying</source>
+    <target>Tips for Copying</target>
+</phrase>
+<phrase>
+    <source>ResStr_Email_Format_Error</source>
+    <target>The E-mail address format is incorrect, Please check you E-mail address and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Modify_UserInfo_Fail</source>
+    <target>Modify account information failed.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Year</source>
+    <target>Year</target>
+</phrase>
+<phrase>
+    <source>ResStr_Month</source>
+    <target>Month</target>
+</phrase>
+<phrase>
+    <source>ResStr_Day</source>
+    <target>Day</target>
+</phrase>
+<phrase>
+    <source>ResStr_Man</source>
+    <target>male</target>
+</phrase>
+<phrase>
+    <source>ResStr_Women</source>
+    <target>female</target>
+</phrase>
+<phrase>
+    <source>ResStr_picture_file_occupied</source>
+    <target>The picture file is occupied, temporarily unable to perform this operation.</target>
+</phrase>
+<phrase>
+    <source>ResStr_USB_write_failed_during_scan_job_cancelling</source>
+    <target>USB write failed during scan, job cancelling.</target>
+</phrase>
+<phrase>
+    <source>ResStr_NET_write_failed_during_scan_job_cancelling</source>
+    <target>NET write failed during scan, job cancelling.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Out_of_Paper</source>
+    <target>Out of Paper</target>
+</phrase>
+<phrase>
+    <source>ResStr_Jam_front</source>
+    <target>Paper Jam</target>
+</phrase>
+<phrase>
+    <source>ResStr_Jam_whole</source>
+    <target>Paper Jam</target>
+</phrase>
+<phrase>
+    <source>ResStr_Jam_back</source>
+    <target>Paper Jam</target>
+</phrase>
+<phrase>
+    <source>ResStr_On</source>
+    <target>On</target>
+</phrase>
+<phrase>
+    <source>ResStr_Off</source>
+    <target>Off</target>
+</phrase>
+<phrase>
+    <source>ResStr_Prompt1</source>
+    <target>Prompt:</target>
+</phrase>
+<phrase>
+    <source>ResStr_Prompt2</source>
+    <target>If the operation is not performed within 1 minute, the task will be automatically canceled.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Prompt_Box_will_not_pop_up_next_time</source>
+    <target>The prompt box will not pop up next time.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Image_file_not_found</source>
+    <target>Image file cannot be found.</target>
+</phrase>
+<phrase>
+    <source>ResStr_AndPlus_Format_Error</source>
+    <target>Input cannot contain characters &apos;&amp;&apos; and &apos;+&apos;, Please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_User_Experience</source>
+    <target>User Experience Improvement Program</target>
+</phrase>
+<phrase>
+    <source>ResStr_Help_us_improve</source>
+    <target>Help us improve our services to you</target>
+</phrase>
+<phrase>
+    <source>ResStr_In_order_to_deliver_improved</source>
+    <target>In order to deliver improved versions of the &quot;Lenovo Image Print&quot; software and better user services, Lenovo Image would like to gather user data on a regular basis; the data include mobile numbers of registered users, the type of documents printed and the frequency of printing, printer model and related information, mobile equipment location and identifier, computer identifier, etc.</target>
+</phrase>
+<phrase>
+    <source>ResStr_I_have_read_and_agree</source>
+    <target>I have read and agree to the Lenovo Image Online Privacy Statement, and I hereby give my permission for automatic data collection</target>
+</phrase>
+<phrase>
+    <source>ResStr_Lenovo_Online_Privacy_Statement</source>
+    <target>Lenovo Image Online Privacy Statement</target>
+</phrase>
+<phrase>
+    <source>ResStr_Next</source>
+    <target>Next</target>
+</phrase>
+<phrase>
+    <source>ResStr_Select_photo_of_the_reverse_side</source>
+    <target>Select photo of the reverse side</target>
+</phrase>
+<phrase>
+    <source>ResStr_OK_2</source>
+    <target>OK</target>
+</phrase>
+<phrase>
+    <source>ResStr_TCP_IPv4</source>
+    <target>TCP/IPv4</target>
+</phrase>
+<phrase>
+    <source>ResStr_TCP_IPv6</source>
+    <target>TCP/IPv6</target>
+</phrase>
+<phrase>
+    <source>ResStr_Status</source>
+    <target>Status</target>
+</phrase>
+<phrase>
+    <source>ResStr_Obtain_address_from_DHCP</source>
+    <target>Obtain address from DHCP</target>
+</phrase>
+<phrase>
+    <source>ResStr_Use_Manual_Address</source>
+    <target>Use Manual Address</target>
+</phrase>
+<phrase>
+    <source>ResStr_Manual_Address</source>
+    <target>Manual Address</target>
+</phrase>
+<phrase>
+    <source>ResStr_Manual_Gateway_Address</source>
+    <target>Manual Gateway Address</target>
+</phrase>
+<phrase>
+    <source>ResStr_Stateless_Address_1</source>
+    <target>Stateless Address 1</target>
+</phrase>
+<phrase>
+    <source>ResStr_Stateless_Address_2</source>
+    <target>Stateless Address 2</target>
+</phrase>
+<phrase>
+    <source>ResStr_Stateless_Address_3</source>
+    <target>Stateless Address 3</target>
+</phrase>
+<phrase>
+    <source>ResStr_Auto_Statefull_Address</source>
+    <target>Auto Statefull Address</target>
+</phrase>
+<phrase>
+    <source>ResStr_Link_Local_Address</source>
+    <target>Link Local Address</target>
+</phrase>
+<phrase>
+    <source>ResStr_Auto_Configure_Gateway_Address</source>
+    <target>Auto Configure Gateway Address</target>
+</phrase>
+<phrase>
+    <source>ResStr_Dns_Type</source>
+    <target>DNS Type</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_entered_DNS_is_wrong__please_confirm_and_enter_again_</source>
+    <target>Invalid DNS address. Please check and enter again.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Manual_DNS</source>
+    <target>Manual</target>
+</phrase>
+<phrase>
+    <source>ResStr_Auto_DNS</source>
+    <target>Auto</target>
+</phrase>
+<phrase>
+    <source>ResStr_DNS</source>
+    <target>DNS</target>
+</phrase>
+<phrase>
+    <source>ResStr_Reset_OPC</source>
+    <target>Reset Drum Cartridge</target>
+</phrase>
+<phrase>
+    <source>ResStr_Reset_Toner_Cartridge</source>
+    <target>Reset Toner Cartridge</target>
+</phrase>
+<phrase>
+    <source>ResStr_OPC_Near_End</source>
+    <target>OPC Near End</target>
+</phrase>
+<phrase>
+    <source>ResStr_OPC_End_ABC_Plus</source>
+    <target>OPC End
+Please replace a new drum cartridge and click the＂Reset Drum Cartridge” button of Advanced Settings.</target>
+</phrase>
+<phrase>
+    <source>ResStr_OPC_End_ABC</source>
+    <target>OPC End
+Please replace a new toner cartridge.</target>
+</phrase>
+<phrase>
+    <source>ResStr_This_operation_will_reset_the_toner</source>
+    <target>This operation will reset the toner to 100%. Please confirm the new toner cartridge has been replaced before performing this.  Do you want to continue?</target>
+</phrase>
+<phrase>
+    <source>ResStr_This_operation_will_reset_the_drum</source>
+    <target>This operation will reset the drum status. Please confirm the new drum cartridge has been replaced before performing this.  Do you want to continue?</target>
+</phrase>
+<phrase>
+    <source>ResStr_Product_Support</source>
+    <target>Product and support</target>
+</phrase>
+<phrase>
+    <source>ResStr_Polygon_Motor_on_timeout_error</source>
+    <target>Polygon Motor on timeout error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Polygon_Motor_off_timeout_error</source>
+    <target>Polygon Motor off timeout error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Polygon_Motor_lock_signal_error</source>
+    <target>Polygon Motor lock signal error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Beam_synchronize_error</source>
+    <target>Beam synchronize error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Bias_leak</source>
+    <target>Bias leak</target>
+</phrase>
+<phrase>
+    <source>ResStr_plate_action_error</source>
+    <target>Plate action error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Main_Motor_error</source>
+    <target>Main Motor error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fan_Motor_error</source>
+    <target>Fan Motor error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fuser_thermistor_error</source>
+    <target>Fuser thermistor error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fuser_reload_error</source>
+    <target>Fuser reload error</target>
+</phrase>
+<phrase>
+    <source>ResStr_High_temperature_soft_check_error</source>
+    <target>High temperature soft check error</target>
+</phrase>
+<phrase>
+    <source>ResStr_High_temperature_hard_check_error</source>
+    <target>High temperature hard check error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fuser_full_heater_error</source>
+    <target>Fuser full heater error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fuser_3times_jam_error</source>
+    <target>Fuser 3times jam error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Low_voltage_fuser_reload_error</source>
+    <target>Low voltage fuser reload error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Machine_thermistor_error</source>
+    <target>Machine thermistor error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print_request_signal_doesnt_come</source>
+    <target>Print request signal doesn&apos;t come</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanner_not_found_home_position</source>
+    <target>Scanner not found home position</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Calibration_Error</source>
+    <target>Scan Calibration Error</target>
+</phrase>
+<phrase>
+    <source>ResStr_Wireless_Dongle_Config_Fail</source>
+    <target>Wireless Dongle Config Fail</target>
+</phrase>
+<phrase>
+    <source>ResStr_DMA_Error</source>
+    <target>DMA Error</target>
+</phrase>
+<phrase>
+    <source>ResStr_A4Mode_1</source>
+    <target>A4 mode1</target>
+</phrase>
+<phrase>
+    <source>ResStr_A4Mode_2</source>
+    <target>A4 mode2</target>
+</phrase>
+<phrase>
+    <source>ResStr_A4Mode_3</source>
+    <target>A4 mode3</target>
+</phrase>
+<phrase>
+    <source>ResStr_A5Mode</source>
+    <target>A5 mode</target>
+</phrase>
+<phrase>
+    <source>ResStr_Credentials_Duplex_Copy_Mode</source>
+    <target>Credentials Duplex Copy Mode</target>
+</phrase>
+<phrase>
+    <source>ResStr_Duplex_Copy_Mode</source>
+    <target>Duplex Copy Mode</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copyright</source>
+    <target>Copyright(C)(2019)
+Lenovo Image Image(Tianjin)Technology Co., LTD.
+All rights reserved.</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam_Duplex_Entry_Sensor</source>
+    <target>Paper Jam: duplex entry sensor</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam_Duplex_Nofeed</source>
+    <target>Paper Jam: Duplex Nofeed</target>
+</phrase>
+<phrase>
+    <source>ResStr_default20S</source>
+    <target>default 20 Sec.</target>
+</phrase>
+<phrase>
+    <source>ResStr_never_powersave</source>
+    <target>never power save</target>
+</phrase>
+<phrase>
+    <source>ResStr_self_powersave</source>
+    <target>self power save</target>
+</phrase>
+</QPH>

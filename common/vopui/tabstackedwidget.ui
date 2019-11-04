@@ -1,0 +1,1752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TabStackedWidget</class>
+ <widget class="QStackedWidget" name="TabStackedWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>850</width>
+    <height>656</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>StackedWidget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url();
+background-color: transparent;</string>
+  </property>
+  <widget class="QWidget" name="copyPage">
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/Images/PagePrint.tif);</string>
+   </property>
+   <widget class="QStackedWidget" name="copyStackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>250</y>
+      <width>411</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url();</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="copyItemPage">
+     <widget class="QLabel" name="background_Concentration">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>107</y>
+        <width>322</width>
+        <height>78</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/background_copy1.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="background_copyNum">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>20</y>
+        <width>322</width>
+        <height>78</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/background_copy1.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_Copy">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>245</y>
+        <width>166</width>
+        <height>35</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-image: url(:/Images/background_scan_btn2.png) 16;
+color:white;
+border-width:16px;
+padding:-16px 0px;
+}
+QPushButton::hover{
+	color:black;
+}
+QPushButton::Pressed{
+border-image: url(:/Images/Btn_Green_Pressed.png) 16;
+border-width:16px;
+padding:-16px 0px;
+color:white;
+}
+
+QPushButton::disabled{
+border-image: url(:/Images/Btn_Scan_Disabled.png) ;
+
+color:white;
+}</string>
+      </property>
+      <property name="text">
+       <string>ResStr_ExtraAdd_Copy</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_MoreSetting_Copy">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>245</y>
+        <width>138</width>
+        <height>35</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-image: url(:/Images/Btn_Gray.png) 16;
+color:black;
+border-width:16px;
+padding:-16px 0px;
+}
+QPushButton::hover{
+	color:rgb(52, 212, 34);
+}
+QPushButton::Pressed{
+border-image: url(:/Images/Btn_Gray_Pressed.png) 16;
+border-width:16px;
+padding:-16px 0px;
+color:white;
+}</string>
+      </property>
+      <property name="text">
+       <string>ResStr_More_Settings</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="copyNum">
+      <property name="geometry">
+       <rect>
+        <x>177</x>
+        <y>56</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>27</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	border-style:solid;
+	border-width:0px;
+	background-color: transparent;
+	color: rgb(124, 124, 124);
+}</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_CopyNumReduce">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>60</y>
+        <width>24</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>19</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	border-image: url(:/Images/Btn_BackGround.png);
+	color: rgb(124, 124, 124);
+}
+
+QPushButton::hover{
+	color: rgb(52, 212, 34);
+}
+
+QPushButton::pressed{
+	
+	border-image: url(:/Images/Btn_ClickBackGround.png);
+	color:black;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_CopyNumAdd">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>60</y>
+        <width>24</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>19</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	border-image: url(:/Images/Btn_BackGround.png);
+	color: rgb(124, 124, 124);
+}
+
+QPushButton::hover{
+	color: rgb(52, 212, 34);
+}
+
+QPushButton::pressed{
+	border-image: url(:/Images/Btn_ClickBackGround.png);
+	color:black;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_DensityReduce">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>147</y>
+        <width>24</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>19</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	border-image: url(:/Images/Btn_BackGround.png);
+	color: rgb(124, 124, 124);
+}
+
+QPushButton::hover{
+	color: rgb(52, 212, 34);
+}
+
+QPushButton::pressed{
+	border-image: url(:/Images/Btn_ClickBackGround.png);
+	color:black;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_DensityAdd">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>147</y>
+        <width>24</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>19</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	border-image: url(:/Images/Btn_BackGround.png);
+	color: rgb(124, 124, 124);
+}
+
+QPushButton::hover{
+	color: rgb(52, 212, 34);
+}
+
+QPushButton::pressed{
+	border-image: url(:/Images/Btn_ClickBackGround.png);
+	color:black;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mark0_Density">
+      <property name="geometry">
+       <rect>
+        <x>156</x>
+        <y>164</y>
+        <width>15</width>
+        <height>9</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(53, 177, 20);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mark1_Density">
+      <property name="geometry">
+       <rect>
+        <x>177</x>
+        <y>160</y>
+        <width>15</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(53, 177, 20);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mark2_Density">
+      <property name="geometry">
+       <rect>
+        <x>198</x>
+        <y>156</y>
+        <width>15</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(53, 177, 20);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mark3_Density">
+      <property name="geometry">
+       <rect>
+        <x>219</x>
+        <y>152</y>
+        <width>15</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(154, 238, 117);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mark4_Density">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>148</y>
+        <width>15</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(154, 238, 117);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="text_Density">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>111</y>
+        <width>321</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>ResStr_Density</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="text_CopyNum">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>23</y>
+        <width>321</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>ResStr_Copies_2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalWidget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>190</y>
+        <width>371</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="icon_IDCardCopy">
+         <property name="minimumSize">
+          <size>
+           <width>31</width>
+           <height>21</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>31</width>
+           <height>21</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: url(:/Images/IDCardCopyIconDisable.png);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="text_IDCardCopy">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>ResStr_ID_Card_Copy</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="cBox_IsIDCard">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>41</width>
+           <height>21</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>41</width>
+           <height>21</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: url(:/Images/CheckBox_Close.png);
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="icon_DuplexCopy">
+         <property name="minimumSize">
+          <size>
+           <width>28</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>28</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: url(:/Images/DulplexCopyIconDisable.tif);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="text_DuplexCopy">
+         <property name="text">
+          <string>ResStr_Duplex_Copy</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="cBox_DuplexCopy">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>41</width>
+           <height>21</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>41</width>
+           <height>21</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: url(:/Images/CheckBox_Close.png);
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="troubleShootingPage">
+     <widget class="QPushButton" name="TUSBBtn_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>180</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+background-color:rgba(255, 255, 255, 0);
+border-style: solid;
+border-width: 0px;
+border-color: rgba(255, 255, 255, 0);
+font-size: 11px;
+}
+
+QPushButton::hover{
+	color:green;
+}
+QPushButton::Pressed{
+	color:green;
+}</string>
+      </property>
+      <property name="text">
+       <string>ResStr_USB_connection_troubleshooting</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TroubleshootingWiFi_3">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>160</y>
+        <width>55</width>
+        <height>55</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/TroubleshootingWiFi.png);
+border-radius:7px;
+border-width:0px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="TWiFiBtn_3">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>240</y>
+        <width>180</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+background-color:rgba(255, 255, 255, 0);
+border-style: solid;
+border-width: 0px;
+border-color: rgba(255, 255, 255, 0);
+font-size:11px;
+}
+
+QPushButton::hover{
+	color:green;
+}
+QPushButton::Pressed{
+	color:green;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>ResStr_WiFi_connection_troubleshooting</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TroubleshootingUSB_3">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>160</y>
+        <width>55</width>
+        <height>55</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/TroubleshootingUSB.png);
+border-radius:7px;
+border-width:0px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TroubleshootingMachine_3">
+      <property name="geometry">
+       <rect>
+        <x>113</x>
+        <y>30</y>
+        <width>206</width>
+        <height>113</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/TroubleshootingMachine.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="scanPage">
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/Images/PageCopy.tif);</string>
+   </property>
+   <widget class="QPushButton" name="btn_MoreSetting_Scan">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>450</y>
+      <width>138</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+border-image: url(:/Images/Btn_Gray.png) 16;
+color:black;
+border-width:16px;
+padding:-16px 0px;
+}
+QPushButton::hover{
+	color:rgb(52, 212, 34);
+}
+QPushButton::Pressed{
+border-image: url(:/Images/Btn_Gray_Pressed.png) 16;
+border-width:16px;
+padding:-16px 0px;
+color:white;
+}
+QPushButton::disabled{
+border-width:16px;
+padding:-16px 0px;
+color:gray;
+}</string>
+    </property>
+    <property name="text">
+     <string>ResStr_More_Settings</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_Scan">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>450</y>
+      <width>111</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{border-image: url(:/Images/background_scan_btn2.png);color:white;
+}
+QPushButton::hover{
+	color:black;
+}
+QPushButton::Pressed{border-image: url(:/Images/Btn_Green_Pressed.png);color:white;
+}
+QPushButton::disabled{
+border-image: url(:/Images/Btn_Scan_Disabled.png) ;
+
+color:white;
+}</string>
+    </property>
+    <property name="text">
+     <string>ResStr_ExtraAdd_Scan</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_ScanCancel">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>697</x>
+      <y>518</y>
+      <width>24</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color:lightgray;
+	border-radius:12px;
+}</string>
+    </property>
+    <property name="text">
+     <string>X</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_ScanSave">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>450</y>
+      <width>75</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Images/background_scan_btn1.png);</string>
+    </property>
+    <property name="text">
+     <string>ResStr_Save</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Background">
+    <property name="geometry">
+     <rect>
+      <x>317</x>
+      <y>253</y>
+      <width>416</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url();
+border-image: url(:/Images/background_scan1.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_ImageSize">
+    <property name="geometry">
+     <rect>
+      <x>335</x>
+      <y>490</y>
+      <width>339</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>ResStr_Scanned_image_size</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_ScanProgress">
+    <property name="geometry">
+     <rect>
+      <x>335</x>
+      <y>520</y>
+      <width>64</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>ResStr_Scanning_2</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar_Scan">
+    <property name="geometry">
+     <rect>
+      <x>401</x>
+      <y>520</y>
+      <width>287</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QProgressBar{
+color:black;
+border:3px groove white;
+border-radius:9px;
+background-image:url();
+background-color:lightgray;
+
+}
+QProgressBar::chunk{
+background-color:green;
+border-radius:5px;
+}</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="ThumbnailView" name="scrollArea_ScanImage">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>265</y>
+      <width>390</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url();
+background-color:white;
+border-width:0px;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="disableScrollArea">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>265</y>
+      <width>390</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url();</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label_Background</zorder>
+   <zorder>btn_MoreSetting_Scan</zorder>
+   <zorder>btn_Scan</zorder>
+   <zorder>btn_ScanCancel</zorder>
+   <zorder>btn_ScanSave</zorder>
+   <zorder>label_ImageSize</zorder>
+   <zorder>label_ScanProgress</zorder>
+   <zorder>progressBar_Scan</zorder>
+   <zorder>scrollArea_ScanImage</zorder>
+   <zorder>disableScrollArea</zorder>
+  </widget>
+  <widget class="QWidget" name="settingPage">
+   <property name="styleSheet">
+    <string notr="true">#settingPage{
+background-image: url(:/Images/PageScan.tif);
+}</string>
+   </property>
+   <widget class="SettingsStackedWidget" name="settingStackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>476</x>
+      <y>250</y>
+      <width>251</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url();
+background-color: transparent;
+</string>
+    </property>
+    <property name="currentIndex">
+     <number>6</number>
+    </property>
+    <widget class="QWidget" name="WiFi_3">
+     <widget class="QLabel" name="background_WiFi1_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>241</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/SettingViewBackground.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="background_WiFi2_3">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>16</y>
+        <width>15</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/triangle.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="SoftAP_3">
+     <widget class="QLabel" name="background_SoftAP1_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>241</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/SettingViewBackground.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="background_SoftAP2_3">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>55</y>
+        <width>15</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/triangle.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="TCPIP4_3">
+     <widget class="QLabel" name="background_TCPIP41_3">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>95</y>
+        <width>15</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/triangle.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="background_TCPIP42_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>241</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/SettingViewBackground.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <zorder>background_TCPIP42_3</zorder>
+     <zorder>background_TCPIP41_3</zorder>
+    </widget>
+    <widget class="QWidget" name="TCPIP6">
+     <widget class="QLabel" name="background_TCPIP61_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>241</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/SettingViewBackground.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="background_TCPIP62_4">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>136</y>
+        <width>15</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/triangle.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="PowerSave_3">
+     <widget class="QLabel" name="background_PS2_3">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>177</y>
+        <width>15</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/triangle.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="background_PS1_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>241</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/SettingViewBackground.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <zorder>background_PS1_3</zorder>
+     <zorder>background_PS2_3</zorder>
+    </widget>
+    <widget class="QWidget" name="UserConfig_3">
+     <widget class="QLabel" name="background_UC2_3">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>217</y>
+        <width>15</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/triangle.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="background_UC1_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>241</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/SettingViewBackground.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <zorder>background_UC1_3</zorder>
+     <zorder>background_UC2_3</zorder>
+    </widget>
+    <widget class="QWidget" name="Password_3">
+     <widget class="QLabel" name="background_PW1_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>241</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/SettingViewBackground.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="background_PW2_3">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>256</y>
+        <width>15</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/triangle.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="widget_setting" native="true">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>260</y>
+      <width>151</width>
+      <height>300</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>9</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="widget_wifi" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <widget class="QLabel" name="img_WiFi">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>5</y>
+          <width>23</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/Images/Wireless_Active.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_WiFi">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>0</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-image: url(:/Images/Btn_Green.png);color:white;
+}
+QPushButton::hover{
+	color:black;
+}
+QPushButton::Pressed{border-image: url(:/Images/Btn_Green_Pressed.png);color:white;
+}</string>
+        </property>
+        <property name="text">
+         <string>ResStr_Printer_Wi_Fi</string>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_softap" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <widget class="QLabel" name="img_SoftAP">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>5</y>
+          <width>22</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/Images/SoftAP.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_SoftAP">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>0</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-image: url(:/Images/Btn_Gray.png);}
+QPushButton::hover{
+	color: rgb(52, 212, 34);
+}
+QPushButton::Pressed{border-image: url(:/Images/Btn_Gray_Pressed.png);color:white
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>ResStr_Soft_AP</string>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_ipv4" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <widget class="QLabel" name="img_TCPIPV4">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>5</y>
+          <width>24</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/Images/TCPIP.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_TCPIPV4">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>0</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-image: url(:/Images/Btn_Gray.png);}
+QPushButton::hover{
+	color: rgb(52, 212, 34);
+}
+QPushButton::Pressed{border-image: url(:/Images/Btn_Gray_Pressed.png);color:white
+}
+</string>
+        </property>
+        <property name="text">
+         <string>ResStr_TCP_IPv4</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_ipv6" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <widget class="QLabel" name="img_TCPIPV6">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>5</y>
+          <width>24</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/Images/TCPIP.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_TCPIPV6">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>0</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-image: url(:/Images/Btn_Gray.png);}
+QPushButton::hover{
+	color: rgb(52, 212, 34);
+}
+QPushButton::Pressed{border-image: url(:/Images/Btn_Gray_Pressed.png);color:white
+}
+</string>
+        </property>
+        <property name="text">
+         <string>ResStr_TCP_IPv6</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_powersave" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <widget class="QLabel" name="img_PowerSave">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>5</y>
+          <width>17</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/Images/PowerSave.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_PowerSave">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>0</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-image: url(:/Images/Btn_Gray.png);}
+QPushButton::hover{
+	color: rgb(52, 212, 34);
+}
+QPushButton::Pressed{border-image: url(:/Images/Btn_Gray_Pressed.png);color:white
+}
+</string>
+        </property>
+        <property name="text">
+         <string>ResStr_Power_Save</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_userconfig" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <widget class="QLabel" name="img_UserConfig">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>5</y>
+          <width>24</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/Images/UserConfig.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_UserConfig">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>0</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-image: url(:/Images/Btn_Gray.png);}
+QPushButton::hover{
+	color: rgb(52, 212, 34);
+}
+QPushButton::Pressed{border-image: url(:/Images/Btn_Gray_Pressed.png);color:white
+}
+</string>
+        </property>
+        <property name="text">
+         <string>ResStr_User_Config</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_password" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>151</width>
+         <height>31</height>
+        </size>
+       </property>
+       <widget class="QLabel" name="img_Password">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>5</y>
+          <width>18</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/Images/Password.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_Password">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>0</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-image: url(:/Images/Btn_Gray.png);}
+QPushButton::hover{
+	color: rgb(52, 212, 34);
+}
+QPushButton::Pressed{border-image: url(:/Images/Btn_Gray_Pressed.png);color:white
+}
+</string>
+        </property>
+        <property name="text">
+         <string>ResStr_Modify_Password</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ThumbnailView</class>
+   <extends>QListWidget</extends>
+   <header>thumbnailview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>SettingsStackedWidget</class>
+   <extends>QStackedWidget</extends>
+   <header>settingsstackedwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

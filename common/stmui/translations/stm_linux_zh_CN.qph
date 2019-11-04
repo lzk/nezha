@@ -1,0 +1,1593 @@
+<!DOCTYPE QPH>
+<QPH language="zh_CN">
+<phrase>
+    <source>ResStr_VirtualOperationPanel</source>
+    <target>虚拟操作面板</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print</source>
+    <target>打  印</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copy</source>
+    <target>复  印</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan</source>
+    <target>扫  描</target>
+</phrase>
+<phrase>
+    <source>ResStr_Setting</source>
+    <target>设置</target>
+</phrase>
+<phrase>
+    <source>ResStr_Model</source>
+    <target>机型</target>
+</phrase>
+<phrase>
+    <source>ResStr_Device_Status</source>
+    <target>状态</target>
+</phrase>
+<phrase>
+    <source>ResStr_Ready</source>
+    <target>待机</target>
+</phrase>
+<phrase>
+    <source>ResStr_Busy</source>
+    <target>工作中</target>
+</phrase>
+<phrase>
+    <source>ResStr_Sleep</source>
+    <target>休眠</target>
+</phrase>
+<phrase>
+    <source>ResStr_Warning</source>
+    <target>警告</target>
+</phrase>
+<phrase>
+    <source>ResStr_Error</source>
+    <target>错误</target>
+</phrase>
+<phrase>
+    <source>ResStr_Offline</source>
+    <target>离线</target>
+</phrase>
+<phrase>
+    <source>ResStr_Toner</source>
+    <target>墨粉</target>
+</phrase>
+<phrase>
+    <source>ResStr_Printing</source>
+    <target>打印中</target>
+</phrase>
+<phrase>
+    <source>ResStr_WarmingUp</source>
+    <target>预热中</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print_Cancelling</source>
+    <target>打印取消中</target>
+</phrase>
+<phrase>
+    <source>ResStr_Processing</source>
+    <target>处理中</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copying</source>
+    <target>复印中</target>
+</phrase>
+<phrase>
+    <source>ResStr_Place_Next_Page</source>
+    <target>请放下一页</target>
+</phrase>
+<phrase>
+    <source>ResStr_Turn_card_over_to_copy_the_reverse_</source>
+    <target>把证件翻过来放在原处，或者放下一页原稿。然后合上盖板，按一下打印机触控面板开始键。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copy_Cancelling</source>
+    <target>复印取消中</target>
+</phrase>
+<phrase>
+    <source>ResStr_ID_Card_Mode</source>
+    <target>身份证复印模式</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanning</source>
+    <target>扫描中</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Cancelling</source>
+    <target>扫描取消中</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanner_Busy</source>
+    <target>扫描仪忙</target>
+</phrase>
+<phrase>
+    <source>ResStr_Toner_End_ABC</source>
+    <target>墨粉空
+请更换新的鼓粉盒。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Toner_End_ABC_Plus</source>
+    <target>墨粉空
+请更换新的墨粉盒。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Toner_Near_End</source>
+    <target>墨粉将空</target>
+</phrase>
+<phrase>
+    <source>ResStr_Waiting_2nd_pages_when_print_manual_duplex_job</source>
+    <target>手动双面打印中等待第二页</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam__Paper_Remained</source>
+    <target>打印机内部卡纸。
+请打开并关闭上盖，尝试自动排纸。
+如果自动排纸失败，请打开上盖，取出耗材，取出卡住的纸张。关闭上盖后将自动继续打印。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam__Nofeed</source>
+    <target>缺纸或进纸异常
+请抽出纸盒，放入或整理纸张。
+如果有卡纸，可调整纸盒左右及后端挡板位置后轻按电源键重新开始打印；</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam__Regist</source>
+    <target>进纸处卡纸
+请打开并关闭上盖，尝试自动排纸。
+如果自动排纸失败，请打开上盖，取出耗材，取出卡住的纸张。关闭上盖后将自动继续打印。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam__Exit_NotReach</source>
+    <target>内部卡纸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam__Exit</source>
+    <target>出纸处卡纸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Cover_Open</source>
+    <target>上盖开启</target>
+</phrase>
+<phrase>
+    <source>ResStr_No_Toner_Cartridge</source>
+    <target>没有鼓粉盒</target>
+</phrase>
+<phrase>
+    <source>ResStr_Please_Replace_Toner</source>
+    <target>请更换鼓粉盒</target>
+</phrase>
+<phrase>
+    <source>ResStr_FW_Updating</source>
+    <target>固件升级中</target>
+</phrase>
+<phrase>
+    <source>ResStr_Overheat</source>
+    <target>过热</target>
+</phrase>
+<phrase>
+    <source>ResStr_DMA_Error_SCxxx</source>
+    <target>请关闭打印机后重新启动：
+错误信息：</target>
+</phrase>
+<phrase>
+    <source>ResStr_Turn_off_the_printer__and_turn_it_on_again_Contact_customer_support_if_this_failure_is_repeated_SCxxx</source>
+    <target>请关闭打印机后重新启动。如果错误仍然存在，请联系客户服务中心：
+错误信息：</target>
+</phrase>
+<phrase>
+    <source>ResStr_Please_contact_customer_support__SCxxx</source>
+    <target>请联系客户服务中心：
+错误信息：</target>
+</phrase>
+<phrase>
+    <source>ResStr_Picture_Print</source>
+    <target>图片打印</target>
+</phrase>
+<phrase>
+    <source>ResStr_File_Print</source>
+    <target>文件打印</target>
+</phrase>
+<phrase>
+    <source>ResStr_Credentials_Print</source>
+    <target>证件打印</target>
+</phrase>
+<phrase>
+    <source>ResStr_Certificate_Type</source>
+    <target>证件类型</target>
+</phrase>
+<phrase>
+    <source>ResStr_Residence_Booklet</source>
+    <target>户口本</target>
+</phrase>
+<phrase>
+    <source>ResStr_Marriage_Certificate</source>
+    <target>结婚证</target>
+</phrase>
+<phrase>
+    <source>ResStr_Passport</source>
+    <target>护照</target>
+</phrase>
+<phrase>
+    <source>ResStr_Real_Estate_License</source>
+    <target>房产证</target>
+</phrase>
+<phrase>
+    <source>ResStr_Driving_license</source>
+    <target>驾照</target>
+</phrase>
+<phrase>
+    <source>ResStr_Diploma</source>
+    <target>毕业证</target>
+</phrase>
+<phrase>
+    <source>ResStr_Student_ID_card</source>
+    <target>学生证</target>
+</phrase>
+<phrase>
+    <source>ResStr_Birth_Certificate</source>
+    <target>出生证明</target>
+</phrase>
+<phrase>
+    <source>ResStr_Bank_SocialSecurity_Card</source>
+    <target>银行卡/社保卡</target>
+</phrase>
+<phrase>
+    <source>ResStr_ID_Card</source>
+    <target>身份证</target>
+</phrase>
+<phrase>
+    <source>ResStr_More_Settings</source>
+    <target>更多设置</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copies</source>
+    <target>打印份数</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Size</source>
+    <target>纸张尺寸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Letter</source>
+    <target>Letter</target>
+</phrase>
+<phrase>
+    <source>ResStr_A4</source>
+    <target>A4</target>
+</phrase>
+<phrase>
+    <source>ResStr_A5</source>
+    <target>A5</target>
+</phrase>
+<phrase>
+    <source>ResStr_A6</source>
+    <target>A6</target>
+</phrase>
+<phrase>
+    <source>ResStr_B5_ISO_</source>
+    <target>B5（ISO）</target>
+</phrase>
+<phrase>
+    <source>ResStr_B6</source>
+    <target>B6</target>
+</phrase>
+<phrase>
+    <source>ResStr_Executive</source>
+    <target>Executive</target>
+</phrase>
+<phrase>
+    <source>ResStr_16K</source>
+    <target>16K</target>
+</phrase>
+<phrase>
+    <source>ResStr_A5_LEF_</source>
+    <target>A5（长边进纸）</target>
+</phrase>
+<phrase>
+    <source>ResStr_B6_LEF_</source>
+    <target>B6（长边进纸）</target>
+</phrase>
+<phrase>
+    <source>ResStr_User_Defined_Size</source>
+    <target>自定义纸张尺寸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Orientation</source>
+    <target>纸张方向</target>
+</phrase>
+<phrase>
+    <source>ResStr_Landscape</source>
+    <target>横向</target>
+</phrase>
+<phrase>
+    <source>ResStr_Portrait</source>
+    <target>纵向</target>
+</phrase>
+<phrase>
+    <source>ResStr_Media_Type</source>
+    <target>纸张类型</target>
+</phrase>
+<phrase>
+    <source>ResStr_Plain_Paper</source>
+    <target>普通纸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Thin_Paper</source>
+    <target>薄纸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Thick_Paper</source>
+    <target>厚纸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Recycled_Paper</source>
+    <target>再生纸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Label</source>
+    <target>标签</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print_Quality</source>
+    <target>打印质量</target>
+</phrase>
+<phrase>
+    <source>ResStr_Normal_600_600_</source>
+    <target>标准（600*600）</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fine_1200_600_</source>
+    <target>精细（1200*600）</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scaling</source>
+    <target>缩放比例</target>
+</phrase>
+<phrase>
+    <source>ResStr_Image_Scaling</source>
+    <target>图像缩放比例</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fit_to_Paper_Size</source>
+    <target>调整至纸张大小</target>
+</phrase>
+<phrase>
+    <source>ResStr_Density_Adjustment</source>
+    <target>浓度调整</target>
+</phrase>
+<phrase>
+    <source>ResStr_Page_Order</source>
+    <target>页面顺序</target>
+</phrase>
+<phrase>
+    <source>ResStr_Multiple_Page</source>
+    <target>多页打印</target>
+</phrase>
+<phrase>
+    <source>ResStr_2_in_1</source>
+    <target>2合1</target>
+</phrase>
+<phrase>
+    <source>ResStr_4_in_1</source>
+    <target>4合1</target>
+</phrase>
+<phrase>
+    <source>ResStr_9_in_1</source>
+    <target>9合1</target>
+</phrase>
+<phrase>
+    <source>ResStr_16_in_1</source>
+    <target>16合1</target>
+</phrase>
+<phrase>
+    <source>ResStr_N_in_1</source>
+    <target>N合1</target>
+</phrase>
+<phrase>
+    <source>ResStr_1_in_2_2_</source>
+    <target>1合2*2</target>
+</phrase>
+<phrase>
+    <source>ResStr_1_in_3_3</source>
+    <target>1合3*3</target>
+</phrase>
+<phrase>
+    <source>ResStr_1_in_4_4_</source>
+    <target>1合4*4</target>
+</phrase>
+<phrase>
+    <source>ResStr_Reverse_Print</source>
+    <target>逆序打印</target>
+</phrase>
+<phrase>
+    <source>ResStr_2_sided</source>
+    <target>手动双面打印</target>
+</phrase>
+<phrase>
+    <source>ResStr_Flip_on_long_edge</source>
+    <target>长边翻页</target>
+</phrase>
+<phrase>
+    <source>ResStr_Flip_on_short_edge</source>
+    <target>短边翻页</target>
+</phrase>
+<phrase>
+    <source>ResStr_Toner_Save_Mode</source>
+    <target>省墨打印模式</target>
+</phrase>
+<phrase>
+    <source>ResStr_Advanced_settings</source>
+    <target>高级设置</target>
+</phrase>
+<phrase>
+    <source>ResStr_Default</source>
+    <target>默  认</target>
+</phrase>
+<phrase>
+    <source>ResStr_OK</source>
+    <target>确  定</target>
+</phrase>
+<phrase>
+    <source>ResStr_Back</source>
+    <target>返  回</target>
+</phrase>
+<phrase>
+    <source>ResStr_Custom_Paper_Size_Name</source>
+    <target>自定义纸张大小名称</target>
+</phrase>
+<phrase>
+    <source>ResStr_User_Defined_Size_01</source>
+    <target>自定义尺寸01</target>
+</phrase>
+<phrase>
+    <source>ResStr_Unit</source>
+    <target>单位：</target>
+</phrase>
+<phrase>
+    <source>ResStr_mm</source>
+    <target>毫米</target>
+</phrase>
+<phrase>
+    <source>ResStr_inch</source>
+    <target>英寸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Width</source>
+    <target>宽度</target>
+</phrase>
+<phrase>
+    <source>ResStr_Length</source>
+    <target>高度</target>
+</phrase>
+<phrase>
+    <source>ResStr_Save</source>
+    <target>保  存</target>
+</phrase>
+<phrase>
+    <source>ResStr_Delete</source>
+    <target>删  除</target>
+</phrase>
+<phrase>
+    <source>ResStr_Cancel</source>
+    <target>取  消</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copies_2</source>
+    <target>复印份数</target>
+</phrase>
+<phrase>
+    <source>ResStr_Density</source>
+    <target>浓度</target>
+</phrase>
+<phrase>
+    <source>ResStr_ID_Card_Copy</source>
+    <target>身份证复印</target>
+</phrase>
+<phrase>
+    <source>ResStr_Duplex_Copy</source>
+    <target>双面复印</target>
+</phrase>
+<phrase>
+    <source>ResStr_Document_Size</source>
+    <target>原稿尺寸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Output_Size</source>
+    <target>输出纸张尺寸</target>
+</phrase>
+<phrase>
+    <source>ResStr_B5</source>
+    <target>B5</target>
+</phrase>
+<phrase>
+    <source>ResStr_DPI</source>
+    <target>分辨率</target>
+</phrase>
+<phrase>
+    <source>ResStr_N_in_1_Copy</source>
+    <target>N合1复印</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanning_Mode</source>
+    <target>原稿类型</target>
+</phrase>
+<phrase>
+    <source>ResStr_Photo</source>
+    <target>照片</target>
+</phrase>
+<phrase>
+    <source>ResStr_Text</source>
+    <target>文本</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanned_image_size</source>
+    <target>待扫描图片大小：</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanning_2</source>
+    <target>扫描进度</target>
+</phrase>
+<phrase>
+    <source>ResStr_Document_Type</source>
+    <target>文档类型</target>
+</phrase>
+<phrase>
+    <source>ResStr_Photo_2</source>
+    <target>图片</target>
+</phrase>
+<phrase>
+    <source>ResStr_Text_and_Graph</source>
+    <target>图文</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Type</source>
+    <target>扫描类型</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Speed</source>
+    <target>快速</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Quality</source>
+    <target>高品质</target>
+</phrase>
+<phrase>
+    <source>ResStr_Color_Mode</source>
+    <target>色彩模式</target>
+</phrase>
+<phrase>
+    <source>ResStr_Color</source>
+    <target>彩色</target>
+</phrase>
+<phrase>
+    <source>ResStr_Grayscale</source>
+    <target>灰阶</target>
+</phrase>
+<phrase>
+    <source>ResStr_Black_White</source>
+    <target>黑白</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Size</source>
+    <target>扫描区域尺寸</target>
+</phrase>
+<phrase>
+    <source>ResStr_A4_210_297mm_</source>
+    <target>A4(210 x 297毫米)</target>
+</phrase>
+<phrase>
+    <source>ResStr_A5_148_x_210mm_</source>
+    <target>A5(148 x 210毫米)</target>
+</phrase>
+<phrase>
+    <source>ResStr_B5_182_x_257mm_</source>
+    <target>B5(182 x 257毫米)</target>
+</phrase>
+<phrase>
+    <source>ResStr_Letter_8_5_x_11</source>
+    <target>Letter(8.5 x 11&quot;)</target>
+</phrase>
+<phrase>
+    <source>ResStr_4_x_6_</source>
+    <target>4 x 6&quot;</target>
+</phrase>
+<phrase>
+    <source>ResStr_Contrast</source>
+    <target>对比度</target>
+</phrase>
+<phrase>
+    <source>ResStr_Brightness</source>
+    <target>亮度</target>
+</phrase>
+<phrase>
+    <source>ResStr_Printer_Wi_Fi</source>
+    <target>打印机Wi-Fi</target>
+</phrase>
+<phrase>
+    <source>ResStr_Soft_AP</source>
+    <target>打印机热点</target>
+</phrase>
+<phrase>
+    <source>ResStr_TCP_IP</source>
+    <target>打印机IP地址</target>
+</phrase>
+<phrase>
+    <source>ResStr_Power_Save</source>
+    <target>休眠时间</target>
+</phrase>
+<phrase>
+    <source>ResStr_User_Config</source>
+    <target>高级设置</target>
+</phrase>
+<phrase>
+    <source>ResStr_Modify_Password</source>
+    <target>管理员密码修改</target>
+</phrase>
+<phrase>
+    <source>ResStr_About</source>
+    <target>关于</target>
+</phrase>
+<phrase>
+    <source>ResStr_IP_Type</source>
+    <target>获取方式</target>
+</phrase>
+<phrase>
+    <source>ResStr_DHCP</source>
+    <target>自动获取</target>
+</phrase>
+<phrase>
+    <source>ResStr_Static</source>
+    <target>固定</target>
+</phrase>
+<phrase>
+    <source>ResStr_IP_Address</source>
+    <target>IP 地址</target>
+</phrase>
+<phrase>
+    <source>ResStr_Gateway</source>
+    <target>网    关</target>
+</phrase>
+<phrase>
+    <source>ResStr_Submask</source>
+    <target>子网掩码</target>
+</phrase>
+<phrase>
+    <source>ResStr_Apply</source>
+    <target>应  用</target>
+</phrase>
+<phrase>
+    <source>ResStr_WLAN_Network</source>
+    <target>WLAN网络</target>
+</phrase>
+<phrase>
+    <source>ResStr_Protected_by_WPA2</source>
+    <target>通过 WPA2 进行保护</target>
+</phrase>
+<phrase>
+    <source>ResStr_Protected_by_WEP</source>
+    <target>通过 WEP 进行保护</target>
+</phrase>
+<phrase>
+    <source>ResStr_Protected_by_Mixed_Mode_PSK</source>
+    <target>通过混合模式 PSK 进行保护</target>
+</phrase>
+<phrase>
+    <source>ResStr_Manual_Wi_Fi</source>
+    <target>加入其他网络</target>
+</phrase>
+<phrase>
+    <source>ResStr_Password_</source>
+    <target>密码：</target>
+</phrase>
+<phrase>
+    <source>ResStr_Password</source>
+    <target>密码</target>
+</phrase>
+<phrase>
+    <source>ResStr_Display_Password</source>
+    <target>显示密码</target>
+</phrase>
+<phrase>
+    <source>ResStr_WEP_KeyID</source>
+    <target>WEP KeyID</target>
+</phrase>
+<phrase>
+    <source>ResStr_SSID</source>
+    <target>网络标识</target>
+</phrase>
+<phrase>
+    <source>ResStr_SSID_</source>
+    <target>网络标识：</target>
+</phrase>
+<phrase>
+    <source>ResStr_Remember_the_network</source>
+    <target>记住该网络</target>
+</phrase>
+<phrase>
+    <source>ResStr_Encryption</source>
+    <target>加密方式</target>
+</phrase>
+<phrase>
+    <source>ResStr_Encryption_</source>
+    <target>加密方式：</target>
+</phrase>
+<phrase>
+    <source>ResStr_No_Security</source>
+    <target>无安全</target>
+</phrase>
+<phrase>
+    <source>ResStr_WEP</source>
+    <target>WEP</target>
+</phrase>
+<phrase>
+    <source>ResStr_WPA2_PSK_AES</source>
+    <target>WPA2-PSK-AES</target>
+</phrase>
+<phrase>
+    <source>ResStr_Mixed_Mode_PSK</source>
+    <target>混合模式 PSK</target>
+</phrase>
+<phrase>
+    <source>ResStr_Connect</source>
+    <target>连  接</target>
+</phrase>
+<phrase>
+    <source>ResStr_Find_and_join_the_Wi_Fi</source>
+    <target>查找并加入 Wi-Fi 网络</target>
+</phrase>
+<phrase>
+    <source>ResStr_Enter_SSID_and_security_type_</source>
+    <target>输入网络标识和安全类型</target>
+</phrase>
+<phrase>
+    <source>ResStr_Power_Save_Time</source>
+    <target>进入休眠时间</target>
+</phrase>
+<phrase>
+    <source>ResStr_1_30_Minute</source>
+    <target>（1-30分钟）</target>
+</phrase>
+<phrase>
+    <source>ResStr_SSID_2</source>
+    <target>网络标识</target>
+</phrase>
+<phrase>
+    <source>ResStr_Enable</source>
+    <target>使用</target>
+</phrase>
+<phrase>
+    <source>ResStr_Leading_Edge_Registration</source>
+    <target>顶端偏移量（毫米）</target>
+</phrase>
+<phrase>
+    <source>ResStr_Side_to_side_Registration</source>
+    <target>左端偏移量（毫米）</target>
+</phrase>
+<phrase>
+    <source>ResStr_Image_Density</source>
+    <target>画像浓度</target>
+</phrase>
+<phrase>
+    <source>ResStr_Low_Hunidity_Mode</source>
+    <target>低湿度模式</target>
+</phrase>
+<phrase>
+    <source>ResStr_Setting_of_Plate_Control_Mode</source>
+    <target>防止背面脏污模式</target>
+</phrase>
+<phrase>
+    <source>ResStr_Primary_Cooling_Mode</source>
+    <target>强制降温模式</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fuser_Error_Remove</source>
+    <target>解除定影单元错误</target>
+</phrase>
+<phrase>
+    <source>ResStr_New_Password</source>
+    <target>新密码</target>
+</phrase>
+<phrase>
+    <source>ResStr_Confirm_Password</source>
+    <target>确认密码</target>
+</phrase>
+<phrase>
+    <source>ResStr_Identity_Authentication</source>
+    <target>管理员权限认证</target>
+</phrase>
+<phrase>
+    <source>ResStr_Login</source>
+    <target>登  录</target>
+</phrase>
+<phrase>
+    <source>ResStr_Login_</source>
+    <target>登录</target>
+</phrase>
+<phrase>
+    <source>ResStr_Supplies_Purchasing_Channels</source>
+    <target>耗材购买渠道</target>
+</phrase>
+<phrase>
+    <source>ResStr_Printer_Upgrade_Method</source>
+    <target>打印机升级方式</target>
+</phrase>
+<phrase>
+    <source>ResStr_Printworks_Promotion</source>
+    <target>打印工场推广</target>
+</phrase>
+<phrase>
+    <source>ResStr_Version_Copyright</source>
+    <target>版本和版权</target>
+</phrase>
+<phrase>
+    <source>ResStr_Printer_DriverVersion_____</source>
+    <target>Printer Driver
+Version ****</target>
+</phrase>
+<phrase>
+    <source>ResStr_This_file_is_not_supported__please_select_another_one_</source>
+    <target>暂不支持该文件的打印，请重新选择。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_1_99__please_confirm_and_enter_again_</source>
+    <target>有效值输入范围为1到99，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_25_400__please_confirm_and_enter_again_</source>
+    <target>有效值输入范围为25%到400%，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_scanned_images_will_be_deleted_after_closing_the_VOP__Are_you_sure_to_close_the_VOP_</source>
+    <target>应用关闭后，扫描图片将会被删除，是否关闭，请确认？</target>
+</phrase>
+<phrase>
+    <source>ResStr_Operation_cannot_be_carried_out_due_to_insufficient_memory_or_hard_disk_space_Please_try_again_after_freeing_memory_or_hard_disk_space_</source>
+    <target>该操作所需内存或者磁盘空间不足，请重新选择文件或释放内存后再试。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_0_100__please_confirm_and_enter_again_</source>
+    <target>有效值输入范围为0到100，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanning_image_has_been_changed__please_confirm_whether_save_it_or_not_</source>
+    <target>扫描图片已被更改，是否保存，请确认？</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_entered_IP_address__is_wrong__please_confirm_and_enter_again_</source>
+    <target>IP地址输入有误，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_entered_Gateway_is_wrong__please_confirm_and_enter_again_</source>
+    <target>网关输入有误，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_subnet_mask_input_error__please_input_again_after_confirmation</source>
+    <target>子网掩码输入有误，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_1_30__please_confirm_and_enter_again_</source>
+    <target>有效值输入范围为1到30，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_from__6_to_6__please_confirm_and_enter_again_</source>
+    <target>有效值输入范围为-6到6，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_from__2_to_2__please_confirm_and_enter_again_</source>
+    <target>有效值输入范围为-2到2，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_from__3_to_3__please_confirm_and_enter_again_</source>
+    <target>有效值输入范围为-3到3，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_valid_range_is_0_1__please_confirm_and_enter_again_</source>
+    <target>有效值输入范围为0到1，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Please_boot_the_machine_after_more_than_30_minutes_to_protect_the_machine_</source>
+    <target>请关闭机器30分钟以上再开机，以免损坏机器。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_new_password_can_not_be_empty_</source>
+    <target>新密码不能为空。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_passwords_you_entered__are_different__please_try_again_</source>
+    <target>输入密码不一致，请重新输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Authentication_error__please_enter_the_password_again_</source>
+    <target>认证错误，请重新输入密码。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_agent_information_hasn_t_updated_for_____months__please_update_online_</source>
+    <target>经销商信息已经{0}个月未更新，为保证信息的准确性，请在线更新。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_service_station_information_hasn_t_updated_for_____months__please_update_online_</source>
+    <target>维修网点信息已经{0}个月未更新，为保证信息的准确性，请在线更新。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_combination_of_IP_address_and_subnet_mask_is_invalid__All_of_the_bits_in_the_host_address_portion_of_the_IP_address_are_set_to_1__Please_enter_a_valid_combination_of_IP_address_and_subnet_mask_</source>
+    <target>IP地址和子网掩码组合无效。已将IP地址的主机地址部分的所有位都设为1。请输入一个有效的IP地址和子网掩码组合。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_combination_of_IP_address_and_subnet_mask_is_invalid__All_of_the_bits_in_the_host_address_portion_of_the_IP_address_are_set_to_0__Please_enter_a_valid_combination_of_IP_address_and_subnet_mask_</source>
+    <target>IP地址和子网掩码组合无效。已将IP地址的主机地址部分的所有位都设为0。请输入一个有效的IP地址和子网掩码组合。</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_machine_is_busy__please_try_later_</source>
+    <target>机器正在工作中，请稍后再试。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Please_fix_error_first_and_try_later_</source>
+    <target>请解决故障后再试一次！</target>
+</phrase>
+<phrase>
+    <source>ResStr_Setting_Successfully_</source>
+    <target>设定成功</target>
+</phrase>
+<phrase>
+    <source>ResStr_Setting_Fail</source>
+    <target>设定失败</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Fail</source>
+    <target>扫描失败</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print_Fail</source>
+    <target>打印失败</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copy_Fail</source>
+    <target>复印失败</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_1</source>
+    <target>设定成功，机器重启后生效。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_2</source>
+    <target>密码必须是5/13个ASCII字符或者10/26个十六进制字符，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_3</source>
+    <target>密码必须是8到63个ASCII字符或者64个十六进制字符，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_4</source>
+    <target>输入手机号</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_5</source>
+    <target>验证码发送成功。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_6</source>
+    <target>验证码发送失败。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_7</source>
+    <target>手机号码错误，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_8</source>
+    <target>验证码错误，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_9</source>
+    <target>网络名称必须是1到32个字符，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Msg_10</source>
+    <target>网络名称必须是1到32个字符，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Exit</source>
+    <target>退出</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print_Preview</source>
+    <target>打印预览</target>
+</phrase>
+<phrase>
+    <source>ResStr_Certificate_Edit</source>
+    <target>证件编辑</target>
+</phrase>
+<phrase>
+    <source>ResStr_Unable_to_preview</source>
+    <target>暂时无法浏览</target>
+</phrase>
+<phrase>
+    <source>ResStr_Memory_Alloc_Fail</source>
+    <target>打印文件内存分配失败！</target>
+</phrase>
+<phrase>
+    <source>ResStr_User_Defined_Settings</source>
+    <target>用户自定义设置</target>
+</phrase>
+<phrase>
+    <source>ResStr_Login_Register</source>
+    <target>登录/注册</target>
+</phrase>
+<phrase>
+    <source>ResStr_insufficient_system_disk_space</source>
+    <target>系统盘空间不足，请清理后再试。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Yes</source>
+    <target>是</target>
+</phrase>
+<phrase>
+    <source>ResStr_No</source>
+    <target>否</target>
+</phrase>
+<phrase>
+    <source>ResStr_Border_Color</source>
+    <target>边框颜色</target>
+</phrase>
+<phrase>
+    <source>ResStr_Preview</source>
+    <target>预览</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_paper_jam_occurred_please_follow_the_instructions_</source>
+    <target>打印机卡纸，请按照提示操作！</target>
+</phrase>
+<phrase>
+    <source>ResStr_Operation_can_not_be_carried_out_due_to_machine_malfunction_</source>
+    <target>机器故障，操作无法进行。</target>
+</phrase>
+<phrase>
+    <source>ResStr_can_not_be_carried_out_due_to_software_has_error__please_try__again_after_reinstall_the_Driver_and_Virtual_Operation_Panel_</source>
+    <target>软件出现问题，操作无法进行，请重新安装驱动和虚拟操作面板软件后再试。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Warning_Custom_Exceed</source>
+    <target>最多可注册20种类型的用户自定义纸张大小。如果你想注册更多的用户自定义纸张类型，首先要删除原有的类型。</target>
+</phrase>
+<phrase>
+    <source>ResStr_ExtraAdd_Print</source>
+    <target>打印</target>
+</phrase>
+<phrase>
+    <source>ResStr_ExtraAdd_Copy</source>
+    <target>复印</target>
+</phrase>
+<phrase>
+    <source>ResStr_ExtraAdd_Scan</source>
+    <target>扫描</target>
+</phrase>
+<phrase>
+    <source>ResStr_Close</source>
+    <target>关闭</target>
+</phrase>
+<phrase>
+    <source>ResStr_Open</source>
+    <target>开启</target>
+</phrase>
+<phrase>
+    <source>ResStr_Unsupported</source>
+    <target>功能不支持</target>
+</phrase>
+<phrase>
+    <source>ResStr_PDL_Memory_Overflow</source>
+    <target>PDL內存溢出! 按电源键清除此错误。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Invalid_verification_code_Please_check_and_enter_again</source>
+    <target>验证码错误，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Tag1</source>
+    <target>联想图像打印</target>
+</phrase>
+<phrase>
+    <source>ResStr_Tag2</source>
+    <target>全新互联网打印机</target>
+</phrase>
+<phrase>
+    <source>ResStr_Tag3</source>
+    <target>打印 从此不同</target>
+</phrase>
+<phrase>
+    <source>ResStr_USB_connection_troubleshooting</source>
+    <target>USB连接故障排除</target>
+</phrase>
+<phrase>
+    <source>ResStr_WiFi_connection_troubleshooting</source>
+    <target>Wi-Fi连接故障排除</target>
+</phrase>
+<phrase>
+    <source>ResStr_Return</source>
+    <target>返回</target>
+</phrase>
+<phrase>
+    <source>ResStr_Prompt</source>
+    <target>提示</target>
+</phrase>
+<phrase>
+    <source>ResStr_Do_you_want_to_exit_the_Lenovo_Printer</source>
+    <target>是否退出联想图像打印？</target>
+</phrase>
+<phrase>
+    <source>ResStr_Member_Center</source>
+    <target>会员中心</target>
+</phrase>
+<phrase>
+    <source>ResStr_Account</source>
+    <target>账户名</target>
+</phrase>
+<phrase>
+    <source>ResStr_Change_Account_Information</source>
+    <target>修改账户信息</target>
+</phrase>
+<phrase>
+    <source>ResStr_Buy_consumables</source>
+    <target>耗材购买</target>
+</phrase>
+<phrase>
+    <source>ResStr_Check_consumables_points</source>
+    <target>耗材积分查询</target>
+</phrase>
+<phrase>
+    <source>ResStr_Nearest_service_station</source>
+    <target>服务站</target>
+</phrase>
+<phrase>
+    <source>ResStr_Download_printer_firmware</source>
+    <target>打印机软件下载</target>
+</phrase>
+<phrase>
+    <source>ResStr_Profile_picture</source>
+    <target>头像</target>
+</phrase>
+<phrase>
+    <source>ResStr_Full_name</source>
+    <target>姓名</target>
+</phrase>
+<phrase>
+    <source>ResStr_Birthday</source>
+    <target>生日</target>
+</phrase>
+<phrase>
+    <source>ResStr_Sex</source>
+    <target>性别</target>
+</phrase>
+<phrase>
+    <source>ResStr_Email</source>
+    <target>邮箱</target>
+</phrase>
+<phrase>
+    <source>ResStr_Address</source>
+    <target>地址</target>
+</phrase>
+<phrase>
+    <source>ResStr_Mobile_number</source>
+    <target>手机号</target>
+</phrase>
+<phrase>
+    <source>ResStr_Express_Login_using_mobile_number</source>
+    <target>使用手机号码快速登录</target>
+</phrase>
+<phrase>
+    <source>ResStr_Verification_Code</source>
+    <target>验证码</target>
+</phrase>
+<phrase>
+    <source>ResStr_Get_Verification_Code</source>
+    <target>获取验证码</target>
+</phrase>
+<phrase>
+    <source>ResStr_Password_Tip</source>
+    <target>本设备出厂默认密码为“888888”，为保证设备安全，请及时修改密码。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Are_you_sure_to_delete_the_selected_picture</source>
+    <target>确认是否删除选中图片？</target>
+</phrase>
+<phrase>
+    <source>ResStr_Connected</source>
+    <target>已连接</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_maximum_password_length_is_32_characters_Please_check_you_password_and_enter_again</source>
+    <target>密码长度最高为32位，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Please_turn_off_the_printer_until_it_cools_to_room_temperature</source>
+    <target>请关闭打印机，直到打印机冷却到室温后再开启打印机。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Waiting</source>
+    <target>请稍后（{0}秒）</target>
+</phrase>
+<phrase>
+    <source>ResStr_Lenovo_Printer</source>
+    <target>联想图像打印</target>
+</phrase>
+<phrase>
+    <source>ResStr_Front</source>
+    <target>正面</target>
+</phrase>
+<phrase>
+    <source>ResStr_Back_2</source>
+    <target>反面</target>
+</phrase>
+<phrase>
+    <source>ResStr_Tips_for_Copying</source>
+    <target>复印操作提示</target>
+</phrase>
+<phrase>
+    <source>ResStr_Email_Format_Error</source>
+    <target>邮件地址格式不正确，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Modify_UserInfo_Fail</source>
+    <target>修改账户信息失败。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Year</source>
+    <target>年</target>
+</phrase>
+<phrase>
+    <source>ResStr_Month</source>
+    <target>月</target>
+</phrase>
+<phrase>
+    <source>ResStr_Day</source>
+    <target>日</target>
+</phrase>
+<phrase>
+    <source>ResStr_Man</source>
+    <target>男</target>
+</phrase>
+<phrase>
+    <source>ResStr_Women</source>
+    <target>女</target>
+</phrase>
+<phrase>
+    <source>ResStr_picture_file_occupied</source>
+    <target>图片文件被占用， 暂时无法执行此操作。</target>
+</phrase>
+<phrase>
+    <source>ResStr_USB_write_failed_during_scan_job_cancelling</source>
+    <target>扫描过程中通过USB传输的数据写入失败，扫描任务取消。</target>
+</phrase>
+<phrase>
+    <source>ResStr_NET_write_failed_during_scan_job_cancelling</source>
+    <target>扫描过程中通过网络传输的数据写入失败，扫描任务取消。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Out_of_Paper</source>
+    <target>缺纸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Jam_front</source>
+    <target>前端卡纸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Jam_whole</source>
+    <target>整张卡纸</target>
+</phrase>
+<phrase>
+    <source>ResStr_Jam_back</source>
+    <target>后端卡纸</target>
+</phrase>
+<phrase>
+    <source>ResStr_On</source>
+    <target>开</target>
+</phrase>
+<phrase>
+    <source>ResStr_Off</source>
+    <target>关</target>
+</phrase>
+<phrase>
+    <source>ResStr_Prompt1</source>
+    <target>温馨提示：</target>
+</phrase>
+<phrase>
+    <source>ResStr_Prompt2</source>
+    <target>如果1分钟之内不进行操作，任务将会自动取消。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Prompt_Box_will_not_pop_up_next_time</source>
+    <target>下次不再弹出该提示框</target>
+</phrase>
+<phrase>
+    <source>ResStr_Image_file_not_found</source>
+    <target>图片文件丢失。</target>
+</phrase>
+<phrase>
+    <source>ResStr_AndPlus_Format_Error</source>
+    <target>输入不能包含字符 &apos;&amp;&apos; 和 &apos;+&apos;，请检查并重新输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_User_Experience</source>
+    <target>用户体验改善计划</target>
+</phrase>
+<phrase>
+    <source>ResStr_Help_us_improve</source>
+    <target>帮助我们为您提供更好的服务</target>
+</phrase>
+<phrase>
+    <source>ResStr_In_order_to_deliver_improved</source>
+    <target>为了帮助我们持续提供更好版本的“联想图像打印”和更好的用户服务，Lenovo Image希望定期收集用户数据，如注册会员手机号、打印文件类型与频率、打印机型号及相关信息、手持设备位置与标识、PC标识等。</target>
+</phrase>
+<phrase>
+    <source>ResStr_I_have_read_and_agree</source>
+    <target>我已阅读并同意Lenovo Image在线隐私声明，并允许自动数据收集</target>
+</phrase>
+<phrase>
+    <source>ResStr_Lenovo_Online_Privacy_Statement</source>
+    <target>Lenovo Image在线隐私声明</target>
+</phrase>
+<phrase>
+    <source>ResStr_Next</source>
+    <target>下一步</target>
+</phrase>
+<phrase>
+    <source>ResStr_Select_photo_of_the_reverse_side</source>
+    <target>选择反面照片</target>
+</phrase>
+<phrase>
+    <source>ResStr_OK_2</source>
+    <target>确  认</target>
+</phrase>
+<phrase>
+    <source>ResStr_TCP_IPv4</source>
+    <target>打印机IPv4地址</target>
+</phrase>
+<phrase>
+    <source>ResStr_TCP_IPv6</source>
+    <target>打印机IPv6地址</target>
+</phrase>
+<phrase>
+    <source>ResStr_Status</source>
+    <target>状态</target>
+</phrase>
+<phrase>
+    <source>ResStr_Obtain_address_from_DHCP</source>
+    <target>获取自动分配地址</target>
+</phrase>
+<phrase>
+    <source>ResStr_Use_Manual_Address</source>
+    <target>使用手动输入地址</target>
+</phrase>
+<phrase>
+    <source>ResStr_Manual_Address</source>
+    <target>手动输入地址</target>
+</phrase>
+<phrase>
+    <source>ResStr_Manual_Gateway_Address</source>
+    <target>手动输入网关</target>
+</phrase>
+<phrase>
+    <source>ResStr_Stateless_Address_1</source>
+    <target>无状态地址 1</target>
+</phrase>
+<phrase>
+    <source>ResStr_Stateless_Address_2</source>
+    <target>无状态地址 2</target>
+</phrase>
+<phrase>
+    <source>ResStr_Stateless_Address_3</source>
+    <target>无状态地址 3</target>
+</phrase>
+<phrase>
+    <source>ResStr_Auto_Statefull_Address</source>
+    <target>自动状态化地址</target>
+</phrase>
+<phrase>
+    <source>ResStr_Link_Local_Address</source>
+    <target>链接本地地址</target>
+</phrase>
+<phrase>
+    <source>ResStr_Auto_Configure_Gateway_Address</source>
+    <target>自动配置网关</target>
+</phrase>
+<phrase>
+    <source>ResStr_Dns_Type</source>
+    <target>DNS获取方式</target>
+</phrase>
+<phrase>
+    <source>ResStr_The_entered_DNS_is_wrong__please_confirm_and_enter_again_</source>
+    <target>域名输入有误，请确认后再次输入。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Manual_DNS</source>
+    <target>手动</target>
+</phrase>
+<phrase>
+    <source>ResStr_Auto_DNS</source>
+    <target>自动</target>
+</phrase>
+<phrase>
+    <source>ResStr_DNS</source>
+    <target>域名服务器</target>
+</phrase>
+<phrase>
+    <source>ResStr_Reset_OPC</source>
+    <target>复位感光鼓</target>
+</phrase>
+<phrase>
+    <source>ResStr_Reset_Toner_Cartridge</source>
+    <target>复位墨粉盒</target>
+</phrase>
+<phrase>
+    <source>ResStr_OPC_Near_End</source>
+    <target>感光鼓寿命将尽</target>
+</phrase>
+<phrase>
+    <source>ResStr_OPC_End_ABC_Plus</source>
+    <target>感光鼓寿命已尽
+请更换新的感光鼓，然后点击“联想图像打印”软件中高级设置的“复位感光鼓”按钮。</target>
+</phrase>
+<phrase>
+    <source>ResStr_OPC_End_ABC</source>
+    <target>OPC寿命已尽
+请更换新的鼓粉盒。</target>
+</phrase>
+<phrase>
+    <source>ResStr_This_operation_will_reset_the_toner</source>
+    <target>本操作将会重置墨粉余量为100%，请确认更换新的墨粉盒后再执行本操作。是否继续？</target>
+</phrase>
+<phrase>
+    <source>ResStr_This_operation_will_reset_the_drum</source>
+    <target>本操作将会重置感光鼓状态，请确认更换新的感光鼓后再执行本操作。是否继续？</target>
+</phrase>
+<phrase>
+    <source>ResStr_Product_Support</source>
+    <target>产品与支持</target>
+</phrase>
+<phrase>
+    <source>ResStr_Polygon_Motor_on_timeout_error</source>
+    <target>多面镜马达启动超时</target>
+</phrase>
+<phrase>
+    <source>ResStr_Polygon_Motor_off_timeout_error</source>
+    <target>多面镜马达停止超时</target>
+</phrase>
+<phrase>
+    <source>ResStr_Polygon_Motor_lock_signal_error</source>
+    <target>未获取多面镜马达稳定运行信号</target>
+</phrase>
+<phrase>
+    <source>ResStr_Beam_synchronize_error</source>
+    <target>LD同步信号错误</target>
+</phrase>
+<phrase>
+    <source>ResStr_Bias_leak</source>
+    <target>高压电源单元故障</target>
+</phrase>
+<phrase>
+    <source>ResStr_plate_action_error</source>
+    <target>底板动作异常</target>
+</phrase>
+<phrase>
+    <source>ResStr_Main_Motor_error</source>
+    <target>主马达故障</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fan_Motor_error</source>
+    <target>风扇故障</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fuser_thermistor_error</source>
+    <target>定影单元温度传感器故障</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fuser_reload_error</source>
+    <target>定影单元升温检测异常</target>
+</phrase>
+<phrase>
+    <source>ResStr_High_temperature_soft_check_error</source>
+    <target>定影单元高温软件检测异常</target>
+</phrase>
+<phrase>
+    <source>ResStr_High_temperature_hard_check_error</source>
+    <target>定影单元高温硬件检测异常</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fuser_full_heater_error</source>
+    <target>定影单元连续点灯故障</target>
+</phrase>
+<phrase>
+    <source>ResStr_Fuser_3times_jam_error</source>
+    <target>定影单元连续发生3次卡纸故障</target>
+</phrase>
+<phrase>
+    <source>ResStr_Low_voltage_fuser_reload_error</source>
+    <target>低电压状态时启动温度异常</target>
+</phrase>
+<phrase>
+    <source>ResStr_Machine_thermistor_error</source>
+    <target>机内温度异常</target>
+</phrase>
+<phrase>
+    <source>ResStr_Print_request_signal_doesnt_come</source>
+    <target>PRREQ信号异常</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scanner_not_found_home_position</source>
+    <target>扫描单元未找到初始位置</target>
+</phrase>
+<phrase>
+    <source>ResStr_Scan_Calibration_Error</source>
+    <target>扫描单元马达故障</target>
+</phrase>
+<phrase>
+    <source>ResStr_Wireless_Dongle_Config_Fail</source>
+    <target>无线模块配置失败</target>
+</phrase>
+<phrase>
+    <source>ResStr_DMA_Error</source>
+    <target>DMA错误</target>
+</phrase>
+<phrase>
+    <source>ResStr_A4Mode_1</source>
+    <target>A4模式1</target>
+</phrase>
+<phrase>
+    <source>ResStr_A4Mode_2</source>
+    <target>A4模式2</target>
+</phrase>
+<phrase>
+    <source>ResStr_A4Mode_3</source>
+    <target>A4模式3</target>
+</phrase>
+<phrase>
+    <source>ResStr_A5Mode</source>
+    <target>A5模式</target>
+</phrase>
+<phrase>
+    <source>ResStr_Credentials_Duplex_Copy_Mode</source>
+    <target>身份证复印模式</target>
+</phrase>
+<phrase>
+    <source>ResStr_Duplex_Copy_Mode</source>
+    <target>双面复印模式</target>
+</phrase>
+<phrase>
+    <source>ResStr_Copyright</source>
+    <target>版权所有(C)(2019)
+联想图像(天津)科技有限公司。
+保留所有权利。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam_Duplex_Entry_Sensor</source>
+    <target>双面入口处卡纸
+请打开并关闭上盖，尝试自动排纸。
+如果自动排纸失败，请打开上盖，取出耗材，取出卡住的纸张。关闭上盖后将自动继续打印。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Paper_Jam_Duplex_Nofeed</source>
+    <target>双面单元卡纸
+请打开并关闭上盖，尝试自动排纸。
+如果自动排纸失败，请先打开上盖，抽出纸盒，打开双面单元盖板，取出卡住的纸张；关闭双面单元盖板，放入纸盒，关闭上盖后将自动继续打印。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Touch_Panel_Error</source>
+    <target>触摸屏故障</target>
+</phrase>
+<phrase>
+    <source>ResStr_Offline_usb</source>
+    <target>无法获取打印机状态。
+请确认打印机是否开机；是否和电脑用USB线连接。</target>
+</phrase>
+<phrase>
+    <source>ResStr_Offline_net</source>
+    <target>无法获取打印机状态。
+请确认打印机是否开机；是否和电脑在同一个网络。</target>
+</phrase>
+<phrase>
+    <source>ResStr_AppName</source>
+    <target>状态监视器</target>
+</phrase>
+</QPH>
