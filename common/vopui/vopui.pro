@@ -8,7 +8,8 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
-TARGET = lntgr2zvop
+include("../pro.pri")
+TARGET = $${TARGET_vop}
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,7 +26,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
     DEFINES += NEZHA_SFP=1
 
 #include("../jklib/jklib.pri")
-include("../cpath/cpath.pri")
+include("vopui.pri")
+SOURCES += \
+    uiconfig.cpp
+
+HEADERS += \
+    uiconfig.h
 
 SOURCES += \
         main.cpp \

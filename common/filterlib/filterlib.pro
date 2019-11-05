@@ -6,7 +6,8 @@
 
 QT       -= core gui
 
-TARGET = lntgr2z
+include("../pro.pri")
+TARGET = $${TARGET_filterlib}
 TEMPLATE = lib
 
 CONFIG += shared
@@ -33,13 +34,13 @@ include("../jkinterface/jkinterface.pri")
 #}
 
 SOURCES += \
-    $${PWD}/filterlib.cpp \
+    filterlib.cpp \
     filtermanager.cpp
 
 
 HEADERS += \
-    $${PWD}/filterlib.h \
-    $${PWD}/filterlibconfig.h \
+    filterlib.h \
+    filterlibconfig.h \
     filtermanager.h
 
 

@@ -1,11 +1,12 @@
-QT += core gui
+QT += core
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
 #CONFIG += c++11 console
-CONFIG -= app_bundle
+CONFIG -= app_bundle gui
 
-TARGET = lntgr2zsm
+include("../pro.pri")
+TARGET = $${TARGET_filtertrans}
 
 include("../jkinterface/jkinterface.pri")
 include(../common/common.pri)

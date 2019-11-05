@@ -8,7 +8,8 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = lntgr2zsmui
+include("../pro.pri")
+TARGET = $${TARGET_stmui}
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -27,13 +28,18 @@ include("../statusmonitor/statusmonitor.pri")
 include(../common/common.pri)
 include(../lshell/lshell.pri)
 include(jklib/jklib.pri)
+SOURCES += \
+    uiconfig.cpp
+
+HEADERS += \
+    uiconfig.h
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
 
 FORMS += \
         mainwindow.ui
