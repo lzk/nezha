@@ -50,6 +50,33 @@ NetIO::~NetIO()
         delete tcpSocket;
 }
 
+QString NetIO::resolve_uri(const char* url)
+{
+    QString str_url(url);
+    QUrl real_url;
+    if(str_url.startsWith("dnssd://")){
+        char uri[256];
+        cups_resolve_uri(url ,uri ,sizeof(uri));
+        real_url = QUrl(uri);
+    }
+    if(real_url.isEmpty() || real_url.host().isEmpty())
+        real_url = QUrl(url);
+    QString host = real_url.host();//resolve_uri(url);
+//    LOGLOG("net io rosolve printer uri:%s" ,_url);
+//    LOGLOG("net io rosolved printer uri:%s" ,url.host().toLatin1().constData());
+    if(host.isEmpty())
+        return QString();
+    QHostAddress hostAddress = get_ip_address(host);
+
+    QString resolved_url;
+    if(hostAddress.protocol() == QAbstractSocket::IPv6Protocol){
+        resolved_url = QString("[") + hostAddress.toString() +"]";
+    }else{
+        resolved_url = hostAddress.toString();
+    }
+    return resolved_url;
+}
+
 int NetIO::resolveUrl(const char* url)
 {
     if(!url)

@@ -10,6 +10,8 @@ public:
     NetIO();
     ~NetIO();
 
+    static QString resolve_uri(const char* url);
+
     virtual int type();
     virtual int close(void);
     virtual int write(char *buffer, int bufsize);

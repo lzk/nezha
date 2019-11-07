@@ -34,6 +34,7 @@ int FileLocker::lock(const char* filename)
         }
 //        LOGLOG("pid %d file %s locked" ,getpid() ,filename);
     }else{
+        LOGLOG("can not open locked file:%s" ,filename);
     }
     return ret;
 }
@@ -60,6 +61,8 @@ int FileLocker::trylock(const char* filename)
         }else{
 //            LOGLOG("%s locked %d" ,filename ,++aaa);
         }
+    }else{
+        LOGLOG("can not open locked file:%s" ,filename);
     }
     return ret;
 }
@@ -78,9 +81,9 @@ int FileLocker::unlock()
         fp = NULL;
 //        LOGLOG("pid %d unlocked" ,getpid());
         if(ret){
-            LOGLOG("unlock fail,remove it!");
-            remove(lock_file);
+            LOGLOG("unlock fail!");
         }
+        remove(lock_file);
 //        LOGLOG("%s unlocked %d" ,lock_file ,aaa);
     }
     return 0;

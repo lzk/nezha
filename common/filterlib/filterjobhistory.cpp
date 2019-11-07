@@ -46,7 +46,7 @@ static void callback_getJob(void* para,Job_struct* js)
 
     sprintf(job_history ,"%d/\\%s/\\%s/\\%s/\\%s/\\%d/\\%d"
 //            ,js->id ,js->printer ,hostname,js->user_name  ,js->name
-            ,js->id ,js->printer ,hostname,job->username  ,job->filename
+            ,js->id ,job->printername ,hostname,job->username  ,job->filename
              ,(js->copies < 1) ?1 :js->copies
              ,job->status
 //            ,job->is_finger_enable,job->is_finger_checked//是，成功

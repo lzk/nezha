@@ -43,7 +43,7 @@ static int handlerData(netsnmp_pdu *pdu, void *magic)
         for(vars = pdu->variables; vars; vars = vars->next_variable){
             if((ASN_OCTET_STR == vars->type) && (bufsize >= (int)vars->val_len)){
                 memcpy(buffer ,vars->val.string ,vars->val_len);
-                *ret_var = 0;
+                *ret_var = vars->val_len;
             }
         }
     }
@@ -157,7 +157,7 @@ int snmp_handler(netsnmp_session& session ,void* magic)
                 switch (count) {
                 case 0:
                     snmp_timeout();
-                    LOGLOG("snmp:time out");
+//                    LOGLOG("snmp:time out");
                     break;
                 case -1:
 //                    if(errno == EINTR)
@@ -213,7 +213,8 @@ static int snmp_get_oid(char* ip ,char* buffer ,int bufsize ,const oid* oidname 
 
 int snmp_get_deviceid(char* ip ,char* buffer ,int bufsize)
 {
-    return snmp_get_oid(ip ,buffer ,bufsize ,oid_status ,sizeof(oid_status)/sizeof(oid_status[0]));
+    int ret = snmp_get_oid(ip ,buffer ,bufsize ,oid_status ,sizeof(oid_status)/sizeof(oid_status[0]));
+    return ret < 0 ?-1 :0;
 }
 
 //sometimes can not time out.
