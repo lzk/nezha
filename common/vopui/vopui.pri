@@ -9,7 +9,7 @@ LIBS += \
     -L$${PWD}/../libs \
     -lusb-1.0 \
     -lcups \
-#    -llntgr1zcl \
+#    -llntgr2zcl \
 
 !contains(CONFIG ,static){
 LIBS += \

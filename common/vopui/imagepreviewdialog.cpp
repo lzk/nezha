@@ -25,7 +25,7 @@ ImagePreviewDialog::ImagePreviewDialog(QListWidgetItem* _item ,ImageHandler* han
             ,image_handler ,SLOT(image_answer_then_send(QObject*,QListWidgetItem*,QSize,int,int)));
 
     ui->scrollArea->installEventFilter(this);
-    this->setWindowIcon(QIcon(":/Images/printer.ico"));
+    this->setWindowIcon(QIcon(":/Images/logo.png"));
 }
 
 void ImagePreviewDialog::image_update(QObject *obj, const QImage &_image ,int flag ,int _weight)

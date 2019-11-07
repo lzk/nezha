@@ -225,8 +225,7 @@ int ImageTrans::process(ImageTransInfo* info)
 
     int target_lines = info->lines * 10 / info->source_lines_per_10_lines;
     target_size = target_lines * info->target_line_buf_size;
-//#if JERRY
-#ifndef NEZHA_SFP
+#if JERRY
     info->real_line = 0;
 //    char* buf1 ,*buf2;
 //    buf1 = jerry_buffer;

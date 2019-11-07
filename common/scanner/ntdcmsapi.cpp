@@ -59,6 +59,22 @@ NtdcmsApi::NtdcmsApi()
     memset(&m_ntdColor , 0 ,sizeof(m_ntdColor));
 }
 
+#if NEZHA_SFP
+int NtdcmsApi::caculate_parameter(ImageTransInfo* info)
+{
+    return 0;
+}
+
+int NtdcmsApi::process(unsigned char* target ,unsigned char* source ,int band_size ,int line_index)
+{
+    return 0;
+}
+
+int NtdcmsApi::endjob()
+{
+    return 0;
+}
+#else
 int NtdcmsApi::caculate_parameter(ImageTransInfo* info)
 {
     int ret = 0;
@@ -219,3 +235,4 @@ int NtdcmsApi::endjob()
     m_nJobNum = -1;
     return 0;
 }
+#endif

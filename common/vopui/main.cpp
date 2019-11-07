@@ -155,7 +155,7 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     w.setGeometry(splash->geometry());
-    w.setWindowIcon(QIcon(":/Images/printer.ico"));
+    w.setWindowIcon(QIcon(":/Images/logo.png"));
 
 //    QTranslator trans1;
 //    trans1.load("qt_" + QLocale::system().name() ,":/translations");

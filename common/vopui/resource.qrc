@@ -195,7 +195,5 @@
         <file>Images/Video_cpath/SimplifiedChinese/06_NIn1_cpath_zh.gif</file>
         <file>Images/Video_cpath/SimplifiedChinese/07_DuplexCopy_cpath_zh.gif</file>
         <file>Images/Video_cpath/SimplifiedChinese/08_AutoRecover_cpath_zh.gif</file>
-        <file>Images/printer.ico</file>
-        <file>Images/printerGray.ico</file>
     </qresource>
 </RCC>
