@@ -4,6 +4,7 @@
 //#include "appserver.h"
 #include <QFile>
 #include <QDir>
+#include <sys/stat.h>
 
 bool testmode = false;
 //const QString app_name = QString::fromUtf8("打印机状态监视器");
@@ -168,7 +169,7 @@ int UIConfig::initConfig()
         path->remove(TMP_SCAN_DIR);
     }
     path->mkdir(TMP_SCAN_DIR);
-
+    chmod(TMP_SCAN_DIR ,ACCESSPERMS);
 //    app_server = new AppServer(DOMAIN_UIEXE);
     return 0;
 }
