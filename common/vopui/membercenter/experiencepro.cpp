@@ -16,7 +16,7 @@ ExperiencePro::ExperiencePro(QWidget *parent, bool bCRM) :
     m_bCRM = bCRM;
 
     ui->checkBox->setChecked(m_bCRM);
-    this->setWindowIcon(QIcon(":/Images/printer.ico"));
+    this->setWindowIcon(QIcon(":/Images/logo.png"));
 }
 
 ExperiencePro::~ExperiencePro()

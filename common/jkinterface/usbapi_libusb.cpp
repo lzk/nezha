@@ -349,7 +349,7 @@ int UsbApi::config(int interface)
     g_interface = interface;
     if(interface < 0)
         return -1;
-    libusb_reset_device(device.udev);
+//    libusb_reset_device(device.udev);
     int ret = config(device.dev ,device.udev ,interface);
     if(ret){
         LOGLOG("libusb can not config");

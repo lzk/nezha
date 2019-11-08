@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
 #endif
     qputenv("QT_X11_NO_MITSHM", "1");
     QApplication a(argc, argv);
-    a.setWindowIcon(QIcon(":/Images/printer.ico"));
+    a.setWindowIcon(QIcon(":/Images/logo.png"));
 //    a.setStyle(new MyProxyStyle);
 
     if(QLocale::system().name() == "en_US")

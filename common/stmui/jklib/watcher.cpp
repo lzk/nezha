@@ -30,9 +30,9 @@ void Watcher::watcher_job()
     }
     int ret;
     PrinterInfo_struct pis;
-    DeviceManager dm ,*device_manager = &dm;
-    LShell lshell(device_manager);
-    Consumabale_supply_info para;
+//    DeviceManager dm ,*device_manager = &dm;
+//    LShell lshell(device_manager);
+//    Consumabale_supply_info para;
 
     QList<PrinterInfo_struct> printerinfo_list;
     for(int i = 0 ;i < printerlist.count() ;i++) {

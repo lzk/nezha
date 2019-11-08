@@ -14,6 +14,7 @@ int sane_locked_address=0 ,sane_locked_bus=0;
 const char* lock_stm_file = "/tmp/.stm_lock";
 const char* lock_scan_file = "/tmp/.scanner_lock";
 const char* lock_scan_info_file = "/tmp/.scanner_info_lock";
+const char* lock_vopscan_info_file = "/tmp/.scanner_info";
 int usb_error_printing = -100;
 int usb_error_scanning = -101;
 int usb_error_usb_locked = -102;
@@ -135,13 +136,26 @@ int UsbIO::open(int port)
             return usb_error_printing;
         config = false;
     }
-    if(port < 0){
-        port = 0;
-    }
     int ret;
-    ret = fl_stm.lock(lock_stm_file);
-    if(ret){
-        return usb_error_usb_locked;
+    if(port < 0){//get device id
+        port = 0;
+        QSettings settings(lock_vopscan_info_file ,QSettings::NativeFormat);
+        QString uri = settings.value("Device_Uri").toString();
+        if(!uri.compare(device_uri)){
+            return usb_error_scanning;
+        }
+        ret = fl_stm.lock(lock_stm_file);
+        if(ret){
+            return usb_error_usb_locked;
+        }
+    }else{//scan
+        ret = fl_stm.lock(lock_stm_file);
+        if(ret){
+            return usb_error_usb_locked;
+        }
+        QSettings settings(lock_vopscan_info_file ,QSettings::NativeFormat);
+        settings.setValue("Device_Uri" ,device_uri);
+        settings.sync();
     }
 //    ret = fl.trylock(lock_scan_file);
 //    if(ret){// xsane locked
@@ -156,6 +170,8 @@ int UsbIO::open(int port)
         device_is_open = false;
         fl.unlock();
         fl_stm.unlock();
+        QSettings settings(lock_vopscan_info_file ,QSettings::NativeFormat);
+        settings.clear();
     }
     return ret;
 }
@@ -169,6 +185,8 @@ int UsbIO::close(void)
         mutex.unlock();
         fl.unlock();
         fl_stm.unlock();
+        QSettings settings(lock_vopscan_info_file ,QSettings::NativeFormat);
+        settings.clear();
     }
     return 0;
 }

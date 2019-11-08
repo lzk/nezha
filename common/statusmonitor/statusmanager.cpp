@@ -200,6 +200,10 @@ static int savePrinterinfo(const char* printername ,PrinterInfo_struct* printeri
     settings.setValue("isConnected" ,printer->isConnected);
     settings.setValue("status" ,printer->status);
     settings.endGroup();
+    if(printer->status){//not valid status
+        settings.sync();
+        return 0;
+    }
 
     PrinterStatus_struct* status = &printerinfo->status;
     settings.beginGroup(key + "/status");
@@ -221,6 +225,8 @@ static int savePrinterinfo(const char* printername ,PrinterInfo_struct* printeri
     return 0;
 }
 
+extern int usb_error_scanning;
+extern int usb_error_usb_locked;
 static int getPrinterinfo(const char* printername ,PrinterInfo_struct* printerinfo)
 {
     QSettings settings(status_file ,QSettings::defaultFormat());
@@ -256,6 +262,11 @@ static int getPrinterinfo(const char* printername ,PrinterInfo_struct* printerin
     status->drum = settings.value("drum").toInt();
     settings.endGroup();
     settings.sync();
+    if(printer->status == usb_error_scanning){
+        printer->status = 0;
+        printer->isConnected = true;
+        status->PrinterStatus = usb_error_scanning;
+    }
     return 0;
 }
 

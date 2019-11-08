@@ -61,6 +61,8 @@ static copycmdset default_copy_parameter =
     0,//UINT8 dpi             ; // 6  -   0: 300*300, 1: 600*600
     0,//UINT8 mediaType       ; // 7  -   0: plain paper 1: Recycled paper 2: Thick paper 3: Thin paper 4: Label
     100,//UINT16 scale          ; // 8  -   25~400, disabled for 2/4/9up
+    0,
+    0,
 };
 
 class MoreSettingsForCopy : public QDialog

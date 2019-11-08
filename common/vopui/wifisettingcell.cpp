@@ -8,8 +8,8 @@
 WiFiSettingCell::WiFiSettingCell(QWidget *parent, APInfo *info, bool *_islogin, bool isconnected) :
     QStackedWidget(parent),
     ui(new Ui::WiFiSettingCell),
-    isConnected(isconnected),
-    m_isLogin(false)
+    m_isLogin(false),
+    isConnected(isconnected)
 {
     ui->setupUi(this);
     this->setCurrentIndex(0);

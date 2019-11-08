@@ -15,6 +15,13 @@ int (* getpidvid)(const QString& makeAndModel ,int& pid ,int& vid ,int& interfac
 extern const char* log_app_name;
 extern const char* app_version;
 //usb error control var
+extern int usb_error_printing;
+extern int usb_error_scanning;
+extern int usb_error_usb_locked;
+//scan control var
+extern const char* lock_scan_file;
+extern const char* lock_scan_info_file;
+
 static bool _isDeviceSupported(Printer_struct* ps)
 {
     QString makeAndModel(ps->makeAndModel);
@@ -177,6 +184,14 @@ int AppConfig::initConfig()
         status_lock_file = STATUS_LOCKER_FILE;
 //    }
 #endif
+
+    //usb special config
+    lock_scan_file = LOCKER_SANE;
+    lock_scan_info_file = SANE_INFO_FILE;
+    usb_error_printing = Usb_Printing;
+    usb_error_scanning = Usb_Scanning;
+    usb_error_usb_locked = Usb_Locked;
+
 //    ui_server_path = SERVER_PATH;
 
     //config tomcat supported printer model

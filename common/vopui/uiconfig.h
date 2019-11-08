@@ -152,9 +152,9 @@ public:
         Unknown                     = 0xF0, // status added by SW
         Offline                     = 0xF1, // status added by SW
         PowerOff                    = 0xF2 // status added by SW
-        ,Usb_Locked
-        ,Usb_Printing
-        ,Usb_Scanning
+        ,Usb_Scanning = ScanScanning
+        ,Usb_Printing = Printing
+        ,Usb_Locked = 0xff + 1
         ,Show_duplex_automation
         ,Show_ID_Card_automation
         ,Show_Nin1_automation
