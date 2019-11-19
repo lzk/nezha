@@ -1036,7 +1036,7 @@ QRadioButton::indicator::checked {
     </property>
     <widget class="QRadioButton" name="btQuality">
      <property name="enabled">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="geometry">
       <rect>
@@ -1078,7 +1078,7 @@ QRadioButton::indicator::checked {
     </widget>
     <widget class="QRadioButton" name="btSpeed">
      <property name="enabled">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="geometry">
       <rect>

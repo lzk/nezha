@@ -32,11 +32,6 @@ LIBS += \
     -L$${PWD}/../libs/mac \
 }
 
-LIBS += \
-    -L$${PWD}/../libs \
-    -lusb-1.0 \
-    -lcups \
-
 contains(CONFIG ,static){
 
         contains(QT_ARCH, i386){
@@ -50,3 +45,7 @@ contains(CONFIG ,static){
         }
 }
 
+LIBS += \
+    -L$${PWD}/../libs \
+    -lusb-1.0 \
+    -lcups \
