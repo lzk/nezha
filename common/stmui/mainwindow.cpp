@@ -350,6 +350,9 @@ void MainWindow::updateCurrentPrinterStatus(const QString& printername)
 void MainWindow::updateStatus(const PrinterInfo_struct& printer)
 {
     int type = UIConfig::GetStatusTypeForUI(printer.status.PrinterStatus);
+    if(!printer.printer.isConnected){
+        type = UIConfig::Status_Offline;
+    }
     switch (type) {
     case UIConfig::Status_Ready:
     case UIConfig::Status_Sleep:
@@ -386,7 +389,7 @@ void MainWindow::updateStatus(const PrinterInfo_struct& printer)
         ui->label_status_image->show();
     }
 
-    if(printer.status.TonelStatusLevelK<11)
+    if(!printer.printer.isConnected || (printer.status.TonelStatusLevelK<11))
     {
         trayIcon->setIcon(QIcon(":/Images/app_gray.png"));
     }

@@ -108,12 +108,12 @@ void TabStackedWidget::cmdResult(int cmd,int result,QVariant data)
     {
     case UIConfig::CMD_GetStatus:
     {
-        if(result){
+        PrinterInfo_struct printerInfo = data.value<PrinterInfo_struct>();
+        if(result || !printerInfo.printer.isConnected){
             ui->btn_Copy->setEnabled(false);
             ui->btn_Scan->setEnabled(false);
             ui->settingStackedWidget->setEnabled(false);
         }else{
-            PrinterInfo_struct printerInfo = data.value<PrinterInfo_struct>();
             PrinterStatus_struct& status = printerInfo.status;
             ui->btn_Copy->setEnabled(StatusPaser::is_enable_copy(status.PrinterStatus));
             if(scanning)
