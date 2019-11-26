@@ -379,15 +379,42 @@ void MainWindow::updatePrinter(const QVariant& data)
     ui->deviceNameBox->clear();
 
     int index_of_defaultprinter = 0;
+    int max_width = ui->deviceNameBox->width();
     for(int i = 0 ;i < printerlist.length() ;i++){
         printer = printerlist.at(i);
         printers << printer.name;
 
+        if(max_width < fontMetrics().width(printer.name)){
+            max_width = fontMetrics().width(printer.name);
+        }
         ui->deviceNameBox->addItem(printer.name);
         if(printer.isDefault){
             index_of_defaultprinter =  i;
         }
     }
+    QString style_sheet = QString(
+                "QComboBox{ \
+                color: transparent; \
+            background-image: url(); \
+            background-color:qlineargradient(x1:0,y1:0,x2:0,y2:0.25,stop:0#E0E0E0,stop:1#FFFFFF); \
+            border:0px solid white; \
+            border-radius: 5px; \
+            } \
+            \
+            QComboBox::drop-down { \
+                border:none; \
+            } \
+            \
+            QComboBox:down-arrow { \
+                image: url(:/Images/arrowdown.png); \
+            }"
+                "QComboBox QAbstractItemView"
+                "{"
+                "min-width:%1;max-width:%1;"
+                      "border: 1px solid darkgray;"
+                "}"
+                                      ).arg(max_width +10);
+    ui->deviceNameBox->setStyleSheet(style_sheet);
     if(printers.isEmpty()){
         LOGLOG("no printers");
         setcurrentPrinter(QString());
@@ -1196,19 +1223,27 @@ void MainWindow::on_errorBtn_clicked()
     }
 }
 
+#include "requestcrm.h"
 void MainWindow::on_btCar_clicked()
 {
     if(timerBlink->isActive())
         timerBlink->stop();
-    if(ui->memberCenterWidget->loginPhone !="")
-    {
+    QVariant value;
+    if(!gUInterface->completeCurrentPrinterCmd(UIConfig::LS_CMD_PRN_Get_UserCenterInfo ,value)){
+        cmdst_user_center user_center = value.value<cmdst_user_center>();
+        QString url;
+        if(!RequestCRM::get_printersupplies(user_center._2ndSerialNO ,url))
+            QDesktopServices::openUrl(QUrl(url));
+    }
+//    if(ui->memberCenterWidget->loginPhone !="")
+//    {
+////        QString url = QString("http://ibase.lenovoimage.com/buy_abc2.aspx?id=%0").arg(ui->memberCenterWidget->loginPhone);
 //        QString url = QString("http://ibase.lenovoimage.com/buy_abc2.aspx?id=%0").arg(ui->memberCenterWidget->loginPhone);
-        QString url = QString("http://ibase.lenovoimage.com/buy_abc2.aspx?id=%0").arg(ui->memberCenterWidget->loginPhone);
-        QDesktopServices::openUrl(QUrl(url));
-    }
-    else
-    {
-//        QDesktopServices::openUrl(QUrl("http://ibase.lenovoimage.com/buy_abc2.aspx"));
-        QDesktopServices::openUrl(QUrl("http://vopapi.lenovoimage.com/index.html"));
-    }
+//        QDesktopServices::openUrl(QUrl(url));
+//    }
+//    else
+//    {
+////        QDesktopServices::openUrl(QUrl("http://ibase.lenovoimage.com/buy_abc2.aspx"));
+//        QDesktopServices::openUrl(QUrl("http://vopapi.lenovoimage.com/index.html"));
+//    }
 }

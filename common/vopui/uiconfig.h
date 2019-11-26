@@ -230,6 +230,7 @@ public:
         LS_CMD_PRN_Get_UserCenterInfo,
         LS_CMD_PRN_poweroff,
         LS_CMD_PRN_getCounterPrintScan,
+        LS_CMD_PRN_getCRMInfo,
     };
     Q_ENUMS(CmdType)
 };

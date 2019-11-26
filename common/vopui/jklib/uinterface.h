@@ -15,6 +15,8 @@ public:
     explicit UInterface(QObject *parent = 0);
     ~UInterface();
     void setCmd(int cmd ,const QString& printer_name ,QVariant data = QVariant());
+    int completeCmd(int cmd ,const QString& printer_name ,QVariant& data);
+    int completeCurrentPrinterCmd(int cmd ,QVariant& data);
     void setTimer(int timeVal = 0);
     void setcurrentPrinter(const QString& str);//{current_printer = str;}
     void setCurrentPrinterCmd(int cmd ,QVariant data = QVariant());
@@ -47,6 +49,9 @@ private:
 
     QString current_printer;
 
+    bool cmdCompleted;
+    int cmd_result;
+    QVariant cmdData;
 };
 
 extern UInterface* gUInterface;

@@ -10,12 +10,14 @@ public:
     static int verify_mobilecode(const QString& phonenumber ,const QString& verifycode);
     static int send_verifycode(const QString& phonenumber);
     static int get_userinfo(const QString& phonenumber ,QString& hyperlink);
+    static int get_printersupplies(const QString& serialNO ,QString& hyperlink);
     static int append_PrinterData(const QString& post_str);
 
 private:
     static QString get(const QString& ,const QString&);
     static QString post(const QString& ,const QString&);
     static QString get_tocken();
+    static int get_hyperlink(const QString& url ,const QString& phonenumber ,QString& hyperlink);
 };
 
 #endif // REQUESTCRM_H

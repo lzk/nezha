@@ -198,8 +198,7 @@ int RequestCRM::send_verifycode(const QString& phonenumber)
     return ret;
 }
 
-//curl http://vopapi.lenovoimage.com/api/User/Get_UserInfo?biz_content={Mobile:15918656240}
-int RequestCRM::get_userinfo(const QString& phonenumber ,QString& hyperlink)
+int RequestCRM::get_hyperlink(const QString& url ,const QString& post_str ,QString& hyperlink)
 {
     if(request_token.isEmpty()){
         request_token = get_tocken();
@@ -207,13 +206,6 @@ int RequestCRM::get_userinfo(const QString& phonenumber ,QString& hyperlink)
     if(request_token.isEmpty()){
         return -1;
     }
-
-    QString url = base_uri + "/User/Get_UserInfo";
-
-    QString post_str = QString("biz_content=") +
-            "{" +
-            "Mobile:" + phonenumber +
-            "}";
 
     QString ret_data = get(url ,post_str);
     QJson::Parser parser;
@@ -233,6 +225,27 @@ int RequestCRM::get_userinfo(const QString& phonenumber ,QString& hyperlink)
     if(ret)
         request_token.clear();
     return ret;
+}
+
+//curl http://vopapi.lenovoimage.com/api/User/Get_UserInfo?biz_content={Mobile:15918656240}
+int RequestCRM::get_userinfo(const QString& phonenumber ,QString& hyperlink)
+{
+    QString post_str = QString("biz_content=") +
+            "{" +
+            "Mobile:" + phonenumber +
+            "}";
+    QString url = base_uri + "/User/Get_UserInfo";
+    return get_hyperlink(url ,post_str ,hyperlink);
+}
+
+int RequestCRM::get_printersupplies(const QString& serialNO ,QString& hyperlink)
+{
+    QString post_str = QString("biz_content=") +
+            "{" +
+            "SerilNumber:" + serialNO +
+            "}";
+    QString url = base_uri + "/Device/PrinterSupplies";
+    return get_hyperlink(url ,post_str ,hyperlink);
 }
 
 int RequestCRM::append_PrinterData(const QString& post_str)

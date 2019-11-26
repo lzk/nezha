@@ -509,7 +509,7 @@ void MemberCenterWidget::on_btExpe_clicked()
 void MemberCenterWidget::uploadCRM()
 {
 //    qDebug()<<"uploadcrm";
-//    gUInterface->setCurrentPrinterCmd(UIConfig::LS_CMD_PRN_Get_UserCenterInfo);
+//    gUInterface->setCurrentPrinterCmd(UIConfig::LS_CMD_PRN_getCRMInfo);
 }
 
 #include "commonapi.h"
@@ -517,7 +517,7 @@ void MemberCenterWidget::cmdResult(int cmd,int result,QVariant data)
 {
     switch(cmd)
     {
-    case UIConfig::LS_CMD_PRN_Get_UserCenterInfo:
+    case UIConfig::LS_CMD_PRN_getCRMInfo:
         if(!result)
         {
             struct_user_center userCenter = data.value<struct_user_center>();

@@ -1,5 +1,7 @@
 #include "uinterface.h"
 #include "worker.h"
+#include <QCoreApplication>
+#include <unistd.h>
 UInterface::UInterface(QObject *parent) :
     QObject(parent)
   ,timeval(0)
@@ -32,6 +34,22 @@ void UInterface::setCmd(int cmd ,const QString& printer_name ,QVariant data)
     cmdToWorker(cmd ,printer_name ,data);
 }
 
+int UInterface::completeCmd(int cmd ,const QString& printer_name ,QVariant& data)
+{
+    cmdToWorker(cmd ,printer_name ,data);
+    cmdCompleted = false;
+    while (!cmdCompleted) {
+        QCoreApplication::processEvents();
+        usleep(10 * 1000);
+    }
+    data = cmdData;
+    return cmd_result;
+}
+int UInterface::completeCurrentPrinterCmd(int cmd ,QVariant& data)
+{
+    return completeCmd(cmd ,current_printer ,data);
+}
+
 void UInterface::setCurrentPrinterCmd(int cmd ,QVariant data)
 {
     setCmd(cmd ,current_printer ,data);
@@ -54,13 +72,16 @@ void UInterface::timerOut()
 
 void UInterface::cmdResult_slot(int cmd,int result ,QVariant data)
 {
-    (void)result;
-    (void)data;
+    cmd_result = result;
+    cmdData = data;
     switch (cmd) {
     case UIConfig::CMD_GetStatus:
         if(timeval > 0){
             timer.start(timeval * 1000);
         }
+        break;
+    case UIConfig::LS_CMD_PRN_Get_UserCenterInfo:
+        cmdCompleted = true;
         break;
     default:
         break;

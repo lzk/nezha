@@ -623,6 +623,28 @@ void Worker::cmdFromUi(int cmd ,const QString& printer_name ,QVariant data)
     case UIConfig::LS_CMD_PRN_Get_UserCenterInfo:
         if(printer){
             if(cmd_status_validate(printer ,cmd)){
+                cmdst_user_center user_center;
+                for(int i = 0 ;i < 3 ;i++){
+                    result = lshell->open(printer);
+                    if(!result){
+                        memset(&user_center ,0 ,sizeof(user_center));
+                        result = lshell->usercenterinfo_get(&user_center);
+                        lshell->close();
+                    }
+                    if(!result){
+                        value.setValue(user_center);
+                        break;
+                    }else
+                        usleep(100 *1000);
+                }
+            }
+
+        }
+        cmdResult(cmd ,result ,value);
+        break;
+    case UIConfig::LS_CMD_PRN_getCRMInfo:
+        if(printer){
+            if(cmd_status_validate(printer ,cmd)){
                 struct_user_center user_center;
                 for(int i = 0 ;i < 3 ;i++){
                     result = lshell->open(printer);
