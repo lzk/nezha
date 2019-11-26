@@ -3,7 +3,7 @@
 
 #define APP_VERSION "1.0.9"
 
-#define APP_PATH "/usr/share/lntgr1z/"
+#define APP_PATH "/usr/share/lntgrvop/"
 
 #define EXE_TRANS_NAME "lntgr1zsm"
 #define EXE_UI_NAME "lntgr1zsmui"
@@ -17,10 +17,10 @@
 #define LOG_FILTERLIB_FILE "/tmp/lntgr1zfilterlib.log"
 #define LOG_VOP_FILE "/tmp/lntgr1zvop.log"
 #else
-#define LOG_TRANS_FILE "/usr/share/lntgr1z/sm.log"
-#define LOG_UI_FILE "/usr/share/lntgr1z/ui.log"
+#define LOG_TRANS_FILE "/usr/share/lntgrvop/sm.log"
+#define LOG_UI_FILE "/usr/share/lntgrvop/ui.log"
 #define LOG_FILTERLIB_FILE "/var/spool/cups/tmp/lntgr1zfilterlib.log"
-#define LOG_VOP_FILE "/usr/share/lntgr1z/vop.log"
+#define LOG_VOP_FILE "/usr/share/lntgrvop/vop.log"
 #endif
 
 
@@ -44,15 +44,15 @@
 #ifdef DEBUG_DEBUG
 #define CONFIG_FILE "/tmp/app.conf"
 #else
-#define CONFIG_FILE "/usr/share/lntgr1z/config/app.conf"
+#define CONFIG_FILE "/usr/share/lntgrvop/config/app.conf"
 #endif
 #define CONFIG_KEY_isLoginWhenPrinting "is_login_when_printing"
 
 
 #ifndef DEBUG_DEBUG
-#define Trans_Conf_file "/usr/share/lntgr1z/config/sm.conf"
+#define Trans_Conf_file "/usr/share/lntgrvop/config/sm.conf"
 //#define Trans_Conf_file "/tmp/.lntgr1zsm.conf"
-#define JOBHISTORYFILE "/usr/share/lntgr1z/job_history.xml"
+#define JOBHISTORYFILE "/usr/share/lntgrvop/job_history.xml"
 #else
 #define Trans_Conf_file "/tmp/lntgr1zsm.conf"
 #define JOBHISTORYFILE "/tmp/lntgr1zjob_history.xml"

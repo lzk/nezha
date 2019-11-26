@@ -262,7 +262,7 @@ void MainWindow::updatePrinter(const QVariant& data)
 
         QString str = UIConfig::GetStatusTypeString(type);
         QTableWidgetItem* item;
-        item = new QTableWidgetItem(tr("%1").arg(str));
+        item = new QTableWidgetItem(str);
         item->setForeground(brush);
         item->setIcon(icon);
 //        item->setTextAlignment(Qt::AlignCenter);
@@ -281,10 +281,11 @@ void MainWindow::updatePrinter(const QVariant& data)
 //        widget->setLayout(hLayout);
 //        ui->tableWidget_printers->setCellWidget(i ,base+0 ,widget);
 
-        item = new QTableWidgetItem(tr("%1").arg(printer.name));
+        str = QString::fromUtf8(printer.name);
+        item = new QTableWidgetItem(str);
         item->setForeground(QBrush(Qt::blue));
 //        item->setTextAlignment(Qt::AlignCenter);
-        item->setToolTip(printer.name);
+        item->setToolTip(str);
         ui->tableWidget_printers->setItem(i ,base+1,item);
         if(printer.toner < 0){
             item = new QTableWidgetItem("-");
