@@ -9,6 +9,7 @@ FilterManager::FilterManager(filterlib_struct* para)
 {
 
 }
+
 int FilterManager::authorize(filterlib_struct* para)
 {
     if(!para)

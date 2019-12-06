@@ -182,7 +182,7 @@ int ImageTrans::trans_header(ImageTransInfo* info)
     return index;
 }
 
-
+#include <stdio.h>
 FILE* file;
 int ImageTrans::init(ImageTransInfo* info)
 {

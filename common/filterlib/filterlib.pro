@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       -= core gui
+QT       -= gui
+#QT       -= core gui
 
 include("../pro.pri")
 TARGET = $${TARGET_filterlib}
@@ -45,7 +46,7 @@ HEADERS += \
 
 
 CONFIG(debug ,debug|release){
-    DEFINES += LOG_TO_STDERR
+#    DEFINES += LOG_TO_STDERR
     DEFINES += DEBUG_DEBUG
 }else{
     DEFINES += LOG_TO_STDERR

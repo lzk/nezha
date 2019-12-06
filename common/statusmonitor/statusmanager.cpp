@@ -183,6 +183,7 @@ static int getPrinter(CALLBACK_getPrinters callback,void* para)
             callback(para ,&ps);
         }
     }
+    return 0;
 }
 
 static int savePrinterinfo(const char* printername ,PrinterInfo_struct* printerinfo)

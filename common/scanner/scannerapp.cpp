@@ -19,8 +19,7 @@ void calculate_parameters(ScanSettings* scan_settings);
 
 FILE* cache_file = NULL;
 FILE* source_file = NULL;
-const char* jpg_file_name = "/tmp/tmpscan.jpg";
-const char* raw_file_name = "/tmp/tmpscan.raw";
+const char* tmp_file_name;
 
 int cache_buffer_open(const char* mode ,int type)
 {
@@ -28,10 +27,10 @@ int cache_buffer_open(const char* mode ,int type)
     const char* cache_file_name;
     switch (type) {
     case ImageTransFormat_raw:
-        cache_file_name = raw_file_name;
+        cache_file_name = tmp_file_name;
         break;
     case ImageTransFormat_jpg:
-        cache_file_name = jpg_file_name;
+        cache_file_name = tmp_file_name;
         break;
     default:
         cache_file_name = NULL;
@@ -76,10 +75,10 @@ int read_cache_init(int type)
     case ImageTransFormat_jpg:
         if(!tj)
             tj = new Trans_jpg;
-        ret = tj->read_file_open(jpg_file_name);
+        ret = tj->read_file_open(tmp_file_name);
         break;
     case ImageTransFormat_raw:
-        source_file = fopen(raw_file_name ,"rb");
+        source_file = fopen(tmp_file_name ,"rb");
         if(source_file){
             ret = 0;
         }
@@ -322,6 +321,7 @@ int ScannerApp::scan(Printer_struct* printer ,ScanSettings* settings)
     pCalc->scan_buffer_size = SCAN_BUFFER_SIZE;
 //    settings->file = NULL;
 
+    tmp_file_name = settings->tmpfilename;
     ret = write_cache_init(source->format);
 //    ret = init_scan(settings);
     if(ret){
@@ -354,8 +354,7 @@ int ScannerApp::scan(Printer_struct* printer ,ScanSettings* settings)
         if(settings->callback)
             settings->callback(settings);
     }
-    remove(jpg_file_name);
-    remove(raw_file_name);
+    remove(tmp_file_name);
     return ret;
 }
 

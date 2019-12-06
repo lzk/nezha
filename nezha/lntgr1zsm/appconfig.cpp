@@ -122,10 +122,12 @@ AppConfig::AppConfig(QObject *parent) :
 {
 }
 
+extern const char* log_file;
 int AppConfig::initConfig()
 {
     log_app_name = EXE_NAME;
     app_version = APP_VERSION;
+    log_file = LOG_FILE_NAME;
     log_init();
     LOGLOG("--------%s v%s-------" ,log_app_name ,app_version);
     if(app_file_locker.trylock(LOCKER_EXE)){

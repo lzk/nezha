@@ -2,6 +2,7 @@
 #include "commonapi.h"
 #include "appconfig.h"
 #include <signal.h>
+#include "watcher.h"
 #include <QTextCodec>
 
 void quit(int)
@@ -23,11 +24,15 @@ int main(int argc, char *argv[])
     signal(SIGHUP ,quit);
 
     if(AppConfig::initConfig()){
-        LOGLOG("There has been a same app running!");
+        LOGLOG("\t\tThere has been a same app running!");
         return 0;
     }
 
+//    Watcher* watcher = new Watcher;
+//    watcher->start();
+
     int ret = a.exec();
+//    delete watcher;
     AppConfig::exit_app();
     LOGLOG("app exit!");
     return ret;

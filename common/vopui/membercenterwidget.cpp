@@ -73,6 +73,7 @@ MemberCenterWidget::MemberCenterWidget(QWidget *parent) :
             userLogin.loginAction(loginPhone,password);
             if(userLogin.isLogin())
             {
+#if 0
                 QString loginName;
                 settings.beginGroup(loginPhone);
                 loginName = settings.value("loginName").toString();
@@ -91,6 +92,9 @@ MemberCenterWidget::MemberCenterWidget(QWidget *parent) :
                 {
                     ui->login_name->setText(loginPhone);
                 }
+#else
+                ui->login_name->setText(loginPhone);
+#endif
                 ui->btLogin->setDisabled(true);
                 ui->login_arrow->hide();
                 isLogin = true;

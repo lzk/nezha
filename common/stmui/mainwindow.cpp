@@ -17,9 +17,15 @@ MainWindow::MainWindow(QWidget *parent) :
     QHeaderView *headerView = ui->tableWidget_printers->horizontalHeader();
 //    headerView->setStretchLastSection(true);
 #if QT_VERSION > 0x050000
-    headerView->setSectionResizeMode(QHeaderView::Stretch);
+    headerView->setSectionResizeMode(0 ,QHeaderView::Fixed);
+    headerView->setSectionResizeMode(1 ,QHeaderView::Stretch);
+    headerView->setSectionResizeMode(2 ,QHeaderView::Fixed);
+    headerView->setSectionResizeMode(3 ,QHeaderView::Fixed);
 #else
-    headerView->setResizeMode(QHeaderView::Stretch);
+    headerView->setResizeMode(0 ,QHeaderView::Fixed);
+    headerView->setResizeMode(1 ,QHeaderView::Stretch);
+    headerView->setResizeMode(2 ,QHeaderView::Fixed);
+    headerView->setResizeMode(3 ,QHeaderView::Fixed);
 #endif
 //    ui->tableWidget_printers->horizontalHeaderItem(0)->setTextAlignment(Qt::AlignHCenter);
     ui->tableWidget_printers->horizontalHeaderItem(0)->setTextAlignment(Qt::AlignLeft);

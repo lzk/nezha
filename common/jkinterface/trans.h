@@ -1,30 +1,24 @@
 #ifndef TRANS_H
 #define TRANS_H
 
-typedef int (* CALLBACK_Server)(void* ,char* ,int);
+//#define TRANS_SOCKET 1
+//#define TRANS_MEG 1
+#define TRANS_FILE 1
 
-class Trans_Server
-{
-public:
-    Trans_Server();
-    ~Trans_Server();
-    int createServer(const char* server_path = 0);
-    int readThenWrite(int fd ,CALLBACK_Server callback ,void* para);
-    int any_client_connected();
-    const char* get_server_path(){return path;}
+#if TRANS_SOCKET
+#include "trans_socket.h"
+typedef Trans_Socket_Server Trans_Server;
+typedef Trans_Socket_Client Trans_Client;
+#elif TRANS_MEG
+#include "trans_msg.h"
+typedef Trans_Msg_Server Trans_Server;
+typedef Trans_Msg_Client Trans_Client;
+#elif TRANS_FILE
+#include "trans_file.h"
+//typedef Trans_File_Server Trans_Server;
+//typedef Trans_File_Client Trans_Client;
+#define Trans_Server Trans_File_Server
+#define Trans_Client Trans_File_Client
+#endif
 
-private:
-    int listen_fd;
-    char path[256];
-};
-
-class Trans_Client
-{
-public:
-    Trans_Client(const char* server_path = 0);
-    int writeThenRead(char* buffer ,int bufsize);
-    int tryConnectToServer();
-private:
-    char path[256];
-};
 #endif // TRANS_H

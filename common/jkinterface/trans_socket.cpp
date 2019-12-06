@@ -1,4 +1,4 @@
-#include "trans.h"
+#include "trans_socket.h"
 
 #include<stdio.h>
 #include<sys/socket.h>
@@ -52,12 +52,11 @@ int select_fd(int fd)
     return -3;
 }
 #endif
-Trans_Server::Trans_Server()
+Trans_Socket_Server::Trans_Socket_Server()
 {
-    memset(path ,0 ,sizeof(path));
 }
 
-Trans_Server::~Trans_Server()
+Trans_Socket_Server::~Trans_Socket_Server()
 {
     if(listen_fd > 0){
         close(listen_fd);
@@ -68,7 +67,7 @@ Trans_Server::~Trans_Server()
 }
 
 #include <sys/stat.h>
-int Trans_Server::createServer(const char* server_path)
+int Trans_Socket_Server::createServer(const char* server_path)
 {
     int ret;
     struct sockaddr_un srv_addr;
@@ -121,7 +120,7 @@ int Trans_Server::createServer(const char* server_path)
     return listen_fd;
 }
 
-int Trans_Server::any_client_connected()
+int Trans_Socket_Server::any_client_connected()
 {
     if(listen_fd < 0){
         return -1;
@@ -144,7 +143,7 @@ int Trans_Server::any_client_connected()
     return com_fd;
 }
 
-int Trans_Server::readThenWrite(int com_fd ,CALLBACK_Server callback ,void* para)
+int Trans_Socket_Server::readThenWrite(int com_fd ,CALLBACK_Server callback ,void* para)
 {
     if(com_fd < 0){
         return -1;
@@ -164,16 +163,13 @@ int Trans_Server::readThenWrite(int com_fd ,CALLBACK_Server callback ,void* para
     return 0;
 }
 
-Trans_Client::Trans_Client(const char* server_path)
+Trans_Socket_Client::Trans_Socket_Client(const char* server_path):
+    Trans_Virtual_Client(server_path)
 {
-    memset(path ,0 ,sizeof(path));
-    if(server_path)
-        strcpy(path ,server_path);
-//    LOGLOG("try to get server path:%s" ,server_path);
 
 }
 
-int Trans_Client::tryConnectToServer()
+int Trans_Socket_Client::tryConnectToServer()
 {
     int connect_fd;
     int ret;
@@ -204,7 +200,7 @@ int Trans_Client::tryConnectToServer()
     return 0;
 }
 
-int Trans_Client::writeThenRead(char* buffer ,int bufsize)
+int Trans_Socket_Client::writeThenRead(char* buffer ,int bufsize)
 {
     int connect_fd;
     int ret;

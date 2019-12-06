@@ -3,13 +3,17 @@ const char* log_file = "/dev/stderr";
 const char* log_app_name = "statusmonitor";
 const char* app_version = "1.0.0.1";
 
-#ifndef LOG_TO_STDERR
+#include <QMutex>
+static QMutex mutex_write_log_file;
 #include <stdarg.h>
 #include <stdlib.h>
 #include <time.h>
 #include <sys/timeb.h>
 #include <sys/stat.h>
 #include <string.h>
+#include <stdio.h>
+//#ifndef LOG_TO_STDERR
+#if 0
 char tmp_filename[1024];
 class JKLog
 {
@@ -46,6 +50,7 @@ void JKLog::init()
     }
     file = fopen(log_file ,"w+");
     chmod(log_file ,DEFFILEMODE);
+    LOGLOG("--------%s v%s-------" ,log_app_name ,app_version);
 }
 
 JKLog::~JKLog()
@@ -54,8 +59,6 @@ JKLog::~JKLog()
         fclose(file);
 }
 
-#include <QMutex>
-static QMutex mutex_write_log_file;
 int JKLog::log(const char* para ,va_list pArgs)
 {
     QMutexLocker locker(&mutex_write_log_file);
@@ -83,5 +86,32 @@ void log_init()
 #else
 void log_init()
 {
+//    FILE* file;
+//    file = fopen(log_file ,"w+");
+//    fclose(file);
+}
+
+static int llog(const char* para ,va_list pArgs)
+{
+    QMutexLocker locker(&mutex_write_log_file);
+    FILE* file;
+    file = fopen(log_file ,"a+");
+    if(!file)
+        return -1;
+    int ret = vfprintf(file ,para ,pArgs);
+    fprintf(file ,"\n");
+    fflush(file);
+    fclose(file);
+    return ret;
+}
+
+int jklog(const char* para ,...)
+{
+    int result;
+    va_list pArgs;
+    va_start(pArgs, para);
+    result = llog(para ,pArgs);
+    va_end(pArgs);
+    return result;
 }
 #endif

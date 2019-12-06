@@ -142,5 +142,6 @@ int RawToBmp::rgb2bgr(char* buffer ,int buf_size ,const char* source ,int source
         buffer[j + 1] = source[j + 1];
         buffer[j + 2] = tmp;
     }
+    return 0;
 }
 

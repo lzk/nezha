@@ -26,11 +26,13 @@ class SingelStatusThread : public QThread
 public:
     explicit SingelStatusThread(QObject *parent = NULL);
     void get_status();
+    bool update_printerlist(QList<Printer_struct> printer_list);
 
 signals:
     void update_status(QList<Printer_struct> printerlist);
 
 private:
+    QMutex mutex;
     StatusObject statusObject;
     QList<Printer_struct> printerlist;
 

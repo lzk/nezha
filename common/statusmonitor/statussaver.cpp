@@ -44,7 +44,9 @@ void StatusObject::update_status(QList<Printer_struct> printers)
         return;//get status via filter
     }
     foreach (Printer_struct printer, printers) {
-        LOGLOG("update %s result:%d ,status:%d" ,printer.name ,result ,printerinfo.status.PrinterStatus);
+        LOGLOG("update %s result:%d ,status:%d ,url:%s" ,printer.name ,result
+               ,printerinfo.status.PrinterStatus
+               ,printer.deviceUri);
         printerinfo.printer = printer;
         printerinfo.printer.isConnected = !result;
         printerinfo.printer.status = result;
@@ -62,10 +64,26 @@ SingelStatusThread::SingelStatusThread(QObject *parent)
 
 void SingelStatusThread::get_status()
 {
-    if(!printerlist.isEmpty())
-        update_status(printerlist);
+    QList<Printer_struct> printer_list;
+    mutex.lock();
+    printer_list = printerlist;
+    mutex.unlock();
+    if(!printer_list.isEmpty())
+        update_status(printer_list);
 }
 
+bool SingelStatusThread::update_printerlist(QList<Printer_struct> printer_list)
+{
+    bool same = false;
+    QString url = printer_list[0].deviceUri;
+    mutex.lock();
+    if(!url.compare(printerlist[0].deviceUri)){
+        same = true;
+        printerlist = printer_list;
+    }
+    mutex.unlock();
+    return same;
+}
 StatusSaverThread::StatusSaverThread(QObject *parent)
     : QThread(parent)
     , abort(false)
@@ -191,6 +209,7 @@ void StatusSaver::run()
             mutex.unlock();
             StatusManager().savePrintersToFile(printerlist);
 
+            //get the new printers list
             QList<QList<Printer_struct > > printers_list;
             bool same_url;
             QString str;
@@ -215,6 +234,40 @@ void StatusSaver::run()
             }
 
             SingelStatusThread* thread;
+#if 1
+            QList<SingelStatusThread* > new_threads;
+            QList<SingelStatusThread* > rest_threads = threads;
+            //find the same url and update printer list of current threads
+            for(int i = 0 ;i < threads.count() ;i++){
+                thread = threads[i];
+                for(int j = 0 ;j <printers_list.count() ;j++){
+                    if(thread->update_printerlist(printers_list[j])){
+                        printers_list.removeAt(j);
+                        rest_threads.removeOne(thread);
+                        new_threads << thread;
+                        break;
+                    }
+                }
+            }
+            //create threads of rest new printer list
+            foreach(QList<Printer_struct > printer_list ,printers_list){
+                thread = new SingelStatusThread;
+                thread->printerlist = printer_list;
+                new_threads << thread;
+                thread->start();
+            }
+            //get status of all new printer list
+            threads = new_threads;
+            foreach (SingelStatusThread* thread , new_threads) {
+                thread->get_status();
+            }
+            //delete rest threads
+            foreach (SingelStatusThread* thread, rest_threads) {
+                thread->quit();
+                thread->wait();
+                thread->deleteLater();
+            }
+#else
             int num = printers_list.count() - threads.count();
             if(num > 0){
                 for(int i = 0 ;i < num ;i++){
@@ -224,7 +277,7 @@ void StatusSaver::run()
                 }
             }
 
-            QList<SingelStatusThread* > tmp_threads = threads;
+//            QList<SingelStatusThread* > tmp_threads = threads;
             for(int i = 0 ;i < threads.count() ;i++){
                 thread = threads[i];
                 if(i < printers_list.count()){
@@ -238,6 +291,7 @@ void StatusSaver::run()
                 }
             }
             threads = tmp_threads;
+#endif
         }
 
         watcher_job();

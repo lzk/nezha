@@ -61,8 +61,16 @@ static void* filterThread(void* para)
     abort = false;
 }
 
+extern const char* log_app_name;
+//extern const char* app_version;
+extern const char* log_file;
 int filterlib(filterlib_struct* para)
 {
+    log_app_name = EXE_NAME;
+    app_version = APP_VERSION;
+    log_file = LOG_FILE_NAME;
+    log_init();
+
     int ret;
     char deviceuri[256];
     ret = cups_get_device_uri(para->printername ,deviceuri);

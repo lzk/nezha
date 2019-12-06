@@ -12,17 +12,26 @@ HEADERS += \
     $$PWD/jkinterface.h \
     $$PWD/deviceio.h \
     $$PWD/jkconfig.h \
-    $$PWD/filelocker.h
+    $$PWD/filelocker.h \
+    $$PWD/trans_msg.h \
+    $$PWD/trans_socket.h \
+    $$PWD/trans_virtual.h \
+    $$PWD/trans_file.h \
+    $$PWD/trans_mem.h
 
 SOURCES += \
     $${PWD}/usbapi_libusb.cpp \
     $${PWD}/testlibusb.c \
     $${PWD}/api_libcups.cpp \
     $${PWD}/log.cpp \
-    $${PWD}/trans.cpp \
     $$PWD/jkconfig.cpp \
     $$PWD/deviceio.cpp \
-    $$PWD/filelocker.cpp
+    $$PWD/filelocker.cpp \
+    $$PWD/trans_msg.cpp \
+    $$PWD/trans_socket.cpp \
+    $$PWD/trans_virtual.cpp \
+    $$PWD/trans_file.cpp \
+    $$PWD/trans_mem.cpp
 
 macx:{
     DEFINES += JK_OS_MAC
@@ -31,6 +40,11 @@ LIBS += \
     -L/Volumes/work/software/libusb \
     -L$${PWD}/../libs/mac \
 }
+
+LIBS += \
+    -L$${PWD}/../libs \
+    -lusb-1.0 \
+    -lcups \
 
 contains(CONFIG ,static){
 
@@ -45,7 +59,3 @@ contains(CONFIG ,static){
         }
 }
 
-LIBS += \
-    -L$${PWD}/../libs \
-    -lusb-1.0 \
-    -lcups \

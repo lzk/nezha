@@ -94,8 +94,14 @@ UIConfig::UIConfig(QObject *parent) :
 {
 }
 
+extern const char* log_file;
 int UIConfig::initConfig()
 {
+    log_app_name = EXE_NAME;
+    app_version = APP_VERSION;
+    log_file = LOG_FILE_NAME;
+    log_init();
+
 //    const char* app_locker_file = LOCKER_UI;
     if(app_file_locker.trylock(LOCKER_UI)){
         LOGLOG("app had been locked!");
@@ -106,9 +112,9 @@ int UIConfig::initConfig()
 //        return -2;
 //    }
 
-#ifndef DEBUG_DEBUG
+    LOGLOG("--------%s v%s-------" ,log_app_name ,app_version);
+
     g_config_file =  CONFIG_FILE;
-#endif
 
     //config status server thread
     if(testmode){
@@ -134,16 +140,6 @@ int UIConfig::initConfig()
     //config supported printer model
     isDeviceSupported = _isDeviceSupported;
     getpidvid = _getpidvid;
-
-    log_app_name = EXE_NAME;
-    app_version = APP_VERSION;
-    log_init();
-    LOGLOG("--------%s v%s-------" ,log_app_name ,app_version);
-    QString str;
-    str = get_string_from_shell_cmd("uname -a");
-    LOGLOG("%s" ,str.toLatin1().constData());
-    str = get_string_from_shell_cmd("cat /etc/issue");
-    LOGLOG("%s\n\n" ,str.toLatin1().constData());
 
 //    app_server = new AppServer(DOMAIN_UIEXE);
     return 0;

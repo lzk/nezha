@@ -3,6 +3,7 @@ TEMPLATE = subdirs
 SUBDIRS += \
     filterlib \
     filtertrans \
+    filterservice \
     stmui \
     vopui
 

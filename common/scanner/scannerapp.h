@@ -60,6 +60,7 @@ typedef struct{
     void* callback_para;
     int progress;
     char filename[256];
+    char tmpfilename[256];
     UiSettings settings;
     Calc_Data calc_data;
     long long received_bytes;

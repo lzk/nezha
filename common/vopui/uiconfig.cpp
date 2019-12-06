@@ -152,16 +152,6 @@ int UIConfig::initConfig()
     isDeviceSupported = _isDeviceSupported;
     getpidvid = _getpidvid;
 
-    log_app_name = EXE_NAME;
-    app_version = APP_VERSION;
-    log_init();
-    LOGLOG("--------%s v%s-------" ,log_app_name ,app_version);
-    QString str;
-    str = get_string_from_shell_cmd("uname -a");
-    LOGLOG("%s" ,str.toLatin1().constData());
-    str = get_string_from_shell_cmd("cat /etc/issue");
-    LOGLOG("%s\n\n" ,str.toLatin1().constData());
-
     QDir dir(TMP_SCAN_DIR);
     QDir *path = &dir;
     if(path->exists(TMP_SCAN_DIR)){

@@ -22,8 +22,6 @@ extern bool testmode;
 
 #define LOG_FILE_NAME LOG_VOP_FILE
 
-#define TMP_SCAN_DIR "/tmp/vop_scan"
-
 Q_DECLARE_METATYPE(Printer_struct)
 Q_DECLARE_METATYPE(QList<Printer_struct>)
 Q_DECLARE_METATYPE(PrinterInfo_struct)
