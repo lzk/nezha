@@ -68,13 +68,7 @@ QString NetIO::resolve_uri(const char* url)
         return QString();
     QHostAddress hostAddress = get_ip_address(host);
 
-    QString resolved_url;
-    if(hostAddress.protocol() == QAbstractSocket::IPv6Protocol){
-        resolved_url = QString("[") + hostAddress.toString() +"]";
-    }else{
-        resolved_url = hostAddress.toString();
-    }
-    return resolved_url;
+    return hostAddress.toString();
 }
 
 int NetIO::resolveUrl(const char* url)
@@ -342,7 +336,7 @@ static int _platform_net_get_device_id(const QString& device_uri,char *buffer, i
     return ret;
 }
 #else
-int snmp_get_deviceid(char* ip ,char* buffer ,int bufsize);
+#include "snmpapi.h"
 static int _platform_net_get_device_id(const QString& device_uri,char *buffer, int bufsize)
 {
     //some host name can not get device id. change to ipv4 first.

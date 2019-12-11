@@ -14,6 +14,8 @@ MoreSettingsForScan::MoreSettingsForScan(QWidget *parent, UiSettings *param) :
     ui->setupUi(this);
     ui->btClose->hide();
     ui->label->hide();
+//    ui->groupBox_3->hide();
+//    ui->label_ScanType->hide();
     //限制亮度和对比度的输入框的输入范围在【min， max】的数值之间
     ui->lineEdit_brightness->setValidator(new QIntValidator(MIN_BRIGHT, 1000, this));
     ui->lineEdit_brightness->installEventFilter(this);

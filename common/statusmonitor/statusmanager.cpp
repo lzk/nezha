@@ -7,6 +7,8 @@
 #include "jkinterface.h"
 #include "smconfig.h"
 
+#define LOCK_STATUS_FILE 1
+
 const char* status_file = "/tmp/.status";
 const char* status_lock_file = "/tmp/.lockstatus";
 const char* statusKey = "printer/status/";
@@ -275,96 +277,148 @@ StatusManager::StatusManager()
 {
 }
 
+int StatusManager::savePrinterInfosToFile(const QList<PrinterInfo_struct >& printerinfos)
+{
+    int ret;
+#if LOCK_STATUS_FILE
+    ret = lock(status_lock_file);
+    if(!ret){
+        foreach (PrinterInfo_struct printerinfo, printerinfos) {
+            ret = savePrinterinfo(printerinfo.printer.name ,&printerinfo);
+        }
+        unlock();
+    }
+#else
+    foreach (PrinterInfo_struct printerinfo, printerinfos) {
+        ret = savePrinterinfo(printerinfo.printer.name ,&printerinfo);
+    }
+#endif
+    return ret;
+}
+
 int StatusManager::savePrinterInfoToFile(const char* printer ,PrinterInfo_struct* printerinfo)
 {
     int ret;
+#if LOCK_STATUS_FILE
     ret = lock(status_lock_file);
     if(!ret){
         ret = savePrinterinfo(printer ,printerinfo);
         unlock();
     }
+#else
+    ret = savePrinterinfo(printer ,printerinfo);
+#endif
     return ret;
 }
 
 int StatusManager::getPrinterInfoFromFile(const char* printer ,PrinterInfo_struct* printerinfo)
 {
     int ret;
+#if LOCK_STATUS_FILE
     ret = lock(status_lock_file);
     if(!ret){
         ret = getPrinterinfo(printer ,printerinfo);
         unlock();
     }
+#else
+    ret = getPrinterinfo(printer ,printerinfo);
+#endif
     return ret;
 }
 int StatusManager::saveStatusToFile(const char* printer ,PRINTER_STATUS* status)
 {
     int ret;
+#if LOCK_STATUS_FILE
     ret = lock(status_lock_file);
     if(!ret){
         ret = saveStatus(printer ,status);
         unlock();
     }
+#else
+    ret = saveStatus(printer ,status);
+#endif
     return ret;
 }
 
 int StatusManager::getStatusFromFile(const char* printer ,PRINTER_STATUS* status)
 {
     int ret;
+#if LOCK_STATUS_FILE
     ret = lock(status_lock_file);
     if(!ret){
         ret = getStatus(printer ,status);
         unlock();
     }
+#else
+    ret = getStatus(printer ,status);
+#endif
     return ret;
 }
 
 int StatusManager::clearFile()
 {
     int ret;
+#if LOCK_STATUS_FILE
     ret = lock(status_lock_file);
     if(!ret){
         ret = clear();
         unlock();
     }
+#else
+    ret = clear();
+#endif
     return ret;
 }
 
 int StatusManager::clearPrintersOfFile()
 {
     int ret;
+#if LOCK_STATUS_FILE
     ret = lock(status_lock_file);
     if(!ret){
         ret = clearPrinters();
         unlock();
     }
+#else
+    ret = clearPrinters();
+#endif
     return ret;
 }
 
 int StatusManager::getPrintersFromFile(CALLBACK_getPrinters callback,void* para)
 {
     int ret;
+#if LOCK_STATUS_FILE
     ret = lock(status_lock_file);
     if(!ret){
         ret = getPrinter(callback ,para);
         unlock();
     }
+#else
+    ret = getPrinter(callback ,para);
+#endif
     return ret;
 }
 
 int StatusManager::savePrinterToFile(Printer_struct* printer)
 {
     int ret;
+#if LOCK_STATUS_FILE
     ret = lock(status_lock_file);
     if(!ret){
         ret = savePrinter(printer);
         unlock();
     }
+#else
+    ret = savePrinter(printer);
+#endif
     return ret;
 }
 
 int StatusManager::savePrintersToFile(QList<Printer_struct > printers)
 {
     int ret;
+#if LOCK_STATUS_FILE
     ret = lock(status_lock_file);
     ret = clearPrinters();
     if(!ret){
@@ -373,5 +427,13 @@ int StatusManager::savePrintersToFile(QList<Printer_struct > printers)
         }
         unlock();
     }
+#else
+    ret = clearPrinters();
+    if(!ret){
+        foreach (Printer_struct ps, printers) {
+            ret = savePrinter(&ps);
+        }
+    }
+#endif
     return ret;
 }

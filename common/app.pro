@@ -5,10 +5,11 @@ SUBDIRS += \
     filtertrans \
     filterservice \
     stmui \
-    vopui
+    vopui \
+    testfilterlib
 
 
 #first unzip libs/cups*.zip
 
 #debug
-#cp -rf nezha_stm/lntgr1zsmui /tmp
+#cp -rf stmui/lntgr1zsmui /tmp

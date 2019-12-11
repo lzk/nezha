@@ -881,9 +881,6 @@ color:white;
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -896,14 +893,11 @@ color:white;
      <string/>
     </property>
     <widget class="QRadioButton" name="btPthoto">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>81</width>
+       <width>80</width>
        <height>20</height>
       </rect>
      </property>
@@ -938,14 +932,11 @@ QRadioButton::indicator::checked {
      </property>
     </widget>
     <widget class="QRadioButton" name="btPhotoText">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
      <property name="geometry">
       <rect>
        <x>80</x>
        <y>0</y>
-       <width>101</width>
+       <width>80</width>
        <height>20</height>
       </rect>
      </property>
@@ -980,14 +971,11 @@ QRadioButton::indicator::checked {
      </property>
     </widget>
     <widget class="QRadioButton" name="btText">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>160</x>
        <y>0</y>
-       <width>61</width>
+       <width>80</width>
        <height>20</height>
       </rect>
      </property>

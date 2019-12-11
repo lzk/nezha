@@ -1,8 +1,10 @@
 #ifndef HAVE_STRTOULL
 #define HAVE_STRTOULL 1
 #endif
+#include "snmpapi.h"
 #include <net-snmp/net-snmp-config.h>
 #include <net-snmp/net-snmp-includes.h>
+#include <arpa/inet.h>
 #include "log.h"
 //enterprises.2699.1.2.1.2.1.1.3.1
 //enterprises.26266.86.10.1.1.1.1.0
@@ -11,7 +13,8 @@ static const oid oid_status[] = {1,3,6,1,4,1,2699,1,2,1,2,1,1,3,1};
 #define TimeOutSecond 5
 enum{
     SNMP_CMD_getdeviceid,
-    SNMP_CMD_search
+    SNMP_CMD_getdeviceid_broadcast,
+    SNMP_CMD_search,
 };
 
 struct My_synch_state{
@@ -22,6 +25,8 @@ struct My_synch_state{
     int ret_var;
     const oid* oidname;
     size_t sizeof_oidname;
+    callback_snmp callback;
+    void * data;
 };
 
 static int handlerData(netsnmp_pdu *pdu, void *magic)
@@ -44,7 +49,41 @@ static int handlerData(netsnmp_pdu *pdu, void *magic)
             if((ASN_OCTET_STR == vars->type) && (bufsize >= (int)vars->val_len)){
                 memcpy(buffer ,vars->val.string ,vars->val_len);
                 *ret_var = vars->val_len;
+                break;
             }
+        }
+    }
+        break;
+    case SNMP_CMD_getdeviceid_broadcast:{
+        state->waiting = 1;
+        ret = 0;
+        char* buffer = mystate->buffer;
+        int bufsize = mystate->bufsize;
+        struct variable_list *vars;
+        for(vars = pdu->variables; vars; vars = vars->next_variable){
+            if((ASN_OCTET_STR == vars->type)){
+                if(bufsize >= (int)vars->val_len){
+                    memcpy(buffer ,vars->val.string ,vars->val_len);
+                    *ret_var = vars->val_len;
+                    break;
+                }
+            }
+        }
+
+        char ip[256];
+        struct sockaddr_in *to4 = NULL;
+        to4 = (struct sockaddr_in *)pdu->transport_data;
+        if(to4->sin_family == AF_INET){
+            strcpy(ip ,inet_ntoa(to4->sin_addr));
+        }else{
+            struct sockaddr_in6 *to6 = NULL;
+            to6 = (struct sockaddr_in6 *)pdu->transport_data;
+            if(to6->sin6_family == AF_INET6){
+                inet_ntop(AF_INET6 ,&to6->sin6_addr ,ip ,256);
+            }
+        }
+        if(mystate->callback){
+            mystate->callback(ip ,buffer ,*ret_var ,mystate->data);
         }
     }
         break;
@@ -188,7 +227,8 @@ void snmp_cancel()
     snmp_close_sessions();
 }
 
-static int snmp_get_oid(char* ip ,char* buffer ,int bufsize ,const oid* oidname ,size_t lengthofoid)
+static int snmp_get_oid(char* ip ,struct My_synch_state* lstate)
+//static int snmp_get_oid(char* ip ,char* buffer ,int bufsize ,const oid* oidname ,size_t lengthofoid)
 {
     netsnmp_session session;
 //    init_snmp ("snmp");
@@ -198,22 +238,42 @@ static int snmp_get_oid(char* ip ,char* buffer ,int bufsize ,const oid* oidname 
     session.community_len = strlen ((const char*)session.community);
     session.peername = ip;
     session.timeout =  TimeOutSecond *1000 * 1000;
+    if(lstate->cmd == SNMP_CMD_getdeviceid_broadcast){
+        session.flags |= SNMP_FLAGS_UDP_BROADCAST;
+    }
 
+    lstate->ret_var = -1;
+    snmp_handler(session ,(void*)lstate);
+    return lstate->ret_var;
+}
+
+int snmp_get_deviceid(char* ip ,char* buffer ,int bufsize)
+{
     struct My_synch_state lstate;
     memset((void*)&lstate ,0 ,sizeof(lstate));
     lstate.buffer = buffer;
     lstate.bufsize = bufsize;
     lstate.cmd = SNMP_CMD_getdeviceid;
-    lstate.ret_var = -1;
-    lstate.oidname = oidname;
-    lstate.sizeof_oidname = lengthofoid;
-    snmp_handler(session ,(void*)&lstate);
-    return lstate.ret_var;
+    lstate.oidname = oid_status;
+    lstate.sizeof_oidname = sizeof(oid_status)/sizeof(oid_status[0]);
+    lstate.callback = NULL;
+    int ret = snmp_get_oid(ip ,&lstate);
+//    int ret = snmp_get_oid(ip ,buffer ,bufsize ,oid_status ,sizeof(oid_status)/sizeof(oid_status[0]));
+    return ret < 0 ?-1 :0;
 }
 
-int snmp_get_deviceid(char* ip ,char* buffer ,int bufsize)
+int snmp_get_deviceid_broadcast(char *ip, char *buffer, int bufsize ,callback_snmp callback ,void* data)
 {
-    int ret = snmp_get_oid(ip ,buffer ,bufsize ,oid_status ,sizeof(oid_status)/sizeof(oid_status[0]));
+    struct My_synch_state lstate;
+    memset((void*)&lstate ,0 ,sizeof(lstate));
+    lstate.buffer = buffer;
+    lstate.bufsize = bufsize;
+    lstate.cmd = SNMP_CMD_getdeviceid_broadcast;
+    lstate.oidname = oid_status;
+    lstate.sizeof_oidname = sizeof(oid_status)/sizeof(oid_status[0]);
+    lstate.callback = callback;
+    lstate.data = data;
+    int ret = snmp_get_oid(ip ,&lstate);
     return ret < 0 ?-1 :0;
 }
 

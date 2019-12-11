@@ -13,6 +13,24 @@ static bool isusb;
 static bool abort;
 #include <cups/sidechannel.h>
 
+static int trans_result(filterlib_struct* para)
+{
+    if(!para)
+        return -1;
+    Trans_Client tc(SERVER_PATH);
+    char buffer[256];
+    sprintf(buffer ,"result://%s?jobid=%d&status=%d&username=%s&filename=%s"
+            ,para->printername ,para->jobid ,para->status
+            ,para->username ,para->filename);
+    tc.writeThenRead(buffer ,sizeof(buffer));
+    if(!strcmp(buffer ,"resultok"))
+    {
+        LOGLOG("filterlib: result ok");
+    }
+//    LOGLOG("filterlib: filterlib_result end");
+    return 0;
+}
+
 static void get_status(void* para)
 {
     filterlib_struct* filterlib_para = (filterlib_struct*) para;
@@ -20,9 +38,11 @@ static void get_status(void* para)
     static int count = 0;
     char data[1025];
     int datalen = 1024;
+    memset(data ,0 ,sizeof(data));
 
     Trans_Client tc(SERVER_PATH);
-    char buffer[1124];
+    char buffer[1024];
+    memset(buffer ,0 ,sizeof(buffer));
 
 #ifdef DEBUG_DEBUG
 //        result =
@@ -35,7 +55,7 @@ static void get_status(void* para)
     LOGLOG("filterlib: get device id %d: %s" ,count++ ,data);
 
     sprintf(buffer ,"dvid://%s?deviceid=%s" ,filterlib_para->printername ,data);
-    tc.writeThenRead(buffer ,1124);
+    tc.writeThenRead(buffer ,1024);
 
 //        str = QString("echo %1 >> /tmp/abcd.log").arg(data);
 //        system(str.toLatin1().constData());
@@ -53,12 +73,14 @@ static void* filterThread(void* para)
         if (abort){
             break;
         }
-//        LOGLOG("filterlib: get device id ");
+//        LOGLOG("filterlib: get device id %x" ,getpid());
 
         get_status(para);
         sleep(6);
     }
     abort = false;
+    LOGLOG("filterlib: thread exit");
+    return NULL;
 }
 
 extern const char* log_app_name;
@@ -70,6 +92,7 @@ int filterlib(filterlib_struct* para)
     app_version = APP_VERSION;
     log_file = LOG_FILE_NAME;
     log_init();
+    LOGLOG("--------%s v%s-------" ,log_app_name ,app_version);
 
     int ret;
     char deviceuri[256];
@@ -88,12 +111,12 @@ int filterlib(filterlib_struct* para)
     }
     LOGLOG("filterlib: create thread ok");
 //    ret = FilterManager::filtermanager_job(para);
+//    trans_result(para);
     return ret;
 }
 
 int filterlib_exit()
 {
-    LOGLOG("filterlib: exit");
     if(isusb){
         abort = true;
         while (abort) {
@@ -101,6 +124,7 @@ int filterlib_exit()
         }
     }
 //    return FilterManager::filtermanager_job_exit();
+    LOGLOG("filterlib: exit");
     return 0;
 }
 

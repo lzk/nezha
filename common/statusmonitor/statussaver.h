@@ -17,7 +17,8 @@ public:
     {}
     ~StatusObject(){}
 public slots:
-    void update_status(QList<Printer_struct> printerlist);
+    void update_status(QList<Printer_struct> printers);
+    void update_net_status(QList<QList<Printer_struct> > printers_list);
 };
 
 class SingelStatusThread : public QThread
@@ -26,10 +27,13 @@ class SingelStatusThread : public QThread
 public:
     explicit SingelStatusThread(QObject *parent = NULL);
     void get_status();
-    bool update_printerlist(QList<Printer_struct> printer_list);
+    bool update_printerlist(QList<Printer_struct> printers);
+    void get_status(QList<Printer_struct> printers);
+    void get_net_status(QList<QList<Printer_struct> > printers_list);
 
 signals:
-    void update_status(QList<Printer_struct> printerlist);
+    void update_status(QList<Printer_struct> printers);
+    void update_net_status(QList<QList<Printer_struct> > printers_list);
 
 private:
     QMutex mutex;
@@ -86,6 +90,8 @@ private:
 //    QList<PrinterInfo_struct> current_printerinfo_list;
 
     QList<SingelStatusThread* > threads;
+    SingelStatusThread* thread_usb;
+    SingelStatusThread* thread_net;
 
     friend class SingelStatusThread;
     friend class StatusSaverThread;

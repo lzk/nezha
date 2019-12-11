@@ -5,6 +5,95 @@
 #include "commonapi.h"
 #include "smconfig.h"
 extern int usb_error_printing;
+#include "snmpapi.h"
+int parsePrinterStatus(PRINTER_STATUS* pStatus ,PrinterStatus_struct* ps);
+static void callback(const char* ip ,char* buffer ,int bufsize ,void* data)
+{
+    int ret;
+    PRINTER_STATUS status;
+//    LOGLOG("snmp broadcast received ip:%s ,size:%d" ,ip ,bufsize);
+//    LOGLOG("device id:%s" ,buffer);
+    QList<PrinterInfo_struct>* printerinfos = (QList<PrinterInfo_struct>*)data;
+    PrinterInfo_struct* printerinfo;
+    for(int i = 0 ;i < printerinfos->count() ;i++){
+        printerinfo = &(*printerinfos)[i];
+        if(!QString(ip).compare(printerinfo->printer.connectTo)){
+            printerinfo->printer.isConnected = true;
+            ret = DecodeStatusFromDeviceID(buffer ,&status);
+            if(!ret){
+                parsePrinterStatus(&status ,&printerinfo->status);
+                printerinfo->printer.status = 0;
+            }
+        }
+    }
+}
+
+void StatusObject::update_net_status(QList<QList<Printer_struct> > printers_list)
+{
+    QMap<QString ,QList< QList<PrinterInfo_struct> > > broadcast_ips;
+     Printer_struct printer;
+     QList<PrinterInfo_struct> printerinfos;
+     QString ip;
+     char buffer[1024];
+     QHostAddress addr;
+     int tmp;
+     QList< QList<PrinterInfo_struct> > pis;
+    foreach (QList<Printer_struct> printers, printers_list) {
+
+        printer = printers[0];
+        ip = NetIO::resolve_uri(printer.deviceUri);
+
+        printerinfos.clear();
+        foreach (Printer_struct ps, printers) {
+            PrinterInfo_struct pi;
+            pi.printer = ps;
+            pi.printer.isConnected = false;
+            pi.printer.status = -1;
+            strcpy(pi.printer.connectTo ,ip.toLatin1().constData());
+            printerinfos << pi;
+        }
+
+        addr = QHostAddress(ip);
+        if(addr.protocol() == QAbstractSocket::IPv4Protocol){
+            tmp = addr.toIPv4Address();
+            tmp |= 255;
+            addr = QHostAddress(tmp);
+            ip = addr.toString();
+//            ip = "255.255.255.255";
+        }else{
+            ip = "ff08::";
+        }
+        if(broadcast_ips.contains(ip)){
+            pis = broadcast_ips[ip];
+        }else{
+            pis.clear();
+        }
+        pis << printerinfos;
+        broadcast_ips[ip] = pis;
+
+    }
+
+    QMap<QString, QList< QList<PrinterInfo_struct> > >::const_iterator i = broadcast_ips.constBegin();
+    while (i != broadcast_ips.constEnd()) {
+        ip = i.key();
+        pis = i.value();
+//        printerinfos = i.value();
+        if(pis.isEmpty()){
+            break;
+        }
+        printerinfos.clear();
+        foreach (QList<PrinterInfo_struct > pi, pis) {
+            printerinfos << pi;
+        }
+        if(QHostAddress(ip).protocol() == QAbstractSocket::IPv6Protocol){
+            ip = QString("udp6:[") + i.key() + "]";
+        }
+        snmp_get_deviceid_broadcast(ip.toLocal8Bit().data()
+                                    ,buffer ,1024 ,callback ,(void*)&printerinfos);
+        StatusManager().savePrinterInfosToFile(printerinfos);
+        ++i;
+    }
+}
 
 void StatusObject::update_status(QList<Printer_struct> printers)
 {
@@ -44,9 +133,9 @@ void StatusObject::update_status(QList<Printer_struct> printers)
         return;//get status via filter
     }
     foreach (Printer_struct printer, printers) {
-        LOGLOG("update %s result:%d ,status:%d ,url:%s" ,printer.name ,result
-               ,printerinfo.status.PrinterStatus
-               ,printer.deviceUri);
+//        LOGLOG("update %s result:%d ,status:%d ,url:%s" ,printer.name ,result
+//               ,printerinfo.status.PrinterStatus
+//               ,printer.deviceUri);
         printerinfo.printer = printer;
         printerinfo.printer.isConnected = !result;
         printerinfo.printer.status = result;
@@ -58,7 +147,11 @@ SingelStatusThread::SingelStatusThread(QObject *parent)
     : QThread(parent)
 {
     qRegisterMetaType<QList<Printer_struct> >("QList<Printer_struct>");
-    connect(this ,SIGNAL(update_status(QList<Printer_struct>)) ,&statusObject ,SLOT(update_status(QList<Printer_struct>)));
+    connect(this ,SIGNAL(update_status(QList<Printer_struct>))
+            ,&statusObject ,SLOT(update_status(QList<Printer_struct>)));
+    qRegisterMetaType<QList<QList<Printer_struct> > >("QList<QList<Printer_struct>>");
+    connect(this ,SIGNAL(update_net_status(QList<QList<Printer_struct> >))
+            ,&statusObject ,SLOT(update_net_status(QList<QList<Printer_struct> >)));
     statusObject.moveToThread(this);
 }
 
@@ -84,6 +177,16 @@ bool SingelStatusThread::update_printerlist(QList<Printer_struct> printer_list)
     mutex.unlock();
     return same;
 }
+
+void SingelStatusThread::get_status(QList<Printer_struct> printers)
+{
+    update_status(printers);
+}
+void SingelStatusThread::get_net_status(QList<QList<Printer_struct> > printers_list)
+{
+    update_net_status(printers_list);
+}
+
 StatusSaverThread::StatusSaverThread(QObject *parent)
     : QThread(parent)
     , abort(false)
@@ -175,6 +278,7 @@ StatusSaver::~StatusSaver()
     foreach (SingelStatusThread* thread, threads) {
         thread->quit();
         thread->wait();
+        LOGLOG("delete thread for uri:%s" ,thread->printerlist[0].deviceUri);
         delete thread;
     }
     while(abort)usleep(1000);
@@ -188,6 +292,8 @@ void StatusSaver::add_printer(Printer_struct* ps)
 void StatusSaver::run()
 {
 //    statusThread->start();
+    thread_usb = NULL;
+    thread_net = NULL;
     forever{
         if (abort){
             break;
@@ -233,8 +339,8 @@ void StatusSaver::run()
                 }
             }
 
+#if 0
             SingelStatusThread* thread;
-#if 1
             QList<SingelStatusThread* > new_threads;
             QList<SingelStatusThread* > rest_threads = threads;
             //find the same url and update printer list of current threads
@@ -255,6 +361,7 @@ void StatusSaver::run()
                 thread->printerlist = printer_list;
                 new_threads << thread;
                 thread->start();
+                LOGLOG("create thread for uri:%s" ,printer_list[0].deviceUri);
             }
             //get status of all new printer list
             threads = new_threads;
@@ -266,31 +373,51 @@ void StatusSaver::run()
                 thread->quit();
                 thread->wait();
                 thread->deleteLater();
+                LOGLOG("delete thread for uri:%s" ,thread->printerlist[0].deviceUri);
             }
 #else
-            int num = printers_list.count() - threads.count();
-            if(num > 0){
-                for(int i = 0 ;i < num ;i++){
-                    thread = new SingelStatusThread;
-                    threads << thread;
-                    thread->start();
+            QList<QList<Printer_struct > > usb_printers_list;
+            QList<QList<Printer_struct > > net_printers_list;
+            foreach(QList<Printer_struct > printers ,printers_list){
+                if(QString(printers[0].deviceUri).startsWith("usb://")){
+                    usb_printers_list << printers;
+                }else{
+                    net_printers_list << printers;
+                }
+            }
+            if(usb_printers_list.isEmpty()){
+                if(!qobject_cast<SingelStatusThread*>(thread_net)){
+//                if(thread_usb){
+                    threads.removeOne(thread_usb);
+                    thread_usb->deleteLater();
+                    thread_usb = NULL;
+                }
+            }else{
+                if(!qobject_cast<SingelStatusThread*>(thread_net)){
+//                if(!thread_usb){
+                    thread_usb = new SingelStatusThread;
+                    threads << thread_usb;
+                    thread_usb->start();
+                }
+                foreach (QList<Printer_struct > printers, usb_printers_list) {
+                    thread_usb->get_status(printers);
                 }
             }
 
-//            QList<SingelStatusThread* > tmp_threads = threads;
-            for(int i = 0 ;i < threads.count() ;i++){
-                thread = threads[i];
-                if(i < printers_list.count()){
-                    thread->printerlist = printers_list[i];
-                    thread->get_status();
-                }else{
-                    thread->quit();
-                    thread->wait();
-                    thread->deleteLater();
-                    tmp_threads.removeOne(thread);
+            if(net_printers_list.isEmpty()){
+                if(qobject_cast<SingelStatusThread*>(thread_net)){
+                    threads.removeOne(thread_net);
+                    thread_net->deleteLater();
+                    thread_net = NULL;
                 }
+            }else{
+                if(!qobject_cast<SingelStatusThread*>(thread_net)){
+                    thread_net = new SingelStatusThread;
+                    threads << thread_net;
+                    thread_net->start();
+                }
+                thread_net->get_net_status(net_printers_list);
             }
-            threads = tmp_threads;
 #endif
         }
 

@@ -3,7 +3,7 @@
 
 #include "pro_config.h"
 
-#define SERVER_PATH FILTER_TRANS_PATH
+#define SERVER_PATH SERVICE_TRANS_PATH
 
 #define LOCKER_EXE LOCKER_TRANS
 

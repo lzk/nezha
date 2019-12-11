@@ -33,3 +33,9 @@ SOURCES += \
 HEADERS += \
     uiconfig.h
 
+LIBS += \
+#    $${PWD}/../libs \
+    -llntgr2zcl \
+
+INCLUDEPATH += \
+            $${PWD} \

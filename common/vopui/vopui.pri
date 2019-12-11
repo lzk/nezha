@@ -13,61 +13,32 @@ contains(CONFIG ,static){
 }
 }
 
-INCLUDEPATH += \
-            $${PWD}/../libs/libtiff
-
-!contains(CONFIG ,static){
-LIBS += \
-    -ltiff \
-    -ljpeg \
-    -llntgr2zcl \
-
-    mac{
-        LIBS += \
-#                $${PWD}/../libs/mac/libtiff.a \
-                -lz \
-
-    }else{
-        unix{
-            contains(QT_ARCH, i386) {
-#                LIBS += \
-#                    $${PWD}/../libs/linux32/libtiff.a
-
-            }else{
-#                LIBS += \
-#                    $${PWD}/../libs/linux64/libtiff.a \
-#                    -lz \
-            }
-        }
-    }
-}
-
 CONFIG(debug ,debug|release){
     DEFINES += LOG_TO_STDERR
     DEFINES += DEBUG_DEBUG
 }else{
 }
 
-LIBS += \
-    -L$${PWD}/../libs \
-    -lusb-1.0 \
-    -lcups \
-#    -llntgr2zcl \
+INCLUDEPATH += \
+            $${PWD} \
+            $${PWD}/../libs/libtiff
 
 !contains(CONFIG ,static){
 LIBS += \
+    -ltiff \
+    -ljpeg \
     -lnetsnmp
 }
 
-mac{
-
-    DEFINES += JK_OS_MAC
 
 LIBS += \
-    -L/Volumes/work/software/libusb \
-    -lnetsnmp \
+    -L$${PWD}/../libs \
+
+mac{
+
+LIBS += \
     -L$${PWD}/../libs/mac \
-    -ljpeg \
+    -lz \
 
 }else{
     unix{

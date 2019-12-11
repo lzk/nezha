@@ -7,12 +7,12 @@
 
 #if TRANS_SOCKET
 #include "trans_socket.h"
-typedef Trans_Socket_Server Trans_Server;
-typedef Trans_Socket_Client Trans_Client;
+#define Trans_Server Trans_Socket_Server
+#define Trans_Client Trans_Socket_Client
 #elif TRANS_MEG
 #include "trans_msg.h"
-typedef Trans_Msg_Server Trans_Server;
-typedef Trans_Msg_Client Trans_Client;
+#define Trans_Server Trans_Msg_Server
+#define Trans_Client Trans_Msg_Client
 #elif TRANS_FILE
 #include "trans_file.h"
 //typedef Trans_File_Server Trans_Server;

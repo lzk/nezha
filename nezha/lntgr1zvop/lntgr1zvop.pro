@@ -10,7 +10,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 include("../pro.pri")
 TARGET = $${TARGET_vop}
-INCLUDEPATH += $${PATH_common}/vopui/
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -32,3 +31,10 @@ SOURCES += \
 
 HEADERS += \
     ../../common/vopui/uiconfig.h
+
+LIBS += \
+#    $${PWD}/../libs \
+    -llntgr1zcl \
+
+INCLUDEPATH += \
+            $${PWD} \

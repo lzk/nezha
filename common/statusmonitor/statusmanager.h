@@ -10,6 +10,7 @@ class StatusManager: public FileLocker
 public:
     StatusManager();
 
+    int savePrinterInfosToFile(const QList<PrinterInfo_struct >& printerinfos);
     int savePrinterInfoToFile(const char* printer ,PrinterInfo_struct* printerinfo);
     int getPrinterInfoFromFile(const char* printer ,PrinterInfo_struct* printerinfo);
     int saveStatusToFile(const char* printer ,PRINTER_STATUS* status);

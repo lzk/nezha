@@ -16,11 +16,11 @@ Watcher::~Watcher()
 
 void Watcher::watcher_job()
 {
-    static int count = 0;
+//    static int count = 0;
 //    if((count % 10 == 0) && !is_app_running(SERVER_PATH)){
 //        server_restart();
 //    }
-    count ++;
-    if(count == 60)
-        count = 0;
+//    count ++;
+//    if(count == 60)
+//        count = 0;
 }

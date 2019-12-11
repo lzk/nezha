@@ -11,7 +11,8 @@ HEADERS += \
     $$PWD/commonapi.h \
     $$PWD/usbio.h \
     $$PWD/netio.h \
-    $$PWD/devicemanager.h
+    $$PWD/devicemanager.h \
+    $$PWD/snmpapi.h
 
 SOURCES += \
     $$PWD/serverthread.cpp \
