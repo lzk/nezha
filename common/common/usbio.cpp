@@ -89,7 +89,10 @@ int UsbIO::open_device(int port ,bool config)
 {
     int ret;
     mutex.lock();
-    usb->init();
+    ret = usb->init();
+    if(ret){
+        return ret;
+    }
     ret = usb->open(vid ,pid ,serial);
     if(!ret){
         usb->getDeviceAddress(&address ,&bus);

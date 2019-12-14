@@ -255,6 +255,14 @@ void TabStackedWidget::cmdResult(int cmd,int result,QVariant data)
         ui->btn_MoreSetting_Scan->setEnabled(true);
 //        ui->btn_Scan->setEnabled(true);
         ui->btn_ScanCancel->setEnabled(false);
+        ui->progressBar_Scan->setStyleSheet("QProgressBar{"
+                                            "color:black;"
+                                            "border:3px groove white;"
+                                            "border-radius:9px;"
+                                            "background-image:url();"
+                                            "background-color:lightgray;"
+                                            "}"
+                                            );
         ui->progressBar_Scan->setValue(0);
         scanning = false;
     }
@@ -267,6 +275,29 @@ void TabStackedWidget::cmdResult(int cmd,int result,QVariant data)
 void TabStackedWidget::updateScanProcess(int progress)
 {
 //    qDebug()<<"TabStackedWidget:"<<progress;
+    if(progress > 0){
+        ui->progressBar_Scan->setStyleSheet("QProgressBar{"
+                                            "color:black;"
+                                            "border:3px groove white;"
+                                            "border-radius:9px;"
+                                            "background-image:url();"
+                                            "background-color:lightgray;"
+                                            "}"
+                                            "QProgressBar::chunk{"
+                                            "background-color:green;"
+                                            "border-radius:5px;"
+                                            "}"
+                                            );
+    }else{
+        ui->progressBar_Scan->setStyleSheet("QProgressBar{"
+                                            "color:black;"
+                                            "border:3px groove white;"
+                                            "border-radius:9px;"
+                                            "background-image:url();"
+                                            "background-color:lightgray;"
+                                            "}"
+                                            );
+    }
     ui->progressBar_Scan->setValue(progress);
 }
 

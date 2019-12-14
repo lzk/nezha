@@ -33,14 +33,6 @@ LIBS += \
 LIBS += \
     -L$${PWD}/../libs \
 
-mac{
-
-LIBS += \
-    -L$${PWD}/../libs/mac \
-    -lz \
-
-}
-
 SOURCES += \
         $${PWD}/main.cpp \
         $${PWD}/mainwindow.cpp \
