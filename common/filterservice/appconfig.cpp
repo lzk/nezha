@@ -117,6 +117,9 @@ static int _getpidvid(const QString& makeAndModel ,int& pid ,int& vid ,int& inte
     }else if(makeAndModel.contains("M7268W")){
         pid = 0x563a;
         interface = 1;
+    }else if(makeAndModel.contains("M7268")){
+        pid = 0x5639;
+        interface = 1;
 //    }else if(makeAndModel.contains("G262DNT")){
 //        pid = 0x5461;
 //        interface = 1;

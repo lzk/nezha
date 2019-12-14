@@ -39,9 +39,9 @@ macx:{
 LIBS += \
     -L/Volumes/work/software/libusb \
     -L$${PWD}/../libs/mac \
-}
+}else{
 
-contains(CONFIG ,static){
+#contains(CONFIG ,static){
 
         contains(QT_ARCH, i386){
                 LIBS += \
@@ -52,6 +52,7 @@ contains(CONFIG ,static){
                     -L$${PWD}/../libs/linux64 \
 
         }
+#}
 }
 
 LIBS += \

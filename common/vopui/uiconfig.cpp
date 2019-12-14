@@ -4,6 +4,8 @@
 //#include "appserver.h"
 #include <QFile>
 #include <QDir>
+#include <QDateTime>
+#include <stdlib.h>
 
 bool testmode = false;
 //const QString app_name = QString::fromUtf8("打印机状态监视器");
@@ -78,6 +80,9 @@ static int _getpidvid(const QString& makeAndModel ,int& pid ,int& vid ,int& inte
     }else if(makeAndModel.contains("M7268W")){
         pid = 0x563a;
         interface = 1;
+    }else if(makeAndModel.contains("M7268")){
+        pid = 0x5639;
+        interface = 1;
 //    }else if(makeAndModel.contains("G262DNT")){
 //        pid = 0x5461;
 //        interface = 1;
@@ -107,13 +112,20 @@ static int _getpidvid(const QString& makeAndModel ,int& pid ,int& vid ,int& inte
     return (pid == -1) ?-1 :0;
 }
 
+QString UIConfig::tmp_scan_dir;
 UIConfig::UIConfig(QObject *parent) :
     QObject(parent)
 {
 }
 
+extern const char* log_file;
 int UIConfig::initConfig()
 {
+    log_app_name = EXE_NAME;
+    app_version = APP_VERSION;
+    log_file = LOG_FILE_NAME;
+    log_init();
+
     if(app_file_locker.trylock(LOCKER_EXE)){
         LOGLOG("app had been locked!");
         return -1;
@@ -123,9 +135,9 @@ int UIConfig::initConfig()
 //        return -2;
 //    }
 
-#ifndef DEBUG_DEBUG
+    LOGLOG("--------%s v%s-------" ,log_app_name ,app_version);
+
     g_config_file = CONFIG_FILE;
-#endif
 
     //config status server thread
     if(testmode){
@@ -152,12 +164,16 @@ int UIConfig::initConfig()
     isDeviceSupported = _isDeviceSupported;
     getpidvid = _getpidvid;
 
-    QDir dir(TMP_SCAN_DIR);
-    QDir *path = &dir;
-    if(path->exists(TMP_SCAN_DIR)){
-        path->remove(TMP_SCAN_DIR);
-    }
-    path->mkdir(TMP_SCAN_DIR);
+    QDateTime time = QDateTime::currentDateTime();
+    QString str_time = time.toString("yyyy-MM-dd_hh-mm-ss-zzz");
+    tmp_scan_dir = QString("/tmp/tmpscan_") + str_time;
+    QDir().mkdir(tmp_scan_dir);
+//    QDir dir(TMP_SCAN_DIR);
+//    QDir *path = &dir;
+//    if(path->exists(TMP_SCAN_DIR)){
+//        path->remove(TMP_SCAN_DIR);
+//    }
+//    path->mkdir(TMP_SCAN_DIR);
 
 //    app_server = new AppServer(DOMAIN_UIEXE);
     return 0;
@@ -169,11 +185,15 @@ void UIConfig::exit_app()
 //    QFile::remove(lockfile);
     app_file_locker.unlock();
  //   delete app_server;
-    QDir dir(TMP_SCAN_DIR);
-    QDir *path = &dir;
-    if(path->exists(TMP_SCAN_DIR)){
-        path->remove(TMP_SCAN_DIR);
-    }
+//    QDir dir(TMP_SCAN_DIR);
+//    QDir *path = &dir;
+//    if(path->exists(TMP_SCAN_DIR)){
+//        path->remove(TMP_SCAN_DIR);
+//    }
+    QString cmd("rm -rf ");
+    cmd += tmp_scan_dir;
+    system(cmd.toLatin1().constData());
+//    QDir().remove(tmp_scan_dir);
 }
 
 int UIConfig::getModelSerial(Printer_struct* ps)

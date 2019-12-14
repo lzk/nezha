@@ -231,6 +231,9 @@ public:
         LS_CMD_PRN_getCRMInfo,
     };
     Q_ENUMS(CmdType)
+
+public:
+    static QString tmp_scan_dir;
 };
 
 #endif // UICONFIG_H

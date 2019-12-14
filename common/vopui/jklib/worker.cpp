@@ -78,29 +78,17 @@ void Worker::cmdFromUi(int cmd ,const QString& printer_name ,QVariant data)
         if(printer){
             if(cmd_status_validate(printer ,cmd)){
                 ScanSettings device_data = data.value<ScanSettings>();
-                const char* imagePath = TMP_SCAN_DIR;
-//                const char* imagePath = "/tmp/vop_scan";
-//                QDir *path = new QDir;
-//                if(!(path->exists(imagePath)))
-//                {
-//                    path->mkdir(imagePath);
-//                }
-//                delete path;
-                switch (device_data.info->source->format) {
-                case ImageTransFormat_jpg:
-                    sprintf(device_data.tmpfilename, "%s/tmpscan.jpg", TMP_SCAN_DIR);
-                    break;
-                case ImageTransFormat_raw:
-                    sprintf(device_data.tmpfilename, "%s/tmpscan.raw", TMP_SCAN_DIR);
-                    break;
-                default:
-                    memset(device_data.tmpfilename ,0 ,sizeof(device_data.tmpfilename));
-                    break;
+                if(device_data.settings.scan_type == Hight_Speed) {
+                    sprintf(device_data.tmpfilename, "%s/tmpscan.jpg", UIConfig::tmp_scan_dir.toLatin1().constData());
+                }else{
+                    sprintf(device_data.tmpfilename, "%s/tmpscan.raw", UIConfig::tmp_scan_dir.toLatin1().constData());
                 }
                 QDateTime time = QDateTime::currentDateTime();
                 QString str_time = time.toString("yyyy-MM-dd_hh-mm-ss-zzz");
-                QByteArray t_ba = str_time.toLatin1();
-                sprintf(device_data.filename, "%s/%s.bmp", imagePath, t_ba.constData());
+                QString tmpfilename(UIConfig::tmp_scan_dir + "/" + str_time + ".bmp");
+                strcpy(device_data.filename ,tmpfilename.toLatin1().constData());
+//                QByteArray t_ba = str_time.toLatin1();
+//                sprintf(device_data.filename, "%s/%s.bmp", imagePath, t_ba.constData());
 
 //                device_data.settings.scan_type = Hight_Quality;
                 device_data.callback_para = this;

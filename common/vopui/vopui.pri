@@ -26,8 +26,7 @@ INCLUDEPATH += \
 !contains(CONFIG ,static){
 LIBS += \
     -ltiff \
-    -ljpeg \
-    -lnetsnmp
+    -ljpeg
 }
 
 
@@ -40,26 +39,6 @@ LIBS += \
     -L$${PWD}/../libs/mac \
     -lz \
 
-}else{
-    unix{
-        contains(QT_ARCH, i386){
-                LIBS += \
-                    -L$${PWD}/../libs/linux32 \
-                    $${PWD}/../libs/linux32/libnetsnmp.a \
-
-        }else{
-            CONFIG(debug ,debug|release){
-                LIBS += \
-                    -lnetsnmp
-
-            }else{
-                LIBS += \
-                    -L$${PWD}/../libs/linux64 \
-                    $${PWD}/../libs/linux64/libnetsnmp.a \
-            }
-
-        }
-    }
 }
 
 SOURCES += \

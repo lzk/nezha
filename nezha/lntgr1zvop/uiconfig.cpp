@@ -140,12 +140,17 @@ int UIConfig::initConfig()
     isDeviceSupported = _isDeviceSupported;
     getpidvid = _getpidvid;
 
-    QDir dir(TMP_SCAN_DIR);
-    QDir *path = &dir;
-    if(path->exists(TMP_SCAN_DIR)){
-        path->remove(TMP_SCAN_DIR);
-    }
-    path->mkdir(TMP_SCAN_DIR);
+//    QDateTime time = QDateTime::currentDateTime();
+//    QString str_time = time.toString("yyyy-MM-dd_hh-mm-ss-zzz");
+//    tmp_scan_dir = QString("/tmp/tmpscan_") + str_time;
+//    QDir().mkdir(tmp_scan_dir);
+
+//    QDir dir(TMP_SCAN_DIR);
+//    QDir *path = &dir;
+//    if(path->exists(TMP_SCAN_DIR)){
+//        path->remove(TMP_SCAN_DIR);
+//    }
+//    path->mkdir(TMP_SCAN_DIR);
 
 //    app_server = new AppServer(DOMAIN_UIEXE);
     return 0;
@@ -157,11 +162,12 @@ void UIConfig::exit_app()
 //    QFile::remove(lockfile);
     app_file_locker.unlock();
  //   delete app_server;
-    QDir dir(TMP_SCAN_DIR);
-    QDir *path = &dir;
-    if(path->exists(TMP_SCAN_DIR)){
-        path->remove(TMP_SCAN_DIR);
-    }
+//    QDir dir(TMP_SCAN_DIR);
+//    QDir *path = &dir;
+//    if(path->exists(TMP_SCAN_DIR)){
+//        path->remove(TMP_SCAN_DIR);
+//    }
+//    QDir().remove(tmp_scan_dir);
 }
 
 int UIConfig::getModelSerial(Printer_struct* ps)
