@@ -54,7 +54,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->errorBtn->hide();
 #ifndef DEBUG
     gUInterface->setCmd(UIConfig::CMD_GetPrinters,QString());
-    isOfflineStart = true;
+//    isOfflineStart = true;
+    isOfflineStart = false;
     QSettings settings(g_config_file ,QSettings::NativeFormat);
     isShowMaintain = settings.value("auto_show_service_url" ,QVariant(true)).toBool();
 //    isShowMaintain = true;
@@ -1040,6 +1041,7 @@ void MainWindow::updateStatusPanel(int displayStatus,int status)
         updateTonerCarStatus(-1);
 
         emit signalCloseAnimationDlg();
+        isOfflineStart = true;
         break;
     case UIConfig::Status_Busy:
         ui->label_6->setText(tr("ResStr_Busy"));

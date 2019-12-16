@@ -6,7 +6,7 @@
 #include <QMouseEvent>
 #include "uiconfig.h"
 #include <qsystemtrayicon.h>
-
+#include <QTimer>
 namespace Ui {
 class MainWindow;
 }
@@ -38,6 +38,7 @@ protected:
     void mousePressEvent(QMouseEvent *e);
     void mouseMoveEvent(QMouseEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
+    bool event(QEvent *event);
     bool isPress;
     QPoint last;
 
@@ -52,6 +53,15 @@ private:
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
     void createSysTray();
+
+    QTimer timer;
+    int timer_count;
+    int time_for_hide;
+    QMap<QString ,int> error_map;
+    QMap<QString ,QList<int> > shown_error_map;
+    QString message_printer;
+private slots:
+    void timeout();
 };
 
 #endif // MAINWINDOW_H

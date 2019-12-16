@@ -41,6 +41,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(gUInterface ,SIGNAL(cmdResult(int,int,QVariant)) ,this ,SLOT(cmdResult(int,int,QVariant)));
 
     gUInterface->setCmd(UIConfig::CMD_GetPrinters ,current_printer);
+
+    connect(&timer ,SIGNAL(timeout()) ,this ,SLOT(timeout()));
+    timer.start(1000);
 }
 
 MainWindow::~MainWindow()
@@ -95,10 +98,69 @@ void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason)
 }
 void MainWindow::messageClicked()
 {
-    showNormal();
+    setcurrentPrinter(message_printer);
+
+    show();
+    error_map.clear();
+    shown_error_map.clear();
+
 }
+void MainWindow::timeout()
+{
+    if(time_for_hide > 0)
+        time_for_hide --;
+    else{
+        if(error_map.isEmpty())
+            hide();
+    }
 
+    if(timer_count > 0)
+        timer_count --;
+    else
+    if(isHidden()){
+        if(!error_map.isEmpty()){
+            message_printer = error_map.keys().first();
+            int status = error_map[message_printer];
+            error_map.remove(message_printer);
+            if(status == 0){
+                timer_count = 3;
+                trayIcon->showMessage(message_printer ,QString::fromUtf8("错误已恢复") ,QSystemTrayIcon::Information ,3000);
+                shown_error_map.remove(message_printer);
+            }else{
+                QList<int> status_list;
+                if(shown_error_map.contains(message_printer)){
+                    status_list = shown_error_map[message_printer];
+                }
+                if(!status_list.contains(status)){
+                    QString str;
+                    str = UIConfig::getErrorMsg(status, 0, false);
+                    if(UIConfig::Status_Error == UIConfig::GetStatusTypeForUI(status))
+                        trayIcon->showMessage(message_printer ,str ,QSystemTrayIcon::Critical ,5000);
+                    else
+                        trayIcon->showMessage(message_printer ,str ,QSystemTrayIcon::Warning ,5000);
+    //                trayIcon->showMessage(message_printer ,str ,QIcon(":/Images/error2.png") ,5000);
+                    timer_count = 5;
+                    status_list << status;
+                    shown_error_map[message_printer] = status_list;
+                }
+            }
 
+        }
+    }
+}
+#include <QDebug>
+bool MainWindow::event(QEvent *event)
+{
+    switch (event->type()) {
+    case QEvent::HoverMove:
+    case QEvent::Show:
+        time_for_hide = 60;
+        break;
+    default:
+        break;
+    }
+    return QMainWindow::event(event);
+}
 
 void MainWindow::mousePressEvent(QMouseEvent *e)
 {
@@ -122,7 +184,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *e)
         last = e->globalPos();
         move(x()+dx, y()+dy);
     }
-//    qDebug()<<e->pos();
+//    qDebug()<< "move event" <<e->pos();
 }
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *e)
@@ -217,32 +279,42 @@ void MainWindow::updatePrinter(const QVariant& data)
 //        gUInterface->setCmd(UIConfig::CMD_GetStatus ,printerInfo.printer.name);
     }
 #else
+    QString str;
 //    printerlist = data.value<QList<Printer_struct> >();
     printerlist = data.value<QList<PrinterInfo_struct> >();
-    Printer_struct printer;
+    Printer_struct* printer;
     int base = 0;
     ui->tableWidget_printers->setRowCount(printerlist.length());
     printers.clear();
     int index_of_online_printer = -1;
     int index_of_defaultprinter = 0;
     for(int i = 0 ;i < printerlist.count() ;i++){
+        printer = &printerlist[i].printer;
         if(UIConfig::isAutoShow(printerlist[i].status.PrinterStatus)){
-            show();
+            error_map[printer->name] = printerlist[i].status.PrinterStatus;
+        }else{
+            error_map.remove(printer->name);
+            QList<int> status_list;
+            if(shown_error_map.contains(printer->name)){
+                status_list = shown_error_map[printer->name];
+            }
+            if(!status_list.isEmpty()){
+                error_map[printer->name] = 0;
+            }
         }
 
-        printer = printerlist[i].printer;
-        if(printer.isConnected){
+        if(printer->isConnected){
             if(index_of_online_printer < 0)
                 index_of_online_printer = i;
         }
-        if(printer.isDefault){
+        if(printer->isDefault){
             index_of_defaultprinter =  i;
         }
-        printers << printer.name;
+        printers << printer->name;
 
 //        ui->tableWidget_printers->setColumnCount(4);
         QBrush brush;
-        int type = UIConfig::GetStatusTypeForUI(printer.status);
+        int type = UIConfig::GetStatusTypeForUI(printer->status);
         QIcon icon;
         switch (type) {
         case UIConfig::Status_Error:
@@ -266,7 +338,7 @@ void MainWindow::updatePrinter(const QVariant& data)
             break;
         }
 
-        QString str = UIConfig::GetStatusTypeString(type);
+        str = UIConfig::GetStatusTypeString(type);
         QTableWidgetItem* item;
         item = new QTableWidgetItem(str);
         item->setForeground(brush);
@@ -287,27 +359,27 @@ void MainWindow::updatePrinter(const QVariant& data)
 //        widget->setLayout(hLayout);
 //        ui->tableWidget_printers->setCellWidget(i ,base+0 ,widget);
 
-        str = QString::fromUtf8(printer.name);
+        str = QString::fromUtf8(printer->name);
         item = new QTableWidgetItem(str);
         item->setForeground(QBrush(Qt::blue));
 //        item->setTextAlignment(Qt::AlignCenter);
         item->setToolTip(str);
         ui->tableWidget_printers->setItem(i ,base+1,item);
-        if(printer.toner < 0){
+        if(printer->toner < 0){
             item = new QTableWidgetItem("-");
         }else{
-            item = new QTableWidgetItem(tr("%1%").arg(printer.toner));
+            item = new QTableWidgetItem(tr("%1%").arg(printer->toner));
         }
 //        item->setTextAlignment(Qt::AlignCenter);
         ui->tableWidget_printers->setItem(i ,base+2,item);
-        if(printer.drum < 0){
+        if(printer->drum < 0){
             item = new QTableWidgetItem("-");
         }else{
-            item = new QTableWidgetItem(tr("%1%").arg(printer.drum));
+            item = new QTableWidgetItem(tr("%1%").arg(printer->drum));
         }
 //        item->setTextAlignment(Qt::AlignCenter);
         ui->tableWidget_printers->setItem(i ,base+3,item);
-//        gUInterface->setCmd(UIConfig::CMD_GetStatus ,printer.name);
+//        gUInterface->setCmd(UIConfig::CMD_GetStatus ,printer->name);
     }
 #endif
 
