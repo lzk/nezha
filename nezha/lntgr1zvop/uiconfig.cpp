@@ -89,6 +89,7 @@ static int _getpidvid(const QString& makeAndModel ,int& pid ,int& vid ,int& inte
     return (pid == -1) ?-1 :0;
 }
 
+QString UIConfig::tmp_scan_dir;
 UIConfig::UIConfig(QObject *parent) :
     QObject(parent)
 {
@@ -191,9 +192,11 @@ int UIConfig::getModelSerial(Printer_struct* ps)
     }else if(makeAndModel.startsWith("Lenovo M100")){
         ms = ModelSerial_M;
     }else if(makeAndModel.startsWith("Lenovo M101DW")){
-        ms = ModelSerial_M + Model_D + Model_W;
+//        ms = ModelSerial_M + Model_D + Model_W;
+        ms = ModelSerial_L + Model_N;
     }else if(makeAndModel.startsWith("Lenovo M101W")){
-        ms = ModelSerial_M + Model_W;
+//        ms = ModelSerial_M + Model_W;
+        ms = ModelSerial_L + Model_N;
     }else if(makeAndModel.startsWith("Lenovo M101")){
         ms = ModelSerial_M;
     }else if(makeAndModel.startsWith("Lenovo M102W")){

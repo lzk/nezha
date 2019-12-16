@@ -235,5 +235,4 @@ public:
 public:
     static QString tmp_scan_dir;
 };
-
 #endif // UICONFIG_H

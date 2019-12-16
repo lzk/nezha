@@ -1,9 +1,9 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-#    nezha \
+    nezha \
 #    suwukong \
-    lntgr3z
+#    lntgr3z
 
 
 #first unzip libs/cups*.zip
