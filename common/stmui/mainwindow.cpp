@@ -6,6 +6,8 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
+  ,time_for_traymessage(0)
+  ,time_for_hide(60)
 {
     ui->setupUi(this);
     setWindowTitle(tr("ResStr_AppName"));
@@ -101,10 +103,9 @@ void MainWindow::messageClicked()
     setcurrentPrinter(message_printer);
 
     show();
-    error_map.clear();
-    shown_error_map.clear();
 
 }
+
 void MainWindow::timeout()
 {
     if(time_for_hide > 0)
@@ -113,9 +114,10 @@ void MainWindow::timeout()
         if(error_map.isEmpty())
             hide();
     }
+//    LOGLOG("time for hide:%d" ,time_for_hide);
 
-    if(timer_count > 0)
-        timer_count --;
+    if(time_for_traymessage > 0)
+        time_for_traymessage --;
     else
     if(isHidden()){
         if(!error_map.isEmpty()){
@@ -123,7 +125,8 @@ void MainWindow::timeout()
             int status = error_map[message_printer];
             error_map.remove(message_printer);
             if(status == 0){
-                timer_count = 3;
+                time_for_traymessage = 3;
+                LOGLOG("tray:%s status recover" ,message_printer.toUtf8().constData());
                 trayIcon->showMessage(message_printer ,QString::fromUtf8("错误已恢复") ,QSystemTrayIcon::Information ,3000);
                 shown_error_map.remove(message_printer);
             }else{
@@ -134,12 +137,13 @@ void MainWindow::timeout()
                 if(!status_list.contains(status)){
                     QString str;
                     str = UIConfig::getErrorMsg(status, 0, false);
+                    LOGLOG("tray:%s status error:%d" ,message_printer.toUtf8().constData() ,status);
                     if(UIConfig::Status_Error == UIConfig::GetStatusTypeForUI(status))
                         trayIcon->showMessage(message_printer ,str ,QSystemTrayIcon::Critical ,5000);
                     else
                         trayIcon->showMessage(message_printer ,str ,QSystemTrayIcon::Warning ,5000);
     //                trayIcon->showMessage(message_printer ,str ,QIcon(":/Images/error2.png") ,5000);
-                    timer_count = 5;
+                    time_for_traymessage = 5;
                     status_list << status;
                     shown_error_map[message_printer] = status_list;
                 }
@@ -148,13 +152,18 @@ void MainWindow::timeout()
         }
     }
 }
-#include <QDebug>
+
 bool MainWindow::event(QEvent *event)
 {
     switch (event->type()) {
     case QEvent::HoverMove:
-    case QEvent::Show:
         time_for_hide = 60;
+        break;
+    case QEvent::Show:
+        time_for_traymessage = 0;
+        time_for_hide = 60;
+        error_map.clear();
+        shown_error_map.clear();
         break;
     default:
         break;
@@ -292,14 +301,19 @@ void MainWindow::updatePrinter(const QVariant& data)
         printer = &printerlist[i].printer;
         if(UIConfig::isAutoShow(printerlist[i].status.PrinterStatus)){
             error_map[printer->name] = printerlist[i].status.PrinterStatus;
+            LOGLOG("tray add error map:%s,%d" ,printer->name ,error_map[printer->name]);
         }else{
             error_map.remove(printer->name);
-            QList<int> status_list;
             if(shown_error_map.contains(printer->name)){
-                status_list = shown_error_map[printer->name];
-            }
-            if(!status_list.isEmpty()){
-                error_map[printer->name] = 0;
+                if((printerlist[i].status.PrinterStatus != UIConfig::Offline)
+                        &&(printerlist[i].status.PrinterStatus != UIConfig::PowerOff)
+                        &&(printerlist[i].status.PrinterStatus != UIConfig::Unknown)){
+                    //is error recover
+                    error_map[printer->name] = 0;
+                    LOGLOG("tray add error map:%s,%d" ,printer->name ,error_map[printer->name]);
+                }else{
+                    shown_error_map.remove(printer->name);
+                }
             }
         }
 
