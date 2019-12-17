@@ -27,12 +27,17 @@ private slots:
 
     void iconActivated(QSystemTrayIcon::ActivationReason reason);
     void messageClicked();
+
+    void timeout();
+
 private:
     void setcurrentPrinter(const QString& str);
 //    void mouse_event(QMouseEvent* e);
     void updateStatus(const PrinterInfo_struct& printer);
     void updatePrinter(const QVariant& data);
     void updateCurrentPrinterStatus(const QString& printer);
+
+    void createSysTray();
 
 protected:
     void mousePressEvent(QMouseEvent *e);
@@ -52,16 +57,13 @@ private:
     QAction *quitAction;
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
-    void createSysTray();
 
-    QTimer timer;
-    int timer_count;
+    int time_for_traymessage;
     int time_for_hide;
     QMap<QString ,int> error_map;
     QMap<QString ,QList<int> > shown_error_map;
     QString message_printer;
-private slots:
-    void timeout();
+    QTimer timer;
 };
 
 #endif // MAINWINDOW_H
