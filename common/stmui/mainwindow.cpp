@@ -130,11 +130,12 @@ void MainWindow::timeout()
                 trayIcon->showMessage(message_printer ,QString::fromUtf8("错误已恢复") ,QSystemTrayIcon::Information ,3000);
                 shown_error_map.remove(message_printer);
             }else{
-                QList<int> status_list;
-                if(shown_error_map.contains(message_printer)){
-                    status_list = shown_error_map[message_printer];
-                }
-                if(!status_list.contains(status)){
+//                QList<int> status_list;
+//                if(shown_error_map.contains(message_printer)){
+//                    status_list = shown_error_map[message_printer];
+//                }
+//                if(!status_list.contains(status)){
+                if(shown_error_map[message_printer] != status){
                     QString str;
                     str = UIConfig::getTrayMsg(status);
                     LOGLOG("tray:%s status error:%d" ,message_printer.toUtf8().constData() ,status);
@@ -144,8 +145,9 @@ void MainWindow::timeout()
                         trayIcon->showMessage(message_printer ,str ,QSystemTrayIcon::Warning ,5000);
     //                trayIcon->showMessage(message_printer ,str ,QIcon(":/Images/error2.png") ,5000);
                     time_for_traymessage = 5;
-                    status_list << status;
-                    shown_error_map[message_printer] = status_list;
+//                    status_list << status;
+//                    shown_error_map[message_printer] = status_list;
+                    shown_error_map[message_printer] = status;
                 }
             }
 
@@ -163,7 +165,7 @@ bool MainWindow::event(QEvent *event)
         time_for_traymessage = 0;
         time_for_hide = 60;
         error_map.clear();
-        shown_error_map.clear();
+//        shown_error_map.clear();
         break;
     default:
         break;

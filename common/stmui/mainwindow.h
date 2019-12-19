@@ -61,7 +61,8 @@ private:
     int time_for_traymessage;
     int time_for_hide;
     QMap<QString ,int> error_map;
-    QMap<QString ,QList<int> > shown_error_map;
+    QMap<QString ,int > shown_error_map;
+//    QMap<QString ,QList<int> > shown_error_map;
     QString message_printer;
     QTimer timer;
 };
