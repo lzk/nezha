@@ -136,7 +136,7 @@ void MainWindow::timeout()
                 }
                 if(!status_list.contains(status)){
                     QString str;
-                    str = UIConfig::getErrorMsg(status, 0, false);
+                    str = UIConfig::getTrayMsg(status);
                     LOGLOG("tray:%s status error:%d" ,message_printer.toUtf8().constData() ,status);
                     if(UIConfig::Status_Error == UIConfig::GetStatusTypeForUI(status))
                         trayIcon->showMessage(message_printer ,str ,QSystemTrayIcon::Critical ,5000);

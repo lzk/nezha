@@ -146,6 +146,7 @@ public:
     static QString GetStatusTypeString(int type);
     static int GetStatusTypeForUI(int status);
     static QString getErrorMsg(int status,int job,bool isAbcPlusModel);
+    static QString getTrayMsg(int status);
     static bool isAutoShow(int status);
 public:
     enum CmdType{
