@@ -137,6 +137,7 @@ void MainWindow::createSysTray()
     trayIcon->setContextMenu(trayIconMenu);
     trayIcon->setIcon(QIcon(":/Images/logo_gray.png"));
 
+    trayIcon->setToolTip(tr("ResStr_Lenovo_Printer"));
 //    connect(trayIcon, SIGNAL(messageClicked()), this, SLOT(messageClicked()));
 //    connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
     trayIcon->show();

@@ -68,6 +68,7 @@ void MainWindow::createSysTray()
     trayIcon->setContextMenu(trayIconMenu);
     trayIcon->setIcon(QIcon(":/Images/app_gray.png"));
 
+    trayIcon->setToolTip(tr("ResStr_AppName"));
     connect(trayIcon, SIGNAL(messageClicked()), this, SLOT(messageClicked()));
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
     trayIcon->show();
@@ -299,22 +300,33 @@ void MainWindow::updatePrinter(const QVariant& data)
     printers.clear();
     int index_of_online_printer = -1;
     int index_of_defaultprinter = 0;
+    int printerstatus;
     for(int i = 0 ;i < printerlist.count() ;i++){
         printer = &printerlist[i].printer;
-        if(UIConfig::isAutoShow(printerlist[i].status.PrinterStatus)){
-            error_map[printer->name] = printerlist[i].status.PrinterStatus;
-            LOGLOG("tray add error map:%s,%d" ,printer->name ,error_map[printer->name]);
+        printerstatus = printer->status;
+//        printerstatus = printerlist[i].status.PrinterStatus;
+        LOGLOG("printer:%s ,status:%d" ,printer->name ,printerstatus);
+        if(!isHidden()){
+            if(UIConfig::isAutoShow(printerstatus)){
+                shown_error_map[printer->name] = printerstatus;
+            }
         }else{
-            error_map.remove(printer->name);
-            if(shown_error_map.contains(printer->name)){
-                if((printerlist[i].status.PrinterStatus != UIConfig::Offline)
-                        &&(printerlist[i].status.PrinterStatus != UIConfig::PowerOff)
-                        &&(printerlist[i].status.PrinterStatus != UIConfig::Unknown)){
-                    //is error recover
-                    error_map[printer->name] = 0;
-                    LOGLOG("tray add error map:%s,%d" ,printer->name ,error_map[printer->name]);
-                }else{
-                    shown_error_map.remove(printer->name);
+            if(UIConfig::isAutoShow(printerstatus)){
+                error_map[printer->name] = printerstatus;
+                LOGLOG("tray add error map:%s,%d" ,printer->name ,error_map[printer->name]);
+            }else{
+                error_map.remove(printer->name);
+                if(shown_error_map.contains(printer->name)){
+                    if((printerstatus != UIConfig::Offline)
+                            &&(printerstatus != UIConfig::PowerOff)
+                            &&(printerstatus != -1)
+                            &&(printerstatus != UIConfig::Unknown)){
+                        //is error recover
+                        error_map[printer->name] = 0;
+                        LOGLOG("tray add error map:%s,%d" ,printer->name ,error_map[printer->name]);
+                    }else{
+                        shown_error_map.remove(printer->name);
+                    }
                 }
             }
         }

@@ -1210,7 +1210,7 @@ Version ****</target>
 </phrase>
 <phrase>
     <source>ResStr_Lenovo_Printer</source>
-    <target>Lenovo Image Print</target>
+    <target>Lenovo Image Statusmonitor</target>
 </phrase>
 <phrase>
     <source>ResStr_Front</source>
@@ -1586,6 +1586,6 @@ If it fails,please open the top cover,pull out the carton,open the double-sided 
 </phrase>
 <phrase>
     <source>ResStr_AppName</source>
-    <target>Status Monitor</target>
+    <target>Lenovo Image Statusmonitor</target>
 </phrase>
 </QPH>

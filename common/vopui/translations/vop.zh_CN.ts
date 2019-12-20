@@ -225,32 +225,32 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="398"/>
-        <location filename="../mainwindow.cpp" line="997"/>
+        <location filename="../mainwindow.cpp" line="1028"/>
         <source>ResStr_Offline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="497"/>
+        <location filename="../mainwindow.ui" line="509"/>
         <source>ResStr_Model</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="584"/>
+        <location filename="../mainwindow.ui" line="596"/>
         <source>ResStr_Status</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="769"/>
+        <location filename="../mainwindow.ui" line="781"/>
         <source>ResStr_ExtraAdd_Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="817"/>
+        <location filename="../mainwindow.ui" line="829"/>
         <source>ResStr_ExtraAdd_Scan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="849"/>
+        <location filename="../mainwindow.ui" line="861"/>
         <source>ResStr_Setting</source>
         <translation type="unfinished"></translation>
     </message>
@@ -260,33 +260,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="74"/>
-        <location filename="../mainwindow.cpp" line="955"/>
+        <location filename="../mainwindow.cpp" line="75"/>
+        <location filename="../mainwindow.cpp" line="986"/>
         <source>ResStr_Ready</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="126"/>
+        <location filename="../mainwindow.cpp" line="127"/>
         <source>ResStr_Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="180"/>
+        <location filename="../mainwindow.cpp" line="181"/>
         <source>ResStr_The_scanned_images_will_be_deleted_after_closing_the_VOP__Are_you_sure_to_close_the_VOP_</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="979"/>
+        <location filename="../mainwindow.cpp" line="1010"/>
         <source>ResStr_Sleep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1015"/>
+        <location filename="../mainwindow.cpp" line="1047"/>
         <source>ResStr_Busy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1034"/>
+        <location filename="../mainwindow.cpp" line="1066"/>
         <source>ResStr_Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -376,7 +376,7 @@
     </message>
     <message>
         <location filename="../membercenterwidget.ui" line="1010"/>
-        <location filename="../membercenterwidget.cpp" line="144"/>
+        <location filename="../membercenterwidget.cpp" line="148"/>
         <source>ResStr_Login_</source>
         <translation type="unfinished"></translation>
     </message>
@@ -396,12 +396,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../membercenterwidget.cpp" line="669"/>
+        <location filename="../membercenterwidget.cpp" line="673"/>
         <source>ResStr_Email_Format_Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../membercenterwidget.cpp" line="670"/>
+        <location filename="../membercenterwidget.cpp" line="674"/>
         <source>ResStr_Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -663,7 +663,7 @@
     <name>MoreSettingsForScan</name>
     <message>
         <location filename="../moresettingsforscan.ui" line="26"/>
-        <location filename="../moresettingsforscan.ui" line="1244"/>
+        <location filename="../moresettingsforscan.ui" line="1232"/>
         <source>ResStr_More_Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -776,37 +776,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../moresettingsforscan.ui" line="937"/>
+        <location filename="../moresettingsforscan.ui" line="931"/>
         <source>ResStr_Photo_2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../moresettingsforscan.ui" line="979"/>
+        <location filename="../moresettingsforscan.ui" line="970"/>
         <source>ResStr_Text_and_Graph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../moresettingsforscan.ui" line="1021"/>
+        <location filename="../moresettingsforscan.ui" line="1009"/>
         <source>ResStr_Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../moresettingsforscan.ui" line="1076"/>
+        <location filename="../moresettingsforscan.ui" line="1064"/>
         <source>ResStr_Scan_Quality</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../moresettingsforscan.ui" line="1118"/>
+        <location filename="../moresettingsforscan.ui" line="1106"/>
         <source>ResStr_Scan_Speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../moresettingsforscan.ui" line="1138"/>
+        <location filename="../moresettingsforscan.ui" line="1126"/>
         <source>ResStr_DPI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../moresettingsforscan.ui" line="1160"/>
+        <location filename="../moresettingsforscan.ui" line="1148"/>
         <source>ResStr_Color_Mode</source>
         <translation type="unfinished"></translation>
     </message>
@@ -962,8 +962,8 @@
         <location filename="../settingsstackedwidget.ui" line="148"/>
         <location filename="../settingsstackedwidget.ui" line="373"/>
         <location filename="../settingsstackedwidget.ui" line="1160"/>
-        <location filename="../settingsstackedwidget.ui" line="1656"/>
-        <location filename="../settingsstackedwidget.ui" line="2456"/>
+        <location filename="../settingsstackedwidget.ui" line="1659"/>
+        <location filename="../settingsstackedwidget.ui" line="2459"/>
         <source>ResStr_Apply</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1009,7 +1009,7 @@
     </message>
     <message>
         <location filename="../settingsstackedwidget.ui" line="476"/>
-        <location filename="../settingsstackedwidget.cpp" line="877"/>
+        <location filename="../settingsstackedwidget.cpp" line="880"/>
         <source>ResStr_The_entered_IP_address__is_wrong__please_confirm_and_enter_again_</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1025,7 +1025,7 @@
     </message>
     <message>
         <location filename="../settingsstackedwidget.ui" line="575"/>
-        <location filename="../settingsstackedwidget.cpp" line="887"/>
+        <location filename="../settingsstackedwidget.cpp" line="890"/>
         <source>ResStr_The_entered_Gateway_is_wrong__please_confirm_and_enter_again_</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1064,13 +1064,13 @@
     </message>
     <message>
         <location filename="../settingsstackedwidget.ui" line="885"/>
-        <location filename="../settingsstackedwidget.cpp" line="910"/>
+        <location filename="../settingsstackedwidget.cpp" line="913"/>
         <source>ResStr_The_entered_DNS_is_wrong__please_confirm_and_enter_again_</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../settingsstackedwidget.ui" line="956"/>
-        <location filename="../settingsstackedwidget.cpp" line="1069"/>
+        <location filename="../settingsstackedwidget.cpp" line="1072"/>
         <source>ResStr_Setting</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1095,17 +1095,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="1356"/>
+        <location filename="../settingsstackedwidget.ui" line="1359"/>
         <source>ResStr_1_30_Minute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="1291"/>
+        <location filename="../settingsstackedwidget.ui" line="1294"/>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="1268"/>
+        <location filename="../settingsstackedwidget.ui" line="1271"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1120,84 +1120,84 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="1340"/>
-        <location filename="../settingsstackedwidget.ui" line="1923"/>
-        <location filename="../settingsstackedwidget.ui" line="1985"/>
-        <location filename="../settingsstackedwidget.ui" line="2039"/>
+        <location filename="../settingsstackedwidget.ui" line="1343"/>
+        <location filename="../settingsstackedwidget.ui" line="1926"/>
+        <location filename="../settingsstackedwidget.ui" line="1988"/>
+        <location filename="../settingsstackedwidget.ui" line="2042"/>
         <source>+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="1412"/>
-        <location filename="../settingsstackedwidget.ui" line="1477"/>
-        <location filename="../settingsstackedwidget.ui" line="1733"/>
+        <location filename="../settingsstackedwidget.ui" line="1415"/>
+        <location filename="../settingsstackedwidget.ui" line="1480"/>
+        <location filename="../settingsstackedwidget.ui" line="1736"/>
         <source>—</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="1435"/>
+        <location filename="../settingsstackedwidget.ui" line="1438"/>
         <source>ResStr_Low_Hunidity_Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="1504"/>
-        <location filename="../settingsstackedwidget.ui" line="1842"/>
-        <location filename="../settingsstackedwidget.ui" line="2094"/>
+        <location filename="../settingsstackedwidget.ui" line="1507"/>
+        <location filename="../settingsstackedwidget.ui" line="1845"/>
+        <location filename="../settingsstackedwidget.ui" line="2097"/>
         <source>0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="1610"/>
+        <location filename="../settingsstackedwidget.ui" line="1613"/>
         <source>ResStr_Leading_Edge_Registration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="1694"/>
+        <location filename="../settingsstackedwidget.ui" line="1697"/>
         <source>ResStr_Fuser_Error_Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="1812"/>
+        <location filename="../settingsstackedwidget.ui" line="1815"/>
         <source>ResStr_Image_Density</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="1944"/>
+        <location filename="../settingsstackedwidget.ui" line="1947"/>
         <source>ResStr_Side_to_side_Registration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="2061"/>
+        <location filename="../settingsstackedwidget.ui" line="2064"/>
         <source>ResStr_The_valid_range_is_from__2_to_2__please_confirm_and_enter_again_</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="2138"/>
+        <location filename="../settingsstackedwidget.ui" line="2141"/>
         <source>ResStr_Reset_OPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="2176"/>
+        <location filename="../settingsstackedwidget.ui" line="2179"/>
         <source>ResStr_Reset_Toner_Cartridge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="2198"/>
+        <location filename="../settingsstackedwidget.ui" line="2201"/>
         <source>ResStr_The_valid_range_is_from__6_to_6__please_confirm_and_enter_again_</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="2226"/>
+        <location filename="../settingsstackedwidget.ui" line="2229"/>
         <source>ResStr_The_valid_range_is_from__3_to_3__please_confirm_and_enter_again_</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="2352"/>
+        <location filename="../settingsstackedwidget.ui" line="2355"/>
         <source>ResStr_New_Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.ui" line="2392"/>
+        <location filename="../settingsstackedwidget.ui" line="2395"/>
         <source>ResStr_Confirm_Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1210,102 +1210,102 @@
     <message>
         <location filename="../settingsstackedwidget.cpp" line="166"/>
         <location filename="../settingsstackedwidget.cpp" line="197"/>
-        <location filename="../settingsstackedwidget.cpp" line="229"/>
-        <location filename="../settingsstackedwidget.cpp" line="255"/>
-        <location filename="../settingsstackedwidget.cpp" line="279"/>
-        <location filename="../settingsstackedwidget.cpp" line="301"/>
-        <location filename="../settingsstackedwidget.cpp" line="323"/>
-        <location filename="../settingsstackedwidget.cpp" line="335"/>
-        <location filename="../settingsstackedwidget.cpp" line="846"/>
-        <location filename="../settingsstackedwidget.cpp" line="937"/>
-        <location filename="../settingsstackedwidget.cpp" line="1110"/>
-        <location filename="../settingsstackedwidget.cpp" line="1146"/>
-        <location filename="../settingsstackedwidget.cpp" line="1299"/>
-        <location filename="../settingsstackedwidget.cpp" line="1322"/>
-        <location filename="../settingsstackedwidget.cpp" line="1378"/>
-        <location filename="../settingsstackedwidget.cpp" line="1447"/>
+        <location filename="../settingsstackedwidget.cpp" line="232"/>
+        <location filename="../settingsstackedwidget.cpp" line="258"/>
+        <location filename="../settingsstackedwidget.cpp" line="282"/>
+        <location filename="../settingsstackedwidget.cpp" line="304"/>
+        <location filename="../settingsstackedwidget.cpp" line="326"/>
+        <location filename="../settingsstackedwidget.cpp" line="338"/>
+        <location filename="../settingsstackedwidget.cpp" line="849"/>
+        <location filename="../settingsstackedwidget.cpp" line="940"/>
+        <location filename="../settingsstackedwidget.cpp" line="1113"/>
+        <location filename="../settingsstackedwidget.cpp" line="1149"/>
+        <location filename="../settingsstackedwidget.cpp" line="1302"/>
+        <location filename="../settingsstackedwidget.cpp" line="1325"/>
+        <location filename="../settingsstackedwidget.cpp" line="1381"/>
+        <location filename="../settingsstackedwidget.cpp" line="1450"/>
         <source>ResStr_Setting_Fail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="227"/>
-        <location filename="../settingsstackedwidget.cpp" line="252"/>
-        <location filename="../settingsstackedwidget.cpp" line="268"/>
-        <location filename="../settingsstackedwidget.cpp" line="290"/>
-        <location filename="../settingsstackedwidget.cpp" line="312"/>
-        <location filename="../settingsstackedwidget.cpp" line="333"/>
+        <location filename="../settingsstackedwidget.cpp" line="230"/>
+        <location filename="../settingsstackedwidget.cpp" line="255"/>
+        <location filename="../settingsstackedwidget.cpp" line="271"/>
+        <location filename="../settingsstackedwidget.cpp" line="293"/>
+        <location filename="../settingsstackedwidget.cpp" line="315"/>
+        <location filename="../settingsstackedwidget.cpp" line="336"/>
         <source>ResStr_Setting_Successfully_</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="271"/>
-        <location filename="../settingsstackedwidget.cpp" line="293"/>
-        <location filename="../settingsstackedwidget.cpp" line="315"/>
+        <location filename="../settingsstackedwidget.cpp" line="274"/>
+        <location filename="../settingsstackedwidget.cpp" line="296"/>
+        <location filename="../settingsstackedwidget.cpp" line="318"/>
         <source>ResStr_Please_turn_off_the_printer_until_it_cools_to_room_temperature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="272"/>
-        <location filename="../settingsstackedwidget.cpp" line="294"/>
-        <location filename="../settingsstackedwidget.cpp" line="316"/>
+        <location filename="../settingsstackedwidget.cpp" line="275"/>
+        <location filename="../settingsstackedwidget.cpp" line="297"/>
+        <location filename="../settingsstackedwidget.cpp" line="319"/>
         <source>ResStr_Prompt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="805"/>
+        <location filename="../settingsstackedwidget.cpp" line="808"/>
         <source>ResStr_Msg_9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="806"/>
-        <location filename="../settingsstackedwidget.cpp" line="814"/>
-        <location filename="../settingsstackedwidget.cpp" line="878"/>
-        <location filename="../settingsstackedwidget.cpp" line="888"/>
-        <location filename="../settingsstackedwidget.cpp" line="911"/>
-        <location filename="../settingsstackedwidget.cpp" line="1412"/>
-        <location filename="../settingsstackedwidget.cpp" line="1420"/>
+        <location filename="../settingsstackedwidget.cpp" line="809"/>
+        <location filename="../settingsstackedwidget.cpp" line="817"/>
+        <location filename="../settingsstackedwidget.cpp" line="881"/>
+        <location filename="../settingsstackedwidget.cpp" line="891"/>
+        <location filename="../settingsstackedwidget.cpp" line="914"/>
+        <location filename="../settingsstackedwidget.cpp" line="1415"/>
+        <location filename="../settingsstackedwidget.cpp" line="1423"/>
         <source>ResStr_Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="813"/>
+        <location filename="../settingsstackedwidget.cpp" line="816"/>
         <source>ResStr_Msg_3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="826"/>
-        <location filename="../settingsstackedwidget.cpp" line="925"/>
-        <location filename="../settingsstackedwidget.cpp" line="1090"/>
-        <location filename="../settingsstackedwidget.cpp" line="1125"/>
-        <location filename="../settingsstackedwidget.cpp" line="1289"/>
-        <location filename="../settingsstackedwidget.cpp" line="1312"/>
-        <location filename="../settingsstackedwidget.cpp" line="1368"/>
-        <location filename="../settingsstackedwidget.cpp" line="1432"/>
+        <location filename="../settingsstackedwidget.cpp" line="829"/>
+        <location filename="../settingsstackedwidget.cpp" line="928"/>
+        <location filename="../settingsstackedwidget.cpp" line="1093"/>
+        <location filename="../settingsstackedwidget.cpp" line="1128"/>
+        <location filename="../settingsstackedwidget.cpp" line="1292"/>
+        <location filename="../settingsstackedwidget.cpp" line="1315"/>
+        <location filename="../settingsstackedwidget.cpp" line="1371"/>
+        <location filename="../settingsstackedwidget.cpp" line="1435"/>
         <source>ResStr_Identity_Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="1076"/>
+        <location filename="../settingsstackedwidget.cpp" line="1079"/>
         <source>ResStr_Status</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="1280"/>
+        <location filename="../settingsstackedwidget.cpp" line="1283"/>
         <source>ResStr_This_operation_will_reset_the_drum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="1359"/>
+        <location filename="../settingsstackedwidget.cpp" line="1362"/>
         <source>ResStr_This_operation_will_reset_the_toner</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="1411"/>
+        <location filename="../settingsstackedwidget.cpp" line="1414"/>
         <source>ResStr_The_new_password_can_not_be_empty_</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingsstackedwidget.cpp" line="1419"/>
+        <location filename="../settingsstackedwidget.cpp" line="1422"/>
         <source>ResStr_The_passwords_you_entered__are_different__please_try_again_</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1531,220 +1531,162 @@
 <context>
     <name>UIConfig</name>
     <message>
-        <location filename="../uiconfig.cpp" line="300"/>
+        <location filename="../uiconfig.cpp" line="332"/>
         <source>ResStr_Printing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="302"/>
+        <location filename="../uiconfig.cpp" line="334"/>
         <source>ResStr_WarmingUp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="303"/>
+        <location filename="../uiconfig.cpp" line="335"/>
         <source>ResStr_Print_Cancelling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="304"/>
+        <location filename="../uiconfig.cpp" line="336"/>
         <source>ResStr_Processing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="305"/>
-        <location filename="../uiconfig.cpp" line="316"/>
+        <location filename="../uiconfig.cpp" line="337"/>
+        <location filename="../uiconfig.cpp" line="348"/>
         <source>ResStr_Copying</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="308"/>
+        <location filename="../uiconfig.cpp" line="340"/>
         <source>ResStr_Turn_card_over_to_copy_the_reverse_</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="310"/>
-        <location filename="../uiconfig.cpp" line="312"/>
+        <location filename="../uiconfig.cpp" line="342"/>
+        <location filename="../uiconfig.cpp" line="344"/>
         <source>ResStr_Place_Next_Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="317"/>
+        <location filename="../uiconfig.cpp" line="349"/>
         <source>ResStr_Copy_Cancelling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="318"/>
+        <location filename="../uiconfig.cpp" line="350"/>
         <source>ResStr_ID_Card_Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="319"/>
+        <location filename="../uiconfig.cpp" line="351"/>
         <source>ResStr_Duplex_Copy_Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="320"/>
-        <location filename="../uiconfig.cpp" line="321"/>
+        <location filename="../uiconfig.cpp" line="352"/>
+        <location filename="../uiconfig.cpp" line="353"/>
         <source>ResStr_Scanning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="322"/>
+        <location filename="../uiconfig.cpp" line="354"/>
         <source>ResStr_Scan_Cancelling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="323"/>
+        <location filename="../uiconfig.cpp" line="355"/>
         <source>ResStr_Scanner_Busy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="324"/>
-        <location filename="../uiconfig.cpp" line="335"/>
+        <location filename="../uiconfig.cpp" line="356"/>
+        <location filename="../uiconfig.cpp" line="367"/>
         <source>ResStr_Toner_End_ABC_Plus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="346"/>
+        <location filename="../uiconfig.cpp" line="378"/>
         <source>ResStr_Toner_Near_End</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="347"/>
+        <location filename="../uiconfig.cpp" line="379"/>
         <source>ResStr_OPC_Near_End</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="348"/>
+        <location filename="../uiconfig.cpp" line="380"/>
         <source>ResStr_OPC_End_ABC_Plus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="359"/>
+        <location filename="../uiconfig.cpp" line="391"/>
         <source>ResStr_Waiting_2nd_pages_when_print_manual_duplex_job</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="360"/>
+        <location filename="../uiconfig.cpp" line="392"/>
         <source>ResStr_Paper_Jam_Duplex_Entry_Sensor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="361"/>
+        <location filename="../uiconfig.cpp" line="393"/>
         <source>ResStr_Paper_Jam_Duplex_Nofeed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="362"/>
+        <location filename="../uiconfig.cpp" line="394"/>
         <source>ResStr_Paper_Jam__Paper_Remained</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="363"/>
+        <location filename="../uiconfig.cpp" line="395"/>
         <source>ResStr_Paper_Jam__Nofeed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="364"/>
+        <location filename="../uiconfig.cpp" line="396"/>
         <source>ResStr_Paper_Jam__Regist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="365"/>
+        <location filename="../uiconfig.cpp" line="397"/>
         <source>ResStr_Paper_Jam__Exit_NotReach</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="366"/>
+        <location filename="../uiconfig.cpp" line="398"/>
         <source>ResStr_Paper_Jam__Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="367"/>
+        <location filename="../uiconfig.cpp" line="399"/>
         <source>ResStr_Cover_Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="368"/>
+        <location filename="../uiconfig.cpp" line="400"/>
         <source>ResStr_No_Toner_Cartridge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="369"/>
+        <location filename="../uiconfig.cpp" line="401"/>
         <source>ResStr_Please_Replace_Toner</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="370"/>
+        <location filename="../uiconfig.cpp" line="402"/>
         <source>ResStr_PDL_Memory_Overflow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="371"/>
+        <location filename="../uiconfig.cpp" line="403"/>
         <source>ResStr_FW_Updating</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiconfig.cpp" line="372"/>
+        <location filename="../uiconfig.cpp" line="404"/>
         <source>ResStr_Overheat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiconfig.cpp" line="374"/>
-        <location filename="../uiconfig.cpp" line="378"/>
-        <location filename="../uiconfig.cpp" line="382"/>
-        <location filename="../uiconfig.cpp" line="386"/>
-        <location filename="../uiconfig.cpp" line="390"/>
-        <location filename="../uiconfig.cpp" line="394"/>
-        <location filename="../uiconfig.cpp" line="398"/>
-        <location filename="../uiconfig.cpp" line="402"/>
-        <location filename="../uiconfig.cpp" line="430"/>
-        <location filename="../uiconfig.cpp" line="434"/>
-        <location filename="../uiconfig.cpp" line="438"/>
-        <location filename="../uiconfig.cpp" line="446"/>
-        <location filename="../uiconfig.cpp" line="450"/>
-        <location filename="../uiconfig.cpp" line="454"/>
-        <source>ResStr_Turn_off_the_printer__and_turn_it_on_again_Contact_customer_support_if_this_failure_is_repeated_SCxxx</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiconfig.cpp" line="375"/>
-        <source>ResStr_Polygon_Motor_on_timeout_error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiconfig.cpp" line="379"/>
-        <source>ResStr_Polygon_Motor_off_timeout_error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiconfig.cpp" line="383"/>
-        <source>ResStr_Polygon_Motor_lock_signal_error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiconfig.cpp" line="387"/>
-        <source>ResStr_Beam_synchronize_error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiconfig.cpp" line="391"/>
-        <source>ResStr_Bias_leak</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiconfig.cpp" line="395"/>
-        <source>ResStr_plate_action_error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiconfig.cpp" line="399"/>
-        <source>ResStr_Main_Motor_error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiconfig.cpp" line="403"/>
-        <source>ResStr_Fan_Motor_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1754,86 +1696,144 @@
         <location filename="../uiconfig.cpp" line="418"/>
         <location filename="../uiconfig.cpp" line="422"/>
         <location filename="../uiconfig.cpp" line="426"/>
-        <source>ResStr_Please_contact_customer_support__SCxxx</source>
+        <location filename="../uiconfig.cpp" line="430"/>
+        <location filename="../uiconfig.cpp" line="434"/>
+        <location filename="../uiconfig.cpp" line="462"/>
+        <location filename="../uiconfig.cpp" line="466"/>
+        <location filename="../uiconfig.cpp" line="470"/>
+        <location filename="../uiconfig.cpp" line="478"/>
+        <location filename="../uiconfig.cpp" line="482"/>
+        <location filename="../uiconfig.cpp" line="486"/>
+        <source>ResStr_Turn_off_the_printer__and_turn_it_on_again_Contact_customer_support_if_this_failure_is_repeated_SCxxx</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="407"/>
-        <source>ResStr_Fuser_thermistor_error</source>
+        <source>ResStr_Polygon_Motor_on_timeout_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="411"/>
-        <source>ResStr_Fuser_reload_error</source>
+        <source>ResStr_Polygon_Motor_off_timeout_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="415"/>
-        <source>ResStr_High_temperature_soft_check_error</source>
+        <source>ResStr_Polygon_Motor_lock_signal_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="419"/>
-        <source>ResStr_High_temperature_hard_check_error</source>
+        <source>ResStr_Beam_synchronize_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="423"/>
-        <source>ResStr_Fuser_full_heater_error</source>
+        <source>ResStr_Bias_leak</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="427"/>
-        <source>ResStr_Fuser_3times_jam_error</source>
+        <source>ResStr_plate_action_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="431"/>
-        <source>ResStr_Low_voltage_fuser_reload_error</source>
+        <source>ResStr_Main_Motor_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="435"/>
-        <source>ResStr_Machine_thermistor_error</source>
+        <source>ResStr_Fan_Motor_error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiconfig.cpp" line="438"/>
+        <location filename="../uiconfig.cpp" line="442"/>
+        <location filename="../uiconfig.cpp" line="446"/>
+        <location filename="../uiconfig.cpp" line="450"/>
+        <location filename="../uiconfig.cpp" line="454"/>
+        <location filename="../uiconfig.cpp" line="458"/>
+        <source>ResStr_Please_contact_customer_support__SCxxx</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="439"/>
-        <source>ResStr_Print_request_signal_doesnt_come</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiconfig.cpp" line="442"/>
-        <source>ResStr_USB_write_failed_during_scan_job_cancelling</source>
+        <source>ResStr_Fuser_thermistor_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="443"/>
-        <source>ResStr_NET_write_failed_during_scan_job_cancelling</source>
+        <source>ResStr_Fuser_reload_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="447"/>
-        <source>ResStr_Scanner_not_found_home_position</source>
+        <source>ResStr_High_temperature_soft_check_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="451"/>
-        <source>ResStr_Scan_Calibration_Error</source>
+        <source>ResStr_High_temperature_hard_check_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="455"/>
-        <source>ResStr_Wireless_Dongle_Config_Fail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiconfig.cpp" line="458"/>
-        <source>ResStr_DMA_Error_SCxxx</source>
+        <source>ResStr_Fuser_full_heater_error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiconfig.cpp" line="459"/>
+        <source>ResStr_Fuser_3times_jam_error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiconfig.cpp" line="463"/>
+        <source>ResStr_Low_voltage_fuser_reload_error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiconfig.cpp" line="467"/>
+        <source>ResStr_Machine_thermistor_error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiconfig.cpp" line="471"/>
+        <source>ResStr_Print_request_signal_doesnt_come</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiconfig.cpp" line="474"/>
+        <source>ResStr_USB_write_failed_during_scan_job_cancelling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiconfig.cpp" line="475"/>
+        <source>ResStr_NET_write_failed_during_scan_job_cancelling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiconfig.cpp" line="479"/>
+        <source>ResStr_Scanner_not_found_home_position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiconfig.cpp" line="483"/>
+        <source>ResStr_Scan_Calibration_Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiconfig.cpp" line="487"/>
+        <source>ResStr_Wireless_Dongle_Config_Fail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiconfig.cpp" line="490"/>
+        <source>ResStr_DMA_Error_SCxxx</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiconfig.cpp" line="491"/>
         <source>ResStr_DMA_Error</source>
         <translation type="unfinished"></translation>
     </message>
