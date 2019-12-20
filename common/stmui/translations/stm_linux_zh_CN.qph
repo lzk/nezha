@@ -1210,7 +1210,7 @@ Version ****</target>
 </phrase>
 <phrase>
     <source>ResStr_Lenovo_Printer</source>
-    <target>联想图像打印</target>
+    <target>联想图像状态监视器</target>
 </phrase>
 <phrase>
     <source>ResStr_Front</source>
@@ -1588,6 +1588,6 @@ Version ****</target>
 </phrase>
 <phrase>
     <source>ResStr_AppName</source>
-    <target>状态监视器</target>
+    <target>联想图像状态监视器</target>
 </phrase>
 </QPH>

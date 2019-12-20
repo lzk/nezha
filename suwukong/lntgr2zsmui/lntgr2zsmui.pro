@@ -42,3 +42,6 @@ CONFIG(debug ,debug|release){
     DEFINES += DEBUG_DEBUG
 }else{
 }
+
+TRANSLATIONS = ../../common/stmui/translations/vop.en.ts  \
+                ../../common/stmui/translations/vop.zh_CN.ts

@@ -397,8 +397,10 @@ QString UIConfig::getErrorMsg(EnumStatus status, EnumMachineJob job, bool isAbcP
         case JamAtExitNotReach: errMsg = tr("ResStr_Paper_Jam__Exit_NotReach"); break;
         case JamAtExitStayOn: errMsg = tr("ResStr_Paper_Jam__Exit"); break;
         case CoverOpen: errMsg = tr("ResStr_Cover_Open"); break;
-        case NoTonerCartridge: errMsg = tr("ResStr_No_Toner_Cartridge"); break;
-        case WasteTonerFull: errMsg = tr("ResStr_Please_Replace_Toner"); break;
+//        case NoTonerCartridge: errMsg = tr("ResStr_No_Toner_Cartridge"); break;
+//        case WasteTonerFull: errMsg = tr("ResStr_Please_Replace_Toner"); break;
+    case NoTonerCartridge: errMsg = QString::fromUtf8("没有墨粉盒"); break;
+    case WasteTonerFull: errMsg = tr("ResStr_Toner_End_ABC_Plus"); break;
         case PDLMemoryOver: errMsg = tr("ResStr_PDL_Memory_Overflow"); break;
         case FWUpdate: errMsg = tr("ResStr_FW_Updating"); break;
         case OverHeat: errMsg = tr("ResStr_Overheat"); break;
