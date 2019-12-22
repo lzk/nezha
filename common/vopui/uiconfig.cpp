@@ -217,7 +217,8 @@ int UIConfig::getModelSerial(Printer_struct* ps)
     }else if(makeAndModel.startsWith("Lenovo M100")){
         ms = ModelSerial_M;
     }else if(makeAndModel.startsWith("Lenovo M101DW")){
-        ms = ModelSerial_M + Model_D + Model_W;
+//        ms = ModelSerial_M + Model_D + Model_W;
+        ms = ModelSerial_L + Model_D + Model_W;
     }else if(makeAndModel.startsWith("Lenovo M101W")){
         ms = ModelSerial_M + Model_W;
     }else if(makeAndModel.startsWith("Lenovo M101")){
@@ -236,9 +237,11 @@ int UIConfig::getModelSerial(Printer_struct* ps)
     }else if(makeAndModel.startsWith("Lenovo Image G336DN")){
         ms = ModelSerial_L + Model_N;
     }else if(makeAndModel.startsWith("Lenovo Image GM265DN")){
-        ms = ModelSerial_M + Model_D + Model_N;
+//        ms = ModelSerial_M + Model_D + Model_N;
+        ms = ModelSerial_L + Model_D + Model_N;
     }else if(makeAndModel.startsWith("Lenovo Image GM337DN")){
-        ms = ModelSerial_M + Model_D + Model_N;
+//        ms = ModelSerial_M + Model_D + Model_N;
+        ms = ModelSerial_L + Model_D + Model_N;
     }
 //    return ModelSerial_M + Model_D + Model_W;
     return ms;
