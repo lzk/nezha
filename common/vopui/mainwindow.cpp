@@ -587,9 +587,9 @@ void MainWindow::updateStatus(QVariant data)
     LOGLOG("updateStatus");
     PrinterInfo_struct printerInfo = data.value<PrinterInfo_struct>();
     PrinterStatus_struct& status = printerInfo.status;
-    if(!printerInfo.printer.isConnected){
-        memset(&status ,-1 ,sizeof(status));
-    }
+//    if(!printerInfo.printer.isConnected){
+//        memset(&status ,-1 ,sizeof(status));
+//    }
     LOGLOG("get status success:0x%02x" ,status.PrinterStatus);
     onStatusCh(status);
 }
