@@ -30,7 +30,7 @@ SOURCES += \
         ../../common/filtertrans/main.cpp \
     ../../common/filtertrans/appserver.cpp \
     ../../common/filtertrans/watcher.cpp \
-    ../../common/filtertrans/appconfig.cpp
+    appconfig.cpp
 
 HEADERS += \
     ../../common/filtertrans/appserver.h \

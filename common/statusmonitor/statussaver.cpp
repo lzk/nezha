@@ -5,6 +5,7 @@
 #include "commonapi.h"
 #include "smconfig.h"
 extern int usb_error_printing;
+extern int usb_error_scanning;
 #include "snmpapi.h"
 int parsePrinterStatus(PRINTER_STATUS* pStatus ,PrinterStatus_struct* ps);
 static void callback(const char* ip ,char* buffer ,int bufsize ,void* data)
@@ -138,6 +139,10 @@ void StatusObject::update_status(QList<Printer_struct> printers)
 //               ,printer.deviceUri);
         printerinfo.printer = printer;
         printerinfo.printer.isConnected = !result;
+        if((result == usb_error_scanning)
+        ||(result == usb_error_printing)){
+            printerinfo.printer.isConnected = true;
+        }
         printerinfo.printer.status = result;
         StatusManager().savePrinterInfoToFile(printer.name ,&printerinfo);
     }
