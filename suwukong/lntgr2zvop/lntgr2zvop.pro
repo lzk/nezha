@@ -27,7 +27,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 include("../../common/vopui/vopui.pri")
 SOURCES += \
-    ../../common/vopui/uiconfig.cpp
+    uiconfig.cpp
 
 HEADERS += \
     ../../common/vopui/uiconfig.h

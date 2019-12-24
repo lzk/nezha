@@ -26,7 +26,7 @@ include(../../common/lshell/lshell.pri)
 SOURCES += \
         ../../common/stmui/main.cpp \
         ../../common/stmui/mainwindow.cpp \
-    ../../common/stmui/uiconfig.cpp \
+    uiconfig.cpp \
 
 HEADERS  += ../../common/stmui/mainwindow.h \
     ../../common/stmui/uiconfig.h \
