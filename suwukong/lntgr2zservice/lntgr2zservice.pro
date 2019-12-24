@@ -22,4 +22,4 @@ TARGET = $${TARGET_filterservice}
 include(../../common/filterservice/filterservice.pri)
 
 SOURCES += \
-    ../../common/filterservice/appconfig.cpp
+    appconfig.cpp
