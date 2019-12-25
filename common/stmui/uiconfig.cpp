@@ -1,14 +1,14 @@
 #include "uiconfig.h"
 #include "commonapi.h"
 #include "filelocker.h"
-//#include "appserver.h"
+#include "appserver.h"
 #include <QFile>
 #include <QDir>
 
 bool testmode = false;
 //const QString app_name = QString::fromUtf8("打印机状态监视器");
 FileLocker app_file_locker;
-//AppServer* app_server;
+AppServer* app_server;
 
 extern
 int (* getpidvid)(const QString& makeAndModel ,int& pid ,int& vid ,int& interface);
@@ -171,7 +171,7 @@ int UIConfig::initConfig()
     isDeviceSupported = _isDeviceSupported;
     getpidvid = _getpidvid;
 
-//    app_server = new AppServer(DOMAIN_UIEXE);
+    app_server = new AppServer(DOMAIN_UIEXE);
     return 0;
 }
 

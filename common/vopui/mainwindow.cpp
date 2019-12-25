@@ -1251,3 +1251,15 @@ void MainWindow::on_btCar_clicked()
 //        QDesktopServices::openUrl(QUrl("http://vopapi.lenovoimage.com/index.html"));
 //    }
 }
+
+void MainWindow::show_top()
+{
+//    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
+//    if(!isVisible()){
+//        hide();
+//        showMinimized();
+        showNormal();
+//        setWindowState(windowState() & ~Qt::WindowMinimized | Qt::WindowActive);
+        activateWindow();
+//    }
+}

@@ -6,7 +6,9 @@
 #include "uinterface.h"
 #include "uiconfig.h"
 #include <signal.h>
+#include "appserver.h"
 UInterface* gUInterface;
+extern AppServer* app_server;
 void quit(int)
 {
     LOGLOG("SIGINT quit");
@@ -16,6 +18,16 @@ void quit(int)
 
 int main(int argc, char *argv[])
 {
+    if(UIConfig::initConfig()){
+        Trans_Client tc(DOMAIN_UIEXE);
+        char buffer[1024];
+        sprintf(buffer ,"startexe");
+        tc.writeThenRead(buffer ,1024);
+
+        LOGLOG("There has been a same app running!");
+        return 0;
+    }
+
     signal(SIGINT ,quit);
 #ifdef Q_WS_X11
     qputenv("LIBOVERLAY_SCROLLBAR", 0);
@@ -38,14 +50,10 @@ int main(int argc, char *argv[])
         testmode = true;
     }
 
-    if(UIConfig::initConfig()){
-        LOGLOG("There has been a same app running!");
-        return 0;
-    }
-
     gUInterface = new UInterface;
 
     MainWindow w;
+    w.connect(app_server ,SIGNAL(signal_startexe()) ,&w ,SLOT(show_top()));
 //    w.setWindowIcon(QIcon(":/Images/app.png"));
     if(!arguments.contains("-hide"))
         w.show();

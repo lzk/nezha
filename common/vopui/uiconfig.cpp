@@ -1,7 +1,7 @@
 #include "uiconfig.h"
 #include "commonapi.h"
 #include "filelocker.h"
-//#include "appserver.h"
+#include "appserver.h"
 #include <QFile>
 #include <QDir>
 #include <QDateTime>
@@ -10,7 +10,7 @@
 bool testmode = false;
 //const QString app_name = QString::fromUtf8("打印机状态监视器");
 FileLocker app_file_locker;
-//AppServer* app_server;
+AppServer* app_server;
 
 extern
 int (* getpidvid)(const QString& makeAndModel ,int& pid ,int& vid ,int& interface);
@@ -175,7 +175,7 @@ int UIConfig::initConfig()
 //    }
 //    path->mkdir(TMP_SCAN_DIR);
 
-//    app_server = new AppServer(DOMAIN_UIEXE);
+    app_server = new AppServer(DOMAIN_UIEXE);
     return 0;
 }
 
@@ -184,7 +184,7 @@ void UIConfig::exit_app()
 //    QFile::remove(filepath);
 //    QFile::remove(lockfile);
     app_file_locker.unlock();
- //   delete app_server;
+    delete app_server;
 //    QDir dir(TMP_SCAN_DIR);
 //    QDir *path = &dir;
 //    if(path->exists(TMP_SCAN_DIR)){
@@ -247,6 +247,31 @@ int UIConfig::getModelSerial(Printer_struct* ps)
     return ms;
 }
 
+QString UIConfig::GetStatusTypeString(int type)
+{
+    QString str = " ";
+    switch (type) {
+    case Status_Ready:
+    case Status_Warning:
+        str = tr("ResStr_Ready");
+        break;
+    case Status_Sleep:
+        str = tr("ResStr_Sleep");
+        break;
+    case Status_Busy:
+        str = tr("ResStr_Busy");
+        break;
+    case Status_Error:
+        str = tr("ResStr_Error");
+        break;
+    case Status_Offline:
+    default:
+        str = tr("ResStr_Offline");
+        break;
+    }
+    return str;
+}
+
 int UIConfig::GetStatusTypeForUI(int status)
 {
     int st = Status_Offline;
@@ -269,7 +294,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case ScanSending                 : st = Status_Busy ; break;
                     case ScanCanceling               : st = Status_Busy ; break;
                     case ScannerBusy                 : st = Status_Busy ; break;
-                    case TonerEnd1                   : st = Status_Ready; break;
+                    case TonerEnd1                   : st = Status_Warning; break;
                     case TonerEnd2                   : st = Status_Ready; break;
                     case TonerNearEnd                : st = Status_Ready; break;
                     case OPCNearEnd                  : st = Status_Ready; break;
@@ -284,7 +309,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case JamAtExitStayOn             : st = Status_Error; break;
                     case CoverOpen                   : st = Status_Error; break;
                     case NoTonerCartridge            : st = Status_Error; break;
-                    case WasteTonerFull              : st = Status_Ready; break;
+                    case WasteTonerFull              : st = Status_Warning; break;
                     case PDLMemoryOver               : st = Status_Error; break;
                     case FWUpdate                    : st = Status_Busy ; break;
                     case OverHeat                    : st = Status_Busy ; break;
@@ -312,6 +337,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case SCAN_DRV_CALIB_FAIL         : st = Status_Error; break;
                     case NetWirelessDongleCfgFail    : st = Status_Error; break;
                     case DMAError                    : st = Status_Error; break;
+                    case TouchPanelError             : st = Status_Warning; break;
 
                     case Offline                     :
                     case PowerOff                    :
@@ -324,29 +350,172 @@ int UIConfig::GetStatusTypeForUI(int status)
     return st;
 }
 
-QString UIConfig::getErrorMsg(EnumStatus status, EnumMachineJob job, bool isAbcPlusModel)
+QString UIConfig::getTrayMsg(int status)
+{
+    const char* str = NULL;
+    switch (status)
+    {
+//        case Ready: //0x00
+//        case Printing: //0x01
+//        case PowerSaving: //0x02
+//        case WarmingUp: //0x03
+//        case PrintCanceling://0x04
+//        case Processing: //0x07
+//        case CopyScanning: //0x60
+//        case CopyScanNextPage://0x61
+//        case CopyPrinting:
+//        case CopyCanceling:
+//        case IDCardMode:
+//        case DuplexCopyMode:
+//        case ScanScanning:
+//        case ScanSending:
+//        case ScanCanceling:
+//        case ScannerBusy:
+        case TonerEnd1: //0x7f
+            str = "墨粉空，请更换新的墨粉盒。点击查看>>";
+        break;
+//        case TonerEnd2:
+//        case TonerNearEnd://0x81
+//        case OPCNearEnd://0x86
+        case OPCEnd://0xcc
+        str = "感光鼓寿命已尽，点击查看>>";
+    break;
+//        case ManualFeedRequired:
+//        case PaperNotReachDuplexEntrySensor:
+//        case DuplexTrayNoFeedJam:
+        case InitializeJam://0xbc
+        str = "打印机内部卡纸，点击查看>>";
+    break;
+        case NofeedJam: //0xbd
+        str = "缺纸或进纸异常，点击查看>>";
+    break;
+        case JamAtRegistStayOn://0xbe
+        str = "进纸处卡纸，点击查看>>";
+    break;
+        case JamAtExitNotReach://0xbf
+        str = "双面入口处卡纸，点击查看>>";
+    break;
+        case JamAtExitStayOn://0xc0
+        str = "双面单元卡纸，点击查看>>";
+    break;
+//        case CoverOpen: //0xc1
+        case NoTonerCartridge://0xc5
+        str = "没有墨粉盒，点击查看>>";
+        break;
+        case WasteTonerFull://0xc6
+        str = "墨粉空，请更换新的墨粉盒。点击查看>>";
+        break;
+//        case PDLMemoryOver://0xc2
+//        case FWUpdate://0xc7
+//        case OverHeat://0xc8
+        case PolygomotorOnTimeoutError://0xcd
+        str = "多面镜马达启动超时，点击查看>>";
+    break;
+        case PolygomotorOffTimeoutError://0xce
+        str = "多面镜马达停止超时，点击查看>>";
+    break;
+        case PolygomotorLockSignalError://0xcf
+        str = "未获取多面镜马达稳定运行信号，点击查看>>";
+    break;
+        case BeamSynchronizeError://0xd1
+        str = "LD同步信号错误，点击查看>>";
+    break;
+        case BiasLeak://0xd2
+        str = "高压电源单元故障，点击查看>>";
+    break;
+        case PlateActionError://0xd3
+        str = "底板动作异常，点击查看>>";
+    break;
+        case MainmotorError://0xd4
+        str = "主马达故障，点击查看>>";
+    break;
+        case MainFanMotorEorror://0xd5
+        str = "风扇故障，点击查看>>";
+    break;
+        case JoinerThermistorError://0xd6
+        str = "定影单元温度传感器故障，点击查看>>";
+    break;
+        case JoinerReloadError://0xd7
+        str = "定影单元升温检测异常，点击查看>>";
+    break;
+        case HighTemperatureErrorSoft://0xd8
+        str = "定影单元高温软件检测异常，点击查看>>";
+    break;
+        case HighTemperatureErrorHard://0xd9
+        str = "定影单元高温硬件检测异常，点击查看>>";
+    break;
+        case JoinerFullHeaterError://0xda
+        str = "定影单元连续点灯故障，点击查看>>";
+    break;
+        case Joiner3timesJamError://0xdb
+        str = "定影单元连续3次卡纸故障，点击查看>>";
+    break;
+        case LowVoltageJoinerReloadError://0xdc
+        str = "低电压状态时启动温度异常，点击查看>>";
+    break;
+        case MotorThermistorError://0xdd
+        str = "机内温度异常，点击查看>>";
+    break;
+    case EEPROMCommunicationError://0xde
+        str = "打印机内部错误，点击查看>>";
+    break;
+        case CTL_PRREQ_NSignalNoCome://0xdf
+        str = "PRREQ信号异常，点击查看>>";
+    break;
+        case SCAN_USB_Disconnect://0xe1
+        case SCAN_NET_Disconnect://0xe4
+        str = "打印机内部错误，点击查看>>";
+    break;
+        case ScanMotorError://0xe5
+        str = "扫描单元未找到初始位置，点击查看>>";
+    break;
+        case SCAN_DRV_CALIB_FAIL://0xe9
+        str = "扫描单元马达故障，点击查看>>";
+    break;
+        case NetWirelessDongleCfgFail://0xe8
+        str = "无线模块配置失败，点击查看>>";
+    break;
+        case DMAError://0xef
+        str = "DMA错误，点击查看>>";
+    break;
+    case TouchPanelError://0xea
+        str = "触摸屏故障，点击查看>>";
+    break;
+    case Offline:
+    case PowerOff:
+        case Unknown:
+        default:
+            break;
+    }
+    if(!str){
+        return QString();
+    }
+    return QString::fromUtf8(str);
+}
+
+QString UIConfig::getErrorMsg(int status, int job, bool isAbcPlusModel)
 {
     QString errMsg = "";
-//    LOGLOG("EnumMachineJob:%d",job);
 
     switch (status)
     {
         case Ready: errMsg = ""; break;
-        case Printing: errMsg = tr("ResStr_Printing"); break;
+        case Printing: errMsg = tr("ResStr_Busy"); break;
+//        case Printing: errMsg = tr("ResStr_Printing"); break;
         case PowerSaving: errMsg = ""; break;
         case WarmingUp: errMsg = tr("ResStr_WarmingUp"); break;
         case PrintCanceling: errMsg = tr("ResStr_Print_Cancelling"); break;
         case Processing: errMsg = tr("ResStr_Processing"); break;
         case CopyScanning: errMsg = tr("ResStr_Copying"); break;
         case CopyScanNextPage:
-            if (job == IDCardCopyJob)
+//            if (job == IDCardCopyJob)
                 errMsg = tr("ResStr_Turn_card_over_to_copy_the_reverse_");
-            else if (job == Nin1CopyJob)
-                errMsg = tr("ResStr_Place_Next_Page");
-            else if (job == NormalCopyJob)
-                errMsg = tr("ResStr_Place_Next_Page");
-            else
-                errMsg = "";
+//            else if (job == Nin1CopyJob)
+//                errMsg = tr("ResStr_Place_Next_Page");
+//            else if (job == NormalCopyJob)
+//                errMsg = tr("ResStr_Place_Next_Page");
+//            else
+//                errMsg = "";
             break;
         case CopyPrinting: errMsg = tr("ResStr_Copying"); break;
         case CopyCanceling: errMsg = tr("ResStr_Copy_Cancelling"); break;
@@ -471,6 +640,10 @@ QString UIConfig::getErrorMsg(EnumStatus status, EnumMachineJob job, bool isAbcP
             errMsg = tr("ResStr_Turn_off_the_printer__and_turn_it_on_again_Contact_customer_support_if_this_failure_is_repeated_SCxxx") +
                 tr("ResStr_Machine_thermistor_error");
                 break;
+//    case EEPROMCommunicationError:
+//        errMsg = tr("ResStr_Turn_off_the_printer__and_turn_it_on_again_Contact_customer_support_if_this_failure_is_repeated_SCxxx") +
+//            tr("ResStr_Machine_thermistor_error");
+//            break;
         case CTL_PRREQ_NSignalNoCome:
             errMsg = tr("ResStr_Turn_off_the_printer__and_turn_it_on_again_Contact_customer_support_if_this_failure_is_repeated_SCxxx") +
                 tr("ResStr_Print_request_signal_doesnt_come");
@@ -495,6 +668,11 @@ QString UIConfig::getErrorMsg(EnumStatus status, EnumMachineJob job, bool isAbcP
             errMsg = tr("ResStr_DMA_Error_SCxxx") +
                 tr("ResStr_DMA_Error");
                 break;
+    case TouchPanelError:
+        errMsg = tr("ResStr_Turn_off_the_printer__and_turn_it_on_again_Contact_customer_support_if_this_failure_is_repeated_SCxxx") +
+            tr("ResStr_Touch_Panel_Error");
+            break;
+        break;
         case Offline:
         case PowerOff:
         case Unknown: errMsg = ""; break;
@@ -505,3 +683,79 @@ QString UIConfig::getErrorMsg(EnumStatus status, EnumMachineJob job, bool isAbcP
     return errMsg;
 }
 
+bool UIConfig::isAutoShow(int status)
+{
+    bool ias = false;
+
+    switch (status)
+    {
+//        case Ready: //0x00
+//        case Printing: //0x01
+//        case PowerSaving: //0x02
+//        case WarmingUp: //0x03
+//        case PrintCanceling://0x04
+//        case Processing: //0x07
+//        case CopyScanning: //0x60
+//        case CopyScanNextPage://0x61
+//        case CopyPrinting:
+//        case CopyCanceling:
+//        case IDCardMode:
+//        case DuplexCopyMode:
+//        case ScanScanning:
+//        case ScanSending:
+//        case ScanCanceling:
+//        case ScannerBusy:
+        case TonerEnd1: //0x7f
+//        case TonerEnd2:
+//        case TonerNearEnd://0x81
+//        case OPCNearEnd://0x86
+        case OPCEnd://0xcc
+//        case ManualFeedRequired:
+//        case PaperNotReachDuplexEntrySensor:
+//        case DuplexTrayNoFeedJam:
+        case InitializeJam://0xbc
+        case NofeedJam: //0xbd
+        case JamAtRegistStayOn://0xbe
+        case JamAtExitNotReach://0xbf
+        case JamAtExitStayOn://0xc0
+//        case CoverOpen: //0xc1
+        case NoTonerCartridge://0xc5
+        case WasteTonerFull://0xc6
+//        case PDLMemoryOver://0xc2
+//        case FWUpdate://0xc7
+//        case OverHeat://0xc8
+        case PolygomotorOnTimeoutError://0xcd
+        case PolygomotorOffTimeoutError://0xce
+        case PolygomotorLockSignalError://0xcf
+        case BeamSynchronizeError://0xd1
+        case BiasLeak://0xd2
+        case PlateActionError://0xd3
+        case MainmotorError://0xd4
+        case MainFanMotorEorror://0xd5
+        case JoinerThermistorError://0xd6
+        case JoinerReloadError://0xd7
+        case HighTemperatureErrorSoft://0xd8
+        case HighTemperatureErrorHard://0xd9
+        case JoinerFullHeaterError://0xda
+        case Joiner3timesJamError://0xdb
+        case LowVoltageJoinerReloadError://0xdc
+        case MotorThermistorError://0xdd
+    case EEPROMCommunicationError://0xde
+        case CTL_PRREQ_NSignalNoCome://0xdf
+        case SCAN_USB_Disconnect://0xe1
+        case SCAN_NET_Disconnect://0xe4
+        case ScanMotorError://0xe5
+        case SCAN_DRV_CALIB_FAIL://0xe9
+        case NetWirelessDongleCfgFail://0xe8
+        case DMAError://0xef
+    case TouchPanelError://0xea
+            ias = true;
+            break;
+    case Offline:
+    case PowerOff:
+        case Unknown:
+        default:
+            break;
+    }
+    return ias;
+}

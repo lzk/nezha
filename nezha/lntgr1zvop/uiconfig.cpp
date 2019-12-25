@@ -1,14 +1,14 @@
 #include "uiconfig.h"
 #include "commonapi.h"
 #include "filelocker.h"
-//#include "appserver.h"
+#include "appserver.h"
 #include <QFile>
 #include <QDir>
 
 bool testmode = false;
 //const QString app_name = QString::fromUtf8("打印机状态监视器");
 FileLocker app_file_locker;
-//AppServer* app_server;
+AppServer* app_server;
 
 extern
 int (* getpidvid)(const QString& makeAndModel ,int& pid ,int& vid ,int& interface);
@@ -153,7 +153,7 @@ int UIConfig::initConfig()
 //    }
 //    path->mkdir(TMP_SCAN_DIR);
 
-//    app_server = new AppServer(DOMAIN_UIEXE);
+    app_server = new AppServer(DOMAIN_VOPEXE);
     return 0;
 }
 
@@ -162,7 +162,7 @@ void UIConfig::exit_app()
 //    QFile::remove(filepath);
 //    QFile::remove(lockfile);
     app_file_locker.unlock();
- //   delete app_server;
+    delete app_server;
 //    QDir dir(TMP_SCAN_DIR);
 //    QDir *path = &dir;
 //    if(path->exists(TMP_SCAN_DIR)){

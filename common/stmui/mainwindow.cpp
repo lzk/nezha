@@ -350,7 +350,7 @@ void MainWindow::updatePrinter(const QVariant& data)
             icon = QIcon(":/Images/error1.png");
             break;
         case UIConfig::Status_Warning:
-            brush = QBrush(QColor(Qt::yellow));
+            brush = QBrush(QColor(255,192,0));
             icon = QIcon(":/Images/warning1.png");
             break;
         case UIConfig::Status_Offline:
@@ -518,4 +518,14 @@ void MainWindow::on_tableWidget_printers_itemSelectionChanged()
     }else{
         setcurrentPrinter(QString());
     }
+}
+
+void MainWindow::show_top()
+{
+//    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
+//    hide();
+//    showMinimized();
+    showNormal();
+//    setWindowState(windowState() & ~Qt::WindowMinimized | Qt::WindowActive);
+    activateWindow();
 }

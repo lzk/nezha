@@ -1,14 +1,14 @@
 #include "uiconfig.h"
 #include "commonapi.h"
 #include "filelocker.h"
-//#include "appserver.h"
+#include "appserver.h"
 #include <QFile>
 #include <QDir>
 
 bool testmode = false;
 //const QString app_name = QString::fromUtf8("打印机状态监视器");
 FileLocker app_file_locker;
-//AppServer* app_server;
+AppServer* app_server;
 
 extern
 int (* getpidvid)(const QString& makeAndModel ,int& pid ,int& vid ,int& interface);
@@ -141,7 +141,7 @@ int UIConfig::initConfig()
     isDeviceSupported = _isDeviceSupported;
     getpidvid = _getpidvid;
 
-//    app_server = new AppServer(DOMAIN_UIEXE);
+    app_server = new AppServer(DOMAIN_UIEXE);
     return 0;
 }
 
@@ -150,7 +150,7 @@ void UIConfig::exit_app()
 //    QFile::remove(filepath);
 //    QFile::remove(lockfile);
     app_file_locker.unlock();
- //   delete app_server;
+    delete app_server;
 }
 
 int UIConfig::getModelSerial(Printer_struct* ps)
@@ -204,6 +204,7 @@ QString UIConfig::GetStatusTypeString(int type)
     QString str = " ";
     switch (type) {
     case Status_Ready:
+    case Status_Warning:
         str = tr("ResStr_Ready");
         break;
     case Status_Sleep:
@@ -245,7 +246,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case ScanSending                 : st = Status_Busy ; break;
                     case ScanCanceling               : st = Status_Busy ; break;
                     case ScannerBusy                 : st = Status_Busy ; break;
-                    case TonerEnd1                   : st = Status_Ready; break;
+                    case TonerEnd1                   : st = Status_Warning; break;
                     case TonerEnd2                   : st = Status_Ready; break;
                     case TonerNearEnd                : st = Status_Ready; break;
                     case OPCNearEnd                  : st = Status_Ready; break;
@@ -260,7 +261,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case JamAtExitStayOn             : st = Status_Error; break;
                     case CoverOpen                   : st = Status_Error; break;
                     case NoTonerCartridge            : st = Status_Error; break;
-                    case WasteTonerFull              : st = Status_Ready; break;
+                    case WasteTonerFull              : st = Status_Warning; break;
                     case PDLMemoryOver               : st = Status_Error; break;
                     case FWUpdate                    : st = Status_Busy ; break;
                     case OverHeat                    : st = Status_Busy ; break;
@@ -288,6 +289,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case SCAN_DRV_CALIB_FAIL         : st = Status_Error; break;
                     case NetWirelessDongleCfgFail    : st = Status_Error; break;
                     case DMAError                    : st = Status_Error; break;
+                    case TouchPanelError             : st = Status_Warning; break;
 
                     case Offline                     :
                     case PowerOff                    :
@@ -349,8 +351,12 @@ QString UIConfig::getTrayMsg(int status)
         str = "双面单元卡纸，点击查看>>";
     break;
 //        case CoverOpen: //0xc1
-//        case NoTonerCartridge://0xc5
-//        case WasteTonerFull://0xc6
+        case NoTonerCartridge://0xc5
+        str = "没有墨粉盒，点击查看>>";
+        break;
+        case WasteTonerFull://0xc6
+        str = "墨粉空，请更换新的墨粉盒。点击查看>>";
+        break;
 //        case PDLMemoryOver://0xc2
 //        case FWUpdate://0xc7
 //        case OverHeat://0xc8
@@ -515,8 +521,10 @@ QString UIConfig::getErrorMsg(int status, int job, bool isAbcPlusModel)
         case JamAtExitNotReach: errMsg = tr("ResStr_Paper_Jam__Exit_NotReach"); break;
         case JamAtExitStayOn: errMsg = tr("ResStr_Paper_Jam__Exit"); break;
         case CoverOpen: errMsg = tr("ResStr_Cover_Open"); break;
-        case NoTonerCartridge: errMsg = tr("ResStr_No_Toner_Cartridge"); break;
-        case WasteTonerFull: errMsg = tr("ResStr_Please_Replace_Toner"); break;
+//        case NoTonerCartridge: errMsg = tr("ResStr_No_Toner_Cartridge"); break;
+//        case WasteTonerFull: errMsg = tr("ResStr_Please_Replace_Toner"); break;
+    case NoTonerCartridge: errMsg = QString::fromUtf8("没有墨粉盒"); break;
+    case WasteTonerFull: errMsg = tr("ResStr_Toner_End_ABC_Plus"); break;
         case PDLMemoryOver: errMsg = tr("ResStr_PDL_Memory_Overflow"); break;
         case FWUpdate: errMsg = tr("ResStr_FW_Updating"); break;
         case OverHeat: errMsg = tr("ResStr_Overheat"); break;
@@ -663,8 +671,8 @@ bool UIConfig::isAutoShow(int status)
         case JamAtExitNotReach://0xbf
         case JamAtExitStayOn://0xc0
 //        case CoverOpen: //0xc1
-//        case NoTonerCartridge://0xc5
-//        case WasteTonerFull://0xc6
+        case NoTonerCartridge://0xc5
+        case WasteTonerFull://0xc6
 //        case PDLMemoryOver://0xc2
 //        case FWUpdate://0xc7
 //        case OverHeat://0xc8
