@@ -4,6 +4,7 @@
 #include "appserver.h"
 #include <QFile>
 #include <QDir>
+#include <sys/stat.h>
 #include <QDateTime>
 #include <stdlib.h>
 

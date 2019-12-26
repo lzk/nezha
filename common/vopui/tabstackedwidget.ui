@@ -954,11 +954,6 @@ border:3px groove white;
 border-radius:9px;
 background-image:url();
 background-color:lightgray;
-
-}
-QProgressBar::chunk{
-background-color:green;
-border-radius:5px;
 }</string>
     </property>
     <property name="value">
