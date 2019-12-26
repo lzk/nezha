@@ -186,10 +186,6 @@ int UIConfig::getModelSerial(Printer_struct* ps)
     }else if(makeAndModel.startsWith("Lenovo M7268W")){
         ms = ModelSerial_M + Model_D + Model_W;
 #endif
-    }else if(makeAndModel.startsWith("Lenovo LJ2310N")){
-        ms = ModelSerial_L;
-    }else if(makeAndModel.startsWith("Lenovo LJ2320DN")){
-        ms = ModelSerial_L + Model_D;
     }else if(makeAndModel.startsWith("Lenovo Image LJ2310N")){
         ms = ModelSerial_L;
     }else if(makeAndModel.startsWith("Lenovo Image LJ2320DN")){

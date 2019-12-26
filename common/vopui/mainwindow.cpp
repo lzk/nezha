@@ -983,6 +983,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 void MainWindow::updateStatusPanel(int displayStatus,int status)
 {
     switch (displayStatus) {
+    case UIConfig::Status_Warning:
     case UIConfig::Status_Ready:
 //        qDebug()<<"Status_Ready";
         ui->label_6->setText(tr("ResStr_Ready"));
