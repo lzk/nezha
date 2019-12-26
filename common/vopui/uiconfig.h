@@ -147,6 +147,8 @@ public:
         NetWirelessDongleCfgFail    = 0xE8,
         ScanDriverCalibrationFail   = 0xE9,
         DMAError                    = 0xEF,
+        TouchPanelError             = 0xEA,
+
         Unknown                     = 0xF0, // status added by SW
         Offline                     = 0xF1, // status added by SW
         PowerOff                    = 0xF2 // status added by SW

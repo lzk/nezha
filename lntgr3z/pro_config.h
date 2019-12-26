@@ -1,7 +1,7 @@
 #ifndef PRO_CONFIG_H
 #define PRO_CONFIG_H
 
-#define APP_VERSION "1.0.14"
+#define APP_VERSION "1.0.16"
 
 #define APP_PATH "/usr/share/lntgr3z/"
 
@@ -39,6 +39,7 @@
 #define LOCKER_VOP "/tmp/.lntgr3zvop_locker"
 
 #define DOMAIN_UIEXE "/tmp/lntgr3zsmui.domain"
+#define DOMAIN_VOPEXE "/tmp/lntgr3zvop.domain"
 
 #define STATUS_FILE "/tmp/.lntgr3zstatus"
 #define STATUS_LOCKER_FILE "/tmp/.lntgr3zstatus_lock"

@@ -204,10 +204,6 @@ int UIConfig::getModelSerial(Printer_struct* ps)
     }else if(makeAndModel.startsWith("Lenovo M102")){
         ms = ModelSerial_M;
 #endif
-    }else if(makeAndModel.startsWith("Lenovo LJ2310N")){
-        ms = ModelSerial_L;
-    }else if(makeAndModel.startsWith("Lenovo LJ2320DN")){
-        ms = ModelSerial_L + Model_D;
     }else if(makeAndModel.startsWith("Lenovo Image LJ2310N")){
         ms = ModelSerial_L + Model_N;
     }else if(makeAndModel.startsWith("Lenovo Image LJ2320DN")){
@@ -239,7 +235,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case ScanSending                 : st = Status_Busy ; break;
                     case ScanCanceling               : st = Status_Busy ; break;
                     case ScannerBusy                 : st = Status_Busy ; break;
-                    case TonerEnd1                   : st = Status_Ready; break;
+                    case TonerEnd1                   : st = Status_Warning; break;
                     case TonerEnd2                   : st = Status_Ready; break;
                     case TonerNearEnd                : st = Status_Ready; break;
                     case OPCNearEnd                  : st = Status_Ready; break;
@@ -254,7 +250,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case JamAtExitStayOn             : st = Status_Error; break;
                     case CoverOpen                   : st = Status_Error; break;
                     case NoTonerCartridge            : st = Status_Error; break;
-                    case WasteTonerFull              : st = Status_Ready; break;
+                    case WasteTonerFull              : st = Status_Warning; break;
                     case PDLMemoryOver               : st = Status_Error; break;
                     case FWUpdate                    : st = Status_Busy ; break;
                     case OverHeat                    : st = Status_Busy ; break;
@@ -282,6 +278,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case SCAN_DRV_CALIB_FAIL         : st = Status_Error; break;
                     case NetWirelessDongleCfgFail    : st = Status_Error; break;
                     case DMAError                    : st = Status_Error; break;
+                    case TouchPanelError             : st = Status_Warning; break;
 
                     case Offline                     :
                     case PowerOff                    :
@@ -370,8 +367,10 @@ QString UIConfig::getErrorMsg(EnumStatus status, EnumMachineJob job, bool isAbcP
         case JamAtExitNotReach: errMsg = tr("ResStr_Paper_Jam__Exit_NotReach"); break;
         case JamAtExitStayOn: errMsg = tr("ResStr_Paper_Jam__Exit"); break;
         case CoverOpen: errMsg = tr("ResStr_Cover_Open"); break;
-        case NoTonerCartridge: errMsg = tr("ResStr_No_Toner_Cartridge"); break;
-        case WasteTonerFull: errMsg = tr("ResStr_Please_Replace_Toner"); break;
+//        case NoTonerCartridge: errMsg = tr("ResStr_No_Toner_Cartridge"); break;
+//        case WasteTonerFull: errMsg = tr("ResStr_Please_Replace_Toner"); break;
+    case NoTonerCartridge: errMsg = QString::fromUtf8("没有墨粉盒"); break;
+    case WasteTonerFull: errMsg = tr("ResStr_Toner_End_ABC_Plus"); break;
         case PDLMemoryOver: errMsg = tr("ResStr_PDL_Memory_Overflow"); break;
         case FWUpdate: errMsg = tr("ResStr_FW_Updating"); break;
         case OverHeat: errMsg = tr("ResStr_Overheat"); break;
@@ -463,6 +462,10 @@ QString UIConfig::getErrorMsg(EnumStatus status, EnumMachineJob job, bool isAbcP
             errMsg = tr("ResStr_DMA_Error_SCxxx") +
                 tr("ResStr_DMA_Error");
                 break;
+    case TouchPanelError:
+        errMsg = tr("ResStr_Turn_off_the_printer__and_turn_it_on_again_Contact_customer_support_if_this_failure_is_repeated_SCxxx") +
+            tr("ResStr_Touch_Panel_Error");
+            break;
         case Offline:
         case PowerOff:
         case Unknown: errMsg = ""; break;
