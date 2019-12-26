@@ -14,10 +14,10 @@ Trans_File_Server::Trans_File_Server()
 
 Trans_File_Server::~Trans_File_Server()
 {
-    running = 0;
-    while(!running){
-        usleep(10*1000);
-    }
+//    running = 0;
+//    while(!running){
+//        usleep(10*1000);
+//    }
 }
 
 int Trans_File_Server::createServer(const char* server_path)
@@ -55,8 +55,17 @@ int Trans_File_Server::any_client_connected()
             ret = fread(mtext ,TEXT_SIZE ,1 ,file);
             fclose(file);
             if(ret == 1){
-                hasmsg = true;
-                LOGLOG("\t\Trans_File_Server:read %d" ,TEXT_SIZE);
+                if(!strcmp(mtext ,"tryconnect")){
+                    hasmsg = false;
+                    LOGLOG("\t\Trans_File_Server:try connect");
+                    file = fopen(path ,"w");
+                    ret = fwrite(mtext ,TEXT_SIZE + 1 ,1 ,file);
+                    fclose(file);
+                    return -1;
+                }else{
+                    hasmsg = true;
+                    LOGLOG("\t\Trans_File_Server:read %d" ,TEXT_SIZE);
+                }
                 return 0;
             }
         }
@@ -68,6 +77,8 @@ int Trans_File_Server::any_client_connected()
 
 int Trans_File_Server::readThenWrite(int ,CALLBACK_Server callback ,void* para)
 {
+    if(!hasmsg)
+        return 0;
     int ret = 0;
     LOGLOG("\t\Trans_File_Server:no need read again");
     LOGLOG("\t\Trans_File_Server:read %s" ,mtext);
@@ -99,7 +110,9 @@ Trans_File_Client::~Trans_File_Client()
 
 int Trans_File_Client::tryConnectToServer()
 {
-    return 0;
+    char buffer[1024];
+    sprintf(buffer ,"tryconnect");
+    return writeThenRead(buffer ,1024);
 }
 
 #include <sys/stat.h>

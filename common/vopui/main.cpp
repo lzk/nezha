@@ -17,6 +17,8 @@ UInterface* gUInterface;
 #include <QFontDatabase>
 #include <QIODevice>
 #include <QFile>
+#include "appserver.h"
+extern AppServer* app_server;
 
 #ifndef Q_OS_DARWIN
 extern "C"{
@@ -95,6 +97,16 @@ QString loadFontFamilyFromFiles(const QString &filename)
 
 int main(int argc, char *argv[])
 {
+    if(UIConfig::initConfig()){
+        Trans_Client tc(DOMAIN_VOPEXE);
+        char buffer[1024];
+        sprintf(buffer ,"startexe");
+        tc.writeThenRead(buffer ,1024);
+
+        LOGLOG("There has been a same app running!");
+        return 0;
+    }
+
     signal(SIGINT ,quit);
 #ifdef Q_WS_X11
     qputenv("LIBOVERLAY_SCROLLBAR", 0);
@@ -147,15 +159,12 @@ int main(int argc, char *argv[])
         use_status_thread = false;
     }
 
-    if(UIConfig::initConfig()){
-        LOGLOG("There has been a same app running!");
-        return 0;
-    }
     gUInterface = new UInterface;
 
     MainWindow w;
     w.setGeometry(splash->geometry());
     w.setWindowIcon(QIcon(":/Images/logo.png"));
+    w.connect(app_server ,SIGNAL(signal_startexe()) ,&w ,SLOT(show_top()));
 
 //    QTranslator trans1;
 //    trans1.load("qt_" + QLocale::system().name() ,":/translations");

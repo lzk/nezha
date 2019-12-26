@@ -132,6 +132,9 @@ private:
 
 signals:
     void signalCloseAnimationDlg();
+
+public slots:
+    void show_top();
 };
 
 #endif // MAINWINDOW_H

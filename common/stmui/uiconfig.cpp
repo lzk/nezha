@@ -1,14 +1,14 @@
 #include "uiconfig.h"
 #include "commonapi.h"
 #include "filelocker.h"
-//#include "appserver.h"
+#include "appserver.h"
 #include <QFile>
 #include <QDir>
 
 bool testmode = false;
 //const QString app_name = QString::fromUtf8("打印机状态监视器");
 FileLocker app_file_locker;
-//AppServer* app_server;
+AppServer* app_server;
 
 extern
 int (* getpidvid)(const QString& makeAndModel ,int& pid ,int& vid ,int& interface);
@@ -171,7 +171,7 @@ int UIConfig::initConfig()
     isDeviceSupported = _isDeviceSupported;
     getpidvid = _getpidvid;
 
-//    app_server = new AppServer(DOMAIN_UIEXE);
+    app_server = new AppServer(DOMAIN_UIEXE);
     return 0;
 }
 
@@ -238,6 +238,7 @@ QString UIConfig::GetStatusTypeString(int type)
     QString str = " ";
     switch (type) {
     case Status_Ready:
+    case Status_Warning:
         str = tr("ResStr_Ready");
         break;
     case Status_Sleep:
@@ -279,7 +280,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case ScanSending                 : st = Status_Busy ; break;
                     case ScanCanceling               : st = Status_Busy ; break;
                     case ScannerBusy                 : st = Status_Busy ; break;
-                    case TonerEnd1                   : st = Status_Ready; break;
+                    case TonerEnd1                   : st = Status_Warning; break;
                     case TonerEnd2                   : st = Status_Ready; break;
                     case TonerNearEnd                : st = Status_Ready; break;
                     case OPCNearEnd                  : st = Status_Ready; break;
@@ -294,7 +295,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case JamAtExitStayOn             : st = Status_Error; break;
                     case CoverOpen                   : st = Status_Error; break;
                     case NoTonerCartridge            : st = Status_Error; break;
-                    case WasteTonerFull              : st = Status_Ready; break;
+                    case WasteTonerFull              : st = Status_Warning; break;
                     case PDLMemoryOver               : st = Status_Error; break;
                     case FWUpdate                    : st = Status_Busy ; break;
                     case OverHeat                    : st = Status_Busy ; break;
@@ -322,6 +323,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case SCAN_DRV_CALIB_FAIL         : st = Status_Error; break;
                     case NetWirelessDongleCfgFail    : st = Status_Error; break;
                     case DMAError                    : st = Status_Error; break;
+                    case TouchPanelError             : st = Status_Warning; break;
 
                     case Offline                     :
                     case PowerOff                    :

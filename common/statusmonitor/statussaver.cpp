@@ -7,6 +7,7 @@
 extern int usb_error_printing;
 extern int usb_error_scanning;
 #include "snmpapi.h"
+#include <unistd.h>
 int parsePrinterStatus(PRINTER_STATUS* pStatus ,PrinterStatus_struct* ps);
 static void callback(const char* ip ,char* buffer ,int bufsize ,void* data)
 {
@@ -93,6 +94,7 @@ void StatusObject::update_net_status(QList<QList<Printer_struct> > printers_list
                                     ,buffer ,1024 ,callback ,(void*)&printerinfos);
         StatusManager().savePrinterInfosToFile(printerinfos);
         ++i;
+        usleep(1000);
     }
 }
 
@@ -131,6 +133,7 @@ void StatusObject::update_status(QList<Printer_struct> printers)
     }
     if(printing){
         LOGLOG("device %s is printing ,update status via filter" ,printerinfo.printer.deviceUri);
+        usleep(1000);
         return;//get status via filter
     }
     foreach (Printer_struct printer, printers) {
@@ -146,6 +149,7 @@ void StatusObject::update_status(QList<Printer_struct> printers)
         printerinfo.printer.status = result;
         StatusManager().savePrinterInfoToFile(printer.name ,&printerinfo);
     }
+    usleep(1000);
 }
 
 SingelStatusThread::SingelStatusThread(QObject *parent)
@@ -391,14 +395,14 @@ void StatusSaver::run()
                 }
             }
             if(usb_printers_list.isEmpty()){
-                if(!qobject_cast<SingelStatusThread*>(thread_net)){
+                if(qobject_cast<SingelStatusThread*>(thread_usb)){
 //                if(thread_usb){
                     threads.removeOne(thread_usb);
                     thread_usb->deleteLater();
                     thread_usb = NULL;
                 }
             }else{
-                if(!qobject_cast<SingelStatusThread*>(thread_net)){
+                if(!qobject_cast<SingelStatusThread*>(thread_usb)){
 //                if(!thread_usb){
                     thread_usb = new SingelStatusThread;
                     threads << thread_usb;

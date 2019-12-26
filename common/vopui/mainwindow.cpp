@@ -587,9 +587,10 @@ void MainWindow::updateStatus(QVariant data)
     LOGLOG("updateStatus");
     PrinterInfo_struct printerInfo = data.value<PrinterInfo_struct>();
     PrinterStatus_struct& status = printerInfo.status;
-//    if(!printerInfo.printer.isConnected){
+    if(!printerInfo.printer.isConnected){
 //        memset(&status ,-1 ,sizeof(status));
-//    }
+        status.PrinterStatus = printerInfo.printer.status;
+    }
     LOGLOG("get status success:0x%02x" ,status.PrinterStatus);
     onStatusCh(status);
 }
@@ -982,6 +983,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 void MainWindow::updateStatusPanel(int displayStatus,int status)
 {
     switch (displayStatus) {
+    case UIConfig::Status_Warning:
     case UIConfig::Status_Ready:
 //        qDebug()<<"Status_Ready";
         ui->label_6->setText(tr("ResStr_Ready"));
@@ -1248,5 +1250,17 @@ void MainWindow::on_btCar_clicked()
 //    {
 ////        QDesktopServices::openUrl(QUrl("http://ibase.lenovoimage.com/buy_abc2.aspx"));
 //        QDesktopServices::openUrl(QUrl("http://vopapi.lenovoimage.com/index.html"));
+//    }
+}
+
+void MainWindow::show_top()
+{
+//    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
+//    if(!isVisible()){
+//        hide();
+//        showMinimized();
+        showNormal();
+//        setWindowState(windowState() & ~Qt::WindowMinimized | Qt::WindowActive);
+        activateWindow();
 //    }
 }

@@ -18,6 +18,7 @@ ServerThread::~ServerThread()
         tc.tryConnectToServer();
         usleep(100 * 1000);
     }
+    LOGLOG("ServerThread exit");
     if(QFile::exists(m_server_path))
         QFile::remove(m_server_path);
 }
@@ -33,6 +34,7 @@ void ServerThread::run()
             client_connect(fd);
         }
     }
+    LOGLOG("delete server thread:%s" ,m_server_path.toLatin1().constData());
     abort = false;
 }
 

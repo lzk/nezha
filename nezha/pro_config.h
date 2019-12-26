@@ -39,6 +39,7 @@
 #define LOCKER_VOP "/tmp/.lntgr1zvop_locker"
 
 #define DOMAIN_UIEXE "/tmp/lntgr1zsmui.domain"
+#define DOMAIN_VOPEXE "/tmp/lntgr1zvop.domain"
 
 #define STATUS_FILE "/tmp/.lntgr1zstatus"
 #define STATUS_LOCKER_FILE "/tmp/.lntgr1zstatus_lock"

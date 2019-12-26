@@ -65,6 +65,8 @@ private:
 //    QMap<QString ,QList<int> > shown_error_map;
     QString message_printer;
     QTimer timer;
+public slots:
+    void show_top();
 };
 
 #endif // MAINWINDOW_H

@@ -1,7 +1,7 @@
 #include "uiconfig.h"
 #include "commonapi.h"
 #include "filelocker.h"
-//#include "appserver.h"
+#include "appserver.h"
 #include <QFile>
 #include <QDir>
 #include <sys/stat.h>
@@ -11,7 +11,7 @@
 bool testmode = false;
 //const QString app_name = QString::fromUtf8("打印机状态监视器");
 FileLocker app_file_locker;
-//AppServer* app_server;
+AppServer* app_server;
 
 extern
 int (* getpidvid)(const QString& makeAndModel ,int& pid ,int& vid ,int& interface);
@@ -176,7 +176,7 @@ int UIConfig::initConfig()
 //    }
 //    path->mkdir(TMP_SCAN_DIR);
 
-//    app_server = new AppServer(DOMAIN_UIEXE);
+    app_server = new AppServer(DOMAIN_VOPEXE);
     return 0;
 }
 
@@ -185,7 +185,7 @@ void UIConfig::exit_app()
 //    QFile::remove(filepath);
 //    QFile::remove(lockfile);
     app_file_locker.unlock();
- //   delete app_server;
+    delete app_server;
 //    QDir dir(TMP_SCAN_DIR);
 //    QDir *path = &dir;
 //    if(path->exists(TMP_SCAN_DIR)){
@@ -234,9 +234,9 @@ int UIConfig::getModelSerial(Printer_struct* ps)
     }else if(makeAndModel.startsWith("Lenovo Image LJ2320DN")){
         ms = ModelSerial_L + Model_D + Model_N;
     }else if(makeAndModel.startsWith("Lenovo Image G262DN")){
-        ms = ModelSerial_L + Model_N;
+        ms = ModelSerial_L + Model_D + Model_N;
     }else if(makeAndModel.startsWith("Lenovo Image G336DN")){
-        ms = ModelSerial_L + Model_N;
+        ms = ModelSerial_L + Model_D + Model_N;
 //    }else if(makeAndModel.startsWith("Lenovo Image GM265DN")){
 //        ms = ModelSerial_M + Model_D + Model_N;
 //    }else if(makeAndModel.startsWith("Lenovo Image GM337DN")){
@@ -268,7 +268,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case ScanSending                 : st = Status_Busy ; break;
                     case ScanCanceling               : st = Status_Busy ; break;
                     case ScannerBusy                 : st = Status_Busy ; break;
-                    case TonerEnd1                   : st = Status_Ready; break;
+                    case TonerEnd1                   : st = Status_Warning; break;
                     case TonerEnd2                   : st = Status_Ready; break;
                     case TonerNearEnd                : st = Status_Ready; break;
                     case OPCNearEnd                  : st = Status_Ready; break;
@@ -283,7 +283,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case JamAtExitStayOn             : st = Status_Error; break;
                     case CoverOpen                   : st = Status_Error; break;
                     case NoTonerCartridge            : st = Status_Error; break;
-                    case WasteTonerFull              : st = Status_Ready; break;
+                    case WasteTonerFull              : st = Status_Warning; break;
                     case PDLMemoryOver               : st = Status_Error; break;
                     case FWUpdate                    : st = Status_Busy ; break;
                     case OverHeat                    : st = Status_Busy ; break;
@@ -311,6 +311,7 @@ int UIConfig::GetStatusTypeForUI(int status)
                     case SCAN_DRV_CALIB_FAIL         : st = Status_Error; break;
                     case NetWirelessDongleCfgFail    : st = Status_Error; break;
                     case DMAError                    : st = Status_Error; break;
+                    case TouchPanelError             : st = Status_Warning; break;
 
                     case Offline                     :
                     case PowerOff                    :
@@ -494,6 +495,10 @@ QString UIConfig::getErrorMsg(EnumStatus status, EnumMachineJob job, bool isAbcP
             errMsg = tr("ResStr_DMA_Error_SCxxx") +
                 tr("ResStr_DMA_Error");
                 break;
+    case TouchPanelError:
+        errMsg = tr("ResStr_Turn_off_the_printer__and_turn_it_on_again_Contact_customer_support_if_this_failure_is_repeated_SCxxx") +
+            tr("ResStr_Touch_Panel_Error");
+            break;
         case Offline:
         case PowerOff:
         case Unknown: errMsg = ""; break;
