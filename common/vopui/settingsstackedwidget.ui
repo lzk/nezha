@@ -14,7 +14,7 @@
    <string>StackedWidget</string>
   </property>
   <property name="currentIndex">
-   <number>4</number>
+   <number>5</number>
   </property>
   <widget class="QWidget" name="WiFi">
    <widget class="QLabel" name="background_WiFi2">
@@ -1366,10 +1366,7 @@ QPushButton::pressed{
     </layout>
    </widget>
    <zorder>background_PowerSave1</zorder>
-   <zorder>lineEdit_timeout</zorder>
-   <zorder>btTimeReduce</zorder>
    <zorder>label_timeoutSettings</zorder>
-   <zorder>btTimeAdd</zorder>
    <zorder>btApply_Timeout</zorder>
    <zorder>background_PowerSave2</zorder>
    <zorder>label_timeout_error</zorder>
@@ -1663,7 +1660,7 @@ color:white;
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>209</y>
+      <y>176</y>
       <width>131</width>
       <height>29</height>
      </rect>
@@ -2107,7 +2104,7 @@ border:transparent;
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>176</y>
+      <y>143</y>
       <width>131</width>
       <height>29</height>
      </rect>
@@ -2145,7 +2142,7 @@ QPushButton:pressed{
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>143</y>
+      <y>209</y>
       <width>131</width>
       <height>29</height>
      </rect>
