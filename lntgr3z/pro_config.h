@@ -12,19 +12,19 @@
 #define EXE_VOP_NAME "lntgr3zvop"
 #define EXE_FILTERUI_NAME "lntgr3zfilterui"
 
-#ifdef DEBUG_DEBUG
+//#ifdef DEBUG_DEBUG
 #define LOG_SERVICE_FILE "/tmp/lntgr3zservice.log"
 #define LOG_TRANS_FILE "/tmp/lntgr3zsm.log"
 #define LOG_UI_FILE "/tmp/lntgr3zsmui.log"
 #define LOG_FILTERLIB_FILE "/tmp/lntgr3zfilterlib.log"
 #define LOG_VOP_FILE "/tmp/lntgr3zvop.log"
-#else
-#define LOG_SERVICE_FILE "/usr/share/lntgr3z/service.log"
-#define LOG_TRANS_FILE "/usr/share/lntgr3z/sm.log"
-#define LOG_UI_FILE "/usr/share/lntgr3z/ui.log"
-#define LOG_FILTERLIB_FILE "/var/spool/cups/tmp/lntgr3zfilterlib.log"
-#define LOG_VOP_FILE "/usr/share/lntgr3z/vop.log"
-#endif
+//#else
+//#define LOG_SERVICE_FILE "/usr/share/lntgr3z/service.log"
+//#define LOG_TRANS_FILE "/usr/share/lntgr3z/sm.log"
+//#define LOG_UI_FILE "/usr/share/lntgr3z/ui.log"
+//#define LOG_FILTERLIB_FILE "/var/spool/cups/tmp/lntgr3zfilterlib.log"
+//#define LOG_VOP_FILE "/usr/share/lntgr3z/vop.log"
+//#endif
 
 #define SERVICE_TRANS_PATH "/tmp/lntgr3ztransrw"
 #ifdef DEBUG_DEBUG
