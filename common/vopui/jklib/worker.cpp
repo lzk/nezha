@@ -711,8 +711,8 @@ extern int usb_error_scanning;
 void Worker::update_scan_progress(Printer_struct* printer ,int progress ,int is_jpg_mode)
 {
     if(progress == -1){//start
-        current_printer_info.printer = *printer;
         printer->status = usb_error_scanning;
+        current_printer_info.printer = *printer;
         current_printer_info.status.PrinterStatus = usb_error_scanning;
         QVariant value;
         value.setValue<PrinterInfo_struct>(current_printer_info);
@@ -721,10 +721,12 @@ void Worker::update_scan_progress(Printer_struct* printer ,int progress ,int is_
     }else if(progress == -2){
         emit signal_update_scan_progress(100);
         printer->status = 0;
+        current_printer_info.printer = *printer;
         current_printer_info.status.PrinterStatus = 0;
 //        update_current_printer_status();
     }else if(progress == -3){
         printer->status = 0;
+        current_printer_info.printer = *printer;
         current_printer_info.status.PrinterStatus = 0;
 //        update_current_printer_status();
     }else{
