@@ -242,7 +242,7 @@ int RequestCRM::get_printersupplies(const QString& serialNO ,QString& hyperlink)
 {
     QString post_str = QString("biz_content=") +
             "{" +
-            "SerilNumber:" + serialNO +
+            "SerilNumber:" + "\"" + serialNO + "\"" +
             "}";
     QString url = base_uri + "/Device/PrinterSupplies";
     return get_hyperlink(url ,post_str ,hyperlink);

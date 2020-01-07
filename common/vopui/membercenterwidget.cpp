@@ -527,7 +527,7 @@ void MemberCenterWidget::cmdResult(int cmd,int result,QVariant data)
             struct_user_center userCenter = data.value<struct_user_center>();
 //            qDebug()<<"user center printertotal:"<<userCenter.counter_printer_scan.PrinterTotal;
 #if NEW_CRM
-            QString SN = QString(userCenter.user_center._2ndSerialNO);
+            QString SN = QString(userCenter.user_center._2ndSerialNO).left(20);
             QString Mobile = loginPhone;
             QString DeviceCode = MemberCenterWidget::getHostMacAddress();
             QString DeviceBrand = "Lenovo";
