@@ -1237,7 +1237,7 @@ void MainWindow::on_btCar_clicked()
     if(!gUInterface->completeCurrentPrinterCmd(UIConfig::LS_CMD_PRN_Get_UserCenterInfo ,value)){
         cmdst_user_center user_center = value.value<cmdst_user_center>();
         QString url;
-        if(!RequestCRM::get_printersupplies(user_center._2ndSerialNO ,url))
+        if(!RequestCRM::get_printersupplies(QString(user_center._2ndSerialNO).left(20) ,url))
             QDesktopServices::openUrl(QUrl(url));
     }
 //    if(ui->memberCenterWidget->loginPhone !="")
