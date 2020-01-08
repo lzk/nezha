@@ -9,7 +9,7 @@ equals(QT_MAJOR_VERSION,4){
 contains(CONFIG ,static){
     QTPLUGIN += qjpeg qtiff qmng qgif qico
     DEFINES += STATIC_BUILD
-    LIBS += -Wl,--wrap=memcpy
+#    LIBS += -Wl,--wrap=memcpy
 }
 }
 
