@@ -13,7 +13,8 @@
 #include "membercenter/experiencepro.h"
 #include "unistd.h"
 #include <QVariant>
-extern const char* g_config_file;
+#include "lld.h"
+#include "statuspaser.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -889,9 +890,6 @@ void MainWindow::set_Message_Background_Color(UIConfig::EnumStatus s)
     }
 }
 
-//extern int usb_error_printing;
-extern int usb_error_scanning;
-//extern int usb_error_usb_locked;
 void MainWindow::onStatusCh(PrinterStatus_struct& status)
 {
     bool only_update_status = false;
@@ -913,8 +911,8 @@ void MainWindow::onStatusCh(PrinterStatus_struct& status)
     //test
 //    status.PrinterStatus = UIConfig::DuplexTrayNoFeedJam;
 
-    int displayStatus = UIConfig::GetStatusTypeForUI((UIConfig::EnumStatus)status.PrinterStatus);
-    QString statusString = UIConfig::getErrorMsg((UIConfig::EnumStatus)status.PrinterStatus,(UIConfig::EnumMachineJob)status.job,0);
+    int displayStatus = StatusPaser::GetStatusTypeForUI(status.PrinterStatus);
+    QString statusString = StatusPaser::getErrorMsg(status.PrinterStatus,status.job,0);
     deviceStatus = status.PrinterStatus;
 
     if(statusString != deviceStatusString)

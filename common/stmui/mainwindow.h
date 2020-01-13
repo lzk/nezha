@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QVariant>
 #include <QMouseEvent>
-#include "uiconfig.h"
+#include "appconfig.h"
 #include <qsystemtrayicon.h>
 #include <QTimer>
 namespace Ui {

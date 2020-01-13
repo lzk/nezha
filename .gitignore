@@ -1,6 +1,7 @@
 .DS_Store
 *.user*
 common/libs/cups-2.2.8
+common/includes/cups-2.2.8
 *cups.so*
 *usb-1.0.so*
 *.svn*

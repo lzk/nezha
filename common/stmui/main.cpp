@@ -4,7 +4,7 @@
 #include <QTranslator>
 #include <QLocale>
 #include "uinterface.h"
-#include "uiconfig.h"
+#include "appconfig.h"
 #include <signal.h>
 #include "appserver.h"
 UInterface* gUInterface;
@@ -18,7 +18,7 @@ void quit(int)
 
 int main(int argc, char *argv[])
 {
-    if(UIConfig::initConfig()){
+    if(AppConfig::initConfig()){
         Trans_Client tc(DOMAIN_UIEXE);
         char buffer[1024];
         sprintf(buffer ,"startexe");
@@ -60,6 +60,6 @@ int main(int argc, char *argv[])
 
     int ret = a.exec();
     delete gUInterface;
-    UIConfig::exit_app();
+    AppConfig::exit_app();
     return ret;
 }

@@ -5,7 +5,7 @@
 #include <QThread>
 #include <QVariant>
 #include <QTimer>
-#include "uiconfig.h"
+#include "appconfig.h"
 #include <qsettings.h>
 class Worker;
 class UInterface : public QObject

@@ -1,7 +1,7 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    filterlib \
+    liblld \
     filtertrans \
     filterservice \
     stmui \

@@ -142,11 +142,15 @@
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam__Exit_NotReach</source>
-    <target>内部卡纸</target>
+    <target>内部卡纸
+请打开并关闭上盖，尝试自动排纸。
+如果自动排纸失败，请打开上盖，取出耗材，取出卡住的纸张。关闭上盖后将自动继续打印。</target>
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam__Exit</source>
-    <target>出纸处卡纸</target>
+    <target>出纸处卡纸
+请打开并关闭上盖，尝试自动排纸。
+如果自动排纸失败，请打开上盖，取出耗材，取出卡住的纸张。关闭上盖后将自动继续打印。</target>
 </phrase>
 <phrase>
     <source>ResStr_Cover_Open</source>

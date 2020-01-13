@@ -1,6 +1,6 @@
 #include "worker.h"
 #include <QVariant>
-#include "uiconfig.h"
+#include "appconfig.h"
 #include <QDebug>
 #include <QString>
 #include <QDir>
