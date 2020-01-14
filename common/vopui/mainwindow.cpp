@@ -352,7 +352,7 @@ void MainWindow::cmdResult(int cmd,int result ,QVariant data)
     case UIConfig::CMD_GetStatus:{
 #ifndef DEBUG
         if(!result){
-            LOGLOG("MainWindow")
+//            LOGLOG("MainWindow")
             updateStatus(data);
         }else{//get status fail
             LOGLOG("get printer status fail!");
@@ -585,14 +585,14 @@ void MainWindow::enableMPrinter(bool enabled)
 
 void MainWindow::updateStatus(QVariant data)
 {
-    LOGLOG("updateStatus");
+//    LOGLOG("updateStatus");
     PrinterInfo_struct printerInfo = data.value<PrinterInfo_struct>();
     PrinterStatus_struct& status = printerInfo.status;
     if(!printerInfo.printer.isConnected){
 //        memset(&status ,-1 ,sizeof(status));
         status.PrinterStatus = printerInfo.printer.status;
     }
-    LOGLOG("get status success:0x%02x" ,status.PrinterStatus);
+//    LOGLOG("get status success:0x%02x" ,status.PrinterStatus);
     onStatusCh(status);
 }
 

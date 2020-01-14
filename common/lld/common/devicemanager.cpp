@@ -32,13 +32,13 @@ DeviceIO* DeviceManager::getDevice(Printer_struct* printer)
         device = NULL;
         break;
     }
-    if(device_uri.compare(printer->deviceUri)){
+//    if(device_uri.compare(printer->deviceUri)){
 //        LOGLOG("update device:%s" ,device_uri);
         this->device_uri = printer->deviceUri;
         if(device){
             device->resolve(printer);
         }
-    }
+//    }
     return device;
 }
 

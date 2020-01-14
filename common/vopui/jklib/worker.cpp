@@ -16,7 +16,7 @@ Worker::Worker(QObject *parent) :
   ,lshell(new LShell(deviceManager))
   ,scanner(new ScannerApp(deviceManager))
 {
-    watcher = new Watcher(this);
+    watcher = new Watcher();
 //    connect(watcher ,SIGNAL(update_printer_status()) ,this ,SLOT(update_printer_status(PrinterInfo_struct)));
     connect(watcher ,SIGNAL(update_current_printer_status()) ,this ,SLOT(update_current_printer_status()) ,Qt::DirectConnection);
     connect(watcher ,SIGNAL(update_printerlist()) ,this ,SLOT(update_printerlist()) ,Qt::DirectConnection);

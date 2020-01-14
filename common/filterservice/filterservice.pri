@@ -8,9 +8,11 @@ SOURCES += \
     $${PWD}/appserver.cpp \
     $${PWD}/watcher.cpp \
     $${PWD}/appconfig.cpp \
+    $${PWD}/../lld/statusmonitor/statussaver.cpp \
 
 HEADERS += \
     $${PWD}/appserver.h \
     $${PWD}/appconfig.h \
-    $${PWD}/watcher.h
+    $${PWD}/watcher.h \
+    $${PWD}/../lld/statusmonitor/statussaver.h \
 

@@ -7,7 +7,7 @@ HEADERS += \
     $$PWD/status.h \
     $$PWD/cupsmanager.h \
     $$PWD/statuswatcher.h \
-    $$PWD/statussaver.h \
+#    $$PWD/statussaver.h \
     $$PWD/statusreader.h
 
 SOURCES += \
@@ -17,5 +17,5 @@ SOURCES += \
     $$PWD/status.cpp \
     $$PWD/cupsmanager.cpp \
     $$PWD/statuswatcher.cpp \
-    $$PWD/statussaver.cpp \
+#    $$PWD/statussaver.cpp \
     $$PWD/statusreader.cpp

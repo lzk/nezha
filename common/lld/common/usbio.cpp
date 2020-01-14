@@ -216,8 +216,8 @@ int UsbIO::resolveUrl(const char* url)
         return 0;
     }
     int ret = 0;
-    QString tmp_serial;
-    QUrl printer_url = QUrl(url);
+    QString tmp_serial = QString(url);
+    QUrl printer_url = QUrl(tmp_serial);
 #if QT_VERSION > 0x050000
     tmp_serial = QUrlQuery(printer_url).queryItemValue("serial");
 //    interface = QUrlQuery(printer_url).queryItemValue("interface").toInt();
@@ -225,7 +225,14 @@ int UsbIO::resolveUrl(const char* url)
     tmp_serial = printer_url.queryItemValue("serial");
 //    interface = printer_url.queryItemValue("interface").toInt();
 #endif
-    QString modelname = printer_url.host() + printer_url.path();
+    int index;
+    index = QString(url).indexOf("://");
+    QString modelname = QString(url).mid(index + strlen("://"));
+    index = QString(url).indexOf('?');
+    if(index > 0)
+        modelname = QString(url).left(index);
+//    QString modelname = printer_url.host() + printer_url.path();
+
     if(getpidvid(modelname ,pid ,vid ,interface)){
         ret = -1;
         LOGLOG("can not get pid vid of modelname:%s" ,modelname.toLatin1().constData());

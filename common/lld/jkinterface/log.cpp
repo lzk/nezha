@@ -1,5 +1,6 @@
 #include "log.h"
 #if 1
+//#ifndef LOG_TO_STDERR
 #include "lld.h"
 
 #include <stdarg.h>
@@ -9,7 +10,6 @@
 #include <sys/stat.h>
 #include <string.h>
 #include <stdio.h>
-//#ifndef LOG_TO_STDERR
 #if 0
 #include <QMutex>
 static QMutex mutex_write_log_file;
@@ -131,11 +131,7 @@ int jklog(const char* para ,...)
 #endif
 
 #else
-
 void log_init()
 {
-//    FILE* file;
-//    file = fopen(log_file ,"w+");
-//    fclose(file);
 }
 #endif

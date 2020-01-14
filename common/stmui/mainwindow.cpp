@@ -306,7 +306,7 @@ void MainWindow::updatePrinter(const QVariant& data)
         printer = &printerlist[i].printer;
         printerstatus = printer->status;
 //        printerstatus = printerlist[i].status.PrinterStatus;
-        LOGLOG("printer:%s ,status:%d" ,printer->name ,printerstatus);
+//        LOGLOG("printer:%s ,status:%d" ,printer->name ,printerstatus);
         if(!isHidden()){
             if(StatusPaser::isAutoShow(printerstatus)){
                 shown_error_map[printer->name] = printerstatus;

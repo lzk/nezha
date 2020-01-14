@@ -84,11 +84,9 @@ int getModelSerial(Printer_struct* ps)
     }else if(makeAndModel.startsWith("Lenovo M100")){
         ms = ModelSerial_M;
     }else if(makeAndModel.startsWith("Lenovo M101DW")){
-//        ms = ModelSerial_M + Model_D + Model_W;
-        ms = ModelSerial_L + Model_N;
+        ms = ModelSerial_M + Model_D + Model_W;
     }else if(makeAndModel.startsWith("Lenovo M101W")){
-//        ms = ModelSerial_M + Model_W;
-        ms = ModelSerial_L + Model_N;
+        ms = ModelSerial_M + Model_W;
     }else if(makeAndModel.startsWith("Lenovo M101")){
         ms = ModelSerial_M;
     }else if(makeAndModel.startsWith("Lenovo M102W")){

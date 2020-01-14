@@ -240,13 +240,13 @@ QHeaderView::section{
      <widget class="QTableWidget" name="tableWidget_printers">
       <property name="minimumSize">
        <size>
-        <width>560</width>
+        <width>580</width>
         <height>0</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>560</width>
+        <width>580</width>
         <height>16777215</height>
        </size>
       </property>
@@ -291,13 +291,13 @@ QHeaderView::section{
      <widget class="QFrame" name="frame">
       <property name="minimumSize">
        <size>
-        <width>560</width>
+        <width>580</width>
         <height>120</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>560</width>
+        <width>580</width>
         <height>120</height>
        </size>
       </property>
