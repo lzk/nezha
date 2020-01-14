@@ -6,7 +6,7 @@
 #include "qeventloop.h"
 #include "requestcrm.h"
 #include "log.h"
-extern const char* g_config_file;
+#include "lld.h"
 UserLogin::UserLogin(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::UserLogin)

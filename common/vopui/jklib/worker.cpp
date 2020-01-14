@@ -1,7 +1,7 @@
 #include "worker.h"
 #include <QVariant>
-#include "uiconfig.h"
-
+#include "appconfig.h"
+#include "lld.h"
 #include <QDebug>
 #include <QString>
 #include <QDir>
@@ -16,7 +16,7 @@ Worker::Worker(QObject *parent) :
   ,lshell(new LShell(deviceManager))
   ,scanner(new ScannerApp(deviceManager))
 {
-    watcher = new Watcher(this);
+    watcher = new Watcher();
 //    connect(watcher ,SIGNAL(update_printer_status()) ,this ,SLOT(update_printer_status(PrinterInfo_struct)));
     connect(watcher ,SIGNAL(update_current_printer_status()) ,this ,SLOT(update_current_printer_status()) ,Qt::DirectConnection);
     connect(watcher ,SIGNAL(update_printerlist()) ,this ,SLOT(update_printerlist()) ,Qt::DirectConnection);
@@ -79,13 +79,13 @@ void Worker::cmdFromUi(int cmd ,const QString& printer_name ,QVariant data)
             if(cmd_status_validate(printer ,cmd)){
                 ScanSettings device_data = data.value<ScanSettings>();
                 if(device_data.settings.scan_type == Hight_Speed) {
-                    sprintf(device_data.tmpfilename, "%s/tmpscan.jpg", UIConfig::tmp_scan_dir.toLatin1().constData());
+                    sprintf(device_data.tmpfilename, "%s/tmpscan.jpg", AppConfig::tmp_scan_dir.toLatin1().constData());
                 }else{
-                    sprintf(device_data.tmpfilename, "%s/tmpscan.raw", UIConfig::tmp_scan_dir.toLatin1().constData());
+                    sprintf(device_data.tmpfilename, "%s/tmpscan.raw", AppConfig::tmp_scan_dir.toLatin1().constData());
                 }
                 QDateTime time = QDateTime::currentDateTime();
                 QString str_time = time.toString("yyyy-MM-dd_hh-mm-ss-zzz");
-                QString tmpfilename(UIConfig::tmp_scan_dir + "/" + str_time + ".bmp");
+                QString tmpfilename(AppConfig::tmp_scan_dir + "/" + str_time + ".bmp");
                 strcpy(device_data.filename ,tmpfilename.toLatin1().constData());
 //                QByteArray t_ba = str_time.toLatin1();
 //                sprintf(device_data.filename, "%s/%s.bmp", imagePath, t_ba.constData());
@@ -707,7 +707,6 @@ void Worker::cancel()
     scanner->set_cancel(true);
 }
 
-extern int usb_error_scanning;
 void Worker::update_scan_progress(Printer_struct* printer ,int progress ,int is_jpg_mode)
 {
     if(progress == -1){//start

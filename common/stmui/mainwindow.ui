@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>400</height>
+    <height>420</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>600</width>
-    <height>400</height>
+    <height>420</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>600</width>
-    <height>400</height>
+    <height>420</height>
    </size>
   </property>
   <property name="styleSheet">
@@ -129,7 +129,7 @@ QHeaderView::section{
              </size>
             </property>
             <property name="pixmap">
-             <pixmap resource="../cpath/resource.qrc">:/Images/logo.png</pixmap>
+             <pixmap resource="images.qrc">:/Images/logo.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -225,7 +225,7 @@ QHeaderView::section{
              <string notr="true"/>
             </property>
             <property name="icon">
-             <iconset resource="../cpath/resource.qrc">
+             <iconset resource="images.qrc">
               <normaloff>:/Images/close.png</normaloff>:/Images/close.png</iconset>
             </property>
            </widget>
@@ -240,13 +240,13 @@ QHeaderView::section{
      <widget class="QTableWidget" name="tableWidget_printers">
       <property name="minimumSize">
        <size>
-        <width>560</width>
+        <width>580</width>
         <height>0</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>560</width>
+        <width>580</width>
         <height>16777215</height>
        </size>
       </property>
@@ -291,14 +291,14 @@ QHeaderView::section{
      <widget class="QFrame" name="frame">
       <property name="minimumSize">
        <size>
-        <width>560</width>
-        <height>100</height>
+        <width>580</width>
+        <height>120</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>560</width>
-        <height>100</height>
+        <width>580</width>
+        <height>120</height>
        </size>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -373,7 +373,6 @@ QHeaderView::section{
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="../cpath/resource.qrc"/>
   <include location="images.qrc"/>
  </resources>
  <connections>

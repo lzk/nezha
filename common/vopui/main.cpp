@@ -4,7 +4,7 @@
 #include "uinterface.h"
 UInterface* gUInterface;
 #include <sys/wait.h>
-#include "uiconfig.h"
+#include "appconfig.h"
 #include "commonapi.h"
 //#include "statusthread.h"
 #include <qtranslator.h>
@@ -97,7 +97,7 @@ QString loadFontFamilyFromFiles(const QString &filename)
 
 int main(int argc, char *argv[])
 {
-    if(UIConfig::initConfig()){
+    if(AppConfig::initConfig()){
         Trans_Client tc(DOMAIN_VOPEXE);
         char buffer[1024];
         sprintf(buffer ,"startexe");
@@ -188,6 +188,6 @@ int main(int argc, char *argv[])
 //    delete thread_server;
 //    delete statusThread;
     delete gUInterface;
-    UIConfig::exit_app();
+    AppConfig::exit_app();
     return ret;
 }

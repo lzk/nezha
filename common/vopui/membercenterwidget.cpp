@@ -11,10 +11,10 @@
 #include <qsettings.h>
 #include "log.h"
 #include "settingwarming.h"
-
+#include "lld.h"
 #include "requestcrm.h"
 #define NO_CRM 1
-extern const char* g_config_file;
+
 MemberCenterWidget::MemberCenterWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MemberCenterWidget)

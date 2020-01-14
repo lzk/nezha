@@ -1,9 +1,5 @@
-include("../jkinterface/jkinterface.pri")
-include("../statusmonitor/statusmonitor.pri")
-include(../common/common.pri)
-include(../lshell/lshell.pri)
-include(../scanner/scanner.pri)
 include("jklib/jklib.pri")
+include(../includes/liblld.pri)
 
 equals(QT_MAJOR_VERSION,4){
 contains(CONFIG ,static){
@@ -13,25 +9,18 @@ contains(CONFIG ,static){
 }
 }
 
-CONFIG(debug ,debug|release){
-    DEFINES += LOG_TO_STDERR
-    DEFINES += DEBUG_DEBUG
-}else{
-}
-
 INCLUDEPATH += \
             $${PWD} \
-            $${PWD}/../libs/libtiff
+            $${PWD}/../includes/libtiff
+
+LIBS += \
+    -L$${PWD}/../libs \
 
 !contains(CONFIG ,static){
 LIBS += \
     -ltiff \
-    -ljpeg
+    -ljpeg \
 }
-
-
-LIBS += \
-    -L$${PWD}/../libs \
 
 SOURCES += \
         $${PWD}/main.cpp \
@@ -66,6 +55,7 @@ SOURCES += \
     $${PWD}/wifisettingcell.cpp \
     $${PWD}/wifisettingwepcell.cpp \
     $${PWD}/requestcrm.cpp \
+    $${PWD}/appconfig.cpp \
 
 HEADERS += \
         $${PWD}/mainwindow.h \
@@ -106,6 +96,7 @@ HEADERS += \
     $${PWD}/wifisettingcell.h \
     $${PWD}/wifisettingwepcell.h \
     $${PWD}/requestcrm.h \
+    $${PWD}/appconfig.h \
 
 FORMS += \
         $${PWD}/mainwindow.ui \

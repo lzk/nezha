@@ -8,8 +8,6 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
-include("../pro.pri")
-TARGET = $${TARGET_vop}
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -23,18 +21,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-    DEFINES += NEZHA_SFP=1
+include("../pro.pri")
+TARGET = $${TARGET_vop}
+LIBS += -L$${LIB_LLDDIR} -l$${TARGET_filterlib}
 
 include("../../common/vopui/vopui.pri")
-SOURCES += \
-    uiconfig.cpp
-
-HEADERS += \
-    ../../common/vopui/uiconfig.h
-
-LIBS += \
-#    $${PWD}/../libs \
-    -llntgr1zcl \
 
 INCLUDEPATH += \
             $${PWD} \
