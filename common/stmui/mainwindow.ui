@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>420</height>
+    <height>400</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>600</width>
-    <height>420</height>
+    <height>400</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>600</width>
-    <height>420</height>
+    <height>400</height>
    </size>
   </property>
   <property name="styleSheet">
@@ -129,7 +129,7 @@ QHeaderView::section{
              </size>
             </property>
             <property name="pixmap">
-             <pixmap resource="images.qrc">:/Images/logo.png</pixmap>
+             <pixmap resource="../vopui/resource.qrc">:/Images/logo.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -225,7 +225,7 @@ QHeaderView::section{
              <string notr="true"/>
             </property>
             <property name="icon">
-             <iconset resource="images.qrc">
+             <iconset resource="../vopui/resource.qrc">
               <normaloff>:/Images/close.png</normaloff>:/Images/close.png</iconset>
             </property>
            </widget>
@@ -302,6 +302,21 @@ QHeaderView::section{
        </size>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QWidget" name="horizontalWidget" native="true">
          <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -328,7 +343,11 @@ QHeaderView::section{
            </widget>
           </item>
           <item alignment="Qt::AlignTop">
-           <widget class="QLabel" name="label_status_string"/>
+           <widget class="QLabel" name="label_status_string">
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer_3">
@@ -357,7 +376,7 @@ QHeaderView::section{
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
@@ -373,6 +392,7 @@ QHeaderView::section{
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
+  <include location="../vopui/resource.qrc"/>
   <include location="images.qrc"/>
  </resources>
  <connections>

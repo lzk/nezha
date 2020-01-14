@@ -13,3 +13,5 @@ INCLUDEPATH += $${PWD}/lld/lshell
 INCLUDEPATH += $${PWD}/lld/scanner
 INCLUDEPATH += $${PWD}/lld/filterlib
 
+SOURCES += \
+    $${PWD}/lld/common/serverthread.cpp \
