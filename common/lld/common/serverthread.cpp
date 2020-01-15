@@ -13,11 +13,13 @@ ServerThread::~ServerThread()
 {
     abort = true;
     LOGLOG("delete server:%s" ,m_server_path.toLatin1().constData());
-    while(abort){
-        Trans_Client tc(m_server_path.toLatin1().constData());
-        tc.tryConnectToServer();
-        usleep(100 * 1000);
-    }
+//    while(abort){
+//        Trans_Client tc(m_server_path.toLatin1().constData());
+//        tc.tryConnectToServer();
+//        usleep(100 * 1000);
+//    }
+    this->terminate();
+    this->wait();
     LOGLOG("ServerThread exit");
     if(QFile::exists(m_server_path))
         QFile::remove(m_server_path);

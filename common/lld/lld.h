@@ -115,6 +115,47 @@ typedef enum
     PreIDCardCopyJob = 9
 }EnumMachineJob;
 
+enum CmdType{
+    CMD_GetDefaultPrinter,
+    CMD_GetPrinters,
+    CMD_GetStatus,
+    CMD_Scan,
+    CMD_SetCurrentPrinter,
+
+    CMD_WIFI_refresh_plus,
+
+    LS_CMD_GetCopy,
+    LS_CMD_COPY,
+    LS_CMD_WIFI_apply,
+    LS_CMD_WIFI_get,
+    LS_CMD_WIFI_getAplist,
+    LS_CMD_PASSWD_set,
+    LS_CMD_PASSWD_get,
+    LS_CMD_PASSWD_confirm,
+    LS_CMD_WIFI_GetWifiStatus,
+    LS_CMD_PRN_TonerEnd_Get,
+    LS_CMD_PRN_TonerEnd_Set,
+    LS_CMD_PRN_PSaveTime_Get,
+    LS_CMD_PRN_PSaveTime_Set,
+    LS_CMD_PRN_PowerOff_Get,
+    LS_CMD_PRN_PowerOff_Set,
+    LS_CMD_NET_GetV4,
+    LS_CMD_NET_SetV4,
+    LS_CMD_NET_GetV6,
+    LS_CMD_NET_SetV6,
+    LS_CMD_PRN_Set_UserConfig,
+    LS_CMD_PRN_Get_UserConfig,
+    LS_CMD_WIFI_Set_SoftAp,
+    LS_CMD_WIFI_Get_SoftAp,
+    LS_CMD_PRN_FusingScReset,
+    LS_CMD_PRN_TonerReset,
+    LS_CMD_PRN_DrumReset,
+    LS_CMD_PRN_Get_UserCenterInfo,
+    LS_CMD_PRN_poweroff,
+    LS_CMD_PRN_getCounterPrintScan,
+    LS_CMD_PRN_getCRMInfo,
+};
+
 extern const char* const g_config_file;
 extern const char* const app_version;
 extern const char* const log_file;
@@ -135,6 +176,7 @@ int getpidvid(const QString& makeAndModel ,int& pid ,int& vid ,int& interface);
 extern const char* const status_file;
 extern const char* const status_lock_file;
 
+int getModelSerial(Printer_struct* ps);
 bool isDeviceSupported(Printer_struct* ps);
 }
 using namespace UIConfig;
