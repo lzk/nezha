@@ -4,7 +4,7 @@ HEADERS  += \
     $$PWD/pro_config.h \
 
 LIB_CLDIR=lntgr1zcl
-LIB_LLDDIR=$${OUT_PWD}/../liblntgr1z
+LIB_LLDDIR=$${OUT_PWD}/../liblntgr1z -Wl,-rpath=$$PWD/../common/libs
 TARGET_filterlib=lntgr1z
 TARGET_filterservice=lntgr1zservice
 TARGET_filtertrans=lntgr1zsm
