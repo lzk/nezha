@@ -40,20 +40,18 @@ NtdcmsApi::NtdcmsApi()
     jkEndNTDCMS = NULL;
     jkStartCisInfoJob = NULL;
     jkUpdateMatrixConvert = NULL;
-    jkUpdateMatrixConvert = NULL;
     jkCreateRGBCurve = NULL;
 #else
     jkInitNTDCMS = InitNTDCMS;
-    jkStartFilterJob = StartFilterJob;
+//    jkStartFilterJob = StartFilterJob;
     jkStartAdjustJob = StartAdjustJob;
     jkStartAdjustCurveJob = StartAdjustCurveJob;
     jkCreateNTDCMS = CreateNTDCMS;
     jkNTDCMS = NTDCMS;
     jkEndNTDCMS = EndNTDCMS;
-    jkStartCisInfoJob = StartCisInfoJob;
-    jkUpdateMatrixConvert = UpdateMatrixConvert;
-    jkUpdateMatrixConvert = UpdateMatrixConvert;
-    jkCreateRGBCurve = CreateRGBCurve;
+//    jkStartCisInfoJob = StartCisInfoJob;
+//    jkUpdateMatrixConvert = UpdateMatrixConvert;
+//    jkCreateRGBCurve = CreateRGBCurve;
 #endif
     memset(&m_adjuststr ,0 ,sizeof(m_adjuststr));
     memset(&m_ntdColor , 0 ,sizeof(m_ntdColor));
@@ -192,13 +190,13 @@ int NtdcmsApi::caculate_parameter(ImageTransInfo* info)
             jkStartAdjustJob(m_nJobNum ,&m_adjuststr);
         }
 
-        if(scan_adjust & 0xff00){
-            int filter_type = 0;
-            if((colorI == 2) && (mediaI == 7)){
-                filter_type = 16;
-            }
-            jkStartFilterJob(m_nJobNum ,filter_type ,0 ,(scan_adjust & 0xff00)>>8 ,0 ,0 ,NULL);
-        }
+//        if(scan_adjust & 0xff00){
+//            int filter_type = 0;
+//            if((colorI == 2) && (mediaI == 7)){
+//                filter_type = 16;
+//            }
+//            jkStartFilterJob(m_nJobNum ,filter_type ,0 ,(scan_adjust & 0xff00)>>8 ,0 ,0 ,NULL);
+//        }
 
         int jobindex = jkCreateNTDCMS(m_nJobNum);
         LOGLOG("create ntdcms job index:%d" ,jobindex);

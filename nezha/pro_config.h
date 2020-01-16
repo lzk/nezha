@@ -1,7 +1,7 @@
 #ifndef PRO_CONFIG_H
 #define PRO_CONFIG_H
 
-#define APP_VERSION "1.0.14"
+#define APP_VERSION "1.0.15"
 
 #define APP_PATH "/usr/share/lntgrvop/"
 
@@ -49,7 +49,8 @@
 #ifdef DEBUG_DEBUG
 #define CONFIG_FILE "/tmp/lntgr1z_app.conf"
 #else
-#define CONFIG_FILE "/usr/share/lntgrvop/config/app.conf"
+//#define CONFIG_FILE "/usr/share/lntgrvop/config/app.conf"
+#define CONFIG_FILE "/usr/share/lntgrvop/config/lntgrvop.xml"
 #endif
 #define CONFIG_KEY_isLoginWhenPrinting "is_login_when_printing"
 
