@@ -30,23 +30,24 @@ mac{
 
 }
 
-contains(CONFIG ,static){
-        contains(QT_ARCH, i386){
-                LIBS += \
-                    $${PWD}/../../libs/linux32/libnetsnmp.a \
+#contains(CONFIG ,static){
+#        contains(QT_ARCH, i386){
+#                LIBS += \
+#                    $${PWD}/../../libs/linux32/libnetsnmp.a \
 
-        }else{
-            CONFIG(debug ,debug|release){
-                LIBS += \
-                    -lnetsnmp
+#        }else{
+#            CONFIG(debug ,debug|release){
+#                LIBS += \
+#                    -lnetsnmp
 
-            }else{
-                LIBS += \
-                    $${PWD}/../../libs/linux64/libnetsnmp.a \
-            }
+#            }else{
+#                LIBS += \
+#                    $${PWD}/../../libs/linux64/libnetsnmp.a \
+#            }
 
-        }
-}else{
+#        }
+#}else{
 LIBS += \
     -lnetsnmp \
-}
+#    -lcrypto
+#}

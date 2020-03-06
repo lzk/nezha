@@ -11,6 +11,7 @@
 #include "authenticationdlg.h"
 #include <QMessageBox>
 #include <QListView>
+#include <QRegExpValidator>
 
 
 #define DEFWIDTH 220

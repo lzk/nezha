@@ -3,6 +3,7 @@
 #include "authenticationdlg.h"
 #include "settingwarming.h"
 #include <arpa/inet.h>
+#include <QRegExpValidator>
 
 #define RETRYTIMES 3;
 
