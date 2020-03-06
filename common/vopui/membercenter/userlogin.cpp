@@ -7,6 +7,7 @@
 #include "requestcrm.h"
 #include "log.h"
 #include "lld.h"
+#include <QRegExpValidator>
 UserLogin::UserLogin(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::UserLogin)
