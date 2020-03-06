@@ -18,6 +18,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 include("../pro.pri")
 TARGET = $${TARGET_filterservice}
-LIBS += -L$${LIB_LLDDIR} -l$${TARGET_filterlib}
+LIBS += $${COMMON_LIBS}
 
 include(../../common/filterservice/filterservice.pri)
