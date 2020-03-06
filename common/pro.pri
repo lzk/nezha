@@ -22,8 +22,4 @@ CONFIG(debug ,debug|release){
     DEFINES += LENOVO_GUOCHANHUA=1
 }
 
-#rm nezha/liblntgr1z/lib*.dylib
-#make
-#install_name_tool -add_rpath %{sourceDir}/common/libs/mac -change ntdcmsmac %{sourceDir}/common/libs/mac/liblntgr1zcl.dylib nezha/liblntgr1z/liblntgr1z.dylib
-
-#install_name_tool -add_rpath `pwd`/../newcode/common/libs/mac -change ntdcmsmac `pwd`/../newcode/common/libs/mac/liblntgr1zcl.dylib nezha/liblntgr1z/liblntgr1z.dylib
+COMMON_LIBS=-L$${LIB_LLDDIR} -l$${TARGET_filterlib} -lcrypto

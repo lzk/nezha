@@ -144,7 +144,7 @@
 </phrase>
 <phrase>
     <source>ResStr_Cover_Open</source>
-    <target>上盖开启</target>
+    <target>上盖或后门开启</target>
 </phrase>
 <phrase>
     <source>ResStr_No_Toner_Cartridge</source>
@@ -1573,5 +1573,9 @@ Version ****</target>
 <phrase>
     <source>ResStr_self_powersave</source>
     <target>自定义休眠时间</target>
+</phrase>
+<phrase>
+    <source>ResStr_Touch_Panel_Error</source>
+    <target>触摸屏故障</target>
 </phrase>
 </QPH>

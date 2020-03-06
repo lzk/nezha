@@ -12,7 +12,7 @@ TEMPLATE = app
 
 include("../pro.pri")
 TARGET = $${TARGET_stmui}
-LIBS += -L$${LIB_LLDDIR} -l$${TARGET_filterlib}
+LIBS += $${COMMON_LIBS}
 
 include(../../common/stmui/stmui.pri)
 

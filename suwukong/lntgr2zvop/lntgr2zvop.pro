@@ -23,7 +23,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 include("../pro.pri")
 TARGET = $${TARGET_vop}
-LIBS += -L$${LIB_LLDDIR} -l$${TARGET_filterlib}
+LIBS += $${COMMON_LIBS}
 
 include("../../common/vopui/vopui.pri")
 
