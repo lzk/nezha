@@ -6,6 +6,7 @@
 #include <QDir>
 #include "lld.h"
 #include <unistd.h>
+#include <QDateTime>
 
 bool testmode = false;
 //const QString app_name = QString::fromUtf8("打印机状态监视器");
@@ -38,10 +39,10 @@ int AppConfig::initConfig()
 
     LOGLOG("--------%s - %d - v%s-------" ,EXE_NAME ,getpid() ,app_version);
 
-//    QDateTime time = QDateTime::currentDateTime();
-//    QString str_time = time.toString("yyyy-MM-dd_hh-mm-ss-zzz");
-//    tmp_scan_dir = QString("/tmp/tmpscan_") + str_time;
-//    QDir().mkdir(tmp_scan_dir);
+    QDateTime time = QDateTime::currentDateTime();
+    QString str_time = time.toString("yyyy-MM-dd_hh-mm-ss-zzz");
+    tmp_scan_dir = QString("/tmp/tmpscan_") + str_time;
+    QDir().mkdir(tmp_scan_dir);
 
 //    QDir dir(TMP_SCAN_DIR);
 //    QDir *path = &dir;
@@ -65,5 +66,5 @@ void AppConfig::exit_app()
 //    if(path->exists(TMP_SCAN_DIR)){
 //        path->remove(TMP_SCAN_DIR);
 //    }
-//    QDir().remove(tmp_scan_dir);
+    QDir().remove(tmp_scan_dir);
 }
