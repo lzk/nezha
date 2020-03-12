@@ -1,6 +1,6 @@
 #include "uinterface.h"
 #include "worker.h"
-#include "uiconfig.h"
+#include "appconfig.h"
 UInterface::UInterface(QObject *parent) :
     QObject(parent)
 {

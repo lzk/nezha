@@ -1,6 +1,6 @@
 #include "about.h"
 #include "ui_about.h"
-#include "uiconfig.h"
+#include "appconfig.h"
 About::About(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::About)

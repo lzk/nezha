@@ -13,7 +13,8 @@
 #include "membercenter/experiencepro.h"
 #include "unistd.h"
 #include <QVariant>
-extern const char* g_config_file;
+#include "lld.h"
+#include "statuspaser.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -351,7 +352,7 @@ void MainWindow::cmdResult(int cmd,int result ,QVariant data)
     case UIConfig::CMD_GetStatus:{
 #ifndef DEBUG
         if(!result){
-            LOGLOG("MainWindow")
+//            LOGLOG("MainWindow")
             updateStatus(data);
         }else{//get status fail
             LOGLOG("get printer status fail!");
@@ -584,14 +585,14 @@ void MainWindow::enableMPrinter(bool enabled)
 
 void MainWindow::updateStatus(QVariant data)
 {
-    LOGLOG("updateStatus");
+//    LOGLOG("updateStatus");
     PrinterInfo_struct printerInfo = data.value<PrinterInfo_struct>();
     PrinterStatus_struct& status = printerInfo.status;
     if(!printerInfo.printer.isConnected){
 //        memset(&status ,-1 ,sizeof(status));
         status.PrinterStatus = printerInfo.printer.status;
     }
-    LOGLOG("get status success:0x%02x" ,status.PrinterStatus);
+//    LOGLOG("get status success:0x%02x" ,status.PrinterStatus);
     onStatusCh(status);
 }
 
@@ -889,9 +890,6 @@ void MainWindow::set_Message_Background_Color(UIConfig::EnumStatus s)
     }
 }
 
-//extern int usb_error_printing;
-extern int usb_error_scanning;
-//extern int usb_error_usb_locked;
 void MainWindow::onStatusCh(PrinterStatus_struct& status)
 {
     bool only_update_status = false;
@@ -913,8 +911,8 @@ void MainWindow::onStatusCh(PrinterStatus_struct& status)
     //test
 //    status.PrinterStatus = UIConfig::DuplexTrayNoFeedJam;
 
-    int displayStatus = UIConfig::GetStatusTypeForUI((UIConfig::EnumStatus)status.PrinterStatus);
-    QString statusString = UIConfig::getErrorMsg((UIConfig::EnumStatus)status.PrinterStatus,(UIConfig::EnumMachineJob)status.job,0);
+    int displayStatus = StatusPaser::GetStatusTypeForUI(status.PrinterStatus);
+    QString statusString = StatusPaser::getErrorMsg(status.PrinterStatus,status.job,0);
     deviceStatus = status.PrinterStatus;
 
     if(statusString != deviceStatusString)
@@ -1237,7 +1235,7 @@ void MainWindow::on_btCar_clicked()
     if(!gUInterface->completeCurrentPrinterCmd(UIConfig::LS_CMD_PRN_Get_UserCenterInfo ,value)){
         cmdst_user_center user_center = value.value<cmdst_user_center>();
         QString url;
-        if(!RequestCRM::get_printersupplies(user_center._2ndSerialNO ,url))
+        if(!RequestCRM::get_printersupplies(QString(user_center._2ndSerialNO).left(20) ,url))
             QDesktopServices::openUrl(QUrl(url));
     }
 //    if(ui->memberCenterWidget->loginPhone !="")

@@ -1,6 +1,6 @@
 #include "worker.h"
 #include <QVariant>
-#include "uiconfig.h"
+#include "appconfig.h"
 #include <QDebug>
 #include <QString>
 #include <QDir>
@@ -11,7 +11,7 @@ Worker::Worker(QObject *parent) :
     QObject(parent)
   ,cmd_status(0)
 {
-    watcher = new Watcher(this);
+    watcher = new Watcher();
     connect(watcher ,SIGNAL(update_printerinfo_list()) ,this ,SLOT(update_printerlist()) ,Qt::DirectConnection);
     watcher->start();
 }

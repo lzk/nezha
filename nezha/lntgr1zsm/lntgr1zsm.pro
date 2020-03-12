@@ -5,16 +5,6 @@ CONFIG += c++11
 #CONFIG += c++11 console
 CONFIG -= app_bundle gui
 
-include("../pro.pri")
-TARGET = $${TARGET_filtertrans}
-INCLUDEPATH += $${PATH_common}/filtertrans/
-
-include("../../common/jkinterface/jkinterface.pri")
-include(../../common/common/common.pri)
-include(../../common/statusmonitor/statusmonitor.pri)
-include(../../common/filterlib/filterlib.pri)
-
-
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -26,19 +16,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += \
-        ../../common/filtertrans/main.cpp \
-    ../../common/filtertrans/appserver.cpp \
-    ../../common/filtertrans/watcher.cpp \
-    appconfig.cpp
+include("../pro.pri")
+TARGET = $${TARGET_filtertrans}
+LIBS += $${COMMON_LIBS}
 
-HEADERS += \
-    ../../common/filtertrans/appserver.h \
-    ../../common/filtertrans/appconfig.h \
-    ../../common/filtertrans/watcher.h
+include(../../common/filtertrans/filtertrans.pri)
 
-CONFIG(debug ,debug|release){
-    DEFINES += LOG_TO_STDERR
-    DEFINES += DEBUG_DEBUG
-}else{
-}

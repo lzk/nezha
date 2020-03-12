@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "statusmonitor.h"
 #include <QVariant>
-#include "uiconfig.h"
+#include "appconfig.h"
 #include "busyrefreshlabel.h"
 #include <qsystemtrayicon.h>
 #include <qtimer.h>

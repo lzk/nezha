@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "uinterface.h"
-#include "uiconfig.h"
+#include "appconfig.h"
+#include "statuspaser.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -138,9 +139,9 @@ void MainWindow::timeout()
 //                if(!status_list.contains(status)){
                 if(shown_error_map[message_printer] != status){
                     QString str;
-                    str = UIConfig::getTrayMsg(status);
+                    str = StatusPaser::getTrayMsg(status);
                     LOGLOG("tray:%s status error:%d" ,message_printer.toUtf8().constData() ,status);
-                    if(UIConfig::Status_Error == UIConfig::GetStatusTypeForUI(status))
+                    if(UIConfig::Status_Error == StatusPaser::GetStatusTypeForUI(status))
                         trayIcon->showMessage(message_printer ,str ,QSystemTrayIcon::Critical ,5000);
                     else
                         trayIcon->showMessage(message_printer ,str ,QSystemTrayIcon::Warning ,5000);
@@ -279,14 +280,14 @@ void MainWindow::updatePrinter(const QVariant& data)
         }
         printers << printerInfo.printer.name;
         QTableWidgetItem* item;
-        item = new QTableWidgetItem(tr("%1").arg(QString::fromLocal8Bit(printerInfo.printer.name)));
+        item = new QTableWidgetItem(QString("%1").arg(QString::fromLocal8Bit(printerInfo.printer.name)));
         ui->tableWidget_printers->setItem(i ,base+0 ,item);
 
-//        item = new QTableWidgetItem(tr("%1").arg(get_Status_string(printerInfo.status)));
+//        item = new QTableWidgetItem(QString("%1").arg(get_Status_string(printerInfo.status)));
 //        ui->tableWidget_printers->setItem(i ,base+1,item);
-        item = new QTableWidgetItem(tr("%1").arg(QString::fromLocal8Bit(printerInfo.printer.makeAndModel)));
+        item = new QTableWidgetItem(QString("%1").arg(QString::fromLocal8Bit(printerInfo.printer.makeAndModel)));
         ui->tableWidget_printers->setItem(i ,base+2,item);
-        item = new QTableWidgetItem(tr("%1").arg(printerInfo.printer.connectTo));
+        item = new QTableWidgetItem(QString("%1").arg(printerInfo.printer.connectTo));
         ui->tableWidget_printers->setItem(i ,base+3,item);
 //        gUInterface->setCmd(UIConfig::CMD_GetStatus ,printerInfo.printer.name);
     }
@@ -305,13 +306,13 @@ void MainWindow::updatePrinter(const QVariant& data)
         printer = &printerlist[i].printer;
         printerstatus = printer->status;
 //        printerstatus = printerlist[i].status.PrinterStatus;
-        LOGLOG("printer:%s ,status:%d" ,printer->name ,printerstatus);
+//        LOGLOG("printer:%s ,status:%d" ,printer->name ,printerstatus);
         if(!isHidden()){
-            if(UIConfig::isAutoShow(printerstatus)){
+            if(StatusPaser::isAutoShow(printerstatus)){
                 shown_error_map[printer->name] = printerstatus;
             }
         }else{
-            if(UIConfig::isAutoShow(printerstatus)){
+            if(StatusPaser::isAutoShow(printerstatus)){
                 error_map[printer->name] = printerstatus;
                 LOGLOG("tray add error map:%s,%d" ,printer->name ,error_map[printer->name]);
             }else{
@@ -342,7 +343,7 @@ void MainWindow::updatePrinter(const QVariant& data)
 
 //        ui->tableWidget_printers->setColumnCount(4);
         QBrush brush;
-        int type = UIConfig::GetStatusTypeForUI(printer->status);
+        int type = StatusPaser::GetStatusTypeForUI(printer->status);
         QIcon icon;
         switch (type) {
         case UIConfig::Status_Error:
@@ -366,7 +367,7 @@ void MainWindow::updatePrinter(const QVariant& data)
             break;
         }
 
-        str = UIConfig::GetStatusTypeString(type);
+        str = StatusPaser::GetStatusTypeString(type);
         QTableWidgetItem* item;
         item = new QTableWidgetItem(str);
         item->setForeground(brush);
@@ -396,14 +397,14 @@ void MainWindow::updatePrinter(const QVariant& data)
         if(printer->toner < 0){
             item = new QTableWidgetItem("-");
         }else{
-            item = new QTableWidgetItem(tr("%1%").arg(printer->toner));
+            item = new QTableWidgetItem(QString("%1%").arg(printer->toner));
         }
 //        item->setTextAlignment(Qt::AlignCenter);
         ui->tableWidget_printers->setItem(i ,base+2,item);
         if(printer->drum < 0){
             item = new QTableWidgetItem("-");
         }else{
-            item = new QTableWidgetItem(tr("%1%").arg(printer->drum));
+            item = new QTableWidgetItem(QString("%1%").arg(printer->drum));
         }
 //        item->setTextAlignment(Qt::AlignCenter);
         ui->tableWidget_printers->setItem(i ,base+3,item);
@@ -456,7 +457,7 @@ void MainWindow::updateCurrentPrinterStatus(const QString& printername)
 
 void MainWindow::updateStatus(const PrinterInfo_struct& printer)
 {
-    int type = UIConfig::GetStatusTypeForUI(printer.status.PrinterStatus);
+    int type = StatusPaser::GetStatusTypeForUI(printer.status.PrinterStatus);
     if(!printer.printer.isConnected){
         type = UIConfig::Status_Offline;
     }
@@ -481,7 +482,7 @@ void MainWindow::updateStatus(const PrinterInfo_struct& printer)
         break;
     }
 
-    QString str = UIConfig::getErrorMsg(printer.status.PrinterStatus, 0, false);
+    QString str = StatusPaser::getErrorMsg(printer.status.PrinterStatus, 0, false);
     if(!printer.printer.isConnected){
         if(QString(printer.printer.deviceUri).startsWith("usb://")){
             str = tr("ResStr_Offline_usb");
@@ -504,7 +505,7 @@ void MainWindow::updateStatus(const PrinterInfo_struct& printer)
     {
         trayIcon->setIcon(QIcon(":/Images/app.png"));
     }
-//    if(UIConfig::isAutoShow(printer.status.PrinterStatus)){
+//    if(StatusPaser::isAutoShow(printer.status.PrinterStatus)){
 //        show();
 //    }
 }

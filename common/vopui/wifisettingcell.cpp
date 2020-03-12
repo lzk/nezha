@@ -3,6 +3,7 @@
 #include "settingwarming.h"
 #include "authenticationdlg.h"
 #include "uinterface.h"
+#include <QRegExpValidator>
 #include <qdebug.h>
 
 WiFiSettingCell::WiFiSettingCell(QWidget *parent, APInfo *info, bool *_islogin, bool isconnected) :

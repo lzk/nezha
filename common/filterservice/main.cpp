@@ -1,5 +1,4 @@
 #include <QCoreApplication>
-#include "commonapi.h"
 #include "appconfig.h"
 #include <signal.h>
 #include <QTextCodec>

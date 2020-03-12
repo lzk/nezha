@@ -2,6 +2,7 @@
 #include "ui_authenticationdlg.h"
 #include "uinterface.h"
 #include "qdebug.h"
+#include <QRegExpValidator>
 #define RETRYTIMES 3
 
 AuthenticationDlg::AuthenticationDlg(QWidget *parent, bool*confirm) :

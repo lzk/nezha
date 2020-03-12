@@ -1,7 +1,7 @@
 #ifndef WATCHER_H
 #define WATCHER_H
 
-#include <statusreader.h>
+#include "statusreader.h"
 class Watcher : public StatusReader
 {
     Q_OBJECT

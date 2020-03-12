@@ -129,7 +129,7 @@ QHeaderView::section{
              </size>
             </property>
             <property name="pixmap">
-             <pixmap resource="../cpath/resource.qrc">:/Images/logo.png</pixmap>
+             <pixmap resource="../vopui/resource.qrc">:/Images/logo.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -225,7 +225,7 @@ QHeaderView::section{
              <string notr="true"/>
             </property>
             <property name="icon">
-             <iconset resource="../cpath/resource.qrc">
+             <iconset resource="../vopui/resource.qrc">
               <normaloff>:/Images/close.png</normaloff>:/Images/close.png</iconset>
             </property>
            </widget>
@@ -240,13 +240,13 @@ QHeaderView::section{
      <widget class="QTableWidget" name="tableWidget_printers">
       <property name="minimumSize">
        <size>
-        <width>560</width>
+        <width>580</width>
         <height>0</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>560</width>
+        <width>580</width>
         <height>16777215</height>
        </size>
       </property>
@@ -291,20 +291,35 @@ QHeaderView::section{
      <widget class="QFrame" name="frame">
       <property name="minimumSize">
        <size>
-        <width>560</width>
-        <height>100</height>
+        <width>580</width>
+        <height>120</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>560</width>
-        <height>100</height>
+        <width>580</width>
+        <height>120</height>
        </size>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QWidget" name="horizontalWidget" native="true">
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1">
           <item alignment="Qt::AlignTop">
            <widget class="QLabel" name="label_status_image">
             <property name="minimumSize">
@@ -328,20 +343,11 @@ QHeaderView::section{
            </widget>
           </item>
           <item alignment="Qt::AlignTop">
-           <widget class="QLabel" name="label_status_string"/>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+           <widget class="QLabel" name="label_status_string">
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -357,7 +363,7 @@ QHeaderView::section{
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
@@ -373,7 +379,7 @@ QHeaderView::section{
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="../cpath/resource.qrc"/>
+  <include location="../vopui/resource.qrc"/>
   <include location="images.qrc"/>
  </resources>
  <connections>

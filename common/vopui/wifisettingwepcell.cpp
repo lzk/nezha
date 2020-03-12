@@ -4,6 +4,7 @@
 #include "authenticationdlg.h"
 #include "jkinterface.h"
 #include "uinterface.h"
+#include <QRegExpValidator>
 
 WiFiSettingWEPCell::WiFiSettingWEPCell(QWidget *parent, APInfo *info, bool *_islogin, bool isconnected) :
     QStackedWidget(parent),

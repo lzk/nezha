@@ -22,8 +22,9 @@
 #include <stdio.h>
 #include <tiffio.h>
 #include "commonapi.h"
-#include "uiconfig.h"
+#include "appconfig.h"
 #include "statuspaser.h"
+#include <QRegExpValidator>
 
 TabStackedWidget::TabStackedWidget(QWidget *parent) :
     QStackedWidget(parent),

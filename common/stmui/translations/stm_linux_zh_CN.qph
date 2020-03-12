@@ -126,7 +126,7 @@
     <source>ResStr_Paper_Jam__Paper_Remained</source>
     <target>打印机内部卡纸。
 请打开并关闭上盖，尝试自动排纸。
-如果自动排纸失败，请打开上盖，取出耗材，取出卡住的纸张。关闭上盖后将自动继续打印。</target>
+如果自动排纸失败，请打开上盖，取出耗材，或者打开后门，取出卡住的纸张。关闭上盖或后门将自动继续打印。</target>
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam__Nofeed</source>
@@ -142,15 +142,19 @@
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam__Exit_NotReach</source>
-    <target>内部卡纸</target>
+    <target>内部卡纸
+请打开并关闭上盖，尝试自动排纸。
+如果自动排纸失败，请打开上盖，取出耗材，或者打开后门，取出卡住的纸张。关闭上盖或后门将自动继续打印。</target>
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam__Exit</source>
-    <target>出纸处卡纸</target>
+    <target>出纸处卡纸
+请打开并关闭上盖，尝试自动排纸。
+如果自动排纸失败，请打开上盖，取出耗材，或者打开后门，取出卡住的纸张。关闭上盖或后门将自动继续打印。</target>
 </phrase>
 <phrase>
     <source>ResStr_Cover_Open</source>
-    <target>上盖开启</target>
+    <target>上盖或后门开启</target>
 </phrase>
 <phrase>
     <source>ResStr_No_Toner_Cartridge</source>
@@ -1564,7 +1568,7 @@ Version ****</target>
     <source>ResStr_Paper_Jam_Duplex_Entry_Sensor</source>
     <target>双面入口处卡纸
 请打开并关闭上盖，尝试自动排纸。
-如果自动排纸失败，请打开上盖，取出耗材，取出卡住的纸张。关闭上盖后将自动继续打印。</target>
+如果自动排纸失败，请打开上盖，取出耗材，或者打开后门，取出卡住的纸张。关闭上盖或后门将自动继续打印。</target>
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam_Duplex_Nofeed</source>

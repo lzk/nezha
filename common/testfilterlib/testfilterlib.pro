@@ -8,8 +8,6 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-include("../pro.pri")
-TARGET = testfilterlib
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -23,9 +21,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-include("../jkinterface/jkinterface.pri")
-include("../filterlib/filterlib.pri")
-LIBS += -L$${OUT_PWD}/../filterlib -llntgr2z
+include("../pro.pri")
+TARGET = testfilterlib
+LIBS += $${COMMON_LIBS}
+
+include(../includes/liblld.pri)
 
 SOURCES += \
         main.cpp \
@@ -37,9 +37,4 @@ HEADERS += \
 FORMS += \
         mainwindow.ui
 
-CONFIG(debug ,debug|release){
-    DEFINES += LOG_TO_STDERR
-    DEFINES += DEBUG_DEBUG
-}else{
-    DEFINES += LOG_TO_STDERR
-}
+#cp -rf stmui/lntgr1zsmui.app/Contents/MacOS/lntgr1zsmui /tmp
