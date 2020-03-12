@@ -22,4 +22,4 @@ CONFIG(debug ,debug|release){
     DEFINES += LENOVO_GUOCHANHUA=1
 }
 
-COMMON_LIBS=-L$${LIB_LLDDIR} -l$${TARGET_filterlib} -lcrypto
+COMMON_LIBS=-L$${LIB_LLDDIR} -l$${TARGET_filterlib}
