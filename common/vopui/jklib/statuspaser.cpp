@@ -107,7 +107,11 @@ int StatusPaser::GetStatusTypeForUI(int status)
                     case JamAtExitNotReach           : st = Status_Error; break;
                     case JamAtExitStayOn             : st = Status_Error; break;
                     case CoverOpen                   : st = Status_Error; break;
+#ifdef DEBUG_DEBUG
+                    case NoTonerCartridge            : st = Status_Ready; break;
+#else
                     case NoTonerCartridge            : st = Status_Error; break;
+#endif
                     case WasteTonerFull              : st = Status_Warning; break;
                     case PDLMemoryOver               : st = Status_Error; break;
                     case FWUpdate                    : st = Status_Busy ; break;

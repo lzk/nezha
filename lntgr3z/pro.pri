@@ -21,7 +21,8 @@ CONFIG(debug ,debug|release){
     DEFINES += LENOVO_GUOCHANHUA=1
 }
 
-COMMON_LIBS=-L$${LIB_LLDDIR} -l$${TARGET_filterlib} -L$$PWD/../common/libs/linux64 -lcrypto
+COMMON_LIBS=-L$${LIB_LLDDIR} -l$${TARGET_filterlib}
+#COMMON_LIBS += -L$$PWD/../common/libs/linux64 -lcrypto
 #rm -rf lntgr3z/liblntgr3z/lib*.dylib
 #make
 #install_name_tool -add_rpath %{sourceDir}/common/libs/mac -change ntdcmsmac %{sourceDir}/common/libs/mac/liblntgr3zcl.dylib lntgr3z/liblntgr3z/liblntgr3z.dylib
