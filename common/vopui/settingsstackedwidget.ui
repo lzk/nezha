@@ -14,7 +14,7 @@
    <string>StackedWidget</string>
   </property>
   <property name="currentIndex">
-   <number>5</number>
+   <number>4</number>
   </property>
   <widget class="QWidget" name="WiFi">
    <widget class="QLabel" name="background_WiFi2">
@@ -1038,10 +1038,10 @@ color:white;
    <widget class="QLabel" name="label_timeout_error">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>40</y>
-      <width>231</width>
-      <height>51</height>
+      <x>13</x>
+      <y>130</y>
+      <width>235</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
