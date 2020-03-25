@@ -1,7 +1,9 @@
 include("../lld/lld.pri")
 
 contains(CONFIG ,static){
+equals(QT_MAJOR_VERSION,4){
     QTPLUGIN += qjpeg qtiff qmng qgif qico
+}
     DEFINES += STATIC_BUILD
     LIBS += -Wl,--wrap=memcpy
 }else{

@@ -30,6 +30,12 @@ MainWindow::MainWindow(QWidget *parent) :
     headerView->setResizeMode(2 ,QHeaderView::Fixed);
     headerView->setResizeMode(3 ,QHeaderView::Fixed);
 #endif
+//    ui->tableWidget_printers->setStyleSheet(" \
+//                              QHeaderView::section{ \
+//                                  background-color: transparent; \
+//                                  font :bold; \
+//                              } \
+//                              QHeaderView{background-color: transparent;}");
 //    ui->tableWidget_printers->horizontalHeaderItem(0)->setTextAlignment(Qt::AlignHCenter);
     ui->tableWidget_printers->horizontalHeaderItem(0)->setTextAlignment(Qt::AlignLeft);
     ui->tableWidget_printers->horizontalHeaderItem(1)->setTextAlignment(Qt::AlignLeft);
