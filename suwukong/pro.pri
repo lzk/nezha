@@ -23,6 +23,7 @@ CONFIG(debug ,debug|release){
 }
 
 COMMON_LIBS=-L$${LIB_LLDDIR} -l$${TARGET_filterlib}
+
 #rm suwukong/liblntgr2z/lib*.dylib
 #make
 #install_name_tool -add_rpath %{sourceDir}/common/libs/mac -change ntdcmsmac %{sourceDir}/common/libs/mac/liblntgr2zcl.dylib nezha/liblntgr2z/liblntgr2z.dylib

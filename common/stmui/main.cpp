@@ -27,6 +27,18 @@ void *__wrap_memcpy(void *dest, const void *src, size_t n)
 }
 
 }
+
+#if QT_VERSION < 0x050000
+#ifdef STATIC_BUILD
+#include <QtPlugin>
+Q_IMPORT_PLUGIN(qjpeg)
+Q_IMPORT_PLUGIN(qtiff)
+Q_IMPORT_PLUGIN(qmng)
+Q_IMPORT_PLUGIN(qgif)
+Q_IMPORT_PLUGIN(qico)
+#endif
+#endif
+
 #endif
 
 void quit(int)
