@@ -22,7 +22,16 @@ CONFIG(debug ,debug|release){
     DEFINES += LENOVO_GUOCHANHUA=1
 }
 
-COMMON_LIBS=-L$${LIB_LLDDIR} -l$${TARGET_filterlib} -L$$PWD/../common/libs/linux64 -lcrypto
+COMMON_LIBS=-L$${LIB_LLDDIR} -l$${TARGET_filterlib}
+#COMMON_LIBS += -L$$PWD/../common/libs/linux64 -lcrypto
+
+contains(CONFIG ,static){
+equals(QT_MAJOR_VERSION,4){
+}else{
+    COMMON_LIBS += -L$$PWD/../common/libs/linux64
+}
+}
+
 #rm suwukong/liblntgr2z/lib*.dylib
 #make
 #install_name_tool -add_rpath %{sourceDir}/common/libs/mac -change ntdcmsmac %{sourceDir}/common/libs/mac/liblntgr2zcl.dylib nezha/liblntgr2z/liblntgr2z.dylib
