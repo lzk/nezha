@@ -39,13 +39,13 @@ QToolButton:pressed{
 background-color: rgb(158, 197, 255);
 }
 QHeaderView::section{
-	background-color: transparent;
+      border:4px outset transparent;
+    background-color: transparent;
     font :bold;
 }
- QHeaderView
-{
-	background-color: transparent;
- }
+QHeaderView{
+    background-color: transparent;
+}
  QTableView
 {
       border-radius:10;
@@ -53,7 +53,6 @@ QHeaderView::section{
 	background-color: transparent;
 	padding :10 20 10 20;
  }
-
 .QFrame
 {
       border-radius:10;
@@ -129,7 +128,7 @@ QHeaderView::section{
              </size>
             </property>
             <property name="pixmap">
-             <pixmap resource="../vopui/resource.qrc">:/Images/logo.png</pixmap>
+             <pixmap resource="images.qrc">:/Images/logo.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -225,7 +224,7 @@ QHeaderView::section{
              <string notr="true"/>
             </property>
             <property name="icon">
-             <iconset resource="../vopui/resource.qrc">
+             <iconset resource="images.qrc">
               <normaloff>:/Images/close.png</normaloff>:/Images/close.png</iconset>
             </property>
            </widget>
@@ -255,6 +254,9 @@ QHeaderView::section{
       </property>
       <property name="tabKeyNavigation">
        <bool>false</bool>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
       </property>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectRows</enum>
@@ -379,7 +381,7 @@ QHeaderView::section{
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="../vopui/resource.qrc"/>
+  <include location="images.qrc"/>
   <include location="images.qrc"/>
  </resources>
  <connections>

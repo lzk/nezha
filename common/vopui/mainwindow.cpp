@@ -677,7 +677,8 @@ void MainWindow::on_deviceNameBox_currentIndexChanged(int index)
         if(ui->tabStackedWidget->currentIndex() != 0)
         {
             LOGLOG("on_deviceNameBox_currentIndexChanged");
-            if(enabledScanCopy&&(!isOfflineStart))
+//            if(enabledScanCopy&&(!isOfflineStart))
+            if(enabledScanCopy)
             {
                 on_Copy_clicked();
             }
