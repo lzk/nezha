@@ -343,7 +343,7 @@ int snmp_handler(
     int count;
     int nRecv;
 
-    timeout.tv_sec = TimeOutSecond;
+    timeout.tv_sec = 4 + numOfips;
     timeout.tv_usec = 0;
     while (sdata->state) {
         numfds = sock + 1;
