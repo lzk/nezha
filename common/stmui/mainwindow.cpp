@@ -24,24 +24,11 @@ MainWindow::MainWindow(QWidget *parent) :
     headerView->setSectionResizeMode(1 ,QHeaderView::Stretch);
     headerView->setSectionResizeMode(2 ,QHeaderView::Fixed);
     headerView->setSectionResizeMode(3 ,QHeaderView::Fixed);
-    headerView->setStyleSheet(" \
-                              QHeaderView::section{ \
-                                  border: none; \
-                                  font :11pt; \
-                                  background-color: white; \
-                              } \
-                              QHeaderView{background-color: transparent;}");
 #else
     headerView->setResizeMode(0 ,QHeaderView::Fixed);
     headerView->setResizeMode(1 ,QHeaderView::Stretch);
     headerView->setResizeMode(2 ,QHeaderView::Fixed);
     headerView->setResizeMode(3 ,QHeaderView::Fixed);
-//    ui->tableWidget_printers->setStyleSheet(" \
-//                              QHeaderView::section{ \
-//                                  background-color: transparent; \
-//                                  font :bold; \
-//                              } \
-//                              QHeaderView{background-color: transparent;}");
 #endif
 //    ui->tableWidget_printers->horizontalHeaderItem(0)->setTextAlignment(Qt::AlignHCenter);
     ui->tableWidget_printers->horizontalHeaderItem(0)->setTextAlignment(Qt::AlignLeft);
@@ -85,6 +72,7 @@ void MainWindow::createSysTray()
     trayIcon->setToolTip(tr("ResStr_AppName"));
     connect(trayIcon, SIGNAL(messageClicked()), this, SLOT(messageClicked()));
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
+
     trayIcon->show();
 }
 void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason)
@@ -213,7 +201,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *e)
 //    qDebug()<< "move event" <<e->pos();
 }
 
-void MainWindow::mouseReleaseEvent(QMouseEvent *e)
+void MainWindow::mouseReleaseEvent(QMouseEvent *)
 {
     isPress = false;
 }

@@ -39,6 +39,7 @@ QToolButton:pressed{
 background-color: rgb(158, 197, 255);
 }
 QHeaderView::section{
+      border: 4px outset transparent;
 	background-color: transparent;
     font :bold;
 }
@@ -256,6 +257,9 @@ QHeaderView::section{
       <property name="tabKeyNavigation">
        <bool>false</bool>
       </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectRows</enum>
       </property>
@@ -363,7 +367,7 @@ QHeaderView::section{
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
