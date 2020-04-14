@@ -1,7 +1,7 @@
 #ifndef PRO_CONFIG_H
 #define PRO_CONFIG_H
 
-#define APP_VERSION "1.0.20"
+#define APP_VERSION "1.0.21"
 
 #define APP_PATH "/usr/share/lntgr2z/"
 
