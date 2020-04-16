@@ -55,8 +55,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->errorBtn->hide();
 #ifndef DEBUG
     gUInterface->setCmd(UIConfig::CMD_GetPrinters,QString());
-//    isOfflineStart = true;
-    isOfflineStart = false;
+    isOfflineStart = true;
+//    isOfflineStart = false;
     QSettings settings(g_config_file ,QSettings::NativeFormat);
     isShowMaintain = settings.value("auto_show_service_url" ,QVariant(true)).toBool();
 //    isShowMaintain = true;
@@ -126,7 +126,7 @@ MainWindow::~MainWindow()
 void MainWindow::createSysTray()
 {
     quitAction = new QAction(QString("%1(&Q)").arg(tr("ResStr_Exit")),this);
-    connect(quitAction, SIGNAL(triggered(bool)), qApp, SLOT(quit()));
+    connect(quitAction, SIGNAL(triggered(bool)), this, SLOT(close()));
     trayIconMenu = new QMenu(this);
 //    trayIconMenu->addAction(minimizeAction);
 //    trayIconMenu->addAction(maximizeAction);
