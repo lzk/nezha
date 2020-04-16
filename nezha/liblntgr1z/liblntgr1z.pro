@@ -29,3 +29,10 @@ include("../../common/liblld/liblld.pri")
 LIBS += \
 #    $${PWD}/../libs \
     -l$${LIB_CLDIR} \
+
+contains(CONFIG ,static){
+equals(QT_MAJOR_VERSION,4){
+}else{
+include($${PWD}/../../common/includes/libjpeg.pri)
+}
+}

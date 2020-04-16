@@ -93,7 +93,7 @@ AnimationDlg::AnimationDlg(QWidget *parent, int status, bool *enNext) :
         hideLabel(true);
         break;
     case UIConfig::JamAtRegistStayOn:          //PSTATUS_JamAtExitNotReach
-//        filters << QString() + _AutoRecover +"*.gif" ;
+        filters << QString() + _AutoRecover +"*.gif" ;
         flag = _JamInSide;
         this->setWindowTitle(tr("ResStr_Jam_front"));
         label->setGeometry(12, 10, 421, 480);
@@ -102,7 +102,7 @@ AnimationDlg::AnimationDlg(QWidget *parent, int status, bool *enNext) :
         break;
     case UIConfig::InitializeJam:          //PSTATUS_InitializeJam
     case UIConfig::JamAtExitNotReach:          //PSTATUS_JamAtRegistStayOn
-//        filters << QString() + _AutoRecover +"*.gif" ;
+        filters << QString() + _AutoRecover +"*.gif" ;
         flag = _JamInSide;
         this->setWindowTitle(tr("ResStr_Jam_whole"));
         label->setGeometry(12, 10, 421, 480);
@@ -110,7 +110,7 @@ AnimationDlg::AnimationDlg(QWidget *parent, int status, bool *enNext) :
         hideLabel(false);
         break;
     case UIConfig::JamAtExitStayOn:          //PSTATUS_JamAtExitStayOn
-//        filters << QString() + _AutoRecover +"*.gif" ;
+        filters << QString() + _AutoRecover +"*.gif" ;
         flag = _JamAtExit;
         this->setWindowTitle(tr("ResStr_Jam_back"));
         label->setGeometry(12, 10, 421, 480);
@@ -118,7 +118,7 @@ AnimationDlg::AnimationDlg(QWidget *parent, int status, bool *enNext) :
         hideLabel(false);
         break;
     case UIConfig::PaperNotReachDuplexEntrySensor:
-//        filters << QString() + _AutoRecover +"*.gif" ;
+        filters << QString() + _AutoRecover +"*.gif" ;
         flag = _PaperNotReachDuplexEntrySensor;
         this->setWindowTitle(tr("ResStr_Jam_whole"));
         label->setGeometry(12, 10, 421, 480);
@@ -126,6 +126,7 @@ AnimationDlg::AnimationDlg(QWidget *parent, int status, bool *enNext) :
         hideLabel(false);
         break;
     default:
+        filters << QString() + _AutoRecover +"*.gif" ;
         flag = _JamInSide;
         break;
     }

@@ -22,6 +22,7 @@ CONFIG(debug ,debug|release){
 }
 
 COMMON_LIBS=-L$${LIB_LLDDIR} -l$${TARGET_filterlib}
+
 #rm -rf lntgr3z/liblntgr3z/lib*.dylib
 #make
 #install_name_tool -add_rpath %{sourceDir}/common/libs/mac -change ntdcmsmac %{sourceDir}/common/libs/mac/liblntgr3zcl.dylib lntgr3z/liblntgr3z/liblntgr3z.dylib

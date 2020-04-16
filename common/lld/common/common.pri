@@ -30,5 +30,5 @@ mac{
 
 }
 
-LIBS += \
-    -lnetsnmp \
+#LIBS += \
+#    -lnetsnmp \

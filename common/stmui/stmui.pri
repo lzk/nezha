@@ -18,3 +18,13 @@ RESOURCES += \
 
 TRANSLATIONS = $${PWD}/translations/vop.en.ts  \
                 $${PWD}/translations/vop.zh_CN.ts
+
+contains(CONFIG ,static){
+equals(QT_MAJOR_VERSION,4){
+    QTPLUGIN += qjpeg qtiff qmng qgif qico
+}else{
+#    QTPLUGIN += qtiff
+}
+    DEFINES += STATIC_BUILD
+    LIBS += -Wl,--wrap=memcpy
+}

@@ -27,7 +27,49 @@ static void callback(const char* ip ,char* buffer ,int bufsize ,void* data)
         }
     }
 }
+#if 1
+void StatusObject::update_net_status(QList<QList<Printer_struct> > printers_list)
+{
+    int numofips = printers_list.count();
+    char* ips[numofips];
+    char* ipv6s[numofips];
+    int nums = 0;
+    int numv6s = 0;
+    Printer_struct* printer;
+    QString ip;
+    QList<PrinterInfo_struct> printerinfos;
+    char buffer[1024];
+    for(int i = 0 ;i < printers_list.count() ;i++){
+        printer = &printers_list[i][0];
+        ip = NetIO::resolve_uri(printer->deviceUri);
+        if(QHostAddress(ip).protocol() == QAbstractSocket::IPv6Protocol){
+            ip = QString("udp6:[") + ip + "]";
+            strcpy(printer->connectTo ,ip.toLatin1().constData());
+            *(ipv6s + numv6s) = printer->connectTo;
+            numv6s ++;
+        }else{
+            strcpy(printer->connectTo ,ip.toLatin1().constData());
+            *(ips + nums) = printer->connectTo;
+            nums ++;
+        }
 
+        for(int j = 0 ;j < printers_list[i].count() ;j++){
+            PrinterInfo_struct printerinfo;
+            printerinfo.printer = printers_list[i][j];
+            printerinfo.printer.isConnected = false;
+            printerinfo.printer.status = -1;
+            strcpy(printerinfo.printer.connectTo ,ip.toLatin1().constData());
+            printerinfos << printerinfo;
+        }
+    }
+    snmp_broadcast(ips ,nums
+                   ,buffer ,1024 ,callback ,(void*)&printerinfos);
+    snmp_broadcast6(ipv6s ,numv6s
+                   ,buffer ,1024 ,callback ,(void*)&printerinfos);
+    StatusManager().savePrinterInfosToFile(printerinfos);
+
+}
+#else
 void StatusObject::update_net_status(QList<QList<Printer_struct> > printers_list)
 {
     QMap<QString ,QList< QList<PrinterInfo_struct> > > broadcast_ips;
@@ -95,6 +137,7 @@ void StatusObject::update_net_status(QList<QList<Printer_struct> > printers_list
         usleep(1000);
     }
 }
+#endif
 
 void StatusObject::update_status(QList<Printer_struct> printers)
 {

@@ -72,6 +72,7 @@ void MainWindow::createSysTray()
     trayIcon->setToolTip(tr("ResStr_AppName"));
     connect(trayIcon, SIGNAL(messageClicked()), this, SLOT(messageClicked()));
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
+
     trayIcon->show();
 }
 void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason)
@@ -200,7 +201,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *e)
 //    qDebug()<< "move event" <<e->pos();
 }
 
-void MainWindow::mouseReleaseEvent(QMouseEvent *e)
+void MainWindow::mouseReleaseEvent(QMouseEvent *)
 {
     isPress = false;
 }

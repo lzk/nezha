@@ -124,7 +124,7 @@
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam__Paper_Remained</source>
-    <target>内部卡纸</target>
+    <target>打印机内部卡纸</target>
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam__Nofeed</source>
@@ -136,7 +136,7 @@
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam__Exit_NotReach</source>
-    <target>内部卡纸</target>
+    <target>打印机内部卡纸</target>
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam__Exit</source>
@@ -148,11 +148,11 @@
 </phrase>
 <phrase>
     <source>ResStr_No_Toner_Cartridge</source>
-    <target>没有鼓粉盒</target>
+    <target>没有墨粉盒</target>
 </phrase>
 <phrase>
     <source>ResStr_Please_Replace_Toner</source>
-    <target>请更换鼓粉盒</target>
+    <target>请更换墨粉盒</target>
 </phrase>
 <phrase>
     <source>ResStr_FW_Updating</source>
@@ -1426,7 +1426,7 @@ Version ****</target>
 <phrase>
     <source>ResStr_OPC_End_ABC</source>
     <target>OPC寿命已尽
-请更换新的鼓粉盒。</target>
+请更换新的墨粉盒。</target>
 </phrase>
 <phrase>
     <source>ResStr_This_operation_will_reset_the_toner</source>
@@ -1556,11 +1556,11 @@ Version ****</target>
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam_Duplex_Entry_Sensor</source>
-    <target>双面单元入口处卡纸</target>
+    <target>双面入口处卡纸</target>
 </phrase>
 <phrase>
     <source>ResStr_Paper_Jam_Duplex_Nofeed</source>
-    <target>双面单元不给纸</target>
+    <target>双面单元卡纸</target>
 </phrase>
 <phrase>
     <source>ResStr_default20S</source>

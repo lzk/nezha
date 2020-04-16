@@ -39,6 +39,19 @@ void UserLogin::on_bt_login_clicked()
     QString strPhoneNumber = ui->le_userName->text();
     QString strVerifyCode = ui->le_autoCode->text();
 
+    int pos = 0;
+    QRegExp regexp("^1[0-9]{10}$");
+    QRegExpValidator regExpValidator(regexp);
+    if(QValidator::Acceptable !=regExpValidator.validate(strPhoneNumber ,pos)){
+        ui->labMsg->setText(tr("ResStr_Msg_7"));
+        return;
+    }
+
+    if(strVerifyCode.isEmpty()){
+        ui->labMsg->setText(tr("ResStr_Msg_8"));
+        return;
+    }
+
     ui->bt_login->setEnabled(false);
     ui->labMsg->setText("");
     loginAction(strPhoneNumber,strVerifyCode);

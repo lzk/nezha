@@ -1,21 +1,438 @@
-#ifndef HAVE_STRTOULL
-#define HAVE_STRTOULL 1
-#endif
-#include "snmpapi.h"
-#include <net-snmp/net-snmp-config.h>
-#include <net-snmp/net-snmp-includes.h>
-#include <arpa/inet.h>
-#include "log.h"
-//enterprises.2699.1.2.1.2.1.1.3.1
-//enterprises.26266.86.10.1.1.1.1.0
-static const oid oid_status[] = {1,3,6,1,4,1,2699,1,2,1,2,1,1,3,1};
 
+#include "snmpapi.h"
+#include "log.h"
+#include <arpa/inet.h>
 #define TimeOutSecond 5
 enum{
     SNMP_CMD_getdeviceid,
     SNMP_CMD_getdeviceid_broadcast,
     SNMP_CMD_search,
 };
+
+#if 1
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/select.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#define MIN(a,b) (((a)<(b))?(a):(b))
+#define MAX(a,b) (((a)>(b))?(a):(b))
+
+#define BOOL int
+#define BYTE unsigned char
+#define TRUE 1
+#define FALSE 0
+#define DWORD unsigned int
+
+char    _deviceid[2049];
+BOOL outputDeviceIdValue( BYTE* oid, int oidLen, BYTE valueType, BYTE* valueData, int valueLen )
+{
+    if( valueType != 0x04 ) // string
+    {
+        return FALSE;
+    }
+    memcpy( _deviceid, valueData, MIN(valueLen,2049) );
+    _deviceid[valueLen] = 0x00;
+    return TRUE;
+}
+//returns next byte ptr
+BYTE* parseLength( BYTE* data, int* length )
+{
+    int n = 0;
+    int i = 0;
+    char    c = *data & 0x80;
+    if( c == 0x00 )
+    {
+        *length = *data;
+        return ( data + 1 );
+    }
+    else
+    {
+        c = *data & 0x7f;
+        *length = 0;
+        data++;
+        for( i = 0; i < c; i++ )
+        {
+            *length = *length << 8;
+            *length += ( int )( DWORD ) * data;
+            data++;
+        }
+        return data;
+    }
+}
+
+typedef BOOL (*FNOUTPUTRESPONSEVALUE)(BYTE* oid, int oidLen, BYTE valueType, BYTE* valueData, int valueLen);
+BOOL parseGetResponse( BYTE* udpdata, int len, int* version, char* community, BYTE* requestId, BYTE* errorStatus, BYTE* errorIndex, FNOUTPUTRESPONSEVALUE outputResponseValue )
+{
+    BYTE    temp[2048];
+    BYTE    rType;
+    int i;
+    int length;
+    BYTE*   next;
+    char    oid[1024];
+
+
+    if( udpdata[0] != 0x30 )
+    {
+        return FALSE;
+    }
+    next = parseLength( &udpdata[1], &length );
+    if( length != len - ( next - udpdata ) )
+    {
+        return FALSE;
+    }
+    // version
+    if( next[0] != 0x02 )
+    {
+        return FALSE;
+    }
+    next++;
+    next = parseLength( next, &length );
+    if( version )
+    {
+        if( length == 1 )
+        {
+            *version = ( int )( *next );
+        }
+        else
+        {
+            *version = ( int )( *next );    // I don'care such case!
+        }
+    }
+    next += length;
+    // community
+    if( next[0] != 0x04 )
+    {
+        return FALSE;
+    }
+    next++;
+    next = parseLength( next, &length );
+    if( community )
+    {
+        memcpy( community, next, length );
+        community[length] = 0x00;
+    }
+    next += length;
+    // PDU type
+    if( *next != 0xa2 )  // check if it is GetResponse
+    {
+        return FALSE;
+    }
+    next++;
+    next = parseLength( next, &length );
+    if( length != len - ( next - udpdata ) ) // check length
+    {
+        return FALSE;
+    }
+    // request ID
+    if( next[0] != 0x02 )
+    {
+        return FALSE;
+    }
+    next++;
+    next = parseLength( next, &length );
+    if( requestId )
+    {
+        if( length == 1 )
+        {
+            *requestId = *next;
+        }
+        else
+        {
+            *requestId = *next;    // I don'care such case!
+        }
+    }
+    next += length;
+    // error status
+    if( next[0] != 0x02 )
+    {
+        return FALSE;
+    }
+    next++;
+    next = parseLength( next, &length );
+    if( errorStatus )
+    {
+        if( length == 1 )
+        {
+            *errorStatus = *next;
+        }
+        else
+        {
+            *errorStatus = *next;    // I don'care such case!
+        }
+    }
+    next += length;
+    // error index
+    if( next[0] != 0x02 )
+    {
+        return FALSE;
+    }
+    next++;
+    next = parseLength( next, &length );
+    if( errorIndex )
+    {
+        if( length == 1 )
+        {
+            *errorIndex = *next;
+        }
+        else
+        {
+            *errorIndex = *next;    // I don'care such case!
+        }
+    }
+    next += length;
+
+    // sequence for the list of name-value pairs
+    if( *next != 0x30 )
+    {
+        return FALSE;
+    }
+    next++;
+    next = parseLength( next, &length );
+    BYTE* p = next;
+    BYTE* q = next + length;
+    while( p < q )
+    {
+        BYTE*   oidTemp;
+        int oidLen;
+        BYTE    valType;
+        BYTE*   value;
+        int valLen;
+        // sequence for a name-value pair
+        if( *p != 0x30 )
+        {
+            return FALSE;
+        }
+        p++;
+        p = parseLength( p, &length );
+        if( *p != 0x06 ) // this should be an OID type
+        {
+            return FALSE;
+        }
+        p++;
+        p = parseLength( p, &oidLen ); // length of OID
+        oidTemp = p;
+        p += oidLen; // goto start of value
+        valType = *p;
+        p++;
+        p = parseLength( p, &valLen );
+        value = p;
+        p = p + valLen;
+        // call the callback function to report the name-value pair
+        if( outputResponseValue )
+        {
+            outputResponseValue( oidTemp, oidLen, valType, value, valLen );
+        }
+    }
+    return TRUE;
+}
+BOOL parseForDeviceId( BYTE* udpdata, int len, char* deviceid )
+{
+    if( !parseGetResponse( udpdata, len, NULL, NULL, NULL, NULL, NULL, outputDeviceIdValue ) )
+    {
+        return FALSE;
+    }
+    strcpy( deviceid, _deviceid );
+    return TRUE;
+}
+
+struct snmp_data_t
+{
+    int state;
+    int cmd;
+    char* buffer;
+    int bufsize;
+    struct sockaddr* sock_addr;
+    callback_snmp callback;
+    void* data;
+    char ip[256];
+    int isv6;
+};
+
+//enterprises.2699.1.2.1.2.1.1.3.1
+//enterprises.26266.86.10.1.1.1.1.0
+//static const oid oid_status[] = {1,3,6,1,4,1,2699,1,2,1,2,1,1,3,1};
+const unsigned char oid_data[] = {0x30,0x30,0x02,0x01,0x01,0x04,0x06,0x70,0x75,0x62,0x6c,0x69,0x63,0xa0,0x23,0x02
+                         ,0x04,0x66,0x02,0x52,0x0b,0x02,0x01,0x00,0x02,0x01,0x00,0x30,0x15,0x30,0x13,0x06
+                         ,0x0f,0x2b,0x06,0x01,0x04,0x01,0x95,0x0b,0x01,0x02,0x01,0x02,0x01,0x01,0x03,0x01
+                         ,0x05,0x00};
+
+void handler_data(struct snmp_data_t* pdata)
+{
+    char buffer[1024];
+    switch (pdata->cmd) {
+    case SNMP_CMD_getdeviceid_broadcast:
+        if(parseForDeviceId((unsigned char*)pdata->buffer ,pdata->bufsize ,buffer)){
+            strcpy(pdata->buffer ,buffer);
+            if(pdata->callback)
+                pdata->callback(pdata->ip,pdata->buffer ,pdata->bufsize ,pdata->data);
+        }
+        break;
+    case SNMP_CMD_getdeviceid:
+        pdata->state = 0;
+        break;
+    default:
+        break;
+    }
+}
+
+int snmp_handler(
+        struct snmp_data_t* sdata ,char** ips ,int numOfips)
+{
+    int sock;
+    if(!sdata->isv6)
+        sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    else
+        sock = socket(AF_INET6, SOCK_DGRAM, IPPROTO_UDP);
+    if (sock == -1){
+        return -1;
+    }
+
+    int    bOptVal = 1;
+    if(sdata->cmd == SNMP_CMD_getdeviceid)
+        bOptVal = 0;
+    setsockopt(sock, SOL_SOCKET, SO_BROADCAST, (char*)&bOptVal, sizeof(bOptVal));
+
+    struct timeval timeout;
+    timeout.tv_sec = 5;
+    timeout.tv_usec = 0;
+    setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
+
+    int nRet;
+    struct sockaddr_in	RecvAddr;
+    bzero(&RecvAddr,sizeof(RecvAddr));
+    struct sockaddr_in6	RecvAddr6;
+    bzero(&RecvAddr6,sizeof(RecvAddr6));
+
+    socklen_t socklen;
+    struct sockaddr* addr;
+
+    if(!sdata->isv6){
+        RecvAddr.sin_family = AF_INET;
+        RecvAddr.sin_port = htons(161);
+        socklen = sizeof(RecvAddr);
+        addr = (struct sockaddr*) &RecvAddr;
+    }else{
+        RecvAddr6.sin6_family = AF_INET6;
+        RecvAddr6.sin6_port = htons(161);
+        socklen = sizeof(RecvAddr6);
+        addr = (struct sockaddr*) &RecvAddr6;
+    }
+
+    int i;
+    for(i = 0; i < numOfips; i++)
+    {
+        if(!sdata->isv6){
+            RecvAddr.sin_addr.s_addr = inet_addr(ips[i]);
+        }else{
+            inet_pton(AF_INET6, ips[i], &RecvAddr6.sin6_addr);
+        }
+        nRet = sendto(sock, oid_data, sizeof(oid_data), 0, addr, socklen);
+
+        usleep(30);
+    }
+    if (nRet <= 0)
+    {
+        close(sock);
+        return -1;
+    }
+
+    fd_set fdset;
+    int numfds;
+    int count;
+    int nRecv;
+
+    timeout.tv_sec = 4 + numOfips;
+    timeout.tv_usec = 0;
+    while (sdata->state) {
+        numfds = sock + 1;
+        FD_ZERO(&fdset);
+        FD_SET(sock,&fdset);
+        count = select(numfds ,&fdset ,NULL ,NULL ,&timeout);
+        switch (count) {
+        case -1://error
+            sdata->state = 0;
+            break;
+        case 0://time out
+            sdata->state = 0;
+            break;
+        default:
+            if(FD_ISSET(sock,&fdset))
+            {
+                nRecv = recvfrom(sock,sdata->buffer,(size_t)sdata->bufsize,0 ,addr, &socklen);
+                if(nRecv > 0){
+                    sdata->bufsize = nRecv;
+                    if(!sdata->isv6){
+                        strcpy(sdata->ip ,inet_ntoa(RecvAddr.sin_addr));
+                    }else{
+                        inet_ntop(AF_INET6,&RecvAddr6.sin6_addr,sdata->ip,sizeof(sdata->ip));
+                    }
+                    handler_data(sdata);
+                }
+            }
+            break;
+        }
+    }
+    close(sock);
+    return 0;
+}
+
+int snmp_broadcast(char**ips, int numOfips ,char *buffer, int bufsize
+                   ,callback_snmp callback ,void* data)
+{
+    if(!numOfips)
+        return 0;
+    struct snmp_data_t sdata;
+    sdata.buffer = buffer;
+    sdata.bufsize = bufsize;
+    sdata.callback = callback;
+    sdata.data = data;
+    sdata.state = 1;
+    sdata.isv6 = 0;
+    sdata.cmd = SNMP_CMD_getdeviceid_broadcast;
+    int ret = snmp_handler(&sdata ,ips ,numOfips);
+    return ret;
+}
+
+int snmp_broadcast6(char**ips, int numOfips ,char *buffer, int bufsize
+                   ,callback_snmp callback ,void* data)
+{
+    if(!numOfips)
+        return 0;
+    struct snmp_data_t sdata;
+    sdata.buffer = buffer;
+    sdata.bufsize = bufsize;
+    sdata.callback = callback;
+    sdata.data = data;
+    sdata.state = 1;
+    sdata.isv6 = 1;
+    sdata.cmd = SNMP_CMD_getdeviceid_broadcast;
+    return snmp_handler(&sdata ,ips ,numOfips);
+}
+
+
+int snmp_get_deviceid(char* ip ,char* buffer ,int bufsize)
+{
+    return 0;
+}
+
+int snmp_get_deviceid_broadcast(char *ip, char *buffer, int bufsize ,callback_snmp callback ,void* data)
+{
+    return 0;
+}
+
+#else
+
+#ifndef HAVE_STRTOULL
+#define HAVE_STRTOULL 1
+#endif
+#include <net-snmp/net-snmp-config.h>
+#include <net-snmp/net-snmp-includes.h>
+
+//enterprises.2699.1.2.1.2.1.1.3.1
+//enterprises.26266.86.10.1.1.1.1.0
+static const oid oid_status[] = {1,3,6,1,4,1,2699,1,2,1,2,1,1,3,1};
 
 struct My_synch_state{
     struct synch_state state;
@@ -331,3 +748,4 @@ int snmpGetResponse(char* ip ,char* buffer ,int bufsize ,const oid* oidname ,siz
     snmp_close (ss);
     return ret;
 }
+#endif

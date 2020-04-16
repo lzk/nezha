@@ -9,6 +9,38 @@
 #include "appserver.h"
 UInterface* gUInterface;
 extern AppServer* app_server;
+
+#ifndef Q_OS_DARWIN
+extern "C"{
+#include <string.h>
+/* some systems do not have newest memcpy@@GLIBC_2.14 - stay with old good one */
+#ifdef __x86_64__
+asm (".symver memcpy, memcpy@GLIBC_2.2.5");
+#elif __i386__
+asm (".symver memcpy, memcpy@GLIBC_2.0");
+#endif
+
+//void *memcpy(void* ,const void* ,size_t);
+void *__wrap_memcpy(void *dest, const void *src, size_t n)
+{
+    return memcpy(dest, src, n);
+}
+
+}
+
+#if QT_VERSION < 0x050000
+#ifdef STATIC_BUILD
+#include <QtPlugin>
+Q_IMPORT_PLUGIN(qjpeg)
+Q_IMPORT_PLUGIN(qtiff)
+Q_IMPORT_PLUGIN(qmng)
+Q_IMPORT_PLUGIN(qgif)
+Q_IMPORT_PLUGIN(qico)
+#endif
+#endif
+
+#endif
+
 void quit(int)
 {
     LOGLOG("SIGINT quit");
