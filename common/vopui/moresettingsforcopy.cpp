@@ -175,7 +175,6 @@ void MoreSettingsForCopy::showParam(Param_Copy *param)
     if(_idCardFlag)
     {
         ui->label_1->setDisabled(true);
-        ui->label_3->setDisabled(true);
         //ui->label_7->setDisabled(true);
         ui->isNinOne->setDisabled(true);
 
@@ -195,10 +194,18 @@ void MoreSettingsForCopy::showParam(Param_Copy *param)
             ui->btText->setChecked(true);
         }
 
+        ui->label_3->setDisabled(true);
         ui->docSizeList->setCurrentIndex(param->docSize);
         ui->docSizeList->setDisabled(true);
+
+        ui->label_4->setDisabled(true);
         ui->dpiList->setCurrentIndex(param->docDpi);
+        ui->dpiList->setDisabled(true);
+
+        ui->label_5->setDisabled(true);
         ui->outPutSizeList->setCurrentIndex(param->outputSize);
+        ui->outPutSizeList->setDisabled(true);
+
         ui->paperTypeList->setCurrentIndex(param->paperType);
         ui->label_20->setStyleSheet("#label_20 {background-color: rgb(198, 198, 198);border-radius:8px;}");
         ui->label_21->setStyleSheet("#label_21 {background-color: rgb(198, 198, 198);border-radius:8px;}");
