@@ -311,6 +311,10 @@ void MainWindow::updatePrinter(const QVariant& data)
         if(!isHidden()){
             if(StatusPaser::isAutoShow(printerstatus)){
                 shown_error_map[printer->name] = printerstatus;
+                error_map[printer->name] = printerstatus;
+            }else{
+                if(error_map.contains(printer->name))
+                    error_map.remove(printer->name);
             }
         }else{
             if(StatusPaser::isAutoShow(printerstatus)){

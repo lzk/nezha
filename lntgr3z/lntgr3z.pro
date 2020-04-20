@@ -3,7 +3,7 @@ TEMPLATE = subdirs
 SUBDIRS += \
     liblntgr3z \
     lntgr3zservice \
-    lntgr3zsm \
+#    lntgr3zsm \
     lntgr3zsmui \
     lntgr3zvop \
 
