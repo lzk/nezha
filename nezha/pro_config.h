@@ -1,7 +1,7 @@
 #ifndef PRO_CONFIG_H
 #define PRO_CONFIG_H
 
-#define APP_VERSION "1.0.17"
+#define APP_VERSION "1.0.18"
 
 #define APP_PATH "/usr/share/lntgrvop/"
 
