@@ -4,7 +4,7 @@ HEADERS  += \
     $$PWD/pro_config.h \
 
 LIB_CLDIR=lntgr1zcl
-LIB_LLDDIR=$${OUT_PWD}/../liblld
+LIB_LLDDIR=$$PWD/../common/libs
 TARGET_filterlib=lntgr1z
 TARGET_filterservice=lntgr1zservice
 TARGET_filtertrans=lntgr1zsm
@@ -16,7 +16,7 @@ DEFINES += NEZHA=1
 DEFINES += NEZHA_SFP=1
 
 CONFIG(debug ,debug|release){
-#    DEFINES += LOG_TO_STDERR
+    DEFINES += LOG_TO_STDERR
     DEFINES += DEBUG_DEBUG
 }else{
     DEFINES += LENOVO_GUOCHANHUA=1
