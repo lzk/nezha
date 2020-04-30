@@ -58,7 +58,7 @@ private slots:
     void cmdResult(int cmd,int result ,QVariant data=QVariant());
 
     void setcurrentPrinter(const QString& str);
-    void currentPrinterChanged(const QString& str);
+    void currentPrinterChanged(Printer_struct*);
 
     void enableMPrinter(bool enabled);
 

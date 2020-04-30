@@ -8,10 +8,11 @@
 QHostAddress get_ip_address(const QString& host)
 {
     QHostAddress hostAddress;
-#if 1
+
     hostAddress = QHostAddress(host);
-    return hostAddress;
-#else
+    if(!hostAddress.isNull())
+        return hostAddress;
+
     QHostInfo info;
     info = QHostInfo::fromName(host);
     if (!info.addresses().isEmpty()) {
@@ -37,7 +38,6 @@ QHostAddress get_ip_address(const QString& host)
 //        qDebug()<<"host name:" << host << "addresses:" <<info.addresses();
     }
     return hostAddress;
-#endif
 }
 
 NetIO::NetIO():
