@@ -196,6 +196,8 @@ void CurrentStatusReader::set_current_printer(const QString& printer)
 //    memset(&current_printer_info.status ,-1 ,sizeof(PrinterStatus_struct));
     mutex.unlock();
 //    update_current_printer_status();
+    StatusManager().getPrinterInfoFromFile(printer.toLatin1().constData() ,&printerinfo);
+    set_current_printer_info(&printerinfo);
 }
 
 

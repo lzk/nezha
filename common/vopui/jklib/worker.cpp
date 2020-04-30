@@ -53,8 +53,14 @@ void Worker::cmdFromUi(int cmd ,const QString& printer_name ,QVariant data)
     switch (cmd) {
     case UIConfig::CMD_SetCurrentPrinter:
         watcher->set_current_printer(printer_name);
-        value = 1;
-        result = 0;
+        if(!printer){
+            result = -1;
+        }else{
+            PrinterInfo_struct ps;
+            watcher->get_currentprinter_info(ps);
+            value.setValue(ps);
+            result = 0;
+        }
         cmdResult(cmd ,result ,value);
         break;
 
