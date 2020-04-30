@@ -460,58 +460,62 @@ void MainWindow::setcurrentPrinter(const QString& str)
     ui->deviceNameLabel->setEnabled(false);
     ui->deviceNameLabel_2->setEnabled(false);
     ui->deviceNameLabel_2->removeEventFilter(this);
-    gUInterface->setcurrentPrinter(str);
 
-//    if(str != "")
-//    {
-//        Printer_struct printer = printerlist.at(ui->deviceNameBox->currentIndex());
-//        int modelType = UIConfig::getModelSerial(&printer);
-////        qDebug()<<"printer"<<printer.name<<"    modelType:"<<modelType;
-//        if((modelType & UIConfig::ModelSerial_M) == UIConfig::ModelSerial_M)//M:3in1
-//        {
-//            enableMPrinter(true);
-//            if((modelType & UIConfig::Model_D) == UIConfig::Model_D)//MD:3in1,duplex copy
-//            {
-//                ui->tabStackedWidget->setEnabledDuplexCopy(true);
-//            }
-//            else
-//            {
-//                ui->tabStackedWidget->setEnabledDuplexCopy(false);
-//            }
-//        }
-//        else//L:only print
-//        {
-//            enableMPrinter(false);
-//        }
-//        if((modelType & UIConfig::Model_W) == UIConfig::Model_W)//W:WIFI
-//        {
-//            enabledWiFi = true;
-//            ui->tabStackedWidget->setEnabledWifi(true);
+    if(str != "")
+    {
+        Printer_struct printer = printerlist.at(ui->deviceNameBox->currentIndex());
+        int modelType = UIConfig::getModelSerial(&printer);
+//        qDebug()<<"printer"<<printer.name<<"    modelType:"<<modelType;
+        if((modelType & UIConfig::ModelSerial_M) == UIConfig::ModelSerial_M)//M:3in1
+        {
+            enableMPrinter(true);
+            if((modelType & UIConfig::Model_D) == UIConfig::Model_D)//MD:3in1,duplex copy
+            {
+                ui->tabStackedWidget->setEnabledDuplexCopy(true);
+            }
+            else
+            {
+                ui->tabStackedWidget->setEnabledDuplexCopy(false);
+            }
+        }
+        else//L:only print
+        {
+            enableMPrinter(false);
+        }
+        if((modelType & UIConfig::Model_W) == UIConfig::Model_W)//W:WIFI
+        {
+            enabledWiFi = true;
+            ui->tabStackedWidget->setEnabledWifi(true);
 //            if(!isOfflineStart && (!enabledScanCopy))
 //            {
 //                ui->tabStackedWidget->initWiFi_clicked();
 //            }
-//        }
-//        else
-//        if((modelType & UIConfig::Model_N) == UIConfig::Model_N)//W:WIFI
-//        {
-//            enabledWiFi = false;
-//            ui->tabStackedWidget->setEnabledNet(true);
+        }
+        else
+        if((modelType & UIConfig::Model_N) == UIConfig::Model_N)//W:WIFI
+        {
+            enabledWiFi = false;
+            ui->tabStackedWidget->setEnabledNet(true);
 //            if(!isOfflineStart && (!enabledScanCopy))
 //            {
 //                ui->tabStackedWidget->on_btn_TCPIPV4_clicked();
 //            }
-//        }
-//        else
-//        {
-//            enabledWiFi = false;
-//            ui->tabStackedWidget->setEnabledWifi(false);
+        }
+        else
+        {
+            enabledWiFi = false;
+            ui->tabStackedWidget->setEnabledWifi(false);
 //            if(!isOfflineStart && (!enabledScanCopy))
 //            {
 //                ui->tabStackedWidget->on_btn_PowerSave_clicked();
 //            }
-//        }
-//    }
+        }
+        if(enabledScanCopy)
+        {
+            on_Copy_clicked();
+        }
+    }
+    gUInterface->setcurrentPrinter(str);
 }
 
 void MainWindow::currentPrinterChanged(Printer_struct* printer)
@@ -544,27 +548,27 @@ void MainWindow::currentPrinterChanged(Printer_struct* printer)
     {
 //        Printer_struct printer = printerlist.at(ui->deviceNameBox->currentIndex());
         int modelType = UIConfig::getModelSerial(printer);
-//        qDebug()<<"printer"<<printer.name<<"    modelType:"<<modelType;
-        if((modelType & UIConfig::ModelSerial_M) == UIConfig::ModelSerial_M)//M:3in1
-        {
-            enableMPrinter(true);
-            if((modelType & UIConfig::Model_D) == UIConfig::Model_D)//MD:3in1,duplex copy
-            {
-                ui->tabStackedWidget->setEnabledDuplexCopy(true);
-            }
-            else
-            {
-                ui->tabStackedWidget->setEnabledDuplexCopy(false);
-            }
-        }
-        else//L:only print
-        {
-            enableMPrinter(false);
-        }
+////        qDebug()<<"printer"<<printer.name<<"    modelType:"<<modelType;
+//        if((modelType & UIConfig::ModelSerial_M) == UIConfig::ModelSerial_M)//M:3in1
+//        {
+//            enableMPrinter(true);
+//            if((modelType & UIConfig::Model_D) == UIConfig::Model_D)//MD:3in1,duplex copy
+//            {
+//                ui->tabStackedWidget->setEnabledDuplexCopy(true);
+//            }
+//            else
+//            {
+//                ui->tabStackedWidget->setEnabledDuplexCopy(false);
+//            }
+//        }
+//        else//L:only print
+//        {
+//            enableMPrinter(false);
+//        }
         if((modelType & UIConfig::Model_W) == UIConfig::Model_W)//W:WIFI
         {
-            enabledWiFi = true;
-            ui->tabStackedWidget->setEnabledWifi(true);
+//            enabledWiFi = true;
+//            ui->tabStackedWidget->setEnabledWifi(true);
             if(printer->isConnected && (!enabledScanCopy))
             {
                 ui->tabStackedWidget->initWiFi_clicked();
@@ -573,8 +577,8 @@ void MainWindow::currentPrinterChanged(Printer_struct* printer)
         else
         if((modelType & UIConfig::Model_N) == UIConfig::Model_N)//W:WIFI
         {
-            enabledWiFi = false;
-            ui->tabStackedWidget->setEnabledNet(true);
+//            enabledWiFi = false;
+//            ui->tabStackedWidget->setEnabledNet(true);
             if(printer->isConnected && (!enabledScanCopy))
             {
                 ui->tabStackedWidget->on_btn_TCPIPV4_clicked();
@@ -582,18 +586,18 @@ void MainWindow::currentPrinterChanged(Printer_struct* printer)
         }
         else
         {
-            enabledWiFi = false;
-            ui->tabStackedWidget->setEnabledWifi(false);
+//            enabledWiFi = false;
+//            ui->tabStackedWidget->setEnabledWifi(false);
             if(printer->isConnected && (!enabledScanCopy))
             {
                 ui->tabStackedWidget->on_btn_PowerSave_clicked();
             }
         }
 
-        if(enabledScanCopy)
-        {
-            on_Copy_clicked();
-        }
+//        if(enabledScanCopy)
+//        {
+//            on_Copy_clicked();
+//        }
     }
 }
 
