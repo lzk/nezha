@@ -265,7 +265,7 @@ QString StatusPaser::getErrorMsg(int status, int job, bool isAbcPlusModel)
         case Ready: errMsg = tr("ResStr_Ready"); break;
         case Printing: errMsg = tr("ResStr_Busy"); break;
 //        case Printing: errMsg = tr("ResStr_Printing"); break;
-        case PowerSaving: errMsg = ""; break;
+        case PowerSaving: errMsg = tr("ResStr_Sleep"); break;
         case WarmingUp: errMsg = tr("ResStr_WarmingUp"); break;
         case PrintCanceling: errMsg = tr("ResStr_Print_Cancelling"); break;
         case Processing: errMsg = tr("ResStr_Processing"); break;
