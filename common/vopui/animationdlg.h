@@ -34,6 +34,7 @@ private slots:
     void on_bt_next_clicked();
     void on_bt_back_clicked();
     //void getFilePath();
+    void framechanged(int);
 
     void on_radioButton_toggled(bool checked);
 
@@ -54,6 +55,7 @@ private:
     QFileInfoList files;
     bool *enNextShow;
     QMap<QString, QString> map;
+    bool framestart;
 };
 
 #endif // ANIMATIONDLG_H
