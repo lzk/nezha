@@ -20,6 +20,7 @@ SettingsStackedWidget::SettingsStackedWidget(QWidget *parent) :
     ui->setupUi(this);
     this->setCurrentIndex(0);
     ui->label_timeoutSettings->hide();
+    ui->radio_never_powersave->hide();
 
     scrollArea = new QScrollArea(ui->WiFi);
     scrollArea->setFocusPolicy(Qt::NoFocus);
@@ -204,6 +205,8 @@ void SettingsStackedWidget::cmdResult(int cmd,int result,QVariant data)
             if(!result || UIConfig::WarmingUp == result) {
                 psavetm = data.value<cmdst_PSave_time>();
                 int num;
+                if(psavetm == 255)
+                    psavetm = 254;
                 if(psavetm == 254){
                     num = 1;
                     ui->radio_default20->setChecked(true);

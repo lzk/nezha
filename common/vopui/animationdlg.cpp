@@ -64,6 +64,8 @@ AnimationDlg::AnimationDlg(QWidget *parent, int status, bool *enNext) :
     videoDir =new QDir(dirStr);
     QStringList filters;
     QString flag;
+    int index_1 = 0;
+//    status = Show_Nin1_automation;
     switch(status)
     {
     case UIConfig::Show_duplex_automation:
@@ -99,6 +101,7 @@ AnimationDlg::AnimationDlg(QWidget *parent, int status, bool *enNext) :
         label->setGeometry(12, 10, 421, 480);
         ui->bt_pause_play->setGeometry(QRect(203, 490, 44, 44));
         hideLabel(false);
+        index_1 = 1;
         break;
     case UIConfig::InitializeJam:          //PSTATUS_InitializeJam
     case UIConfig::JamAtExitNotReach:          //PSTATUS_JamAtRegistStayOn
@@ -108,6 +111,7 @@ AnimationDlg::AnimationDlg(QWidget *parent, int status, bool *enNext) :
         label->setGeometry(12, 10, 421, 480);
         ui->bt_pause_play->setGeometry(QRect(203, 490, 44, 44));
         hideLabel(false);
+        index_1 = 1;
         break;
     case UIConfig::JamAtExitStayOn:          //PSTATUS_JamAtExitStayOn
         filters << QString() + _AutoRecover +"*.gif" ;
@@ -116,6 +120,7 @@ AnimationDlg::AnimationDlg(QWidget *parent, int status, bool *enNext) :
         label->setGeometry(12, 10, 421, 480);
         ui->bt_pause_play->setGeometry(QRect(203, 490, 44, 44));
         hideLabel(false);
+        index_1 = 1;
         break;
     case UIConfig::PaperNotReachDuplexEntrySensor:
         filters << QString() + _AutoRecover +"*.gif" ;
@@ -124,10 +129,12 @@ AnimationDlg::AnimationDlg(QWidget *parent, int status, bool *enNext) :
         label->setGeometry(12, 10, 421, 480);
         ui->bt_pause_play->setGeometry(QRect(203, 490, 44, 44));
         hideLabel(false);
+        index_1 = 1;
         break;
     default:
         filters << QString() + _AutoRecover +"*.gif" ;
         flag = _JamInSide;
+        index_1 = 1;
         break;
     }
     filters << flag +"*.gif" ;
@@ -137,18 +144,22 @@ AnimationDlg::AnimationDlg(QWidget *parent, int status, bool *enNext) :
     fquantity = files.size();
     if(fquantity > 0)
     {
-        movie = new QMovie(files.at(0).filePath());
+        index = index_1;
+        movie = new QMovie(files.at(index).filePath());
         movie->setScaledSize(label->size());
         label->setMovie(movie);
-        movie->setPaused(false);
-        movie->start();
+//        movie->setParent(label);
+//        movie->setPaused(false);
+//        movie->start();
         ui->bt_back->setStyleSheet("QPushButton{border-image: url(:/Images/AnimationControl/leftDisable.tif);}");
         ui->bt_back->setDisabled(true);
-        index = 0;
         isPause = false;
-        connect(movie, SIGNAL(finished()), this, SLOT(getFinished()));
+        framestart = false;
+//        connect(movie, SIGNAL(finished()), this, SLOT(getFinished()));
+        connect(movie, SIGNAL(frameChanged(int)), this, SLOT(framechanged(int)));
         //add 03-16
-        connect(movie, SIGNAL(finished()), this, SLOT(on_bt_next_clicked()));
+//        connect(movie, SIGNAL(finished()), this, SLOT(on_bt_next_clicked()));
+        movie->start();
     }
     else
     {
@@ -169,9 +180,36 @@ AnimationDlg::~AnimationDlg()
     delete ui;
 }
 
+void AnimationDlg::framechanged(int frame)
+{
+    if(!frame){
+        if(framestart){
+            getFinished();
+            framestart = false;
+        }
+    }else{
+        framestart = true;
+    }
+}
 void AnimationDlg::getFinished()
 {
-    on_bt_pause_play_clicked();
+//    on_bt_pause_play_clicked();
+    if(movie){
+        movie->setPaused(true);
+        index ++;
+        if(index == fquantity){
+            index = 0;
+        }
+        if(fquantity > 1){
+//            movie->stop();
+            movie->setFileName(files.at(index).filePath());
+//            movie->setScaledSize(label->size());
+//            label->setMovie(movie);
+//            label->update();
+//            movie->start();
+        }
+        movie->setPaused(false);
+    }
 }
 
 void AnimationDlg::hideLabel(bool isHidePlayButton)
