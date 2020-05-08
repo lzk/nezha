@@ -1,7 +1,7 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-#    nezha \
+    nezha \
 #    suwukong \
     lntgr3z
 
